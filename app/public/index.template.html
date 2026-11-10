@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* اختيار اللغة والوضع الليلي قبل عرض الصفحة لتجنّب الوميض */
+(function(){var d=document.documentElement,l=null,t=null;
+try{l=localStorage.getItem('lang');t=localStorage.getItem('theme')}catch(e){}
+if(l!=='ar'&&l!=='en'){var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ar';l=/^ar/i.test(n)?'ar':'en'}
+if(l==='en'){d.lang='en';d.dir='ltr'}
+if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light'}
+d.setAttribute('data-theme',t)})();
+</script>
+<title>{{TITLE}}</title>
+<meta name="description" content="{{DESC}}">
+<meta name="author" content="{{SITENAME}}">
+<meta name="theme-color" content="#1D4E89">
+<link rel="canonical" href="{{CANON}}">
+<meta property="og:type" content="profile">
+<meta property="og:site_name" content="{{SITENAME}}">
+<meta property="og:title" content="{{TITLE}}">
+<meta property="og:description" content="{{DESC}}">
+<meta property="og:url" content="{{CANON}}">
+<meta property="og:image" content="{{OGIMG}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="ar_EG">
+<meta property="og:locale:alternate" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{TITLE_EN}}">
+<meta name="twitter:image" content="{{OGIMG}}">
+<link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&family=Lato:wght@400;700;900&display=swap">
+<link rel="stylesheet" href="assets/css/style.css?v={{V}}">
+<link rel="stylesheet" href="assets/css/extra.css?v={{V}}">
+<script type="application/ld+json">{{LD}}</script>
+</head>
+<body>
+{{ICONS}}
+
+<a class="skip" href="#main" id="skipLink">Skip</a>
+
+<header class="site-header" id="top">
+  <div class="container header-inner">
+    <a href="#home" class="brand" aria-label="Home">
+      <span class="brand-mark" id="brandMark">AK</span>
+      <span class="brand-name" id="brandName"></span>
+    </a>
+    <nav class="nav" id="nav" aria-label="Main"></nav>
+    <div class="header-tools">
+      <button class="icon-btn lang-btn" id="langToggle" type="button" aria-label="Switch language">
+        <svg class="ic"><use href="#i-globe"/></svg><span id="langLabel">English</span>
+      </button>
+      <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">
+        <svg class="ic ic-moon"><use href="#i-moon"/></svg><svg class="ic ic-sun"><use href="#i-sun"/></svg>
+      </button>
+      <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
+        <svg class="ic"><use href="#i-menu"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main"></main>
+
+<footer class="site-footer" id="footer"></footer>
+
+<a class="wa-float" id="waFloat" data-wa="general" href="#" target="_blank" rel="noopener" aria-label="WhatsApp"><svg class="ic"><use href="#i-wa"/></svg></a>
+
+<!-- عارض الصور -->
+<div class="lightbox" id="lightbox" hidden role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="lb-btn lb-close" type="button" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+  <button class="lb-btn lb-prev" type="button" aria-label="Previous"><svg class="ic"><use href="#i-arrow"/></svg></button>
+  <figure><img alt=""><figcaption></figcaption></figure>
+  <button class="lb-btn lb-next" type="button" aria-label="Next"><svg class="ic"><use href="#i-arrow"/></svg></button>
+</div>
+
+<!-- نافذة الديمو التفاعلي -->
+<dialog class="demo-dialog" id="demoDialog" aria-label="Interactive demo">
+  <div class="demo-top">
+    <p class="demo-notice"><svg class="ic"><use href="#i-play"/></svg><span id="demoNotice"></span></p>
+    <div class="demo-top-actions">
+      <a class="btn btn-wa btn-sm" id="demoWa" href="#" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span id="demoWaLabel"></span></a>
+      <button class="icon-btn demo-close" type="button" aria-label="Close"><svg class="ic"><use href="#i-x"/></svg></button>
+    </div>
+  </div>
+  <div class="demo-root" id="demoRoot"><div class="demo-loading">…</div></div>
+</dialog>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script type="application/json" id="site-data">{{DATA}}</script>
+<script src="assets/js/site.js?v={{V}}" defer></script>
+</body>
+</html>

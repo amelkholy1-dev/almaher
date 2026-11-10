@@ -1,0 +1,17 @@
+{
+  "name": "ahmedalkholy-site",
+  "version": "2.0.0",
+  "private": true,
+  "description": "Ahmed Alkholy \u2014 personal site with admin panel",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "express": "^4.21.1",
+    "multer": "^2.0.2"
+  }
+}

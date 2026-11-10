@@ -1,0 +1,139 @@
+/* تنسيقات النماذج التوضيحية الجديدة (المخازن، الفواتير، النقل، العقارات، العيادات، المدارس، المطاعم، المتجر) */
+.dm.x-pos{--dm-side:#0a3a37;--dm-side-2:#0f766e;--blue:#0f766e;--navy:#0a3a37}
+.dm.x-inv{--dm-side:#1e1b4b;--dm-side-2:#4338ca;--blue:#4338ca;--navy:#1e1b4b}
+.dm.x-fleet{--dm-side:#5b2a0a;--dm-side-2:#b45309;--blue:#b45309;--navy:#5b2a0a}
+.dm.x-re{--dm-side:#14391f;--dm-side-2:#15803d;--blue:#15803d;--navy:#14391f}
+.dm.x-clinic{--dm-side:#0c3b4a;--dm-side-2:#0e7490;--blue:#0e7490;--navy:#0c3b4a}
+.dm.x-school{--dm-side:#2e1065;--dm-side-2:#6d28d9;--blue:#6d28d9;--navy:#2e1065}
+.dm.x-shop{--dm-side:#4a0d2b;--dm-side-2:#be185d;--blue:#be185d;--navy:#4a0d2b}
+.x-resto{--ap:#ea580c;--ap2:#f97316}
+.x-resto .ph-logo{background:linear-gradient(135deg,#c2410c,#f97316)}
+
+.x-field{display:grid;gap:6px;font-size:.84rem;font-weight:700;color:var(--muted);margin:0 0 12px}
+.x-field .dm-input,.x-field .dm-select{width:100%}
+.dm-tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.x-sum{display:grid;gap:8px;margin:12px 0}
+.x-sum>div{display:flex;justify-content:space-between;gap:12px;align-items:center;font-size:.9rem}
+.x-sum>div span{color:var(--muted)}
+.x-total{padding-top:10px;border-top:1px dashed var(--border);font-size:1.05rem!important}
+.x-total span{color:var(--text)!important;font-weight:800}
+.x-total b{font-size:1.2rem}
+.x-pay{width:100%;justify-content:center;padding:12px!important;font-size:1rem!important}
+.x-alerts{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.x-alerts li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 12px;border:1px solid var(--border);border-radius:10px;background:var(--surface-2)}
+.x-alerts small,.x-nm small{display:block;color:var(--muted);font-size:.76rem;font-weight:600}
+.x-receipt p{margin:0 0 10px}
+.x-timeline{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.x-timeline li{border-inline-start:3px solid var(--blue);padding:2px 12px;display:grid;gap:2px}
+.x-timeline small{color:var(--muted)}
+
+/* POS */
+.x-sell{display:grid;grid-template-columns:1.7fr 1fr;gap:14px;align-items:start}
+.x-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(128px,1fr));gap:10px}
+.x-tile{all:unset;box-sizing:border-box;cursor:pointer;display:flex;flex-direction:column;gap:4px;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--surface);transition:.15s}
+.x-tile:hover{border-color:var(--blue);transform:translateY(-2px);box-shadow:var(--shadow)}
+.x-tile:focus-visible{outline:2px solid var(--gold)}
+.x-tile.off{opacity:.45;cursor:not-allowed}
+.x-em{font-size:1.9rem;line-height:1}
+.x-tile b{font-size:.84rem;line-height:1.35}
+.x-pr{font-weight:800;color:var(--blue);font-size:.85rem}
+.x-tile small{color:var(--muted);font-size:.72rem}
+.x-cartbox{position:sticky;top:0}
+.x-cart{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-height:260px;overflow:auto}
+.x-cart li,.x-lines li{display:grid;grid-template-columns:1fr auto auto;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid var(--border)}
+.x-nm{font-size:.86rem;font-weight:700}
+.x-qty{display:inline-flex;align-items:center;gap:8px}
+.x-qty button{all:unset;cursor:pointer;width:26px;height:26px;border-radius:8px;border:1.5px solid var(--border);display:grid;place-items:center;font-weight:800;background:var(--surface-2)}
+.x-qty button:hover{border-color:var(--blue);color:var(--blue)}
+.x-qty b{min-width:18px;text-align:center}
+.x-disc{width:76px!important;text-align:center}
+
+/* العيادة */
+.x-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:10px}
+.x-slot{all:unset;box-sizing:border-box;display:grid;grid-template-columns:auto 1fr;gap:4px 12px;align-items:center;padding:11px 14px;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+.x-slot b{color:var(--blue)}
+.x-slot.free{cursor:pointer;border-style:dashed;color:var(--muted)}
+.x-slot.free:hover{border-color:var(--blue);color:var(--blue)}
+.x-slot.taken{grid-template-columns:auto 1fr auto}
+.x-slot .x-acts{grid-column:1/-1;display:flex;gap:6px}
+.dm-tabs button small{opacity:.7;margin-inline-start:6px}
+
+/* المدرسة */
+.x-roll{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.x-roll li{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center;padding:8px 12px;border:1px solid var(--border);border-radius:12px;background:var(--surface)}
+.x-av{background:var(--blue)!important;color:#fff!important}
+.x-av.lg{width:64px;height:64px;font-size:1.5rem}
+.x-tog{display:inline-flex;gap:6px}
+.x-tog button{all:unset;cursor:pointer;padding:6px 12px;border-radius:9px;border:1.5px solid var(--border);font-size:.8rem;font-weight:700;background:var(--surface-2)}
+.x-tog button.on.ok{background:var(--dm-ok);border-color:var(--dm-ok);color:#fff}
+.x-tog button.on.gold{background:var(--gold);border-color:var(--gold);color:#1b1300}
+.x-tog button.on.bad{background:var(--dm-bad);border-color:var(--dm-bad);color:#fff}
+
+/* النقل */
+.x-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:12px}
+.x-card{display:grid;gap:6px;justify-items:start}
+.x-card b{font-size:.98rem}
+
+/* العقارات */
+.x-units{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px}
+.x-unit{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:3px;padding:12px;border-radius:12px;border:1.5px solid var(--border);background:var(--surface);border-inline-start-width:5px}
+.x-unit.rent{border-inline-start-color:#16a34a}.x-unit.vacant{border-inline-start-color:#d97706}.x-unit.maint{border-inline-start-color:#dc2626}
+.x-unit:hover{box-shadow:var(--shadow);transform:translateY(-2px)}
+.x-unit:focus-visible{outline:2px solid var(--gold)}
+.x-unit small,.x-unit em{color:var(--muted);font-size:.76rem;font-style:normal}
+.x-unit span{font-weight:800;color:var(--blue)}
+
+/* المتجر */
+.x-hero{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:22px 26px;border-radius:16px;background:linear-gradient(120deg,#be185d,#f472b6);color:#fff;margin-bottom:16px}
+.x-hero h3{margin:4px 0;font-size:1.35rem}.x-hero small,.x-hero span{opacity:.92}
+.x-hero-e{font-size:3.2rem}
+.x-prods{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px}
+.x-prod{all:unset;box-sizing:border-box;cursor:pointer;display:grid;gap:6px;padding:10px;border:1px solid var(--border);border-radius:14px;background:var(--surface);position:relative;transition:.15s}
+.x-prod:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg)}
+.x-prod:focus-visible{outline:2px solid var(--gold)}
+.x-pimg{display:grid;place-items:center;font-size:2.8rem;aspect-ratio:1/1;border-radius:11px}
+.x-pimg.big{font-size:5rem;margin-bottom:12px}
+.x-prod b{font-size:.88rem}
+.x-pp{color:var(--blue);font-weight:800;font-size:.88rem}
+.x-prod .out{position:absolute;top:14px;inset-inline-start:14px;background:#dc2626;color:#fff;font-style:normal;font-size:.7rem;font-weight:800;padding:2px 8px;border-radius:999px}
+
+/* تطبيق المطاعم (موبايل) */
+.x-resto .ph-screen{background:#fff8f3}
+:root[data-theme="dark"] .x-resto .ph-screen{background:#1b1410}
+.x-addr{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:14px;background:#fff;border:1px solid #fde1cf;margin-bottom:12px}
+:root[data-theme="dark"] .x-addr{background:#271c15;border-color:#3b2a1d}
+.x-addr .ic{color:var(--ap)}
+.x-addr small{display:block;color:#94a3b8;font-size:.7rem}
+.x-chips{display:flex;gap:8px;overflow-x:auto;padding-bottom:6px;margin-bottom:10px}
+.x-chips button{all:unset;cursor:pointer;flex:none;display:flex;align-items:center;gap:6px;padding:7px 12px;border-radius:999px;background:#fff;border:1.5px solid #fde1cf;font-weight:700;font-size:.8rem}
+.x-chips button.on{background:var(--ap);color:#fff;border-color:var(--ap)}
+:root[data-theme="dark"] .x-chips button{background:#271c15;border-color:#3b2a1d;color:#f5e9df}
+.x-dishes{display:grid;gap:10px;padding-bottom:56px}
+.x-dish{display:grid;grid-template-columns:76px 1fr;gap:12px;padding:10px;border-radius:16px;background:#fff;border:1px solid #fde1cf}
+:root[data-theme="dark"] .x-dish{background:#271c15;border-color:#3b2a1d}
+.x-dimg{display:grid;place-items:center;font-size:2.4rem;border-radius:14px;background:linear-gradient(135deg,#ffedd5,#fed7aa);aspect-ratio:1}
+.x-dimg.sm{width:46px;font-size:1.5rem;aspect-ratio:1}
+.x-dish b{display:block;font-size:.92rem}
+.x-dish small{display:block;color:#94a3b8;font-size:.74rem;margin:2px 0 6px;line-height:1.4}
+.x-dprice{display:flex;align-items:center;gap:8px;justify-content:space-between}
+.x-dprice em{color:var(--ap);font-weight:800;font-style:normal}
+.x-resto .dm-btn.pri{background:var(--ap);border-color:var(--ap)}
+.x-bar{all:unset;cursor:pointer;position:sticky;bottom:6px;display:flex;justify-content:space-between;align-items:center;gap:8px;padding:12px 16px;border-radius:16px;background:var(--ap);color:#fff;font-weight:800;box-shadow:0 8px 20px rgba(234,88,12,.35);box-sizing:border-box;width:100%}
+.x-lines{list-style:none;margin:0;padding:0}
+.x-lines li{grid-template-columns:auto 1fr auto}
+.x-promo{display:flex;gap:8px;margin:12px 0}
+.x-track{list-style:none;margin:10px 0;padding:0;display:grid;gap:12px}
+.x-track li{display:flex;align-items:center;gap:12px;color:#94a3b8;font-weight:700;font-size:.88rem}
+.x-track li span{width:28px;height:28px;border-radius:50%;display:grid;place-items:center;background:#e2e8f0;color:#64748b;font-weight:800;font-size:.8rem;flex:none}
+.x-track li.on{color:var(--text)}
+.x-track li.on span{background:var(--ap);color:#fff}
+.x-track li.cur span{box-shadow:0 0 0 5px rgba(234,88,12,.2)}
+.x-h{margin:16px 0 8px;font-size:.9rem}
+.x-hist{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.x-hist li{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:11px 14px;border-radius:14px;background:#fff;border:1px solid #fde1cf}
+:root[data-theme="dark"] .x-hist li{background:#271c15;border-color:#3b2a1d}
+.x-hist small{display:block;color:#94a3b8;font-size:.74rem}
+.x-prof{display:grid;justify-items:center;gap:6px;padding:14px 0 18px}
+.x-active{margin-bottom:6px}
+
+@media (max-width:900px){.x-sell{grid-template-columns:1fr}.x-cartbox{position:static}}
