@@ -17,13 +17,24 @@ const httpProxy = require('http-proxy');
 
 const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 3000);
-const DATA_ROOT = path.resolve(process.env.DEMO_DATA_DIR || path.join(ROOT, 'data'));
+/* ⚠ بيانات التشغيل لازم تتكتب برّه فولدر التطبيق: بعض الاستضافات بتعيد تشغيل التطبيق كل ما ملف جواه يتغيّر،
+   وقاعدة بيانات الديمو بتكتب ملفات باستمرار. الأولوية: DEMO_DATA_DIR ← فولدر البيت ← مجلد مؤقت. */
+function pickDataRoot() {
+  const cands = [process.env.DEMO_DATA_DIR, path.join(require('os').homedir(), 'ahmedalkholy-demo-data'), path.join(require('os').tmpdir(), 'ahmedalkholy-demo-data')].filter(Boolean);
+  for (const c of cands) { try { fs.mkdirSync(c, { recursive: true }); fs.accessSync(c, fs.constants.W_OK); return path.resolve(c); } catch (e) {} }
+  return path.join(ROOT, 'data');
+}
+const DATA_ROOT = pickDataRoot();
 const DATA = path.join(DATA_ROOT, String(process.pid)); // لكل نسخة من البوابة فولدر لوحدها (لو الاستضافة شغّلت أكتر من واحدة)
 const RESET_MIN = Math.max(10, Number(process.env.DEMO_RESET_MINUTES || 60));
 const APPS = require('./apps.config');
 
 const log = (...a) => console.log(new Date().toISOString(), '[GATEWAY]', ...a);
+// أي خطأ مش متوقع يتكتب في اللوج بدل ما التطبيق يقع في صمت
+process.on('uncaughtException', (e) => { console.error(new Date().toISOString(), '[GATEWAY] uncaughtException:', e && e.stack || e); });
+process.on('unhandledRejection', (e) => { console.error(new Date().toISOString(), '[GATEWAY] unhandledRejection:', e && e.stack || e); });
 fs.mkdirSync(DATA, { recursive: true });
+log('بيانات التشغيل في:', DATA_ROOT, '— pid', process.pid);
 // امسح فولدرات النسخ القديمة اللي اتقفلت
 const alive = (pid) => { try { process.kill(pid, 0); return true; } catch (e) { return e.code === 'EPERM'; } };
 try { for (const n of fs.readdirSync(DATA_ROOT)) if (/^\d+$/.test(n) && Number(n) !== process.pid && !alive(Number(n))) fs.rmSync(path.join(DATA_ROOT, n), { recursive: true, force: true }); } catch (e) {}
@@ -112,7 +123,7 @@ function matchApp(url) { return APPS.find((a) => url === a.prefix || url.startsW
 const app = express();
 app.disable('x-powered-by');
 app.set('trust proxy', 1);
-app.get('/healthz', (req, res) => res.json({ ok: true, apps: Object.fromEntries(APPS.map((a) => [a.id, { ready: !!state[a.id]?.ready, resetAt: new Date(state[a.id]?.resetAt || 0).toISOString() }])) }));
+app.get('/healthz', (req, res) => res.json({ ok: true, pid: process.pid, uptimeSec: Math.round(process.uptime()), dataDir: DATA_ROOT, apps: Object.fromEntries(APPS.map((a) => [a.id, { ready: !!state[a.id]?.ready, restarts: state[a.id]?.restarts || 0, childPid: state[a.id]?.child?.pid || null, port: state[a.id]?.port || 0, resetAt: new Date(state[a.id]?.resetAt || 0).toISOString() }])) }));
 app.use((req, res, next) => {
   const a = matchApp(req.url);
   if (!a) return next();
