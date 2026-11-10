@@ -15,5 +15,17 @@ module.exports = [
       { method: /^(POST|PUT|PATCH|DELETE)$/, path: /^\/api\/settings\/(ai|backup|backupMail|gdrive|mail|email|smtp|security|siteKey|site|publicForm|cron)(\/|$)/i },
       { method: /^GET$/, path: /^\/api\/cron\// }
     ]
+  },
+  {
+    id: 'passports', prefix: '/demo-passports', port: 4602,
+    entry: 'apps/passports/passport-server/demo-launch.js', cwd: 'apps/passports/passport-server', seed: 'seed/passports', health: '/api/health', maxBody: 8,
+    env: (data) => ({ DEMO_DATA: data }),
+    block: [
+      { method: /^(POST|PUT|PATCH|DELETE)$/, path: /^\/api\/(users|security|site|ocr-settings)(\/|$)/ },
+      { method: /^(POST|PUT|PATCH|DELETE)$/, path: /^\/api\/backup\// },
+      { method: /^(POST|PUT|PATCH|DELETE)$/, path: /^\/api\/(passports|companies|delegates|professions)\/bulk-delete/ },
+      { method: /^(POST|PUT|PATCH|DELETE)$/, path: /^\/api\/login\/otp-setup/ },
+      { path: /^\/print-agent\// }
+    ]
   }
 ];

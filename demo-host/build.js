@@ -95,10 +95,63 @@ for (const f of ['gateway.js', 'apps.config.js']) copy(path.join(HERE, f), path.
   console.log('HR: اتحط', k, 'سيرة وهمية كمرفقات');
 }
 
-/* 4) package.json واحد لكل حاجة (هوستنجر بيعمل npm install) */
+/* 4) نظام الجوازات */
+const PP_REPO = path.resolve(process.env.PP_REPO || path.join(REPO, '..', 'nesr-passport-system'));
+{
+  const base = '/demo-passports';
+  const appSrc = path.join(PP_REPO, 'passport-app'), srv = path.join(PP_REPO, 'passport-server');
+  if (!fs.existsSync(srv)) throw new Error('مش لاقي ريبو نظام الجوازات في ' + PP_REPO);
+  if (!fs.existsSync(path.join(appSrc, 'node_modules'))) throw new Error('محتاج npm ci جوه ' + appSrc + ' الأول');
+  // نسخة شغل من الواجهة (الريبو نفسه مبيتغيّرش)
+  const work = path.join(HERE, '.work/passport-app'); rm(work);
+  copy(appSrc, work, (p, n) => !['node_modules', 'build', '.env'].includes(n));
+  fs.symlinkSync(path.join(appSrc, 'node_modules'), path.join(work, 'node_modules'), 'dir');
+  const NAME = [
+    [/نسر الخليج لإلحاق العمالة المصرية بالخارج/g, 'شركة تجريبية — بيانات وهمية'], [/شركة نسر الخليج/g, 'شركة تجريبية'], [/شعار نسر الخليج/g, 'شعار الشركة'], [/نسر الخليج/g, 'شركة تجريبية'],
+    [/Nesr\s*El[\s-]*Khaleeg|Nasr\s*Al[\s-]*Khaleej/gi, 'Demo Company'], [/nisrelkhaleeg\.com/gi, 'example.com'], [/(رقم\s*)863/g, '$10000']
+  ];
+  let changed = 0;
+  for (const f of walk(path.join(work, 'src'))) {
+    if (!/\.(js|jsx|css)$/.test(f)) continue;
+    const t = fs.readFileSync(f, 'utf8'); let n = t;
+    // المسارات المطلقة للسيرفر → تحت /demo-passports
+    // ${...URL}/x و ${API_BASE_URL}/x → ${...}/demo-passports/x
+    n = n.replace(/(\$\{[^}]*\})\/(?=(?:api|uploads|test|health)(?:[/'"`?]|$))/g, '$1' + base + '/');
+    // '/api/...' و '/uploads/...' في نص عادي
+    n = n.replace(/(["'`])\/(api|uploads)(?=[/'"`?]|$)/g, (m, q, r) => q + base + '/' + r);
+    // تنقلات صريحة لصفحات النظام
+    n = n.replace(/(location\.(?:href\s*=|assign\(|replace\()\s*['"`])\/(?!demo-)/g, '$1' + base + '/').replace(/(window\.open\(\s*['"`])\/(?!demo-|\/)/g, '$1' + base + '/');
+    for (const [a, b] of NAME) n = n.replace(a, b);
+    if (path.basename(f) === 'App.js') n = n.replace(/<Router>/, `<Router basename="${base}">`);
+    if (path.basename(f) === 'InternalChat.js') n = n.replace("transports: ['websocket', 'polling'],", `path: '${base}/socket.io', transports: ['websocket', 'polling'],`);
+    if (n !== t) { fs.writeFileSync(f, n); changed++; }
+  }
+  // لوجو محايد بدل لوجو الشركة
+  const logo = path.join(work, 'src/assets/nesr-logo.png'), neutral = path.join(work, 'src/assets/masar-logo.png');
+  if (fs.existsSync(logo) && fs.existsSync(neutral)) fs.copyFileSync(neutral, logo);
+  for (const f of ['public/index.html', 'public/manifest.json']) { const p = path.join(work, f); if (!fs.existsSync(p)) continue; let t = fs.readFileSync(p, 'utf8'); for (const [a, b] of NAME) t = t.replace(a, b); fs.writeFileSync(p, t); }
+  console.log('الجوازات: اتعدّل', changed, 'ملف للمسار', base);
+  const chk = walk(path.join(work, 'src')).filter((f) => /\.(js|jsx)$/.test(f) && /App\.js$|InternalChat\.js$/.test(f));
+  if (!fs.readFileSync(chk.find((f) => /App\.js$/.test(f)), 'utf8').includes('basename=')) console.warn('⚠ الجوازات: مقدرتش أضيف basename للـ Router');
+  if (!fs.readFileSync(chk.find((f) => /InternalChat\.js$/.test(f)), 'utf8').includes(base + '/socket.io')) console.warn('⚠ الجوازات: مقدرتش أظبط مسار الشات');
+  console.log('الجوازات: بناء الواجهة (react-scripts build)…');
+  execFileSync(process.execPath, [path.join(appSrc, 'node_modules/react-scripts/bin/react-scripts.js'), 'build'], { cwd: work, stdio: ['ignore', 'ignore', 'inherit'], env: Object.assign({}, process.env, { PUBLIC_URL: base, CI: 'false', GENERATE_SOURCEMAP: 'false', DISABLE_ESLINT_PLUGIN: 'true' }) });
+  const dst = path.join(DIST, 'apps/passports/passport-server');
+  copy(srv, dst, (p, n) => !['node_modules', '.env', 'public'].includes(n));
+  copy(path.join(work, 'build'), path.join(dst, 'public'));
+  copy(path.join(HERE, 'overlays/passports/demo-launch.js'), path.join(dst, 'demo-launch.js'));
+  copy(path.join(HERE, 'overlays/passports/demo-banner.js'), path.join(dst, 'public/demo-banner.js'));
+  const idx = path.join(dst, 'public/index.html');
+  fs.writeFileSync(idx, fs.readFileSync(idx, 'utf8').replace('</head>', `<script src="${base}/demo-banner.js"></script></head>`));
+  copy(path.join(HERE, 'seed/passports.sql.gz'), path.join(DIST, 'seed/passports/passports.sql.gz'));
+}
+
+/* 5) package.json واحد لكل حاجة (هوستنجر بيعمل npm install) */
 const hrPkg = require(path.join(HR_REPO, 'server/package.json'));
+const ppPkg = require(path.join(PP_REPO, 'passport-server/package.json'));
 const deps = { express: '^4.21.1', 'http-proxy': '^1.18.1' };
 for (const k of ['compression', 'multer', 'express']) if (hrPkg.dependencies[k]) deps[k] = hrPkg.dependencies[k];
+for (const [k, v] of Object.entries(ppPkg.dependencies)) if (!deps[k]) deps[k] = v;
 fs.writeFileSync(path.join(DIST, 'package.json'), JSON.stringify({
   name: 'ahmedalkholy-site', version: '1.0.0', private: true, description: 'Ahmed Alkholy — portfolio + live demos',
   main: 'gateway.js', scripts: { start: 'node gateway.js' }, engines: { node: '>=20' }, dependencies: deps
