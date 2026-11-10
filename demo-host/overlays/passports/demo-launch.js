@@ -7,7 +7,9 @@
 process.on('disconnect', () => process.exit(0));
 const fs = require('fs'); const path = require('path'); const zlib = require('zlib'); const http = require('http');
 const DATA = process.env.DEMO_DATA || path.join(__dirname, 'demo-data');
-const DB = { host: process.env.DEMO_PASSPORTS_DB_HOST || '127.0.0.1', port: Number(process.env.DEMO_PASSPORTS_DB_PORT || 3306), user: process.env.DEMO_PASSPORTS_DB_USER || '', password: process.env.DEMO_PASSPORTS_DB_PASSWORD || '', database: process.env.DEMO_PASSPORTS_DB_NAME || '' };
+// بنشيل المسافات وعلامات التنصيص اللي ممكن تتحط بالغلط حوالين القيم في لوحة هوستنجر
+const clean = (v) => String(v == null ? '' : v).trim().replace(/^(['"])([\s\S]*)\1$/, '$2').trim();
+const DB = { host: clean(process.env.DEMO_PASSPORTS_DB_HOST) || '127.0.0.1', port: Number(clean(process.env.DEMO_PASSPORTS_DB_PORT) || 3306), user: clean(process.env.DEMO_PASSPORTS_DB_USER), password: clean(process.env.DEMO_PASSPORTS_DB_PASSWORD), database: clean(process.env.DEMO_PASSPORTS_DB_NAME) };
 // "localhost" في Node بيروح على IPv6 (::1) وهوستنجر مبيسمحش بيه — نجبره على IPv4
 if (/^localhost$/i.test(DB.host)) DB.host = '127.0.0.1';
 /* طرق الاتصال بالترتيب: socket (لو متحدد أو موجود في أماكنه المعروفة) ثم TCP على 127.0.0.1 */
@@ -55,7 +57,7 @@ async function boot() {
     await c.query('SET FOREIGN_KEY_CHECKS = 1');
     await c.end();
     console.log('[demo-passports] رجّعت البيانات التجريبية:', rows.length, '→ جداول جديدة');
-  } catch (e) { notReady('تعذّر تجهيز قاعدة البيانات التجريبية: ' + e.message + ' — هعيد المحاولة بعد 30 ثانية'); return setTimeout(boot, 30000); }
+  } catch (e) { notReady('تعذّر تجهيز قاعدة البيانات التجريبية (المستخدم: ' + DB.user + ' • القاعدة: ' + DB.database + ' • طول الباسورد: ' + DB.password.length + ' حرف): ' + e.message + ' — هعيد المحاولة بعد 30 ثانية'); return setTimeout(boot, 30000); }
   if (stub) { await new Promise((r) => { stub.close(r); if (stub.closeAllConnections) stub.closeAllConnections(); }); stub = null; }
   Object.assign(process.env, {
     DB_HOST: DB.host, DB_PORT: String(DB.port), DB_USER: DB.user, DB_PASSWORD: DB.password, DB_NAME: DB.database,
