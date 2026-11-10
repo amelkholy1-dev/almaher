@@ -5,7 +5,7 @@
 .f-hide{display:none!important}
 
 /* بطاقة نموذج توضيحي */
-.showcase-grid{align-items:stretch}
+.showcase-grid{align-items:stretch;margin-top:28px}
 .showcase{padding:0;overflow:hidden;display:flex;flex-direction:column}
 .sc-cover{all:unset;box-sizing:border-box;display:block;position:relative;cursor:zoom-in;aspect-ratio:16/10;overflow:hidden;background:var(--surface-2);border-bottom:1px solid var(--border)}
 .sc-cover img{width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .45s}

@@ -298,8 +298,8 @@
     var G = P.groupTitles || {};
     var html = order.map(function (g) {
       var list = items.filter(function (p) { return (p.kind || 'feature') === g[0]; }); if (!list.length) return '';
-      var title = G[g[0]] && tx(G[g[0]]) ? tx(G[g[0]]) : u(g[1]);
-      var sub = '<div class="sub-head reveal" data-group="' + g[0] + '"><h3>' + esc(title) + '</h3></div>';
+      var title = Object.prototype.hasOwnProperty.call(G, g[0]) ? tx(G[g[0]]) : u(g[1]); // عنوان فاضي = من غير عنوان فرعي
+      var sub = title ? '<div class="sub-head reveal" data-group="' + g[0] + '"><h3>' + esc(title) + '</h3></div>' : '';
       var cards = list.map(function (p, i) { return KIND[g[0]](p, i); }).join('');
       return sub + (g[2] ? '<div class="' + g[2] + '">' + cards + '</div>' : cards);
     }).join('');
