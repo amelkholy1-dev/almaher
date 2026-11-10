@@ -1,10 +1,9 @@
 /* =========================================================
    Ahmed Maher Alkholy — main.js
    - اللغة (عربي/إنجليزي) + الوضع الليلي
-   - معارض الصور + عارض الصور
-   - الفيديو (يظهر فقط لو الملف موجود)
+   - فلتر المشاريع، والمعارض، وعارض الصور، والفيديو
    - نموذج التواصل (واتساب / إيميل)
-   - تحميل الديمو التفاعلي عند الطلب
+   - تحميل العروض التفاعلية عند الطلب
    ========================================================= */
 (function () {
   'use strict';
@@ -13,122 +12,169 @@
   var CONFIG = {
     whatsapp: '201552084471',
     email: 'am.elkholy1@gmail.com',
-    // المعارض: الموقع بيدوّر على الصور بالترتيب (1، 2، 3 ...) لحد الرقم max
-    // وبيعرض الموجود بس. ضيف صورك بنفس الأسماء دي.
+    cv: { ar: 'assets/cv/Ahmed-Alkholy-CV-AR.pdf', en: 'assets/cv/Ahmed-Alkholy-CV-EN.pdf' },
+    // المعارض: الموقع بيدوّر على الصور بالترتيب (1، 2، 3 ...) لحد الرقم max، وبيعرض الموجود بس.
     galleries: {
-      ops:     { path: 'assets/img/projects/masar-ops-',    ext: 'png', max: 12, ar: 'نظام مسار للعمليات', en: 'Masar Operations' },
-      hr:      { path: 'assets/img/projects/masar-hr-',     ext: 'png', max: 12, ar: 'نظام مسار للموارد البشرية', en: 'Masar HR' },
-      excel:   { path: 'assets/img/projects/excel-sample-', ext: 'png', max: 6,  ar: 'نموذج Excel', en: 'Excel template' },
-      designs: { path: 'assets/img/designs/design-',        ext: 'jpg', max: 30, ar: 'تصميم', en: 'Design' }
+      ops:        { path: 'assets/img/projects/masar-ops-',    ext: 'png', max: 12, ar: 'نظام مسار للعمليات', en: 'Masar Operations' },
+      hr:         { path: 'assets/img/projects/masar-hr-',     ext: 'png', max: 12, ar: 'نظام مسار للموارد البشرية', en: 'Masar HR' },
+      wesal:      { path: 'assets/img/projects/wesal-',        ext: 'png', max: 10, ar: 'تطبيق وصال', en: 'Wesal app' },
+      sites:      { path: 'assets/img/projects/site-',         ext: 'png', max: 12, ar: 'المواقع', en: 'Websites' },
+      commission: { path: 'assets/img/projects/commission-',   ext: 'png', max: 6,  ar: 'منصة التسويق بالعمولة', en: 'Affiliate platform' },
+      store:      { path: 'assets/img/projects/store-',        ext: 'png', max: 6,  ar: 'المتجر الإلكتروني', en: 'Online store' },
+      excel:      { path: 'assets/img/projects/excel-sample-', ext: 'png', max: 6,  ar: 'نموذج Excel', en: 'Excel template' },
+      designs:    { path: 'assets/img/designs/design-',        ext: 'jpg', max: 30, ar: 'تصميم', en: 'Design' }
     }
   };
 
   var WA_MSG = {
     general: { ar: 'مرحباً أحمد، وصلت إليك من موقعك الشخصي وأودّ التواصل معك.', en: 'Hi Ahmed, I found you through your website and would like to get in touch.' },
     ops: { ar: 'مرحباً أحمد، شاهدت «نظام مسار للعمليات والحسابات» على موقعك، وأرغب في ديمو مباشر للنظام.', en: 'Hi Ahmed, I saw the Masar Operations & Accounts System on your website and would like a live demo.' },
-    hr: { ar: 'مرحباً أحمد، شاهدت «نظام مسار للموارد البشرية» على موقعك، وأرغب في ديمو مباشر للنظام.', en: 'Hi Ahmed, I saw the Masar HR System on your website and would like a live demo.' }
+    hr: { ar: 'مرحباً أحمد، شاهدت «نظام مسار للموارد البشرية والتوظيف» على موقعك، وأرغب في ديمو مباشر للنظام.', en: 'Hi Ahmed, I saw the Masar HR system on your website and would like a live demo.' },
+    app: { ar: 'مرحباً أحمد، شاهدت «تطبيق وصال» على موقعك، وأرغب في معرفة المزيد عنه.', en: 'Hi Ahmed, I saw the Wesal app on your website and would like to know more.' },
+    web: { ar: 'مرحباً أحمد، شاهدت مواقع الشركات ولوحات التحكم على موقعك، وأرغب في موقع مشابه.', en: 'Hi Ahmed, I saw your company websites and admin panels and would like a similar website.' }
   };
 
   /* ---------------- الترجمة الإنجليزية ----------------
      النص العربي موجود في index.html نفسه، وده المقابل الإنجليزي لكل مفتاح */
   var EN = {
-    'skip': 'Skip to content',
-    'brand': 'Ahmed Alkholy',
+    'skip': 'Skip to content', 'brand': 'Ahmed Alkholy',
     'nav.about': 'About', 'nav.services': 'Services', 'nav.projects': 'Projects', 'nav.experience': 'Experience', 'nav.skills': 'Skills', 'nav.contact': 'Contact me',
-    'hero.hello': "Hi, I'm",
-    'hero.name': 'Ahmed Maher Alkholy',
-    'hero.role': 'Systems &amp; Support Specialist',
-    'hero.lead': 'I help companies with IT support, data &amp; Excel, administrative operations, and running business systems and training their users. With the help of AI tools, I have built business management systems that are in daily use across several companies.',
-    'hero.avail': 'Giza, Egypt — available for work in Egypt, the Gulf &amp; remotely',
-    'hero.cv': 'Download CV', 'hero.contact': 'Contact me',
+    'hero.hello': "Hi, I'm", 'hero.name': 'Ahmed Maher Alkholy',
+    'hero.role': 'Business Systems &amp; Web Developer • Systems &amp; Support Specialist',
+    'hero.lead': 'I build business management systems, websites and mobile apps that are in real use inside companies — from understanding the need to deployment, training and support. Alongside that, I have hands-on experience in IT support, networking and data management.',
+    'hero.avail': 'Available for:', 'mode.site': 'On-site full-time', 'mode.remote': 'Remote', 'mode.free': 'Freelance projects',
+    'hero.loc': 'Giza, Egypt — Egypt, the Gulf &amp; remote',
+    'hero.cv': 'Download CV', 'hero.work': 'See my work', 'hero.cvalt': 'السيرة الذاتية بالعربي',
     'photo.alt': 'Ahmed Maher Alkholy',
-    'chip.support': 'IT Support', 'chip.ai': 'AI-assisted business systems',
-    'st.1v': 'Nearly 4', 'st.1': 'years of experience',
-    'st.2v': '2 systems', 'st.2': 'running in several companies',
-    'st.3': 'system users', 'st.4': 'social media designs',
-    'about.k': 'About me',
-    'about.t': 'Support, organization and operations — with a problem-solving mindset',
-    'about.p1': "I'm Ahmed Maher Alkholy, a Systems &amp; Support Specialist based in Giza, Egypt. Since February 2023 I have been working at an overseas employment office, responsible for IT support for the devices and network, organizing data and archiving, and following up procedures for thousands of files with different parties.",
-    'about.p2': 'When I found the work depended on scattered Excel files and paper, I built — with the help of AI — a central database system that became the office’s main system. After that I built two business management systems that now run in several companies, and I handled their deployment, user training and support.',
-    'about.p3': '<strong>To be clear:</strong> I am not a professional programmer; I rely on AI tools to write the code. My role is understanding the need, designing the workflow, testing, then deployment, training and support.',
+    'chip.dev': 'Systems • Websites • Apps', 'chip.support': 'IT support &amp; networks',
+    'st.1v': 'Nearly 4', 'st.1': 'years of experience', 'st.2': 'projects: systems, websites &amp; apps', 'st.3': 'users working on my systems', 'st.4': 'social media designs',
+    'about.k': 'About me', 'about.t': 'I turn the way a company works into a clear system that runs',
+    'about.p1': "I'm Ahmed Maher Alkholy from Giza, Egypt. Since February 2023 I have been working at an overseas recruitment office, responsible for IT support and the network, organizing data and archiving, and following up procedures for thousands of files. Out of that daily work, I built the office a central system for files and accounts that replaced scattered Excel files and paperwork and became its core system.",
+    'about.p2': 'I then developed an HR &amp; recruitment system now running in several companies, company websites with full admin panels, and an Android mobile app. I own projects end to end: needs analysis, workflow design, development, testing, deployment on hosting or the company network, then user training and support.',
+    'about.p3': '<strong>Looking for:</strong> a full-time on-site role in Egypt or the Gulf, remote work, or freelance projects — in systems and web development, IT support and systems operation, or administrative and data work.',
     'fact.exp.t': 'Experience', 'fact.exp': 'Nearly 4 years (since Feb 2023)',
-    'fact.edu.t': 'Education', 'fact.edu': 'Bachelor of Specific Education – Educational Technology &amp; Computer Science, Menoufia University (2018–2022) – Grade: Good (High)',
+    'fact.edu.t': 'Education', 'fact.edu': 'Bachelor of Specific Education – Educational Technology &amp; Computer, Menoufia University (2018–2022) – Grade: Good (High)',
     'fact.lang.t': 'Languages', 'fact.lang': 'Arabic (native), English (good reading &amp; writing)',
-    'fact.loc.t': 'Location &amp; availability', 'fact.loc': 'Giza, Egypt — available in Egypt, the Gulf &amp; remotely',
-    'sv.k': 'Services', 'sv.t': 'How can I help?', 'sv.s': 'Available for computer-based office roles and for freelance projects.',
-    'tag.job': 'Job', 'tag.free': 'Freelance',
-    's1.t': 'IT Support', 's1.d': 'Installing Windows and software, fixing hardware issues, local networks and routers, printers, and backups.',
-    's2.t': 'Data &amp; Excel', 's2.d': 'Fast, accurate data entry, organizing Excel files, converting PDFs and images to Word and Excel, and archiving.',
-    's3.t': 'Administrative Operations', 's3.d': 'Following up procedures and files, coordinating tasks, and preparing reports for management.',
-    's4.t': 'Systems Deployment &amp; Training', 's4.d': 'Running management systems inside the company, migrating data from Excel, training staff, and post-launch support.',
-    's5.t': 'Business Websites', 's5.d': 'Company websites and landing pages — fast and mobile-friendly.',
-    's6.t': 'Social Media Design', 's6.d': 'Ads and posts with Canva and Photoshop, and managing pages and paid ads on Meta Business Suite.',
+    'fact.loc.t': 'Location &amp; availability', 'fact.loc': 'Giza, Egypt — open to shift work and relocation within Egypt and the GCC, or remote work',
+    'fact.lic.t': 'Driving license', 'fact.lic': 'Car and motorcycle',
+    'pr.k': 'How I work', 'pr.t': 'From idea to a running system', 'pr.s': 'The same steps I followed in every system and website I delivered.',
+    'p1.t': 'Understand the need', 'p1.d': 'I sit with the owners and staff and understand the current procedures and their pain points.',
+    'p2.t': 'Design the workflow', 'p2.d': 'I define the screens, stages, permissions and reports before building.',
+    'p3.t': 'Build in stages', 'p3.d': 'I build the system piece by piece and show every stage to the client.',
+    'p4.t': 'Test &amp; migrate data', 'p4.d': 'I test on sample data and migrate the old data from Excel.',
+    'p5.t': 'Deploy &amp; train', 'p5.d': 'I deploy on the company network or hosting and train the staff.',
+    'p6.t': 'Support &amp; updates', 'p6.d': 'Follow-up after launch, changes and updates, and regular backups.',
+    'sv.k': 'Services', 'sv.t': 'How can I help?', 'sv.s': 'As a full-time on-site employee, remotely, or per project.',
+    'tag.site': 'On-site', 'tag.remote': 'Remote', 'tag.free': 'Freelance',
+    's1.t': 'Business systems development', 's1.d': 'Custom systems for operations, accounts and HR: permissions, stage tracking, reports, Excel and PDF export, and backups.',
+    's2.t': 'Company websites &amp; admin panels', 's2.d': 'Fast, mobile-friendly Arabic/English websites with an admin panel the owner uses to edit all the content.',
+    's3.t': 'Mobile apps', 's3.d': 'Android apps with a modern interface that work offline and sync automatically, with notifications and sign-in.',
+    's4.t': 'AI integration in systems', 's4.d': 'Reading CVs and documents and extracting their data, and matching candidates to jobs — with multiple providers such as Gemini, Claude and OpenAI.',
+    's5.t': 'IT support &amp; networking', 's5.d': 'Installing Windows and software, fixing hardware issues, local networks and routers, printers, remote access (static IP and port forwarding), and backups.',
+    's6.t': 'Systems deployment &amp; training', 's6.d': 'Running management systems inside the company, migrating data from Excel, training staff, and post-launch support.',
+    's7.t': 'Data &amp; Excel', 's7.d': 'Fast, accurate data entry, organizing Excel files, converting PDFs and images to Word and Excel, and archiving.',
+    's8.t': 'Administrative operations', 's8.d': 'Following up procedures and files, coordinating tasks, dealing with different parties, and preparing reports for management.',
+    's9.t': 'Social media design', 's9.d': 'Ads and posts with Canva and Photoshop, and managing pages and paid ads on Meta Business Suite.',
     'pj.k': 'Portfolio', 'pj.t': 'Projects &amp; interactive demos',
-    'pj.s': 'Systems I built with the help of AI that are in real use, shown here as samples of my work. Try the interactive demo, or request a live demo.',
-    'pj.live': 'Running in several companies on their local network (LAN)', 'pj.live2': 'Running in several companies',
-    'pj.ai': 'Built with the help of AI', 'pj.shots': 'Screenshots', 'pj.video': 'Demo video',
-    'ops.t': 'Masar Operations &amp; Accounts System', 'ops.alt': 'نظام مسار للعمليات والحسابات',
-    'ops.d': 'A browser-based system for managing documents and passports, tracking the stages of every file, and managing accounts and the treasury.',
-    'ops.f1': 'Document and passport management, with search by name, passport number, national ID or mobile',
-    'ops.f2': 'Extracting data from document images (OCR)',
-    'ops.f3': 'Tracking each file’s stages (medical check, fingerprint, consulate, visa, travel) and the next action',
-    'ops.f4': 'Client and agent accounts and commissions, treasury, revenue and expenses',
-    'ops.f5': 'Account statements and reports, export to Excel and PDF, Barcode and QR printing',
-    'ops.f6': 'User permissions, backup and restore',
-    'hr.t': 'Masar HR System', 'hr.alt': 'نظام مسار للموارد البشرية',
-    'hr.d': 'A system for managing candidates and job requests — from uploading the CV to tracking each candidate’s stage.',
-    'hr.f1': 'Uploading CVs and analyzing them with AI, turning them into structured records',
-    'hr.f2': 'A central candidate bank with smart search and filtering',
-    'hr.f3': 'Job requests, matching candidates to job requirements and ranking them',
-    'hr.f4': 'Tracking each candidate’s stage, with dashboards and analytics',
-    'hr.f5': 'Excel import and export, SQL and ZIP backups',
-    'btn.demo': 'Try the interactive demo', 'btn.live': 'Request a live demo',
+    'pj.s': 'Systems, websites and apps I delivered that are in real use. Try the interactive demos yourself, or request a live demo of the full system.',
+    'f.all': 'All', 'f.sys': 'Systems', 'f.web': 'Websites', 'f.app': 'Apps', 'f.other': 'Other',
+    'pj.live': 'Running in several companies on their local network (LAN)', 'pj.live2': 'Running in several companies • cloud-hosted',
+    'pj.offline': 'Works offline', 'pj.online': 'Live', 'pj.dev': 'In development',
+    'type.sys': 'Management system', 'type.ats': 'ATS / recruitment', 'type.app': 'Android app', 'type.travel': 'Travel, Hajj &amp; Umrah', 'type.cons': 'Construction',
+    'pj.shots': 'Screenshots', 'pj.appshots': 'App screenshots', 'pj.siteshots': 'Website screenshots', 'pj.video': 'Demo video',
+    'ops.t': 'Masar Operations &amp; Accounts System', 'ops.alt': 'Passport system — نظام مسار للعمليات والحسابات',
+    'ops.d': 'A complete system for overseas recruitment and travel offices: 40+ screens covering passports, visas, travel and accounts, on a database of more than 130 tables.',
+    'ops.f1': 'Passport and document management with a barcode for every file, and search by name, passport no., national ID or mobile',
+    'ops.f2': 'Extracting data from document images (OCR) to register a file in seconds',
+    'ops.f3': 'Stage tracking: medical check, fingerprint, online registration, consulate preparation, visa and travel, with periodic follow-up',
+    'ops.f4': 'Accounts: clients, agents and commissions, employees, the full treasury, and company revenue and expenses',
+    'ops.f5': 'Lists and reports (flights, passports, fingerprints, visas, comprehensive financial report) with Excel and PDF export',
+    'ops.f6': 'Users and permissions, backup and archive, and real-time internal chat between staff',
+    'hr.t': 'Masar HR &amp; Recruitment System', 'hr.alt': 'نظام مسار للموارد البشرية والتوظيف',
+    'hr.d': 'A complete recruitment system: from receiving a CV and reading it with AI, to matching candidates with company requests and tracking them all the way to travel.',
+    'hr.f1': 'Inbox: AI reads CVs (PDF, Word, images) and turns them into structured records reviewed before approval',
+    'hr.f2': 'Candidate bank with profession-specific fields, quick search and search inside CV text, and duplicate detection and merging',
+    'hr.f3': 'Orders: AI reads the company’s demand letter, and matching with “must / important / preferred” requirements groups candidates into matched, needs confirmation and missing a requirement',
+    'hr.f4': 'Kanban pipeline up to travel, a procedures table (medical, police record, contract, visa, ticket), plus tasks and follow-ups',
+    'hr.f5': 'CV maker with 20 Arabic/English templates, and Excel, PDF, image and ZIP export',
+    'hr.f6': 'Protected public application links, an agents portal, and application tracking by number',
+    'hr.f7': 'Security: two-factor authentication, device approval, audit log, 35 granular permissions, and field-level restrictions',
+    'hr.f8': 'Multiple AI providers (Gemini, Claude, OpenAI and local models) with usage tracking',
+    'ws.t': 'Wesal app', 'ws.alt': 'وصال — daily planning &amp; habits app',
+    'ws.d': 'An Android app to organize your day: habits and tasks, prayer, adhkar and Quran, focus, budget, and shared spaces where members encourage each other.',
+    'ws.f1': 'A “Today” screen with habits and tasks, a weekly strip and progress, and a celebration on completion',
+    'ws.f2': 'Prayer times and tracking, adhkar with audio, and the Quran with tafsir and recitation',
+    'ws.f3': 'Focus sessions with ambient sounds, and a health, workout and nutrition hub',
+    'ws.f4': 'Budget and dues, an ideas notebook, and a mood journal',
+    'ws.f5': 'Shared spaces: members see each other’s progress and send encouragement by notification',
+    'ws.f6': 'Works offline and syncs automatically, Google sign-in, and a PIN lock',
+    'btn.demo': 'Try the interactive demo', 'btn.live': 'Request a live demo', 'btn.app': 'Try the app', 'btn.cms': 'Try the admin panel', 'btn.visit': 'Visit website',
+    'pj.webs': 'Company websites &amp; admin panels', 'pj.others': 'Other projects',
+    'w1.t': 'Nasr Al Khaleej — Egyptian Manpower Recruitment Abroad', 'w1.d': 'An Arabic/English company website with a full admin panel the team uses to edit all content.',
+    'w1.f1': 'Jobs with codes, search and filters, and forms sent via WhatsApp or email',
+    'w1.f2': 'A ready-to-post image for every job with a QR code, and direct publishing to Facebook',
+    'w1.f3': 'Visit statistics, sources and WhatsApp clicks — without cookies',
+    'w1.f4': 'Users and permissions, two-factor authentication, and an audit log',
+    'w1.f5': 'Secure link with the recruitment system: application links, agents portal and application tracking',
+    'w2.t': 'Forsan Go — Travel &amp; Tourism', 'w2.d': 'A website for a Hajj, Umrah, visas and flights company, with a full admin panel.',
+    'w2.f1': 'Hajj and Umrah packages with prices, dates and features', 'w2.f2': 'A booking form that fills itself when “Book this package” is clicked',
+    'w2.f3': 'Visa destinations, a traveller’s guide and FAQs', 'w2.f4': 'A jobs-abroad section linked to the recruitment system',
+    'w3.cover': 'Contracting', 'w3.t': 'Rockline Contracting website', 'w3.d': 'A contracting company website built on the same content management platform, with new additions.',
+    'w3.f1': 'Visual editing mode: the admin sees the page exactly as visitors do and edits it in place', 'w3.f2': 'Maintenance mode during updates', 'w3.f3': 'A full admin panel for content, images, news and messages',
+    'cm.t': 'Affiliate marketing platform', 'cm.d': 'A platform for managing affiliate marketing: marketers promote products with their own links and earn a commission on every sale.',
+    'sh.t': 'Online store', 'sh.d': 'An online store for showcasing products and receiving orders online.',
     'xl.t': 'Excel template – Clients &amp; payments register', 'xl.d': 'An organized Excel template for recording client data and tracking their payments.', 'xl.btn': 'Download the template',
     'ds.t': 'Social media designs', 'ds.d': 'A selection of ads and posts I designed with Canva and Photoshop.',
     'ex.k': 'Experience', 'ex.t': 'Work experience',
-    'e1.date': 'Feb 2023 – Present', 'e1.r': 'Operations &amp; Systems Coordinator',
-    'e1.c': 'Nesr Al Khaleej Office for Egyptian Employment Abroad – Giza',
-    'e1.b1': 'Replaced scattered Excel files and paperwork with a central database system I built with the help of AI, which became the office’s main system.',
-    'e1.b2': 'Cut file registration time from several minutes to seconds (OCR + fast entry).',
-    'e1.b3': 'Designed a numbering and archiving system linking every paper file to its electronic record; after it, passport loss incidents stopped completely.',
-    'e1.b4': 'IT support for 9 computers, the local network, printers and scanners, and backups.',
-    'e1.b5': 'Following up multi-stage procedures for thousands of files with government bodies and partners.',
-    'e1.b6': 'Designing the company’s ads and managing its pages and paid campaigns.',
-    'e2.date': 'Jan 2024 – Present', 'e2.r': 'Independent AI-Assisted Business Systems Developer', 'e2.c': 'Freelance – Remote',
-    'e2.b1': 'Built two business management systems running in several companies, with more than 20 users.',
-    'e2.b2': 'Handled needs analysis, deployment on company networks, staff training, support and updates.',
-    'e3.date': 'May 2025 – Aug 2025', 'e3.r': 'Transport Operations Coordinator (Temporary Assignment)',
-    'e3.c': 'Hussein Hegazy Transport &amp; Umrah Company – Makkah, Saudi Arabia',
-    'e3.b1': 'Coordinated transport trips and schedules with drivers, handled urgent cases, and prepared daily reports.',
+    'e1.date': 'Feb 2023 – Present', 'e1.r': 'Operations &amp; Systems Coordinator', 'e1.c': 'Nasr Al Khaleej Office for Recruiting Egyptian Manpower Abroad – Giza, Egypt',
+    'e1.b1': 'Replaced scattered Excel files and paper records with a central database system I developed; it became the core system the office relies on for records, process tracking and accounts.',
+    'e1.b2': 'Reduced file registration time from minutes to seconds using OCR data extraction and quick-entry features.',
+    'e1.b3': 'Designed a numbering and archiving system that links every paper file to its digital record; passport losses stopped completely after implementation.',
+    'e1.b4': 'Provide IT support for 9 office workstations: system and software installation, troubleshooting, local network setup, printers, scanners and backups.',
+    'e1.b5': 'Track multi-stage procedures (medical checks, consular procedures, visas and travel) for thousands of client files, working with government offices and partners.',
+    'e1.b6': 'Design company ads and social media posts, and manage company pages and paid campaigns via Meta Business Suite.',
+    'e2.date': 'Jan 2024 – Present', 'e2.r': 'Independent Business Systems &amp; Web Developer', 'e2.c': 'Freelance – Remote',
+    'e2.b1': 'Designed and built two business management systems now used by several companies, with 20+ active users.',
+    'e2.b2': 'Developed company websites with full admin panels, and an Android mobile app.',
+    'e2.b3': 'Handle the full cycle: understanding client needs, designing workflows, building, testing, presenting demos to clients, and closing sales.',
+    'e2.b4': 'Deploy systems on company computers over local networks or on hosting, configure remote access (static IP, port forwarding, firewall), and manage backups.',
+    'e2.b5': 'Train staff to use the systems and provide technical support, changes and updates after launch.',
+    'e3.date': 'May 2025 – Aug 2025', 'e3.r': 'Transport Operations Coordinator (Temporary Assignment)', 'e3.c': 'Hussein Hegazy Transport and Umrah Company – Makkah, Saudi Arabia',
+    'e3.b1': 'Coordinated transport trips for pilgrims and staff, managing schedules and timings with drivers and operations teams.',
+    'e3.b2': 'Handled last-minute changes and urgent cases, and prepared daily operations reports.',
+    'e3.b3': 'Worked in office and field roles on extended shifts during a high-pressure season.',
     'sk.k': 'Skills', 'sk.t': 'Skills &amp; tools',
-    'sk.g1': 'IT support &amp; networking', 'sk.c1': 'Software installation', 'sk.c2': 'Hardware troubleshooting', 'sk.c3': 'Local networks (LAN)', 'sk.c4': 'Routers', 'sk.c5': 'Printers &amp; scanners', 'sk.c6': 'Backups',
-    'sk.g2': 'Data &amp; office', 'sk.c7': 'Data entry', 'sk.c8': 'PDF &amp; image conversion (OCR)', 'sk.c9': 'Archiving', 'sk.c10': 'Reporting',
-    'sk.g3': 'Operations &amp; administration', 'sk.c11': 'Procedure follow-up', 'sk.c12': 'Task coordination', 'sk.c13': 'Needs analysis', 'sk.c14': 'Systems deployment', 'sk.c15': 'User training', 'sk.c16': 'Post-launch support',
-    'sk.g4': 'Design &amp; marketing', 'sk.c17': 'Page management', 'sk.c18': 'Paid ads',
-    'sk.g5': 'AI-assisted systems building', 'sk.g5d': 'Technologies I have used to build systems, relying on AI tools to write the code.',
+    'sk.g1': 'Web &amp; systems development', 'sk.g2': 'Databases &amp; deployment', 'sk.g3': 'Artificial intelligence', 'sk.g4': 'Mobile apps', 'sk.g5': 'Security',
+    'sk.g6': 'IT support &amp; networking', 'sk.g7': 'Data &amp; office', 'sk.g8': 'Operations &amp; administration', 'sk.g9': 'Design &amp; marketing',
+    'sk.c1': 'Software &amp; driver installation', 'sk.c2': 'Hardware troubleshooting', 'sk.c3': 'Local networks (LAN)', 'sk.c4': 'Routers &amp; static IP', 'sk.c5': 'Printers &amp; scanners', 'sk.c6': 'Backup &amp; restore',
+    'sk.c7': 'Data entry &amp; verification', 'sk.c9': 'Digital &amp; paper archiving', 'sk.c10': 'Reporting',
+    'sk.c11': 'Procedure follow-up', 'sk.c13': 'Needs analysis', 'sk.c14': 'Systems deployment', 'sk.c15': 'User training', 'sk.c17': 'Page management', 'sk.c18': 'Paid ads',
+    'sk.c19': 'Document data extraction', 'sk.c20': 'Candidate matching', 'sk.c21': 'Local models (Ollama)', 'sk.c22': 'Notifications', 'sk.c23': 'Offline-first &amp; sync',
+    'sk.c24': 'Two-factor auth (2FA)', 'sk.c25': 'Granular permissions', 'sk.c26': 'Audit logs', 'sk.c27': 'Data encryption', 'sk.c28': 'Firewall',
+    'sk.c29': 'Amadeus (basic)', 'sk.c30': 'Workflow mapping', 'sk.c31': 'Data migration from Excel', 'sk.c32': 'System demos &amp; sales',
     'ct.k': 'Contact', 'ct.t': "Let's talk",
-    'ct.s': 'Whether you have a job opportunity, a freelance project, or want a live demo of one of the systems, I’d be glad to hear from you.',
-    'ct.email': 'Email', 'ct.wa': 'WhatsApp', 'ct.loc': 'Location', 'ct.locv': 'Giza, Egypt — available in Egypt, the Gulf &amp; remotely',
+    'ct.s': 'Whether you have a job, a system, website or app project, or want a live demo of one of the systems, I’d be glad to hear from you.',
+    'ct.email': 'Email', 'ct.wa': 'WhatsApp', 'ct.loc': 'Location', 'ct.locv': 'Giza, Egypt — available on-site in Egypt and the Gulf, and remotely',
     'cf.t': 'Send a quick message', 'cf.name': 'Name', 'cf.topic': 'Subject',
-    'cf.o1': 'Job opportunity', 'cf.o2': 'Freelance project', 'cf.o3': 'Live demo of a system', 'cf.o4': 'Something else',
+    'cf.o1': 'Job opportunity', 'cf.o5': 'Build a system, website or app', 'cf.o2': 'Other freelance project', 'cf.o3': 'Live demo of a system', 'cf.o4': 'Something else',
     'cf.msg': 'Message', 'cf.wa': 'Send via WhatsApp', 'cf.mail': 'Send by email',
-    'ft.name': 'Ahmed Maher Alkholy', 'ft.role': 'Systems &amp; Support Specialist',
+    'ft.name': 'Ahmed Maher Alkholy', 'ft.role': 'Business Systems &amp; Web Developer • Systems &amp; Support Specialist',
     'demo.notice': 'Interactive demo with sample data – the full system is available on request',
     'demo.loading': 'Loading the demo…'
   };
 
   var META = {
-    ar: { title: 'أحمد ماهر الخولي | أخصائي أنظمة ودعم فني', desc: null },
-    en: { title: 'Ahmed Maher Alkholy | Systems & Support Specialist',
-          desc: 'Ahmed Maher Alkholy – Systems & Support Specialist in Giza, Egypt. IT support, data & Excel, administrative operations, systems deployment and user training, business websites and social media design. Available in Egypt, the Gulf and remotely.' }
+    ar: { title: null, desc: null },
+    en: { title: 'Ahmed Maher Alkholy | Business Systems & Web Developer • Systems & Support Specialist',
+          desc: 'Ahmed Maher Alkholy – business systems, websites and apps developer, and systems & support specialist in Giza, Egypt. Operations, accounts and HR systems, company websites with admin panels, Android apps, IT support and networking. Available on-site in Egypt and the Gulf, and remotely.' }
   };
 
   var MSG = {
     cvMissing: { ar: 'السيرة الذاتية ستُضاف قريباً. يمكنك التواصل معي مباشرة.', en: 'The CV will be added soon. Feel free to contact me directly.' },
     formName: { ar: 'من فضلك اكتب اسمك والرسالة.', en: 'Please enter your name and message.' },
     topics: {
-      job: { ar: 'فرصة عمل', en: 'Job opportunity' }, free: { ar: 'مشروع حر', en: 'Freelance project' },
-      demo: { ar: 'ديمو مباشر لأحد الأنظمة', en: 'Live demo of a system' }, other: { ar: 'موضوع آخر', en: 'Other' }
+      job: { ar: 'فرصة عمل', en: 'Job opportunity' }, dev: { ar: 'تطوير نظام أو موقع أو تطبيق', en: 'Build a system, website or app' },
+      free: { ar: 'مشروع حر', en: 'Freelance project' }, demo: { ar: 'ديمو مباشر لأحد الأنظمة', en: 'Live demo of a system' }, other: { ar: 'موضوع آخر', en: 'Other' }
     },
     from: { ar: 'الاسم', en: 'Name' }, subj: { ar: 'الموضوع', en: 'Subject' },
     langLabel: { ar: 'English', en: 'العربية' }
@@ -145,13 +191,11 @@
   /* ---------------- Language ---------------- */
   var AR = {}, AR_ATTR = {};
   $$('[data-i18n]').forEach(function (el) { var k = el.getAttribute('data-i18n'); if (!(k in AR)) AR[k] = el.innerHTML; });
-  $$('[data-i18n-attr]').forEach(function (el, i) {
-    el.getAttribute('data-i18n-attr').split(';').forEach(function (pair) {
-      var p = pair.split(':'); AR_ATTR[p[1]] = el.getAttribute(p[0]);
-    });
+  $$('[data-i18n-attr]').forEach(function (el) {
+    el.getAttribute('data-i18n-attr').split(';').forEach(function (pair) { var p = pair.split(':'); AR_ATTR[p[1]] = el.getAttribute(p[0]); });
   });
   var metaDesc = $('meta[name="description"]');
-  META.ar.desc = metaDesc ? metaDesc.content : '';
+  META.ar.title = doc.title; META.ar.desc = metaDesc ? metaDesc.content : '';
 
   function lang() { return root.lang === 'en' ? 'en' : 'ar'; }
   function tr(obj) { return obj[lang()]; }
@@ -172,6 +216,10 @@
     doc.title = META[l].title;
     if (metaDesc) metaDesc.content = META[l].desc;
     var lbl = $('#langLabel'); if (lbl) lbl.textContent = MSG.langLabel[l];
+    // السيرة الذاتية بلغة الموقع، واللينك الصغير للغة التانية
+    var cv = $('#cvBtn'), alt = $('#cvAlt');
+    if (cv) cv.setAttribute('href', CONFIG.cv[l]);
+    if (alt) alt.setAttribute('href', CONFIG.cv[l === 'ar' ? 'en' : 'ar']);
     updateWaLinks();
     root.classList.remove('i18n-pending');
     if (save) store.set('lang', l);
@@ -183,7 +231,7 @@
   function waUrl(text) { return 'https://wa.me/' + CONFIG.whatsapp + '?text=' + encodeURIComponent(text); }
   function updateWaLinks() {
     $$('[data-wa]').forEach(function (a) { var m = WA_MSG[a.getAttribute('data-wa')] || WA_MSG.general; a.href = waUrl(tr(m)); });
-    var d = $('#demoWa'); if (d && d.dataset.kind) d.href = waUrl(tr(WA_MSG[d.dataset.kind]));
+    var d = $('#demoWa'); if (d && d.dataset.kind) d.href = waUrl(tr(WA_MSG[d.dataset.kind] || WA_MSG.general));
   }
 
   /* ---------------- Theme ---------------- */
@@ -206,12 +254,9 @@
     var header = $('.site-header'), nav = $('#nav'), btn = $('#menuToggle');
     var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 8); };
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
-    btn.addEventListener('click', function () {
-      var open = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', open);
-    });
+    btn.addEventListener('click', function () { var open = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', open); });
     $$('a', nav).forEach(function (a) { a.addEventListener('click', function () { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); }); });
     doc.addEventListener('click', function (e) { if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
-
     if ('IntersectionObserver' in window) {
       var links = {}; $$('a[href^="#"]', nav).forEach(function (a) { links[a.getAttribute('href').slice(1)] = a; });
       var spy = new IntersectionObserver(function (entries) {
@@ -236,8 +281,24 @@
     els.forEach(function (e) { io.observe(e); });
   }
 
+  /* ---------------- Project filters ---------------- */
+  function initFilters() {
+    var btns = $$('.filters [data-filter]');
+    btns.forEach(function (b) {
+      b.setAttribute('role', 'tab');
+      b.addEventListener('click', function () {
+        var f = b.getAttribute('data-filter');
+        btns.forEach(function (x) { x.classList.toggle('on', x === b); x.setAttribute('aria-selected', x === b); });
+        $$('#projects [data-cat]').forEach(function (el) {
+          var show = f === 'all' || el.getAttribute('data-cat') === f;
+          el.classList.toggle('f-hide', !show);
+          if (show) el.classList.add('in');
+        });
+      });
+    });
+  }
+
   /* ---------------- Galleries ---------------- */
-  var lbItems = [], lbIndex = 0;
   function probe(src) {
     return new Promise(function (res) { var i = new Image(); i.onload = function () { res(src); }; i.onerror = function () { res(null); }; i.src = src; });
   }
@@ -252,9 +313,7 @@
       srcs.forEach(function (src, i) {
         var b = doc.createElement('button'); b.type = 'button'; b.className = 'thumb';
         b.innerHTML = '<img loading="lazy" decoding="async" alt="">';
-        var img = b.firstChild; img.src = src;
-        b.dataset.caption = key; b.dataset.n = i + 1;
-        img.alt = cfg[lang()] + ' – ' + (i + 1);
+        var img = b.firstChild; img.src = src; img.alt = cfg[lang()] + ' – ' + (i + 1);
         b.addEventListener('click', function () { openLightbox(srcs, i, cfg); });
         holder.appendChild(b);
       });
@@ -266,16 +325,14 @@
     var hasGallery = $$('.gallery', card).some(function (g) { return !g.hidden; });
     var btn = $('#excelBtn', card); var hasBtn = btn && !btn.hidden;
     var pending = $$('.gallery', card).some(function (g) { return !g.dataset.loaded; }) || (btn && !btn.dataset.checked);
-    if (!pending) card.style.display = (hasGallery || hasBtn) ? '' : 'none';
+    if (!pending) card.classList.toggle('empty-hide', !(hasGallery || hasBtn));
   }
   function initGalleries() {
     var boxes = $$('[data-gallery]');
     if (!('IntersectionObserver' in window)) { boxes.forEach(loadGallery); return; }
     // نراقب العنصر الأب لأن المعرض نفسه مخفي لحد ما الصور تتحمّل
     var parents = [];
-    boxes.forEach(function (b) {
-      var p = b.parentNode; if (parents.indexOf(p) < 0) { parents.push(p); p._gal = []; } p._gal.push(b);
-    });
+    boxes.forEach(function (b) { var p = b.parentNode; if (parents.indexOf(p) < 0) { parents.push(p); p._gal = []; } p._gal.push(b); });
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) { if (en.isIntersecting) { io.unobserve(en.target); en.target._gal.forEach(loadGallery); } });
     }, { rootMargin: '600px 0px' });
@@ -283,7 +340,7 @@
   }
 
   /* ---------------- Lightbox ---------------- */
-  var lb, lbImg, lbCap, lbCfg, lastFocus;
+  var lb, lbImg, lbCap, lbCfg, lbItems = [], lbIndex = 0, lastFocus;
   function openLightbox(srcs, i, cfg) {
     lbItems = srcs; lbIndex = i; lbCfg = cfg; lastFocus = doc.activeElement;
     showLb(); lb.hidden = false; doc.body.classList.add('no-scroll'); $('.lb-close', lb).focus();
@@ -299,7 +356,6 @@
   function initLightbox() {
     lb = $('#lightbox'); lbImg = $('img', lb); lbCap = $('figcaption', lb);
     $('.lb-close', lb).addEventListener('click', closeLb);
-    // في العربي "السابق" على اليمين، فالاتجاه البصري بيفضل منطقي
     $('.lb-prev', lb).addEventListener('click', function () { stepLb(-1); });
     $('.lb-next', lb).addEventListener('click', function () { stepLb(1); });
     lb.addEventListener('click', function (e) { if (e.target === lb || e.target.tagName === 'FIGURE') closeLb(); });
@@ -326,23 +382,23 @@
       var poster = box.getAttribute('data-poster');
       if (poster) probe(poster).then(function (p) { if (p) v.poster = p; });
       v.addEventListener('loadedmetadata', function () { box.hidden = false; });
-      v.addEventListener('error', function () { v.remove(); }, true);
       var s = doc.createElement('source'); s.src = box.getAttribute('data-video'); s.type = 'video/mp4';
       s.addEventListener('error', function () { v.remove(); });
       v.appendChild(s); box.appendChild(v);
     });
   }
 
-  /* ---------------- Files that may not exist yet (CV, Excel) ---------------- */
+  /* ---------------- Files that may not exist yet ---------------- */
   function fileExists(url) {
     if (location.protocol === 'file:') return Promise.resolve(true);
     return fetch(url, { method: 'HEAD', cache: 'no-store' }).then(function (r) { return r.ok; }).catch(function () { return true; });
   }
   function initFiles() {
-    var cv = $('#cvBtn');
-    fileExists(cv.getAttribute('href')).then(function (ok) {
-      if (!ok) cv.addEventListener('click', function (e) { e.preventDefault(); toast(tr(MSG.cvMissing)); });
+    var cv = $('#cvBtn'), cvOk = {};
+    cv.addEventListener('click', function (e) {
+      if (cvOk[cv.getAttribute('href')] === false) { e.preventDefault(); toast(tr(MSG.cvMissing)); }
     });
+    [CONFIG.cv.ar, CONFIG.cv.en].forEach(function (u) { fileExists(u).then(function (ok) { cvOk[u] = ok; }); });
     var xl = $('#excelBtn');
     fileExists(xl.getAttribute('href')).then(function (ok) {
       xl.hidden = !ok; xl.dataset.checked = '1'; checkEmptyCard(xl.closest('[data-hide-empty]'));
@@ -364,13 +420,13 @@
     });
   }
 
-  /* ---------------- Interactive demo (lazy) ---------------- */
+  /* ---------------- Interactive demos (lazy) ---------------- */
   var demoLoaded = null;
   function loadDemo() {
     if (demoLoaded) return demoLoaded;
     demoLoaded = new Promise(function (res, rej) {
-      var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = 'assets/css/demo.css'; doc.head.appendChild(l);
-      var s = doc.createElement('script'); s.src = 'assets/js/demo.js'; s.onload = res; s.onerror = rej; doc.body.appendChild(s);
+      var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = 'assets/css/demo.css?v=2'; doc.head.appendChild(l);
+      var s = doc.createElement('script'); s.src = 'assets/js/demo.js?v=2'; s.onload = res; s.onerror = function () { demoLoaded = null; rej(); }; doc.body.appendChild(s);
     });
     return demoLoaded;
   }
@@ -383,7 +439,8 @@
     $$('[data-demo]').forEach(function (btn) {
       btn.addEventListener('click', function () {
         var kind = btn.getAttribute('data-demo'); opener = btn;
-        wa.dataset.kind = kind; wa.href = waUrl(tr(WA_MSG[kind]));
+        wa.dataset.kind = kind; wa.href = waUrl(tr(WA_MSG[kind] || WA_MSG.general));
+        dlg.classList.toggle('demo-phone', kind === 'app');
         if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
         doc.body.classList.add('no-scroll');
         loadDemo().then(function () { window.MasarDemo.mount(rootEl, kind); })
@@ -404,9 +461,8 @@
       if (mq.addEventListener) mq.addEventListener('change', onMq);
     }
     $('#year').textContent = new Date().getFullYear();
-    initHeader(); initReveal(); initGalleries(); initLightbox(); initVideos(); initFiles(); initForm(); initDemo();
+    initHeader(); initReveal(); initFilters(); initGalleries(); initLightbox(); initVideos(); initFiles(); initForm(); initDemo();
   }
-  // أمان: لو حصل أي خطأ، اظهر الصفحة
   setTimeout(function () { root.classList.remove('i18n-pending'); }, 2500);
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init); else init();
 })();
