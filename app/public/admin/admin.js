@@ -26,7 +26,7 @@
   function api(method, url, body, form) {
     var o = { method: method, headers: { 'X-Requested-With': 'admin' }, credentials: 'same-origin' };
     if (form) o.body = body; else if (body !== undefined) { o.headers['Content-Type'] = 'application/json'; o.body = JSON.stringify(body); }
-    return fetch('/admin/api' + url, o).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (r.status === 401 && url !== '/login' && url !== '/me') { me = null; render(); } j._status = r.status; return j; }); });
+    return fetch('/admin/api' + url, o).then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { if (r.status === 401 && url.indexOf('/login') !== 0 && url !== '/me') { me = null; render(); } j._status = r.status; return j; }); });
   }
   function tx(v) { if (v == null) return ''; if (typeof v === 'string' || typeof v === 'number') return String(v); return v.ar || v.en || ''; }
   function touch() { if (!dirty) { dirty = true; updateTop(); } }
@@ -338,8 +338,54 @@
     });
   }
 
+
+  /* التحقق بخطوتين */
+  function twofaCard(host) {
+    var box = h('div', { class: 'card' }); host.appendChild(box);
+    function head(extra) { box.innerHTML = ''; box.appendChild(h('h3', null, 'التحقق بخطوتين (2FA) ', extra || '')); }
+    function showCodes(codes) {
+      var txt = codes.join('\n');
+      box.appendChild(h('div', { class: 'tip' }, h('b', { text: 'أكواد الاسترجاع — احفظها دلوقتي في مكان آمن!' }), h('p', { text: 'كل كود بيشتغل مرة واحدة بدل كود الموبايل لو ضاع. مش هتظهر تاني.' }), h('pre', { dir: 'ltr', style: 'font-size:1rem;line-height:1.9;margin:8px 0', text: txt }),
+        h('div', { class: 'row' }, h('button', { class: 'btn sm', type: 'button', text: 'نسخ', onclick: function () { (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject()).then(function () { toast('اتنسخت'); }).catch(function () { prompt('انسخ الأكواد:', txt); }); } }), h('button', { class: 'btn sm', type: 'button', text: 'تنزيل كملف', onclick: function () { var a = h('a', { href: URL.createObjectURL(new Blob([txt], { type: 'text/plain' })), download: 'recovery-codes.txt' }); document.body.appendChild(a); a.click(); a.remove(); } }))));
+    }
+    function draw() {
+      head();
+      api('GET', '/2fa').then(function (st) {
+        if (!st.ok) return;
+        if (st.enabled) {
+          head(h('span', { class: 'pill ok', text: 'مفعّل' }));
+          box.appendChild(h('p', { class: 'hint', text: 'الدخول بيطلب كود من تطبيق المصادقة بعد كلمة المرور. أكواد الاسترجاع المتبقية: ' + st.recoveryLeft }));
+          var code = h('input', { type: 'text', inputmode: 'numeric', autocomplete: 'off', dir: 'ltr', placeholder: 'كود من التطبيق (6 أرقام)' }), pass = h('input', { type: 'password', autocomplete: 'current-password', placeholder: 'كلمة المرور (للتعطيل فقط)' });
+          box.appendChild(h('div', { class: 'grid2' }, h('div', { class: 'f' }, h('div', { class: 'lab', text: 'كود التحقق الحالي' }), code), h('div', { class: 'f' }, h('div', { class: 'lab', text: 'كلمة المرور' }), pass)));
+          box.appendChild(h('div', { class: 'row' },
+            h('button', { class: 'btn sm', type: 'button', text: 'توليد أكواد استرجاع جديدة', onclick: function () { api('POST', '/2fa/recovery', { code: code.value }).then(function (r) { if (r.ok) { draw2(r.recovery); } else toast(r.message || 'فشل', true); }); } }),
+            h('button', { class: 'btn sm danger', type: 'button', text: 'تعطيل التحقق بخطوتين', onclick: function () { if (confirm('تعطيل الحماية بخطوتين؟')) api('POST', '/2fa/disable', { pass: pass.value, code: code.value }).then(function (r) { if (r.ok) { toast('اتعطّل'); draw(); } else toast(r.message || 'فشل', true); }); } })));
+        } else {
+          head(h('span', { class: 'pill warn', text: 'غير مفعّل' }));
+          box.appendChild(h('p', { class: 'hint', text: 'بيضيف حماية قوية: حتى لو حد عرف كلمة المرور، مش هيدخل من غير كود من موبايلك. بيشتغل مع Google Authenticator وMicrosoft Authenticator وAuthy.' }));
+          box.appendChild(h('button', { class: 'btn pri', type: 'button', text: 'تفعيل التحقق بخطوتين', onclick: setup }));
+        }
+      });
+    }
+    function draw2(codes) { draw(); setTimeout(function () { showCodes(codes); }, 400); }
+    function setup() {
+      api('POST', '/2fa/setup', {}).then(function (r) {
+        if (!r.ok) return toast(r.message || 'فشل', true);
+        head();
+        var code = h('input', { type: 'text', inputmode: 'numeric', autocomplete: 'off', dir: 'ltr', placeholder: '123456', style: 'max-width:200px;text-align:center;font-size:1.2rem;letter-spacing:.2em' });
+        var qr = h('div', { style: 'width:210px;height:210px;background:#fff;padding:6px;border-radius:12px;border:1px solid var(--border)' }); qr.innerHTML = r.svg;
+        box.appendChild(h('ol', { style: 'line-height:2;padding-inline-start:20px;margin:0 0 12px' }, h('li', { text: 'نزّل تطبيق مصادقة على موبايلك (Google Authenticator مثلاً).' }), h('li', { text: 'اختار «إضافة حساب» ثم «مسح رمز QR»، وصوّر الرمز اللي تحت.' }), h('li', { text: 'اكتب الكود المكوّن من 6 أرقام اللي ظهر في التطبيق، واضغط «تأكيد».' })));
+        box.appendChild(h('div', { class: 'row', style: 'align-items:flex-start' }, qr, h('div', null, h('p', { class: 'help', text: 'لو مش قادر تصوّر الرمز، اكتب المفتاح ده يدوياً في التطبيق:' }), h('code', { dir: 'ltr', style: 'display:block;padding:8px 10px;background:var(--bg);border-radius:8px;user-select:all;word-break:break-all', text: r.secret }))));
+        box.appendChild(h('div', { class: 'f', style: 'margin-top:14px' }, h('div', { class: 'lab', text: 'الكود من التطبيق' }), code));
+        box.appendChild(h('div', { class: 'row' }, h('button', { class: 'btn pri', type: 'button', text: 'تأكيد وتفعيل', onclick: function () { api('POST', '/2fa/enable', { code: code.value }).then(function (x) { if (x.ok) { toast('تم تفعيل التحقق بخطوتين'); draw2(x.recovery); } else toast(x.message || 'فشل', true); }); } }), h('button', { class: 'btn', type: 'button', text: 'إلغاء', onclick: draw })));
+        code.focus();
+      });
+    }
+    draw();
+  }
   /* الحساب والنسخ الاحتياطي */
   function accountTab(host) {
+    twofaCard(host);
     var oldP = h('input', { type: 'password', autocomplete: 'current-password' }), newP = h('input', { type: 'password', autocomplete: 'new-password' });
     host.appendChild(h('div', { class: 'card' }, h('h3', { text: 'تغيير كلمة المرور' }), h('p', { class: 'hint', text: '10 حروف على الأقل. استخدم كلمة قوية ومختلفة عن باقي حساباتك.' }),
       h('div', { class: 'f' }, h('div', { class: 'lab', text: 'كلمة المرور الحالية' }), oldP), h('div', { class: 'f' }, h('div', { class: 'lab', text: 'كلمة المرور الجديدة' }), newP),
@@ -395,11 +441,25 @@
       renderFields(c[3], c[2], card); content.appendChild(card);
     });
   }
-  function renderLogin() {
-    var u = h('input', { type: 'text', autocomplete: 'username', required: true }), p = h('input', { type: 'password', autocomplete: 'current-password', required: true }), note = h('p', { style: 'color:var(--bad)' });
-    app.appendChild(h('div', { class: 'login' }, h('form', { onsubmit: function (e) { e.preventDefault(); note.textContent = ''; api('POST', '/login', { user: u.value, pass: p.value }).then(function (r) { if (r.ok) { me = r.user; load(); messagesCount(); } else note.textContent = r.message || 'فشل الدخول'; }); } },
-      h('h1', { text: 'لوحة التحكم' }), h('p', { text: 'سجّل دخولك لتعديل الموقع.' }), h('div', { class: 'f' }, h('div', { class: 'lab', text: 'اسم الدخول' }), u), h('div', { class: 'f' }, h('div', { class: 'lab', text: 'كلمة المرور' }), p), note, h('button', { class: 'btn pri', type: 'submit', text: 'دخول' }))));
+  function renderLogin(msg) {
+    app.innerHTML = '';
+    var u = h('input', { type: 'text', autocomplete: 'username', required: true, autocapitalize: 'none', spellcheck: 'false' }), p = h('input', { type: 'password', autocomplete: 'current-password', required: true }), note = h('p', { style: 'color:var(--bad);min-height:1.4em', text: msg || '' });
+    app.appendChild(h('div', { class: 'login' }, h('form', { onsubmit: function (e) { e.preventDefault(); note.textContent = ''; api('POST', '/login', { user: u.value, pass: p.value }).then(function (r) {
+      if (r.ok) { me = r.user; load(); messagesCount(); }
+      else if (r.need2fa) renderCode(r.challenge);
+      else note.textContent = r.message || 'فشل الدخول';
+    }); } }, h('h1', { text: 'لوحة التحكم' }), h('p', { text: 'سجّل دخولك لتعديل الموقع.' }), h('div', { class: 'f' }, h('div', { class: 'lab', text: 'اسم الدخول' }), u), h('div', { class: 'f' }, h('div', { class: 'lab', text: 'كلمة المرور' }), p), note, h('button', { class: 'btn pri', type: 'submit', text: 'دخول' }))));
     u.focus();
+  }
+  function renderCode(challenge) {
+    app.innerHTML = '';
+    var code = h('input', { type: 'text', inputmode: 'text', autocomplete: 'one-time-code', required: true, placeholder: '123456', dir: 'ltr', style: 'text-align:center;font-size:1.4rem;letter-spacing:.3em' }), note = h('p', { style: 'color:var(--bad);min-height:1.4em' });
+    app.appendChild(h('div', { class: 'login' }, h('form', { onsubmit: function (e) { e.preventDefault(); note.textContent = ''; api('POST', '/login/2fa', { challenge: challenge, code: code.value }).then(function (r) {
+      if (r.ok) { me = r.user; load(); messagesCount(); }
+      else if (r.restart) renderLogin(r.message);
+      else { note.textContent = r.message || 'الكود غلط'; code.select(); }
+    }); } }, h('h1', { text: 'التحقق بخطوتين' }), h('p', { text: 'اكتب الكود المكوّن من 6 أرقام من تطبيق المصادقة في موبايلك. لو ضاع موبايلك، استخدم كود استرجاع (مثال: a1b2c-3d4e5).' }), h('div', { class: 'f' }, code), note, h('div', { class: 'row' }, h('button', { class: 'btn pri', type: 'submit', text: 'تأكيد' }), h('button', { class: 'btn', type: 'button', text: 'رجوع', onclick: function () { renderLogin(); } })))));
+    code.focus();
   }
   function messagesCount() { api('GET', '/messages').then(function (r) { window.__unread = (r.messages || []).filter(function (m) { return !m.read; }).length; renderSide(); }); }
 

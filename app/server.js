@@ -75,11 +75,15 @@ admin.use('/static', express.static(path.join(PUBLIC, 'admin'), { index: false, 
 
 const api = express.Router();
 api.post('/login', express.json({ limit: '5kb' }), (req, res) => {
-  const r = auth.login(req, res, (req.body || {}).user, (req.body || {}).pass);
+  const r = auth.login(req, res, (req.body || {}).user, (req.body || {}).pass, log);
+  res.status(r.ok || r.need2fa ? 200 : r.status).json(r);
+});
+api.post('/login/2fa', express.json({ limit: '5kb' }), (req, res) => {
+  const r = auth.login2fa(req, res, (req.body || {}).challenge, (req.body || {}).code, log);
   res.status(r.ok ? 200 : r.status).json(r);
 });
 api.post('/logout', (req, res) => { auth.logout(req, res); res.json({ ok: true }); });
-api.get('/me', (req, res) => { const u = auth.current(req); res.json({ ok: !!u, user: u ? u.name : null }); });
+api.get('/me', (req, res) => { const u = auth.current(req); res.json({ ok: !!u, user: u ? u.name : null, twofa: u ? auth.twofa.status(u).enabled : false }); });
 api.use(auth.requireAdmin);
 
 api.get('/content', (req, res) => res.json({ ok: true, content: store.getContent() }));
@@ -146,6 +150,34 @@ api.delete('/media/:name', (req, res) => {
 api.get('/messages', (req, res) => res.json({ ok: true, messages: store.messages.list() }));
 api.post('/messages/:id/read', (req, res) => { store.messages.read(req.params.id); res.json({ ok: true }); });
 api.delete('/messages/:id', (req, res) => { store.messages.del(req.params.id); res.json({ ok: true }); });
+
+/* ---- التحقق بخطوتين ---- */
+const QR = require('qrcode-generator');
+const reissue = (req, res, user) => auth.setCookie(req, res, auth.makeToken(user), 12 * 3600);
+api.get('/2fa', (req, res) => res.json(Object.assign({ ok: true }, auth.twofa.status(req.admin))));
+api.post('/2fa/setup', (req, res) => {
+  if (auth.twofa.status(req.admin).enabled) return res.status(400).json({ ok: false, message: 'مفعّل بالفعل.' });
+  const r = auth.twofa.setup(req.admin, 'Ahmed Alkholy');
+  const q = QR(0, 'M'); q.addData(r.uri); q.make();
+  res.json({ ok: true, secret: r.secret, uri: r.uri, svg: q.createSvgTag({ cellSize: 5, margin: 2, scalable: true }) });
+});
+api.post('/2fa/enable', express.json({ limit: '2kb' }), (req, res) => {
+  const r = auth.twofa.enable(req.admin, (req.body || {}).code);
+  if (!r.ok) return res.status(400).json(r);
+  reissue(req, res, r.user); res.json({ ok: true, recovery: r.recovery });
+});
+api.post('/2fa/disable', express.json({ limit: '2kb' }), (req, res) => {
+  const k = 'tfa:' + auth.ip(req); if (auth.limited(k, 6, 15 * 60 * 1000)) return res.status(429).json({ ok: false, message: 'محاولات كتير. جرّب بعد شوية.' });
+  const r = auth.twofa.disable(req.admin, (req.body || {}).pass, (req.body || {}).code);
+  if (!r.ok) { auth.hit(k); return res.status(400).json(r); }
+  reissue(req, res, r.user); res.json({ ok: true });
+});
+api.post('/2fa/recovery', express.json({ limit: '2kb' }), (req, res) => {
+  const k = 'tfa:' + auth.ip(req); if (auth.limited(k, 6, 15 * 60 * 1000)) return res.status(429).json({ ok: false, message: 'محاولات كتير. جرّب بعد شوية.' });
+  const r = auth.twofa.regen(req.admin, (req.body || {}).code);
+  if (!r.ok) { auth.hit(k); return res.status(400).json(r); }
+  res.json(r);
+});
 
 /* ---- الحساب ---- */
 api.post('/password', express.json({ limit: '5kb' }), (req, res) => {
