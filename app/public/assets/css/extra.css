@@ -72,3 +72,6 @@
 
 /* خانة فخ الروبوتات: مخفية من غير ما تعمل تمرير أفقي (خصوصاً في RTL) */
 .hp{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;clip:rect(0 0 0 0);margin:-1px}
+
+/* عشان الروابط المباشرة ماتختفيش وراء الشريط العلوي */
+section[id],form[id],article[id]{scroll-margin-top:84px}

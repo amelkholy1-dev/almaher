@@ -54,6 +54,9 @@ app.get('/', (req, res) => {
   res.set('Cache-Control', 'no-cache').type('html').send(renderer.render(req, store.getContent()));
 });
 
+/* رابط قصير يتبعت للعملاء: بيفتح نموذج التقييم مباشرة */
+app.get(['/review', '/rate'], (req, res) => res.redirect(302, '/#reviewForm'));
+
 /* ---------------- رسائل الزوار ---------------- */
 app.post('/api/contact', express.json({ limit: '20kb' }), (req, res) => {
   const key = 'contact:' + auth.ip(req);

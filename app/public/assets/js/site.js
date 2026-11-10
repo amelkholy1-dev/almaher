@@ -281,7 +281,7 @@
   }
   function loadReviews() {
     if (rvLoading) return; rvLoading = true;
-    fetch('/api/reviews', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) { if (j && j.ok) { RV = j; paintReviews(); } }).catch(function () { /* القسم بيفضل بالنموذج بس */ }).then(function () { rvLoading = false; });
+    fetch('/api/reviews', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) { if (j && j.ok) { RV = j; paintReviews(); if (window.__hashRescroll) setTimeout(window.__hashRescroll, 80); } }).catch(function () { /* القسم بيفضل بالنموذج بس */ }).then(function () { rvLoading = false; });
   }
   function submitReview(form) {
     var note = $('#rvNote'), rating = Number(form.rating.value), name = form.name.value.trim(), text = form.text.value.trim();
@@ -575,7 +575,14 @@
       var onMq = function (e) { if (!store.get('theme')) setTheme(e.matches ? 'dark' : 'light', false); };
       if (mq.addEventListener) mq.addEventListener('change', onMq);
     }
-    if (location.hash) { var el = doc.getElementById(location.hash.slice(1)); if (el) setTimeout(function () { el.scrollIntoView(); }, 50); }
+    /* الروابط المباشرة (#reviewForm مثلاً): الصفحة بتتحرك بعد التحميل (تقييمات وخطوط)، فبنعيد التمرير للهدف لحد ما الزائر يمرّر بنفسه */
+    if (location.hash.length > 1) {
+      var hashId = decodeURIComponent(location.hash.slice(1)), stop = false;
+      var goHash = function () { if (stop) return; var el = doc.getElementById(hashId); if (el) el.scrollIntoView({ block: 'start', behavior: 'instant' }); };
+      ['wheel', 'touchstart', 'keydown', 'mousedown'].forEach(function (ev) { window.addEventListener(ev, function () { stop = true; }, { once: true, passive: true }); });
+      setTimeout(goHash, 60); setTimeout(goHash, 700); setTimeout(goHash, 1600); window.addEventListener('load', function () { setTimeout(goHash, 100); });
+      window.__hashRescroll = goHash;
+    }
   }
   if (doc.readyState === 'loading') doc.addEventListener('DOMContentLoaded', init); else init();
 })();
