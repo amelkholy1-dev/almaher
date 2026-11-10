@@ -137,7 +137,9 @@ const PP_REPO = path.resolve(process.env.PP_REPO || path.join(REPO, '..', 'nesr-
   console.log('الجوازات: بناء الواجهة (react-scripts build)…');
   execFileSync(process.execPath, [path.join(appSrc, 'node_modules/react-scripts/bin/react-scripts.js'), 'build'], { cwd: work, stdio: ['ignore', 'ignore', 'inherit'], env: Object.assign({}, process.env, { PUBLIC_URL: base, CI: 'false', GENERATE_SOURCEMAP: 'false', DISABLE_ESLINT_PLUGIN: 'true' }) });
   const dst = path.join(DIST, 'apps/passports/passport-server');
-  copy(srv, dst, (p, n) => !['node_modules', '.env', 'public'].includes(n));
+  // بننسخ بس ملفات النظام الأونلاين (MySQL) — الريبو فيه ملفات قديمة (SQL Server) فيها بيانات اتصال حقيقية، مينفعش تروح الديمو
+  const KEEP = ['server.js', 'database.js', 'package.json', 'package-lock.json', 'routes', 'lib', 'db'];
+  for (const n of KEEP) if (fs.existsSync(path.join(srv, n))) copy(path.join(srv, n), path.join(dst, n), (p, f) => f !== 'node_modules' && f !== '.env');
   copy(path.join(work, 'build'), path.join(dst, 'public'));
   copy(path.join(HERE, 'overlays/passports/demo-launch.js'), path.join(dst, 'demo-launch.js'));
   copy(path.join(HERE, 'overlays/passports/demo-banner.js'), path.join(dst, 'public/demo-banner.js'));
@@ -154,7 +156,14 @@ for (const k of ['compression', 'multer', 'express']) if (hrPkg.dependencies[k])
 for (const [k, v] of Object.entries(ppPkg.dependencies)) if (!deps[k]) deps[k] = v;
 fs.writeFileSync(path.join(DIST, 'package.json'), JSON.stringify({
   name: 'ahmedalkholy-site', version: '1.0.0', private: true, description: 'Ahmed Alkholy — portfolio + live demos',
-  main: 'gateway.js', scripts: { start: 'node gateway.js' }, engines: { node: '>=20' }, dependencies: deps
+  main: 'server.js', scripts: { start: 'node server.js' }, engines: { node: '>=20' }, dependencies: deps
 }, null, 2) + '\n');
 
+/* 6) server.js على الجذر (هوستنجر بيطلب ملف دخول) + ملف zip جاهز للرفع من غير node_modules */
+fs.writeFileSync(path.join(DIST, 'server.js'), "'use strict';\nrequire('./gateway.js');\n");
+const ZIP = path.join(REPO, 'ahmedalkholy-app.zip');
+rm(ZIP);
+execFileSync('zip', ['-q', '-r', ZIP, '.', '-x', 'node_modules/*', 'data/*', '.env'], { cwd: DIST });
+
 console.log('\nتمام ✓  الناتج في:', DIST);
+console.log('ملف الرفع:', ZIP);
