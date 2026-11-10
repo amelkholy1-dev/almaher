@@ -1,5 +1,5 @@
 {
-  "_v": 2,
+  "_v": 3,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -20,30 +20,17 @@
       "en": "Business Systems Specialist • IT Support & Operations"
     },
     "lead": {
-      "ar": "أحوّل العمل اليومي للشركات إلى أنظمة منظّمة تعمل بكفاءة: من تحليل الاحتياج وبناء النظام إلى التشغيل وتدريب الفريق والدعم المستمر. خبرة عملية قرابة 4 سنوات، وأنظمة تعمل فعلياً داخل عدة شركات.",
-      "en": "I turn day-to-day company operations into well-structured systems that run reliably — from requirements analysis and build to deployment, team training and ongoing support. Nearly 4 years of hands-on experience, with systems running in several companies."
+      "ar": "مطوّر أنظمة أبني حلولاً مخصصة لإدارة الأعمال. أفهم طبيعة عملك أولاً، ثم أبني الحل المناسب وأشغّله وأدرّب فريقك، وأبقى بجانبك بعد التشغيل. وإلى جانب ذلك أعمل فري لانسر منذ 2014 في التصميم والمواقع وإدارة البيانات.",
+      "en": "I am a systems developer building custom business solutions. I understand how your business works first, then build the right solution, put it into operation, train your team and stay by your side after launch. Alongside that, I have been a freelancer since 2014 in design, websites and data management."
     },
     "availLabel": {
-      "ar": "متاح للعمل:",
-      "en": "Available for:"
+      "ar": "",
+      "en": ""
     },
-    "modes": [
-      {
-        "ar": "دوام من المقر",
-        "en": "On-site, full-time"
-      },
-      {
-        "ar": "عن بُعد",
-        "en": "Remote"
-      },
-      {
-        "ar": "مشاريع حرة",
-        "en": "Freelance projects"
-      }
-    ],
+    "modes": [],
     "location": {
-      "ar": "الجيزة، مصر — مصر ودول الخليج وعن بُعد",
-      "en": "Giza, Egypt — Egypt, the Gulf and remote"
+      "ar": "الجيزة، مصر — أعمل مع عملاء في مصر والخليج وعن بُعد",
+      "en": "Giza, Egypt — working with clients in Egypt, the Gulf and remotely"
     },
     "heroChips": [
       {
@@ -54,10 +41,10 @@
         }
       },
       {
-        "icon": "support",
+        "icon": "palette",
         "text": {
-          "ar": "دعم فني وشبكات",
-          "en": "IT support & networks"
+          "ar": "فري لانسر منذ 2014",
+          "en": "Freelancer since 2014"
         }
       }
     ],
@@ -73,12 +60,12 @@
     },
     "seo": {
       "title": {
-        "ar": "أحمد ماهر الخولي | أخصائي أنظمة وحلول أعمال ودعم فني",
-        "en": "Ahmed Maher Alkholy | Business Systems Specialist & IT Support"
+        "ar": "أحمد ماهر الخولي | مطوّر أنظمة وحلول أعمال • فري لانسر منذ 2014",
+        "en": "Ahmed Maher Alkholy | Business Systems Developer • Freelancer since 2014"
       },
       "description": {
-        "ar": "أنظمة إدارة أعمال ومواقع وتطبيقات تعمل فعلياً داخل الشركات، ودعم فني وشبكات وتشغيل إداري. الجيزة، مصر — متاح في مصر والخليج وعن بُعد.",
-        "en": "Business systems, websites and apps running inside real companies, plus IT support, networks and operations. Giza, Egypt — available in Egypt, the Gulf and remote."
+        "ar": "أنظمة إدارة أعمال ومواقع وتطبيقات تعمل فعلياً داخل الشركات، وتصميم سوشيال ميديا، ودعم فني وتشغيل. فري لانسر منذ 2014. الجيزة، مصر.",
+        "en": "Business management systems, websites and apps running inside real companies, plus social-media design, IT support and operations. Freelancer since 2014. Giza, Egypt."
       }
     },
     "demoNotice": {
@@ -100,15 +87,15 @@
       }
     },
     "footer": {
-      "ar": "أخصائي أنظمة وحلول أعمال • دعم فني وتشغيل",
-      "en": "Business Systems Specialist • IT Support & Operations"
+      "ar": "مطوّر أنظمة وحلول أعمال • فري لانسر منذ 2014",
+      "en": "Business Systems Developer • Freelancer since 2014"
     }
   },
   "stats": [
     {
       "value": {
-        "ar": "قرابة 4",
-        "en": "Nearly 4"
+        "ar": "قرابة 6",
+        "en": "Nearly 6"
       },
       "label": {
         "ar": "سنوات خبرة عملية",
@@ -117,18 +104,18 @@
     },
     {
       "value": {
-        "ar": "نظامان",
-        "en": "2 systems"
+        "ar": "7",
+        "en": "7"
       },
       "label": {
-        "ar": "يعملان في عدة شركات",
-        "en": "running in several companies"
+        "ar": "أنظمة ومشاريع منفّذة",
+        "en": "systems & projects delivered"
       }
     },
     {
       "value": {
-        "ar": "+20",
-        "en": "20+"
+        "ar": "+30",
+        "en": "30+"
       },
       "label": {
         "ar": "مستخدم يعتمدون على أنظمتي يومياً",
@@ -137,12 +124,12 @@
     },
     {
       "value": {
-        "ar": "+100",
-        "en": "100+"
+        "ar": "+150",
+        "en": "150+"
       },
       "label": {
-        "ar": "تصميم سوشيال ميديا",
-        "en": "social media designs"
+        "ar": "تصميم لشركات وصفحات",
+        "en": "designs for companies & pages"
       }
     }
   ],
@@ -228,24 +215,28 @@
       "en": "About me"
     },
     "title": {
-      "ar": "أبني أنظمة تُشغَّل فعلياً، لا عروضاً شكلية",
-      "en": "I build systems that actually run — not just good-looking demos"
+      "ar": "أنظمة تعمل، وفرق تتدرّب، ودعم مستمر",
+      "en": "Systems that work, teams that get trained, support that lasts"
     },
     "paragraphs": [
       {
-        "ar": "أنا أحمد ماهر الخولي من الجيزة. أعمل منذ فبراير 2023 في مكتب لإلحاق العمالة بالخارج، مسؤولاً عن الدعم الفني والشبكة، وتنظيم البيانات والأرشفة، ومتابعة إجراءات آلاف الملفات مع الجهات الحكومية والشركاء. ومن قلب الشغل اليومي صممتُ للمكتب نظاماً مركزياً للملفات والحسابات استبدل ملفات Excel المتفرقة والورق، وأصبح النظام الأساسي للعمل.",
-        "en": "I am Ahmed Maher Alkholy, based in Giza. Since February 2023 I have worked at an overseas-recruitment office, responsible for IT support and the network, data organisation and archiving, and tracking multi-stage procedures for thousands of files with government bodies and partners. From that daily work I designed a central system for files and accounts that replaced scattered Excel sheets and paper, and became the office’s core system."
+        "ar": "أعمل منذ فبراير 2023 منسقاً للعمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج، أتابع آلاف الملفات عبر مراحل الكشف الطبي والبصمة والقنصلية والتأشيرة والسفر، وأدعم الأجهزة والشبكة.",
+        "en": "Since February 2023 I have worked as an Operations & Systems Coordinator at an Egyptian overseas-recruitment office, following thousands of files through the medical check, fingerprint, consulate, visa and travel stages, and supporting the devices and network."
       },
       {
-        "ar": "بعدها صممتُ ونفّذتُ نظاماً للموارد البشرية والتوظيف يعمل في عدة شركات، ومواقع للشركات بلوحات تحكم كاملة، وتطبيق موبايل للأندرويد. أتولّى المشروع من أوله لآخره: تحليل الاحتياج، وتصميم سير العمل، والتنفيذ، والاختبار، والتشغيل على الاستضافة أو شبكة الشركة، ثم تدريب المستخدمين والدعم بعد التشغيل.",
-        "en": "I then designed and delivered an HR and recruitment system used by several companies, company websites with full admin panels, and an Android app. I own a project end to end: requirements analysis, workflow design, delivery, testing, deployment on hosting or the company network, then user training and post-launch support."
+        "ar": "من قلب العمل اليومي صممتُ نظاماً مركزياً للملفات والحسابات حلّ محل ملفات Excel المتفرقة والورق، وأصبح النظام الأساسي للمكتب. نزل وقت تسجيل الملف من دقائق إلى ثوانٍ، وتوقفت حالات فقد الجوازات بعد نظام الترقيم والأرشفة.",
+        "en": "From the daily work I designed a central system for files and accounts that replaced scattered Excel sheets and paper and became the office’s core system. File registration time dropped from minutes to seconds, and passport losses stopped after the numbering-and-archiving system."
       },
       {
-        "ar": "**أبحث عن:** وظيفة بدوام كامل من المقر في مصر أو الخليج، أو عمل عن بُعد، أو مشاريع حرة في الأنظمة والمواقع والدعم الفني والتشغيل الإداري وإدخال البيانات وتصميم السوشيال ميديا.",
-        "en": "**Looking for:** a full-time on-site role in Egypt or the Gulf, remote work, or freelance projects in systems, websites, IT support, operations, data entry and social-media design."
+        "ar": "وإلى جانب العمل الوظيفي، أعمل فري لانسر منذ عام 2014 في تصميم السوشيال ميديا والإعلانات، والمواقع التعريفية، وإدخال البيانات وتنظيم ملفات Excel، وقد نفّذتُ أكثر من 150 تصميماً لشركات وصفحات. ومنذ 2024 أضفتُ إلى ذلك تصميم وتنفيذ أنظمة إدارة الأعمال والمواقع وتطبيقات الموبايل.",
+        "en": "Alongside my employment, I have worked as a freelancer since 2014 in social-media and ad design, company websites, data entry and Excel organisation, and have delivered 150+ designs for companies and pages. Since 2024 I have added designing and building business systems, websites and mobile apps."
+      },
+      {
+        "ar": "مع الوقت صار عندي ما يشبه فريقاً صغيراً في شخص واحد: أحلل الاحتياج وأصمم وأنفّذ وأشغّل وأدرّب، وهذا يوفّر على العميل التنسيق بين أكثر من جهة.",
+        "en": "Over time I became something like a small team in one person: I analyse the need, design, build, deploy and train — which saves the client from coordinating between several parties."
       }
     ],
-    "highlightLast": true,
+    "highlightLast": false,
     "facts": [
       {
         "icon": "cal",
@@ -254,8 +245,8 @@
           "en": "Experience"
         },
         "text": {
-          "ar": "قرابة 4 سنوات (منذ فبراير 2023)",
-          "en": "Nearly 4 years (since February 2023)"
+          "ar": "فري لانسر منذ 2014، وبدوام كامل منذ فبراير 2023",
+          "en": "Freelancer since 2014, full-time since February 2023"
         }
       },
       {
@@ -283,12 +274,12 @@
       {
         "icon": "pin",
         "title": {
-          "ar": "المكان والتوفر",
-          "en": "Location & availability"
+          "ar": "المكان",
+          "en": "Location"
         },
         "text": {
-          "ar": "الجيزة، مصر — مستعد للعمل بنظام الورديات وللانتقال داخل مصر والخليج",
-          "en": "Giza, Egypt — open to shift work and relocation within Egypt and the Gulf"
+          "ar": "الجيزة، مصر — أعمل مع عملاء في مصر والخليج وعن بُعد",
+          "en": "Giza, Egypt — working with clients in Egypt, the Gulf and remotely"
         }
       },
       {
@@ -390,8 +381,8 @@
       "en": "How can I help?"
     },
     "sub": {
-      "ar": "كموظف بدوام كامل من المقر، أو عن بُعد، أو بنظام المشروع.",
-      "en": "As a full-time on-site employee, remotely, or per project."
+      "ar": "أنظمة ومواقع وتطبيقات وتصميم، مع التشغيل والتدريب والدعم — بنظام المشروع أو العمل عن بُعد أو من المقر.",
+      "en": "Systems, websites, apps and design — with deployment, training and support — per project, remotely or on-site."
     },
     "items": [
       {
@@ -401,8 +392,8 @@
           "en": "Business management systems"
         },
         "text": {
-          "ar": "أنظمة مخصصة للعمليات والحسابات والمخازن والموارد البشرية: صلاحيات دقيقة، ومتابعة مراحل، وتقارير، وتصدير Excel وPDF، ونسخ احتياطي.",
-          "en": "Tailored systems for operations, accounting, inventory and HR: granular permissions, stage tracking, reports, Excel/PDF export and backups."
+          "ar": "أنظمة مخصصة للعمليات والحسابات والمخازن والموارد البشرية: صلاحيات دقيقة، ومتابعة مراحل، وتقارير، وتصدير Excel وPDF، ونسخ احتياطي. أبدأ من فهم شغلك، لا من قالب جاهز.",
+          "en": "Tailored systems for operations, accounting, inventory and HR: granular permissions, stage tracking, reports, Excel/PDF export and backups. I start from understanding your business, not from a ready-made template."
         },
         "tags": [
           {
@@ -427,8 +418,8 @@
           "en": "Company websites & admin panels"
         },
         "text": {
-          "ar": "مواقع بالعربية والإنجليزية سريعة ومتجاوبة مع الموبايل، بلوحة تحكم يعدّل منها صاحب الشركة كل المحتوى بنفسه.",
-          "en": "Fast, mobile-friendly Arabic/English websites with an admin panel so the owner edits all content themselves."
+          "ar": "مواقع بالعربية والإنجليزية سريعة ومتجاوبة مع الموبايل، بلوحة تحكم يعدّل منها صاحب الشركة كل المحتوى بنفسه من غير الرجوع لمبرمج.",
+          "en": "Fast, mobile-friendly Arabic/English websites with an admin panel so the owner edits every piece of content without going back to a developer."
         },
         "tags": [
           {
@@ -449,8 +440,30 @@
           "en": "Mobile apps"
         },
         "text": {
-          "ar": "تطبيقات أندرويد بواجهة حديثة تعمل بدون إنترنت وتتزامن تلقائياً عند الاتصال، مع إشعارات وتسجيل دخول.",
-          "en": "Modern Android apps that work offline and sync automatically, with notifications and sign-in."
+          "ar": "تطبيقات أندرويد بواجهة حديثة تعمل بدون إنترنت وتتزامن تلقائياً عند الاتصال، مع إشعارات وتسجيل دخول آمن.",
+          "en": "Modern Android apps that work offline and sync automatically when connected, with notifications and secure sign-in."
+        },
+        "tags": [
+          {
+            "ar": "عمل حر",
+            "en": "Freelance"
+          },
+          {
+            "ar": "عن بُعد",
+            "en": "Remote"
+          }
+        ],
+        "goldFirst": true
+      },
+      {
+        "icon": "palette",
+        "title": {
+          "ar": "تصميم السوشيال ميديا والإعلانات",
+          "en": "Social media & ad design"
+        },
+        "text": {
+          "ar": "منذ 2014: تصميم إعلانات ومنشورات على Canva وPhotoshop لشركات وصفحات (أكثر من 150 تصميماً)، وإدارة الصفحات والحملات الممولة على Meta Business Suite.",
+          "en": "Since 2014: ads and posts on Canva and Photoshop for companies and pages (150+ designs), plus page management and paid campaigns on Meta Business Suite."
         },
         "tags": [
           {
@@ -471,8 +484,8 @@
           "en": "Automation & document data extraction"
         },
         "text": {
-          "ar": "قراءة الجوازات والسير الذاتية والمستندات وتحويلها لسجلات منظمة (OCR)، ومطابقة المرشحين مع الوظائف، وتقليل الإدخال اليدوي.",
-          "en": "Reading passports, CVs and documents into structured records (OCR), matching candidates to jobs and cutting manual entry."
+          "ar": "قراءة الجوازات والسير الذاتية والمستندات وتحويلها لسجلات منظمة (OCR)، ومطابقة المرشحين بالوظائف، وتقليل الإدخال اليدوي والأخطاء.",
+          "en": "Reading passports, CVs and documents into structured records (OCR), matching candidates to jobs, and cutting manual entry and errors."
         },
         "tags": [
           {
@@ -487,14 +500,14 @@
         "goldFirst": true
       },
       {
-        "icon": "support",
+        "icon": "users",
         "title": {
-          "ar": "الدعم الفني والشبكات",
-          "en": "IT support & networks"
+          "ar": "تشغيل الأنظمة والتدريب",
+          "en": "System rollout & training"
         },
         "text": {
-          "ar": "تثبيت Windows والبرامج، وحل أعطال الأجهزة، والشبكات المحلية والراوتر، والطابعات والماسحات، والوصول عن بُعد، والنسخ الاحتياطي.",
-          "en": "Windows and software installation, hardware troubleshooting, LANs and routers, printers and scanners, remote access and backups."
+          "ar": "تشغيل أنظمة الإدارة داخل الشركة، ونقل البيانات من Excel والأنظمة القديمة، وتدريب الموظفين، ودعم ما بعد التشغيل.",
+          "en": "Rolling out management systems inside the company, migrating data from Excel and legacy systems, training staff and supporting after launch."
         },
         "tags": [
           {
@@ -509,14 +522,14 @@
         "goldFirst": false
       },
       {
-        "icon": "users",
+        "icon": "support",
         "title": {
-          "ar": "تشغيل الأنظمة والتدريب",
-          "en": "System rollout & training"
+          "ar": "الدعم الفني والشبكات",
+          "en": "IT support & networks"
         },
         "text": {
-          "ar": "تشغيل أنظمة الإدارة داخل الشركة، ونقل البيانات من Excel، وتدريب الموظفين، والدعم بعد التشغيل.",
-          "en": "Rolling out management systems inside the company, migrating data from Excel, training staff and supporting after launch."
+          "ar": "تثبيت Windows والبرامج، وحل أعطال الأجهزة، والشبكات المحلية والراوتر، والطابعات والماسحات، والوصول عن بُعد، والنسخ الاحتياطي.",
+          "en": "Windows and software installation, hardware troubleshooting, LANs and routers, printers and scanners, remote access and backups."
         },
         "tags": [
           {
@@ -542,19 +555,19 @@
         },
         "tags": [
           {
-            "ar": "من المقر",
-            "en": "On-site"
+            "ar": "عمل حر",
+            "en": "Freelance"
           },
           {
             "ar": "عن بُعد",
             "en": "Remote"
           },
           {
-            "ar": "عمل حر",
-            "en": "Freelance"
+            "ar": "من المقر",
+            "en": "On-site"
           }
         ],
-        "goldFirst": false
+        "goldFirst": true
       },
       {
         "icon": "ops",
@@ -577,28 +590,6 @@
           }
         ],
         "goldFirst": false
-      },
-      {
-        "icon": "palette",
-        "title": {
-          "ar": "تصميم السوشيال ميديا",
-          "en": "Social media design"
-        },
-        "text": {
-          "ar": "إعلانات ومنشورات على Canva وPhotoshop، وإدارة الصفحات والإعلانات الممولة على Meta Business Suite.",
-          "en": "Ads and posts on Canva and Photoshop, plus page management and paid campaigns on Meta Business Suite."
-        },
-        "tags": [
-          {
-            "ar": "عمل حر",
-            "en": "Freelance"
-          },
-          {
-            "ar": "عن بُعد",
-            "en": "Remote"
-          }
-        ],
-        "goldFirst": true
       }
     ]
   },
@@ -1454,107 +1445,107 @@
       {
         "visible": true,
         "date": {
-          "ar": "فبراير 2023 – حتى الآن\n        \n          منسق العمليات والأنظمة",
+          "ar": "فبراير 2023 – حتى الآن",
           "en": "Feb 2023 – Present"
         },
         "role": {
-          "ar": "",
+          "ar": "منسق العمليات والأنظمة",
           "en": "Operations & Systems Coordinator"
         },
         "org": {
           "ar": "مكتب نسر الخليج لإلحاق العمالة المصرية بالخارج – الجيزة، مصر",
-          "en": "Nasr Al Khaleej Office for Recruiting Egyptian Manpower Abroad – Giza, Egypt"
+          "en": "Nesr El-Khaleej Overseas Recruitment Office – Giza, Egypt"
         },
         "bullets": [
           {
-            "ar": "استبدلتُ ملفات Excel المتفرقة والسجلات الورقية بنظام قاعدة بيانات مركزي طوّرته، وأصبح النظام الأساسي الذي يعتمد عليه المكتب في السجلات ومتابعة الإجراءات والحسابات.",
-            "en": "Replaced scattered Excel files and paper records with a central database system I developed; it became the core system the office relies on for records, process tracking and accounts."
+            "ar": "صممتُ نظاماً مركزياً للملفات والحسابات استبدل ملفات Excel المتفرقة والسجلات الورقية، وأصبح النظام الأساسي الذي يعتمد عليه المكتب.",
+            "en": "Designed a central system for files and accounts that replaced scattered Excel sheets and paper records and became the office’s core system."
           },
           {
-            "ar": "قلّلتُ وقت تسجيل الملف الواحد من عدة دقائق إلى ثوانٍ باستخدام استخراج البيانات من الصور (OCR) وخاصية الإدخال السريع.",
-            "en": "Reduced file registration time from minutes to seconds using OCR data extraction and quick-entry features."
+            "ar": "خفّضتُ وقت تسجيل الملف الواحد من عدة دقائق إلى ثوانٍ باستخدام استخراج البيانات من الصور (OCR) والإدخال السريع.",
+            "en": "Cut the time to register a file from several minutes to seconds using OCR data extraction and fast entry."
           },
           {
-            "ar": "صممتُ نظام ترقيم وأرشفة يربط كل ملف ورقي بسجله الإلكتروني، وبعد تطبيقه توقفت حالات فقد الجوازات تماماً.",
-            "en": "Designed a numbering and archiving system that links every paper file to its digital record; passport losses stopped completely after implementation."
+            "ar": "ابتكرتُ نظام ترقيم وأرشفة يربط كل ملف ورقي بسجله الإلكتروني، فتوقفت حالات فقد الجوازات تماماً.",
+            "en": "Created a numbering-and-archiving system linking every paper file to its electronic record, which stopped passport losses entirely."
           },
           {
-            "ar": "أقدّم الدعم الفني لـ 9 أجهزة داخل المكتب: تثبيت الأنظمة والبرامج، وحل الأعطال، وإعداد الشبكة المحلية، والطابعات والماسحات، والنسخ الاحتياطي.",
-            "en": "Provide IT support for 9 office workstations: system and software installation, troubleshooting, local network setup, printers, scanners and backups."
+            "ar": "أقدّم الدعم الفني لـ 9 أجهزة والشبكة المحلية والطابعات والماسحات والنسخ الاحتياطي.",
+            "en": "Provide IT support for 9 devices, the local network, printers, scanners and backups."
           },
           {
-            "ar": "أتابع الإجراءات متعددة المراحل لآلاف الملفات (الكشف الطبي، والإجراءات القنصلية، والتأشيرات، والسفر)، وأتعامل مع الجهات الحكومية والشركاء.",
-            "en": "Track multi-stage procedures (medical checks, consular procedures, visas and travel) for thousands of client files, working with government offices and partners."
+            "ar": "أتابع الإجراءات متعددة المراحل لآلاف الملفات (كشف طبي، بصمة، قنصلية، تأشيرة، سفر) مع الجهات الحكومية والشركاء.",
+            "en": "Track multi-stage procedures for thousands of files (medical, fingerprint, consulate, visa, travel) with government bodies and partners."
           },
           {
-            "ar": "أصمم إعلانات ومنشورات الشركة، وأدير صفحاتها وحملاتها الممولة عبر Meta Business Suite.",
-            "en": "Design company ads and social media posts, and manage company pages and paid campaigns via Meta Business Suite."
+            "ar": "أصمم إعلانات الشركة وأدير صفحاتها وحملاتها الممولة على Meta Business Suite.",
+            "en": "Design the company’s ads and manage its pages and paid campaigns on Meta Business Suite."
           }
         ]
       },
       {
         "visible": true,
         "date": {
-          "ar": "يناير 2024 – حتى الآن\n        \n          مطوّر مستقل لأنظمة الأعمال والمواقع",
-          "en": "Jan 2024 – Present"
+          "ar": "2014 – حتى الآن",
+          "en": "2014 – Present"
         },
         "role": {
-          "ar": "مطوّر ومُشغّل أنظمة أعمال ومواقع (عمل حر)",
-          "en": "Business Systems & Websites Developer (Freelance)"
+          "ar": "فري لانسر: تصميم، مواقع، بيانات، وأنظمة أعمال",
+          "en": "Freelancer: Design, Websites, Data & Business Systems"
         },
         "org": {
-          "ar": "عمل حر – عن بُعد",
-          "en": "Freelance – Remote"
+          "ar": "عمل حر – عن بُعد ومن المقر",
+          "en": "Self-employed – remote and on-site"
         },
         "bullets": [
           {
-            "ar": "صممتُ وطوّرتُ نظامين لإدارة الأعمال يعملان في عدة شركات، ويتجاوز عدد مستخدميهما 20 مستخدماً.",
-            "en": "Designed and built two business management systems now used by several companies, with 20+ active users."
+            "ar": "منذ 2014: أنفّذ مشاريع حرة في تصميم السوشيال ميديا والإعلانات لشركات وصفحات (أكثر من 150 تصميماً) على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.",
+            "en": "Since 2014: deliver freelance social-media and ad design for companies and pages (150+ designs) on Canva and Photoshop, and manage pages and paid campaigns."
           },
           {
-            "ar": "طوّرتُ مواقع للشركات بلوحات تحكم كاملة، وتطبيق موبايل للأندرويد.",
-            "en": "Developed company websites with full admin panels, and an Android mobile app."
+            "ar": "أنفّذ أعمال إدخال البيانات وتنظيم ملفات Excel وتحويل المستندات، ومواقع تعريفية وصفحات هبوط للشركات.",
+            "en": "Deliver data-entry work, Excel organisation and document conversion, plus company brochure websites and landing pages."
           },
           {
-            "ar": "أتولّى دورة التنفيذ كاملة: فهم احتياج العميل، وتصميم سير العمل، والتطوير، والاختبار، والعرض على العميل، والبيع.",
-            "en": "Handle the full cycle: understanding client needs, designing workflows, building, testing, presenting demos to clients, and closing sales."
+            "ar": "منذ 2024: صممتُ وطوّرتُ أنظمة إدارة أعمال تعمل في عدة شركات ويستخدمها أكثر من 30 مستخدماً، ومواقع بلوحات تحكم، وتطبيق أندرويد.",
+            "en": "Since 2024: designed and built business management systems running in several companies with 30+ users, websites with admin panels, and an Android app."
           },
           {
-            "ar": "أشغّل الأنظمة على أجهزة الشركات عبر الشبكة المحلية أو على الاستضافة، وأهيّئ الوصول من خارج الشركة (IP ثابت، و Port Forwarding، والجدار الناري)، وأدير النسخ الاحتياطي.",
-            "en": "Deploy systems on company computers over local networks or on hosting, configure remote access (static IP, port forwarding, firewall), and manage backups."
+            "ar": "أتولى الدورة كاملة: تحليل الاحتياج، وتصميم سير العمل، والتنفيذ، والاختبار، والتشغيل على الاستضافة أو شبكة الشركة.",
+            "en": "Own the full cycle: requirements analysis, workflow design, build, testing, and deployment on hosting or the company network."
           },
           {
-            "ar": "أدرّب الموظفين على استخدام الأنظمة، وأقدّم الدعم الفني والتعديلات والتحديثات بعد التشغيل.",
-            "en": "Train staff to use the systems and provide technical support, changes and updates after launch."
+            "ar": "أدرّب الموظفين، وأقدّم الدعم والتعديلات والتحديثات بعد التشغيل.",
+            "en": "Train staff and provide support, changes and updates after launch."
           }
         ]
       },
       {
         "visible": true,
         "date": {
-          "ar": "مايو 2025 – أغسطس 2025\n        \n          منسق عمليات النقل (مهمة عمل مؤقتة)",
+          "ar": "مايو 2025 – أغسطس 2025",
           "en": "May 2025 – Aug 2025"
         },
         "role": {
-          "ar": "",
-          "en": "Transport Operations Coordinator (Temporary Assignment)"
+          "ar": "منسق عمليات النقل (مهمة مؤقتة)",
+          "en": "Transport Operations Coordinator (temporary assignment)"
         },
         "org": {
           "ar": "شركة حسين حجازي للنقل والعمرة – مكة المكرمة، السعودية",
-          "en": "Hussein Hegazy Transport and Umrah Company – Makkah, Saudi Arabia"
+          "en": "Hussein Hegazy Transport & Umrah Company – Makkah, Saudi Arabia"
         },
         "bullets": [
           {
             "ar": "نسّقتُ رحلات نقل المعتمرين والموظفين، وتابعتُ الجداول والمواعيد مع السائقين وفرق التشغيل.",
-            "en": "Coordinated transport trips for pilgrims and staff, managing schedules and timings with drivers and operations teams."
+            "en": "Coordinated transport trips for pilgrims and staff and followed schedules and timings with drivers and operations teams."
           },
           {
             "ar": "تعاملتُ مع التغييرات المفاجئة والحالات العاجلة، وأعددتُ تقارير التشغيل اليومية.",
-            "en": "Handled last-minute changes and urgent cases, and prepared daily operations reports."
+            "en": "Handled sudden changes and urgent cases and prepared daily operations reports."
           },
           {
             "ar": "عملتُ مكتبياً وميدانياً في ورديات ممتدة خلال موسم عالي الضغط.",
-            "en": "Worked in office and field roles on extended shifts during a high-pressure season."
+            "en": "Worked in the office and in the field on extended shifts during a high-pressure season."
           }
         ]
       }
@@ -1845,8 +1836,12 @@
             "en": "Paid campaigns"
           },
           {
-            "ar": "تصميم الإعلانات والمنشورات",
-            "en": "Ad & post design"
+            "ar": "تصميم الإعلانات والمنشورات (+150 تصميماً)",
+            "en": "Ad & post design (150+ designs)"
+          },
+          {
+            "ar": "تصميم مواقع تعريفية وصفحات هبوط",
+            "en": "Brochure sites & landing pages"
           }
         ]
       },
@@ -1857,6 +1852,10 @@
           "en": "Professional strengths"
         },
         "items": [
+          {
+            "ar": "العمل الحر وإدارة المشاريع باستقلالية",
+            "en": "Independent freelance project management"
+          },
           {
             "ar": "الالتزام بالمواعيد",
             "en": "Meeting deadlines"
@@ -1895,8 +1894,8 @@
       "en": "Let’s talk"
     },
     "sub": {
-      "ar": "سواء كانت لديك وظيفة، أو مشروع نظام أو موقع أو تطبيق، أو تريد ديمو مباشراً لأحد الأنظمة، يسعدني تواصلك.",
-      "en": "Whether you have a job opening, a system, website or app project, or want a live demo of one of my systems — I’d be glad to hear from you."
+      "ar": "لديك مشروع نظام أو موقع أو تطبيق، أو تحتاج تصميماً أو دعماً فنياً، أو تريد ديمو مباشراً لأحد الأنظمة؟ يسعدني أن أسمع منك.",
+      "en": "Have a system, website or app project, need design or technical support, or want a live demo of one of my systems? I’d be glad to hear from you."
     },
     "formTitle": {
       "ar": "أرسل رسالة سريعة",

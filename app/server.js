@@ -19,6 +19,8 @@ const PORT = Number(process.env.PORT || 3000);
 const log = (...a) => console.log(new Date().toISOString(), ...a);
 
 const store = createStore(path.join(__dirname, 'seed', 'content.json'));
+if (store.upgraded === 'applied') log('[CONTENT] اتحدّث المحتوى الافتراضي لنسخة أحدث (النسخة القديمة محفوظة في النسخ الاحتياطية)');
+else if (store.upgraded === 'skipped-edited') log('[CONTENT] فيه نسخة محتوى افتراضي أحدث، بس محتواك معدّل من اللوحة فماتغيّرش. لو عايزها: الحساب ← إعادة المحتوى للافتراضي.');
 const auth = createAuth(store, process.env);
 auth.bootstrap(log);
 const renderer = createRenderer(PUBLIC);
@@ -90,6 +92,7 @@ api.get('/content', (req, res) => res.json({ ok: true, content: store.getContent
 api.put('/content', express.json({ limit: '3mb' }), (req, res) => {
   const c = store.clean(req.body && req.body.content);
   if (!c || typeof c !== 'object' || Array.isArray(c) || !c.settings || !c.layout) return res.status(400).json({ ok: false, message: 'المحتوى مش مكتمل.' });
+  c._edited = true; // من هنا ورايح، التعديلات بتاعتك ومفيش ترقية تلقائية فوقها
   store.setContent(c);
   res.json({ ok: true });
 });

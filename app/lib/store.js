@@ -46,7 +46,19 @@ function createStore(seedFile) {
   }
 
   let content = readJson('content.json', null);
+  let upgraded = null;
   if (!content) { content = JSON.parse(fs.readFileSync(seedFile, 'utf8')); writeJson('content.json', content); }
+  else {
+    /* ترقية المحتوى الافتراضي: لو النسخة الجديدة أحدث ومفيش تعديلات من اللوحة، بنطبّقها (والقديم بيتحفظ نسخة احتياطية) */
+    const seed = JSON.parse(fs.readFileSync(seedFile, 'utf8'));
+    if ((content._v || 0) < (seed._v || 0)) {
+      const edited = !!content._edited || fs.readdirSync(backups).some((n) => /^content-\d/.test(n));
+      if (!edited) {
+        fs.writeFileSync(path.join(backups, 'content-auto-' + new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14) + '.json'), JSON.stringify(content));
+        content = seed; writeJson('content.json', content); upgraded = 'applied';
+      } else upgraded = 'skipped-edited';
+    }
+  }
 
   const stamp = () => new Date().toISOString().replace(/[-:T]/g, '').slice(0, 14);
   let lastBackup = 0;
@@ -61,7 +73,7 @@ function createStore(seedFile) {
   }
 
   return {
-    dir, uploads, backups, readJson, writeJson, clean,
+    dir, uploads, backups, readJson, writeJson, clean, upgraded,
     getContent: () => content,
     setContent(next) { backupNow(); content = next; writeJson('content.json', content); },
     listBackups() { return fs.readdirSync(backups).filter((n) => /^content-.*\.json$/.test(n)).sort().reverse().map((n) => ({ name: n, size: fs.statSync(path.join(backups, n)).size, time: fs.statSync(path.join(backups, n)).mtime.toISOString() })); },

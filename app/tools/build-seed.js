@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 2,
+  _v: 3,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -21,12 +21,12 @@ const content = {
     hello: b('مرحباً، أنا', 'Hello, I am'),
     role: b('أخصائي أنظمة وحلول أعمال • دعم فني وتشغيل', 'Business Systems Specialist • IT Support & Operations'),
     lead: b(
-      'أحوّل العمل اليومي للشركات إلى أنظمة منظّمة تعمل بكفاءة: من تحليل الاحتياج وبناء النظام إلى التشغيل وتدريب الفريق والدعم المستمر. خبرة عملية قرابة 4 سنوات، وأنظمة تعمل فعلياً داخل عدة شركات.',
-      'I turn day-to-day company operations into well-structured systems that run reliably — from requirements analysis and build to deployment, team training and ongoing support. Nearly 4 years of hands-on experience, with systems running in several companies.'),
-    availLabel: b('متاح للعمل:', 'Available for:'),
-    modes: [b('دوام من المقر', 'On-site, full-time'), b('عن بُعد', 'Remote'), b('مشاريع حرة', 'Freelance projects')],
-    location: b('الجيزة، مصر — مصر ودول الخليج وعن بُعد', 'Giza, Egypt — Egypt, the Gulf and remote'),
-    heroChips: [{ icon: 'code', text: b('أنظمة • مواقع • تطبيقات', 'Systems • Websites • Apps') }, { icon: 'support', text: b('دعم فني وشبكات', 'IT support & networks') }],
+      'مطوّر أنظمة أبني حلولاً مخصصة لإدارة الأعمال. أفهم طبيعة عملك أولاً، ثم أبني الحل المناسب وأشغّله وأدرّب فريقك، وأبقى بجانبك بعد التشغيل. وإلى جانب ذلك أعمل فري لانسر منذ 2014 في التصميم والمواقع وإدارة البيانات.',
+      'I am a systems developer building custom business solutions. I understand how your business works first, then build the right solution, put it into operation, train your team and stay by your side after launch. Alongside that, I have been a freelancer since 2014 in design, websites and data management.'),
+    availLabel: b('', ''),
+    modes: [],
+    location: b('الجيزة، مصر — أعمل مع عملاء في مصر والخليج وعن بُعد', 'Giza, Egypt — working with clients in Egypt, the Gulf and remotely'),
+    heroChips: [{ icon: 'code', text: b('أنظمة • مواقع • تطبيقات', 'Systems • Websites • Apps') }, { icon: 'palette', text: b('فري لانسر منذ 2014', 'Freelancer since 2014') }],
     email: 'am.elkholy1@gmail.com',
     whatsapp: '201552084471',
     linkedin: 'https://www.linkedin.com/in/ahmed-alkholy',
@@ -35,8 +35,8 @@ const content = {
     ogImage: 'assets/img/og-image.jpg',
     cv: { ar: 'assets/cv/Ahmed-Alkholy-CV-AR.pdf', en: 'assets/cv/Ahmed-Alkholy-CV-EN.pdf' },
     seo: {
-      title: b('أحمد ماهر الخولي | أخصائي أنظمة وحلول أعمال ودعم فني', 'Ahmed Maher Alkholy | Business Systems Specialist & IT Support'),
-      description: b('أنظمة إدارة أعمال ومواقع وتطبيقات تعمل فعلياً داخل الشركات، ودعم فني وشبكات وتشغيل إداري. الجيزة، مصر — متاح في مصر والخليج وعن بُعد.', 'Business systems, websites and apps running inside real companies, plus IT support, networks and operations. Giza, Egypt — available in Egypt, the Gulf and remote.')
+      title: b('أحمد ماهر الخولي | مطوّر أنظمة وحلول أعمال • فري لانسر منذ 2014', 'Ahmed Maher Alkholy | Business Systems Developer • Freelancer since 2014'),
+      description: b('أنظمة إدارة أعمال ومواقع وتطبيقات تعمل فعلياً داخل الشركات، وتصميم سوشيال ميديا، ودعم فني وتشغيل. فري لانسر منذ 2014. الجيزة، مصر.', 'Business management systems, websites and apps running inside real companies, plus social-media design, IT support and operations. Freelancer since 2014. Giza, Egypt.')
     },
     demoNotice: b('عرض توضيحي تفاعلي ببيانات تجريبية – النظام الكامل متاح عند الطلب', 'Interactive demo with sample data – the full system is available on request'),
     demoNoticeSample: b('نموذج توضيحي تفاعلي ببيانات تجريبية بالكامل – يمكن تنفيذ نظام مماثل حسب احتياج شركتك', 'Interactive concept demo with fully sample data – a similar system can be built around your company’s needs'),
@@ -44,14 +44,14 @@ const content = {
       general: b('مرحباً أحمد، وصلت إليك من موقعك الشخصي وأودّ التواصل معك.', 'Hi Ahmed, I found you through your website and would like to get in touch.'),
       project: b('مرحباً أحمد، شاهدت «{name}» على موقعك، وأرغب في ديمو مباشر ومعرفة المزيد.', 'Hi Ahmed, I saw “{name}” on your website and would like a live demo and more details.')
     },
-    footer: b('أخصائي أنظمة وحلول أعمال • دعم فني وتشغيل', 'Business Systems Specialist • IT Support & Operations')
+    footer: b('مطوّر أنظمة وحلول أعمال • فري لانسر منذ 2014', 'Business Systems Developer • Freelancer since 2014')
   },
 
   stats: [
-    { value: b('قرابة 4', 'Nearly 4'), label: b('سنوات خبرة عملية', 'years of hands-on experience') },
-    { value: b('نظامان', '2 systems'), label: b('يعملان في عدة شركات', 'running in several companies') },
-    { value: b('+20', '20+'), label: b('مستخدم يعتمدون على أنظمتي يومياً', 'users relying on my systems daily') },
-    { value: b('+100', '100+'), label: b('تصميم سوشيال ميديا', 'social media designs') }
+    { value: b('قرابة 6', 'Nearly 6'), label: b('سنوات خبرة عملية', 'years of hands-on experience') },
+    { value: b('7', '7'), label: b('أنظمة ومشاريع منفّذة', 'systems & projects delivered') },
+    { value: b('+30', '30+'), label: b('مستخدم يعتمدون على أنظمتي يومياً', 'users relying on my systems daily') },
+    { value: b('+150', '150+'), label: b('تصميم لشركات وصفحات', 'designs for companies & pages') }
   ],
 
   layout: {
@@ -69,21 +69,23 @@ const content = {
 
   about: {
     kicker: b('نبذة عني', 'About me'),
-    title: b('أبني أنظمة تُشغَّل فعلياً، لا عروضاً شكلية', 'I build systems that actually run — not just good-looking demos'),
+    title: b('أنظمة تعمل، وفرق تتدرّب، ودعم مستمر', 'Systems that work, teams that get trained, support that lasts'),
     paragraphs: [
-      b('أنا أحمد ماهر الخولي من الجيزة. أعمل منذ فبراير 2023 في مكتب لإلحاق العمالة بالخارج، مسؤولاً عن الدعم الفني والشبكة، وتنظيم البيانات والأرشفة، ومتابعة إجراءات آلاف الملفات مع الجهات الحكومية والشركاء. ومن قلب الشغل اليومي صممتُ للمكتب نظاماً مركزياً للملفات والحسابات استبدل ملفات Excel المتفرقة والورق، وأصبح النظام الأساسي للعمل.',
-        'I am Ahmed Maher Alkholy, based in Giza. Since February 2023 I have worked at an overseas-recruitment office, responsible for IT support and the network, data organisation and archiving, and tracking multi-stage procedures for thousands of files with government bodies and partners. From that daily work I designed a central system for files and accounts that replaced scattered Excel sheets and paper, and became the office’s core system.'),
-      b('بعدها صممتُ ونفّذتُ نظاماً للموارد البشرية والتوظيف يعمل في عدة شركات، ومواقع للشركات بلوحات تحكم كاملة، وتطبيق موبايل للأندرويد. أتولّى المشروع من أوله لآخره: تحليل الاحتياج، وتصميم سير العمل، والتنفيذ، والاختبار، والتشغيل على الاستضافة أو شبكة الشركة، ثم تدريب المستخدمين والدعم بعد التشغيل.',
-        'I then designed and delivered an HR and recruitment system used by several companies, company websites with full admin panels, and an Android app. I own a project end to end: requirements analysis, workflow design, delivery, testing, deployment on hosting or the company network, then user training and post-launch support.'),
-      b('**أبحث عن:** وظيفة بدوام كامل من المقر في مصر أو الخليج، أو عمل عن بُعد، أو مشاريع حرة في الأنظمة والمواقع والدعم الفني والتشغيل الإداري وإدخال البيانات وتصميم السوشيال ميديا.',
-        '**Looking for:** a full-time on-site role in Egypt or the Gulf, remote work, or freelance projects in systems, websites, IT support, operations, data entry and social-media design.')
+      b('أعمل منذ فبراير 2023 منسقاً للعمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج، أتابع آلاف الملفات عبر مراحل الكشف الطبي والبصمة والقنصلية والتأشيرة والسفر، وأدعم الأجهزة والشبكة.',
+        'Since February 2023 I have worked as an Operations & Systems Coordinator at an Egyptian overseas-recruitment office, following thousands of files through the medical check, fingerprint, consulate, visa and travel stages, and supporting the devices and network.'),
+      b('من قلب العمل اليومي صممتُ نظاماً مركزياً للملفات والحسابات حلّ محل ملفات Excel المتفرقة والورق، وأصبح النظام الأساسي للمكتب. نزل وقت تسجيل الملف من دقائق إلى ثوانٍ، وتوقفت حالات فقد الجوازات بعد نظام الترقيم والأرشفة.',
+        'From the daily work I designed a central system for files and accounts that replaced scattered Excel sheets and paper and became the office’s core system. File registration time dropped from minutes to seconds, and passport losses stopped after the numbering-and-archiving system.'),
+      b('وإلى جانب العمل الوظيفي، أعمل فري لانسر منذ عام 2014 في تصميم السوشيال ميديا والإعلانات، والمواقع التعريفية، وإدخال البيانات وتنظيم ملفات Excel، وقد نفّذتُ أكثر من 150 تصميماً لشركات وصفحات. ومنذ 2024 أضفتُ إلى ذلك تصميم وتنفيذ أنظمة إدارة الأعمال والمواقع وتطبيقات الموبايل.',
+        'Alongside my employment, I have worked as a freelancer since 2014 in social-media and ad design, company websites, data entry and Excel organisation, and have delivered 150+ designs for companies and pages. Since 2024 I have added designing and building business systems, websites and mobile apps.'),
+      b('مع الوقت صار عندي ما يشبه فريقاً صغيراً في شخص واحد: أحلل الاحتياج وأصمم وأنفّذ وأشغّل وأدرّب، وهذا يوفّر على العميل التنسيق بين أكثر من جهة.',
+        'Over time I became something like a small team in one person: I analyse the need, design, build, deploy and train — which saves the client from coordinating between several parties.')
     ],
-    highlightLast: true,
+    highlightLast: false,
     facts: [
-      { icon: 'cal', title: b('الخبرة', 'Experience'), text: b('قرابة 4 سنوات (منذ فبراير 2023)', 'Nearly 4 years (since February 2023)') },
+      { icon: 'cal', title: b('الخبرة', 'Experience'), text: b('فري لانسر منذ 2014، وبدوام كامل منذ فبراير 2023', 'Freelancer since 2014, full-time since February 2023') },
       { icon: 'cap', title: b('التعليم', 'Education'), text: b('بكالوريوس التربية النوعية – تكنولوجيا التعليم والحاسب الآلي، جامعة المنوفية (2018–2022) – جيد مرتفع', 'B.Ed. in Specific Education – Educational Technology & Computing, Menoufia University (2018–2022) – Very Good') },
       { icon: 'lang', title: b('اللغات', 'Languages'), text: b('العربية (اللغة الأم)، الإنجليزية (قراءة وكتابة جيدة)', 'Arabic (native), English (good reading and writing)') },
-      { icon: 'pin', title: b('المكان والتوفر', 'Location & availability'), text: b('الجيزة، مصر — مستعد للعمل بنظام الورديات وللانتقال داخل مصر والخليج', 'Giza, Egypt — open to shift work and relocation within Egypt and the Gulf') },
+      { icon: 'pin', title: b('المكان', 'Location'), text: b('الجيزة، مصر — أعمل مع عملاء في مصر والخليج وعن بُعد', 'Giza, Egypt — working with clients in Egypt, the Gulf and remotely') },
       { icon: 'car', title: b('رخصة القيادة', 'Driving licence'), text: b('سيارة خاصة ودراجة نارية', 'Private car and motorcycle') }
     ]
   },
@@ -105,17 +107,17 @@ const content = {
   services: {
     kicker: b('الخدمات', 'Services'),
     title: b('كيف يمكنني مساعدتك؟', 'How can I help?'),
-    sub: b('كموظف بدوام كامل من المقر، أو عن بُعد، أو بنظام المشروع.', 'As a full-time on-site employee, remotely, or per project.'),
+    sub: b('أنظمة ومواقع وتطبيقات وتصميم، مع التشغيل والتدريب والدعم — بنظام المشروع أو العمل عن بُعد أو من المقر.', 'Systems, websites, apps and design — with deployment, training and support — per project, remotely or on-site.'),
     items: [
-      { icon: 'sys', title: b('تصميم وتنفيذ أنظمة إدارة الأعمال', 'Business management systems'), text: b('أنظمة مخصصة للعمليات والحسابات والمخازن والموارد البشرية: صلاحيات دقيقة، ومتابعة مراحل، وتقارير، وتصدير Excel وPDF، ونسخ احتياطي.', 'Tailored systems for operations, accounting, inventory and HR: granular permissions, stage tracking, reports, Excel/PDF export and backups.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote'), b('من المقر', 'On-site')], goldFirst: true },
-      { icon: 'web', title: b('مواقع الشركات ولوحات التحكم', 'Company websites & admin panels'), text: b('مواقع بالعربية والإنجليزية سريعة ومتجاوبة مع الموبايل، بلوحة تحكم يعدّل منها صاحب الشركة كل المحتوى بنفسه.', 'Fast, mobile-friendly Arabic/English websites with an admin panel so the owner edits all content themselves.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
-      { icon: 'phone', title: b('تطبيقات الموبايل', 'Mobile apps'), text: b('تطبيقات أندرويد بواجهة حديثة تعمل بدون إنترنت وتتزامن تلقائياً عند الاتصال، مع إشعارات وتسجيل دخول.', 'Modern Android apps that work offline and sync automatically, with notifications and sign-in.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
-      { icon: 'ai', title: b('الأتمتة واستخراج البيانات من المستندات', 'Automation & document data extraction'), text: b('قراءة الجوازات والسير الذاتية والمستندات وتحويلها لسجلات منظمة (OCR)، ومطابقة المرشحين مع الوظائف، وتقليل الإدخال اليدوي.', 'Reading passports, CVs and documents into structured records (OCR), matching candidates to jobs and cutting manual entry.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
+      { icon: 'sys', title: b('تصميم وتنفيذ أنظمة إدارة الأعمال', 'Business management systems'), text: b('أنظمة مخصصة للعمليات والحسابات والمخازن والموارد البشرية: صلاحيات دقيقة، ومتابعة مراحل، وتقارير، وتصدير Excel وPDF، ونسخ احتياطي. أبدأ من فهم شغلك، لا من قالب جاهز.', 'Tailored systems for operations, accounting, inventory and HR: granular permissions, stage tracking, reports, Excel/PDF export and backups. I start from understanding your business, not from a ready-made template.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote'), b('من المقر', 'On-site')], goldFirst: true },
+      { icon: 'web', title: b('مواقع الشركات ولوحات التحكم', 'Company websites & admin panels'), text: b('مواقع بالعربية والإنجليزية سريعة ومتجاوبة مع الموبايل، بلوحة تحكم يعدّل منها صاحب الشركة كل المحتوى بنفسه من غير الرجوع لمبرمج.', 'Fast, mobile-friendly Arabic/English websites with an admin panel so the owner edits every piece of content without going back to a developer.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
+      { icon: 'phone', title: b('تطبيقات الموبايل', 'Mobile apps'), text: b('تطبيقات أندرويد بواجهة حديثة تعمل بدون إنترنت وتتزامن تلقائياً عند الاتصال، مع إشعارات وتسجيل دخول آمن.', 'Modern Android apps that work offline and sync automatically when connected, with notifications and secure sign-in.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
+      { icon: 'palette', title: b('تصميم السوشيال ميديا والإعلانات', 'Social media & ad design'), text: b('منذ 2014: تصميم إعلانات ومنشورات على Canva وPhotoshop لشركات وصفحات (أكثر من 150 تصميماً)، وإدارة الصفحات والحملات الممولة على Meta Business Suite.', 'Since 2014: ads and posts on Canva and Photoshop for companies and pages (150+ designs), plus page management and paid campaigns on Meta Business Suite.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
+      { icon: 'ai', title: b('الأتمتة واستخراج البيانات من المستندات', 'Automation & document data extraction'), text: b('قراءة الجوازات والسير الذاتية والمستندات وتحويلها لسجلات منظمة (OCR)، ومطابقة المرشحين بالوظائف، وتقليل الإدخال اليدوي والأخطاء.', 'Reading passports, CVs and documents into structured records (OCR), matching candidates to jobs, and cutting manual entry and errors.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
+      { icon: 'users', title: b('تشغيل الأنظمة والتدريب', 'System rollout & training'), text: b('تشغيل أنظمة الإدارة داخل الشركة، ونقل البيانات من Excel والأنظمة القديمة، وتدريب الموظفين، ودعم ما بعد التشغيل.', 'Rolling out management systems inside the company, migrating data from Excel and legacy systems, training staff and supporting after launch.'), tags: [b('من المقر', 'On-site'), b('عمل حر', 'Freelance')], goldFirst: false },
       { icon: 'support', title: b('الدعم الفني والشبكات', 'IT support & networks'), text: b('تثبيت Windows والبرامج، وحل أعطال الأجهزة، والشبكات المحلية والراوتر، والطابعات والماسحات، والوصول عن بُعد، والنسخ الاحتياطي.', 'Windows and software installation, hardware troubleshooting, LANs and routers, printers and scanners, remote access and backups.'), tags: [b('من المقر', 'On-site'), b('عمل حر', 'Freelance')], goldFirst: false },
-      { icon: 'users', title: b('تشغيل الأنظمة والتدريب', 'System rollout & training'), text: b('تشغيل أنظمة الإدارة داخل الشركة، ونقل البيانات من Excel، وتدريب الموظفين، والدعم بعد التشغيل.', 'Rolling out management systems inside the company, migrating data from Excel, training staff and supporting after launch.'), tags: [b('من المقر', 'On-site'), b('عمل حر', 'Freelance')], goldFirst: false },
-      { icon: 'table', title: b('البيانات وExcel', 'Data & Excel'), text: b('إدخال بيانات سريع ودقيق، وتنظيم ملفات Excel ولوحات المتابعة، وتحويل PDF والصور إلى Word وExcel، والأرشفة.', 'Fast, accurate data entry, structured Excel files and tracking dashboards, PDF/image to Word/Excel conversion and archiving.'), tags: [b('من المقر', 'On-site'), b('عن بُعد', 'Remote'), b('عمل حر', 'Freelance')], goldFirst: false },
-      { icon: 'ops', title: b('التشغيل الإداري', 'Administrative operations'), text: b('متابعة الإجراءات والملفات، وتنسيق المهام، والتعامل مع الجهات المختلفة، وإعداد التقارير للإدارة.', 'Following up procedures and files, coordinating tasks, dealing with different parties and preparing management reports.'), tags: [b('من المقر', 'On-site'), b('عمل حر', 'Freelance')], goldFirst: false },
-      { icon: 'palette', title: b('تصميم السوشيال ميديا', 'Social media design'), text: b('إعلانات ومنشورات على Canva وPhotoshop، وإدارة الصفحات والإعلانات الممولة على Meta Business Suite.', 'Ads and posts on Canva and Photoshop, plus page management and paid campaigns on Meta Business Suite.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true }
+      { icon: 'table', title: b('البيانات وExcel', 'Data & Excel'), text: b('إدخال بيانات سريع ودقيق، وتنظيم ملفات Excel ولوحات المتابعة، وتحويل PDF والصور إلى Word وExcel، والأرشفة.', 'Fast, accurate data entry, structured Excel files and tracking dashboards, PDF/image to Word/Excel conversion and archiving.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote'), b('من المقر', 'On-site')], goldFirst: true },
+      { icon: 'ops', title: b('التشغيل الإداري', 'Administrative operations'), text: b('متابعة الإجراءات والملفات، وتنسيق المهام، والتعامل مع الجهات المختلفة، وإعداد التقارير للإدارة.', 'Following up procedures and files, coordinating tasks, dealing with different parties and preparing management reports.'), tags: [b('من المقر', 'On-site'), b('عمل حر', 'Freelance')], goldFirst: false }
     ]
   },
 
@@ -225,9 +227,26 @@ const content = {
     kicker: b('الخبرات', 'Experience'),
     title: b('الخبرة العملية', 'Work experience'),
     items: [
-      { visible: true, date: X('e1.date'), role: X('e1.r'), org: X('e1.c'), bullets: [1, 2, 3, 4, 5, 6].map((i) => X('e1.b' + i)) },
-      { visible: true, date: X('e2.date'), role: b('مطوّر ومُشغّل أنظمة أعمال ومواقع (عمل حر)', 'Business Systems & Websites Developer (Freelance)'), org: X('e2.c'), bullets: [1, 2, 3, 4, 5].map((i) => X('e2.b' + i)) },
-      { visible: true, date: X('e3.date'), role: X('e3.r'), org: X('e3.c'), bullets: [1, 2, 3].map((i) => X('e3.b' + i)) }
+      { visible: true, date: b('فبراير 2023 – حتى الآن', 'Feb 2023 – Present'), role: b('منسق العمليات والأنظمة', 'Operations & Systems Coordinator'), org: b('مكتب نسر الخليج لإلحاق العمالة المصرية بالخارج – الجيزة، مصر', 'Nesr El-Khaleej Overseas Recruitment Office – Giza, Egypt'), bullets: [
+        b('صممتُ نظاماً مركزياً للملفات والحسابات استبدل ملفات Excel المتفرقة والسجلات الورقية، وأصبح النظام الأساسي الذي يعتمد عليه المكتب.', 'Designed a central system for files and accounts that replaced scattered Excel sheets and paper records and became the office’s core system.'),
+        b('خفّضتُ وقت تسجيل الملف الواحد من عدة دقائق إلى ثوانٍ باستخدام استخراج البيانات من الصور (OCR) والإدخال السريع.', 'Cut the time to register a file from several minutes to seconds using OCR data extraction and fast entry.'),
+        b('ابتكرتُ نظام ترقيم وأرشفة يربط كل ملف ورقي بسجله الإلكتروني، فتوقفت حالات فقد الجوازات تماماً.', 'Created a numbering-and-archiving system linking every paper file to its electronic record, which stopped passport losses entirely.'),
+        b('أقدّم الدعم الفني لـ 9 أجهزة والشبكة المحلية والطابعات والماسحات والنسخ الاحتياطي.', 'Provide IT support for 9 devices, the local network, printers, scanners and backups.'),
+        b('أتابع الإجراءات متعددة المراحل لآلاف الملفات (كشف طبي، بصمة، قنصلية، تأشيرة، سفر) مع الجهات الحكومية والشركاء.', 'Track multi-stage procedures for thousands of files (medical, fingerprint, consulate, visa, travel) with government bodies and partners.'),
+        b('أصمم إعلانات الشركة وأدير صفحاتها وحملاتها الممولة على Meta Business Suite.', 'Design the company’s ads and manage its pages and paid campaigns on Meta Business Suite.')
+      ] },
+      { visible: true, date: b('2014 – حتى الآن', '2014 – Present'), role: b('فري لانسر: تصميم، مواقع، بيانات، وأنظمة أعمال', 'Freelancer: Design, Websites, Data & Business Systems'), org: b('عمل حر – عن بُعد ومن المقر', 'Self-employed – remote and on-site'), bullets: [
+        b('منذ 2014: أنفّذ مشاريع حرة في تصميم السوشيال ميديا والإعلانات لشركات وصفحات (أكثر من 150 تصميماً) على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.', 'Since 2014: deliver freelance social-media and ad design for companies and pages (150+ designs) on Canva and Photoshop, and manage pages and paid campaigns.'),
+        b('أنفّذ أعمال إدخال البيانات وتنظيم ملفات Excel وتحويل المستندات، ومواقع تعريفية وصفحات هبوط للشركات.', 'Deliver data-entry work, Excel organisation and document conversion, plus company brochure websites and landing pages.'),
+        b('منذ 2024: صممتُ وطوّرتُ أنظمة إدارة أعمال تعمل في عدة شركات ويستخدمها أكثر من 30 مستخدماً، ومواقع بلوحات تحكم، وتطبيق أندرويد.', 'Since 2024: designed and built business management systems running in several companies with 30+ users, websites with admin panels, and an Android app.'),
+        b('أتولى الدورة كاملة: تحليل الاحتياج، وتصميم سير العمل، والتنفيذ، والاختبار، والتشغيل على الاستضافة أو شبكة الشركة.', 'Own the full cycle: requirements analysis, workflow design, build, testing, and deployment on hosting or the company network.'),
+        b('أدرّب الموظفين، وأقدّم الدعم والتعديلات والتحديثات بعد التشغيل.', 'Train staff and provide support, changes and updates after launch.')
+      ] },
+      { visible: true, date: b('مايو 2025 – أغسطس 2025', 'May 2025 – Aug 2025'), role: b('منسق عمليات النقل (مهمة مؤقتة)', 'Transport Operations Coordinator (temporary assignment)'), org: b('شركة حسين حجازي للنقل والعمرة – مكة المكرمة، السعودية', 'Hussein Hegazy Transport & Umrah Company – Makkah, Saudi Arabia'), bullets: [
+        b('نسّقتُ رحلات نقل المعتمرين والموظفين، وتابعتُ الجداول والمواعيد مع السائقين وفرق التشغيل.', 'Coordinated transport trips for pilgrims and staff and followed schedules and timings with drivers and operations teams.'),
+        b('تعاملتُ مع التغييرات المفاجئة والحالات العاجلة، وأعددتُ تقارير التشغيل اليومية.', 'Handled sudden changes and urgent cases and prepared daily operations reports.'),
+        b('عملتُ مكتبياً وميدانياً في ورديات ممتدة خلال موسم عالي الضغط.', 'Worked in the office and in the field on extended shifts during a high-pressure season.')
+      ] }
     ]
   },
 
@@ -243,15 +262,15 @@ const content = {
       { icon: 'support', title: b('الدعم الفني والشبكات', 'IT support & networks'), items: ['Windows 10 / 11', b('تثبيت وتهيئة الأنظمة والبرامج', 'OS & software setup'), b('حل أعطال الأجهزة', 'Hardware troubleshooting'), b('الشبكات المحلية (LAN) والواي فاي', 'LAN & Wi-Fi'), b('إعداد الراوتر والسويتش', 'Router & switch setup'), b('IP ثابت و Port Forwarding', 'Static IP & port forwarding'), b('الجدار الناري', 'Firewall'), b('الطابعات والماسحات', 'Printers & scanners'), b('الوصول عن بُعد', 'Remote access'), b('النسخ الاحتياطي والاستعادة', 'Backup & recovery')] },
       { icon: 'table', title: b('البيانات وExcel والمكتب', 'Data, Excel & Office'), items: ['Excel', b('المعادلات والجداول المحورية', 'Formulas & pivot tables'), b('لوحات متابعة في Excel', 'Excel tracking dashboards'), 'Google Sheets', 'Word', 'PowerPoint', b('إدخال البيانات ومراجعتها', 'Data entry & verification'), b('تنظيف البيانات وتوحيد الصيغ', 'Data cleaning & standardisation'), b('تحويل PDF والصور إلى Word / Excel', 'PDF/image to Word/Excel conversion'), b('الأرشفة الإلكترونية والورقية', 'Digital & paper archiving'), b('إعداد التقارير', 'Report preparation')] },
       { icon: 'ops', title: b('التشغيل الإداري وتحليل الأعمال', 'Operations & business analysis'), items: [b('تحليل الاحتياج', 'Requirements analysis'), b('رسم سير الإجراءات', 'Workflow mapping'), b('متابعة الإجراءات متعددة المراحل', 'Multi-stage procedure follow-up'), b('التنسيق مع الجهات الخارجية', 'External-party coordination'), b('تشغيل الأنظمة', 'System rollout'), b('نقل البيانات من Excel', 'Migrating data from Excel'), b('تدريب المستخدمين', 'User training'), b('إعداد الأدلة والتوثيق', 'Guides & documentation'), b('عرض الأنظمة والبيع', 'System demos & selling')] },
-      { icon: 'palette', title: b('التصميم والتسويق', 'Design & marketing'), items: ['Canva', 'Photoshop', 'Meta Business Suite', b('إدارة الصفحات', 'Page management'), b('الإعلانات الممولة', 'Paid campaigns'), b('تصميم الإعلانات والمنشورات', 'Ad & post design')] },
-      { icon: 'users', title: b('مهارات شخصية', 'Professional strengths'), items: [b('الالتزام بالمواعيد', 'Meeting deadlines'), b('العمل تحت ضغط وفي ورديات', 'Working under pressure & in shifts'), b('التواصل مع العملاء', 'Client communication'), b('التعلّم السريع', 'Fast learning'), b('الدقة والاهتمام بالتفاصيل', 'Accuracy & attention to detail'), b('العربية (لغة أم) والإنجليزية', 'Arabic (native) & English')] }
+      { icon: 'palette', title: b('التصميم والتسويق', 'Design & marketing'), items: ['Canva', 'Photoshop', 'Meta Business Suite', b('إدارة الصفحات', 'Page management'), b('الإعلانات الممولة', 'Paid campaigns'), b('تصميم الإعلانات والمنشورات (+150 تصميماً)', 'Ad & post design (150+ designs)'), b('تصميم مواقع تعريفية وصفحات هبوط', 'Brochure sites & landing pages')] },
+      { icon: 'users', title: b('مهارات شخصية', 'Professional strengths'), items: [b('العمل الحر وإدارة المشاريع باستقلالية', 'Independent freelance project management'), b('الالتزام بالمواعيد', 'Meeting deadlines'), b('العمل تحت ضغط وفي ورديات', 'Working under pressure & in shifts'), b('التواصل مع العملاء', 'Client communication'), b('التعلّم السريع', 'Fast learning'), b('الدقة والاهتمام بالتفاصيل', 'Accuracy & attention to detail'), b('العربية (لغة أم) والإنجليزية', 'Arabic (native) & English')] }
     ]
   },
 
   contact: {
     kicker: b('التواصل', 'Contact'),
     title: b('لنتواصل', 'Let’s talk'),
-    sub: b('سواء كانت لديك وظيفة، أو مشروع نظام أو موقع أو تطبيق، أو تريد ديمو مباشراً لأحد الأنظمة، يسعدني تواصلك.', 'Whether you have a job opening, a system, website or app project, or want a live demo of one of my systems — I’d be glad to hear from you.'),
+    sub: b('لديك مشروع نظام أو موقع أو تطبيق، أو تحتاج تصميماً أو دعماً فنياً، أو تريد ديمو مباشراً لأحد الأنظمة؟ يسعدني أن أسمع منك.', 'Have a system, website or app project, need design or technical support, or want a live demo of one of my systems? I’d be glad to hear from you.'),
     formTitle: b('أرسل رسالة سريعة', 'Send a quick message'),
     topics: [b('فرصة عمل', 'Job opportunity'), b('تطوير نظام أو موقع أو تطبيق', 'System, website or app development'), b('مشروع حر آخر', 'Another freelance project'), b('ديمو مباشر لأحد الأنظمة', 'Live demo of a system'), b('موضوع آخر', 'Something else')]
   },
