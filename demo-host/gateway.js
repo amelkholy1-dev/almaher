@@ -17,12 +17,19 @@ const httpProxy = require('http-proxy');
 
 const ROOT = __dirname;
 const PORT = Number(process.env.PORT || 3000);
-const DATA = path.resolve(process.env.DEMO_DATA_DIR || path.join(ROOT, 'data'));
+const DATA_ROOT = path.resolve(process.env.DEMO_DATA_DIR || path.join(ROOT, 'data'));
+const DATA = path.join(DATA_ROOT, String(process.pid)); // لكل نسخة من البوابة فولدر لوحدها (لو الاستضافة شغّلت أكتر من واحدة)
 const RESET_MIN = Math.max(10, Number(process.env.DEMO_RESET_MINUTES || 60));
 const APPS = require('./apps.config');
 
 const log = (...a) => console.log(new Date().toISOString(), '[GATEWAY]', ...a);
 fs.mkdirSync(DATA, { recursive: true });
+// امسح فولدرات النسخ القديمة اللي اتقفلت
+const alive = (pid) => { try { process.kill(pid, 0); return true; } catch (e) { return e.code === 'EPERM'; } };
+try { for (const n of fs.readdirSync(DATA_ROOT)) if (/^\d+$/.test(n) && Number(n) !== process.pid && !alive(Number(n))) fs.rmSync(path.join(DATA_ROOT, n), { recursive: true, force: true }); } catch (e) {}
+const net = require('net');
+/* بورت فاضي لكل نظام فرعي في كل تشغيل — عشان لو فيه عملية قديمة لسه ماسكة بورت مايحصلش تعارض */
+const freePort = () => new Promise((resolve, reject) => { const s = net.createServer(); s.on('error', reject); s.listen(0, '127.0.0.1', () => { const p = s.address().port; s.close(() => resolve(p)); }); });
 
 /* ---------------- تشغيل الأنظمة التجريبية ---------------- */
 function copyDir(src, dst) {
@@ -34,13 +41,20 @@ function copyDir(src, dst) {
 }
 const state = {};
 function startApp(a) {
-  const st = state[a.id] || (state[a.id] = { ready: false, child: null, resetAt: 0, restarts: 0 });
+  const st = state[a.id] || (state[a.id] = { ready: false, child: null, resetAt: 0, restarts: 0, port: 0, starting: false });
+  if (st.starting || st.child) return;
+  st.starting = true; st.ready = false;
+  freePort().then((port) => { st.starting = false; launch(a, st, port); })
+    .catch((e) => { st.starting = false; log(a.id, 'مفيش بورت فاضي:', e.message); setTimeout(() => startApp(a), 5000); });
+}
+function launch(a, st, port) {
+  st.port = port;
   const dataDir = path.join(DATA, a.id);
   // بيانات جديدة من النسخة الأصلية الوهمية
   fs.rmSync(dataDir, { recursive: true, force: true });
   if (a.seed && fs.existsSync(path.join(ROOT, a.seed))) copyDir(path.join(ROOT, a.seed), dataDir); else fs.mkdirSync(dataDir, { recursive: true });
   st.ready = false; st.resetAt = Date.now();
-  const env = Object.assign({}, process.env, a.env(dataDir), { PORT: String(a.port), DEMO_BASE: a.prefix });
+  const env = Object.assign({}, process.env, a.env(dataDir), { PORT: String(port), DEMO_BASE: a.prefix });
   const child = fork(path.join(ROOT, a.entry), [], { cwd: path.join(ROOT, a.cwd || path.dirname(a.entry)), env, stdio: ['ignore', 'inherit', 'inherit', 'ipc'] });
   st.child = child;
   child.on('message', (m) => { if (m === 'ready' && st.child === child) { st.ready = true; log(a.id, 'جاهز'); } });
@@ -54,7 +68,7 @@ function startApp(a) {
   // بعض الأنظمة مبتبعتش "ready": نختبر البورت
   const probe = setInterval(() => {
     if (st.child !== child) return clearInterval(probe);
-    const r = http.get({ host: '127.0.0.1', port: a.port, path: a.health || '/', timeout: 2000 }, (res) => { res.resume(); if (res.statusCode < 500) { st.ready = true; st.restarts = 0; clearInterval(probe); } });
+    const r = http.get({ host: '127.0.0.1', port, path: a.health || '/', timeout: 2000 }, (res) => { res.resume(); if (res.statusCode < 500) { st.ready = true; st.restarts = 0; clearInterval(probe); } });
     r.on('error', () => {}); r.on('timeout', () => r.destroy());
   }, 1500);
 }
@@ -66,8 +80,9 @@ function resetApp(a) {
 }
 for (const a of APPS) startApp(a);
 setInterval(() => { for (const a of APPS) if (Date.now() - (state[a.id]?.resetAt || 0) >= RESET_MIN * 60000) resetApp(a); }, 60000).unref();
-const cleanup = () => { for (const s of Object.values(state)) try { s.child && s.child.kill('SIGTERM'); } catch (e) {} process.exit(0); };
-process.on('SIGTERM', cleanup); process.on('SIGINT', cleanup);
+const killAll = () => { for (const s of Object.values(state)) try { s.child && s.child.kill('SIGKILL'); } catch (e) {} };
+process.on('exit', killAll);
+for (const sig of ['SIGTERM', 'SIGINT', 'SIGHUP']) process.on(sig, () => process.exit(0));
 
 /* ---------------- البروكسي ---------------- */
 const proxy = httpProxy.createProxyServer({ xfwd: true, ws: true, proxyTimeout: 120000 });
@@ -110,7 +125,7 @@ app.use((req, res, next) => {
   const len = Number(req.headers['content-length'] || 0);
   if (len > (a.maxBody || 8) * 1024 * 1024) return sendJson(res, 413, { ok: false, message: `أقصى حجم للملفات في النسخة التجريبية ${a.maxBody || 8} ميجا` });
   req.url = inner; req._demo = a;
-  proxy.web(req, res, { target: `http://127.0.0.1:${a.port}` });
+  proxy.web(req, res, { target: `http://127.0.0.1:${st.port}` });
 });
 
 /* ---------------- الموقع الشخصي ---------------- */
@@ -129,6 +144,6 @@ server.on('upgrade', (req, socket, head) => {
   const a = matchApp(req.url);
   if (!a || !state[a.id]?.ready) return socket.destroy();
   req.url = req.url.slice(a.prefix.length) || '/'; req._demo = a;
-  proxy.ws(req, socket, head, { target: `http://127.0.0.1:${a.port}` });
+  proxy.ws(req, socket, head, { target: `http://127.0.0.1:${state[a.id].port}` });
 });
 server.listen(PORT, () => log('شغال على البورت', PORT, '— الأنظمة:', APPS.map((a) => a.prefix).join(' ')));

@@ -1,6 +1,8 @@
 'use strict';
 /* تشغيل مسار HR في وضع النسخة التجريبية: قاعدة بيانات في ملف (بيانات وهمية) + حساب تجريبي جاهز */
 const path = require('path');
+// لو البوابة اتقفلت، النظام ده يقفل معاها (عشان مايفضلش ماسك البورت)
+process.on('disconnect', () => process.exit(0));
 const DATA = process.env.DEMO_DATA || path.join(__dirname, 'demo-data');
 Object.assign(process.env, {
   DB_MODE: 'memory', MASAR_ALLOW_DEMO: '1', MASAR_NO_AUTOSTART: '1',
