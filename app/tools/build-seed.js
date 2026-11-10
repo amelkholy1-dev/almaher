@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 4,
+  _v: 5,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -63,6 +63,7 @@ const content = {
       { id: 'projects', visible: true, nav: true, label: b('المشاريع', 'Projects') },
       { id: 'experience', visible: true, nav: true, label: b('الخبرات', 'Experience') },
       { id: 'skills', visible: true, nav: true, label: b('المهارات', 'Skills') },
+      { id: 'reviews', visible: true, nav: false, label: b('آراء العملاء', 'Reviews') },
       { id: 'contact', visible: true, nav: true, label: b('تواصل معي', 'Contact') }
     ]
   },
@@ -265,6 +266,16 @@ const content = {
       { icon: 'palette', title: b('التصميم والتسويق', 'Design & marketing'), items: ['Canva', 'Photoshop', 'Meta Business Suite', b('إدارة الصفحات', 'Page management'), b('الإعلانات الممولة', 'Paid campaigns'), b('تصميم الإعلانات والمنشورات (+150 تصميماً)', 'Ad & post design (150+ designs)'), b('تصميم مواقع تعريفية وصفحات هبوط', 'Brochure sites & landing pages')] },
       { icon: 'users', title: b('مهارات شخصية', 'Professional strengths'), items: [b('العمل الحر وإدارة المشاريع باستقلالية', 'Independent freelance project management'), b('الالتزام بالمواعيد', 'Meeting deadlines'), b('العمل تحت ضغط وفي ورديات', 'Working under pressure & in shifts'), b('التواصل مع العملاء', 'Client communication'), b('التعلّم السريع', 'Fast learning'), b('الدقة والاهتمام بالتفاصيل', 'Accuracy & attention to detail'), b('العربية (لغة أم) والإنجليزية', 'Arabic (native) & English')] }
     ]
+  },
+
+  reviews: {
+    showWhenEmpty: true,
+    kicker: b('آراء العملاء', 'Client reviews'),
+    title: b('ماذا يقول من تعاملوا معي', 'What people who worked with me say'),
+    sub: b('كل تقييم يُراجَع قبل نشره، ويُعلَّم بعلامة ✓ عندما أتأكد أنه من عميل فعلي.', 'Every review is checked before it is published, and marked with ✓ once I confirm it comes from a real client.'),
+    formTitle: b('قيّم تجربتك معي', 'Rate your experience with me'),
+    emptyText: b('لا توجد تقييمات منشورة بعد. كن أول من يقيّم تجربته.', 'No published reviews yet. Be the first to rate your experience.'),
+    thanks: b('شكراً لك! وصلني تقييمك وسيظهر بعد المراجعة.', 'Thank you! Your review was received and will appear after it is reviewed.')
   },
 
   contact: {

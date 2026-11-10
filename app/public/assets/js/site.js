@@ -68,7 +68,28 @@
     waGeneral: { ar: 'مرحباً أحمد، وصلت إليك من موقعك الشخصي وأودّ التواصل معك.', en: 'Hi Ahmed, I found you through your website and would like to get in touch.' },
     waProject: { ar: 'مرحباً أحمد، شاهدت «{name}» على موقعك، وأرغب في ديمو مباشر ومعرفة المزيد.', en: 'Hi Ahmed, I saw “{name}” on your website and would like a live demo and more details.' },
     shotsOpen: { ar: 'عرض الصور', en: 'View screenshots' },
-    menu: { ar: 'القائمة', en: 'Menu' }
+    menu: { ar: 'القائمة', en: 'Menu' },
+    rvKicker: { ar: 'آراء العملاء', en: 'Client reviews' },
+    rvTitle: { ar: 'ماذا يقول من تعاملوا معي', en: 'What people who worked with me say' },
+    rvSub: { ar: 'كل تقييم يُراجَع قبل نشره، ويُعلَّم بعلامة ✓ عندما أتأكد أنه من عميل فعلي.', en: 'Every review is checked before it is published, and marked with ✓ once I confirm it comes from a real client.' },
+    rvForm: { ar: 'قيّم تجربتك معي', en: 'Rate your experience with me' },
+    rvEmpty: { ar: 'لا توجد تقييمات منشورة بعد. كن أول من يقيّم تجربته.', en: 'No published reviews yet. Be the first to rate your experience.' },
+    rvThanks: { ar: 'شكراً لك! وصلني تقييمك وسيظهر بعد المراجعة.', en: 'Thank you! Your review was received and will appear after it is reviewed.' },
+    rvCount: { ar: 'تقييم', en: 'reviews' },
+    rvOutOf: { ar: 'من 5', en: 'out of 5' },
+    rvWrite: { ar: 'اكتب تقييمك', en: 'Write a review' },
+    rvVerified: { ar: 'عميل موثّق', en: 'Verified client' },
+    rvVia: { ar: 'عبر', en: 'via' },
+    rvReply: { ar: 'رد صاحب الموقع', en: 'Reply from the site owner' },
+    rvRating: { ar: 'تقييمك بالنجوم', en: 'Your star rating' },
+    rvName: { ar: 'الاسم', en: 'Name' },
+    rvRole: { ar: 'صفتك أو شركتك (اختياري)', en: 'Your role or company (optional)' },
+    rvText: { ar: 'تقييمك', en: 'Your review' },
+    rvContact: { ar: 'واتساب أو إيميل (اختياري، للتحقق فقط ولا يظهر للزوار)', en: 'WhatsApp or email (optional, for verification only — never shown)' },
+    rvSend: { ar: 'إرسال التقييم', en: 'Submit review' },
+    rvNeedStars: { ar: 'اختر عدد النجوم أولاً.', en: 'Please choose a star rating first.' },
+    rvNeedText: { ar: 'اكتب اسمك وتقييمك (10 أحرف على الأقل).', en: 'Please enter your name and a review (at least 10 characters).' },
+    rvErr: { ar: 'تعذّر الإرسال. حاول مرة أخرى.', en: 'Could not send. Please try again.' }
   };
   function u(k) { return UI[k] ? UI[k][lang()] : k; }
 
@@ -87,10 +108,12 @@
   }
 
   /* ---------- رأس الصفحة والقوائم ---------- */
-  var BUILTIN = ['stats', 'about', 'process', 'services', 'projects', 'experience', 'skills', 'contact'];
+  var BUILTIN = ['stats', 'about', 'process', 'services', 'projects', 'experience', 'skills', 'reviews', 'contact'];
   function sections() {
     var l = arr(D.layout && D.layout.sections);
     if (!l.length) l = BUILTIN.map(function (id) { return { id: id, visible: true, nav: id !== 'stats' }; });
+    // محتوى قديم من غير قسم التقييمات: نضيفه قبل التواصل
+    if (!l.some(function (x) { return x && x.id === 'reviews'; })) { var ci = l.map(function (x) { return x && x.id; }).indexOf('contact'); l = l.slice(); l.splice(ci < 0 ? l.length : ci, 0, { id: 'reviews', visible: true, nav: false }); }
     var seen = {};
     return l.filter(function (s) { if (!s || !s.id || seen[s.id]) return false; seen[s.id] = 1; return s.visible !== false; });
   }
@@ -205,7 +228,7 @@
         '<label><span>' + u('f_contact') + '</span><input type="text" name="contact" maxlength="160" dir="auto"></label>' +
         (topics ? '<label><span>' + u('f_topic') + '</span><select name="topic">' + topics + '</select></label>' : '') +
         '<label><span>' + u('f_msg') + '</span><textarea name="message" rows="4" required maxlength="3000"></textarea></label>' +
-        '<input type="text" name="website" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px;opacity:0;height:0" aria-hidden="true">' +
+        '<div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>' +
         '<p class="form-note" id="formNote" role="status"></p><div class="form-actions">' +
         '<button class="btn btn-primary" type="submit" value="send">' + ic('send') + '<span>' + u('f_send') + '</span></button>' +
         '<button class="btn btn-wa" type="submit" value="wa">' + ic('wa') + '<span>' + u('f_wa') + '</span></button>' +
@@ -213,6 +236,63 @@
     }
   };
   function vis(x) { return x && x.visible !== false; }
+
+  /* ---------- التقييمات ---------- */
+  var RV = null, rvLoading = false, rvSent = false;
+  function starsHtml(n) { var h = ''; for (var i = 1; i <= 5; i++) h += '<i class="' + (i <= Math.round(n) ? 'on' : '') + '">★</i>'; return '<span class="stars" role="img" aria-label="' + esc(n) + ' / 5">' + h + '</span>'; }
+  function rvDate(t) { try { return new Date(t).toLocaleDateString(lang() === 'ar' ? 'ar-EG' : 'en-GB', { year: 'numeric', month: 'long' }); } catch (e) { return ''; } }
+  function reviewsInner() {
+    var R = D.reviews || {}, sm = RV ? RV.summary : { avg: 0, count: 0, dist: [0, 0, 0, 0, 0] }, list = RV ? RV.reviews : [];
+    var kick = tx(R.kicker) || u('rvKicker'), title = tx(R.title) || u('rvTitle'), sub = tx(R.sub) || u('rvSub');
+    var summary = sm.count ? '<div class="card rv-summary"><div class="rv-avg"><b>' + esc(sm.avg) + '</b>' + starsHtml(sm.avg) + '<span>' + sm.count + ' ' + u('rvCount') + ' · ' + u('rvOutOf') + '</span></div>' +
+      '<div class="rv-dist">' + [5, 4, 3, 2, 1].map(function (n) { var c = sm.dist[n - 1] || 0, pc = Math.round((c / sm.count) * 100); return '<div><span>' + n + ' ★</span><span class="track"><span style="width:' + pc + '%"></span></span><b>' + c + '</b></div>'; }).join('') + '</div>' +
+      '<a class="btn btn-gold btn-sm" href="#reviewForm" data-rv-write>' + u('rvWrite') + '</a></div>' : '';
+    var cards = list.map(function (r) {
+      return '<article class="card rv-card reveal in"><div class="rv-top">' + starsHtml(r.rating) + (r.verified ? '<span class="rv-ver">✓ ' + u('rvVerified') + '</span>' : '') + '</div>' +
+        '<p class="rv-text">' + esc(r.text).replace(/\n/g, '<br>') + '</p>' +
+        '<div class="rv-by"><b>' + esc(r.name) + '</b>' + (r.role ? '<span>' + esc(r.role) + '</span>' : '') + '<small>' + esc(rvDate(r.time)) + (r.via ? ' · ' + u('rvVia') + ' ' + esc(r.via) : '') + '</small></div>' +
+        (r.reply ? '<div class="rv-reply"><b>' + u('rvReply') + '</b><p>' + esc(r.reply.text) + '</p></div>' : '') + '</article>';
+    }).join('');
+    var form = rvSent ? '<div class="card rv-thanks" role="status">✓ ' + esc(tx(R.thanks) || u('rvThanks')) + '</div>' :
+      '<form class="card contact-form rv-form reveal in" id="reviewForm" novalidate><h3>' + esc(tx(R.formTitle) || u('rvForm')) + '</h3>' +
+      '<div class="f"><span class="lab">' + u('rvRating') + '</span><div class="rv-stars-in" role="radiogroup" aria-label="' + esc(u('rvRating')) + '">' + [1, 2, 3, 4, 5].map(function (n) { return '<button type="button" class="star" role="radio" aria-checked="false" data-star="' + n + '" aria-label="' + n + '">★</button>'; }).join('') + '</div><input type="hidden" name="rating" value=""></div>' +
+      '<label><span>' + u('rvName') + '</span><input type="text" name="name" maxlength="60" autocomplete="name" required></label>' +
+      '<label><span>' + u('rvRole') + '</span><input type="text" name="role" maxlength="80"></label>' +
+      '<label><span>' + u('rvText') + '</span><textarea name="text" rows="4" maxlength="800" required></textarea></label>' +
+      '<label><span>' + u('rvContact') + '</span><input type="text" name="contact" maxlength="120" dir="auto"></label>' +
+      '<div class="hp" aria-hidden="true"><input type="text" name="website" tabindex="-1" autocomplete="off"></div>' +
+      '<p class="form-note" id="rvNote" role="status"></p><button class="btn btn-primary" type="submit">' + u('rvSend') + '</button></form>';
+    return head({ kicker: kick, title: title, sub: sub }) +
+      '<div class="rv-grid">' + (summary || (RV && !sm.count ? '<p class="rv-empty">' + esc(tx(R.emptyText) || u('rvEmpty')) + '</p>' : '')) + (cards ? '<div class="rv-list">' + cards + '</div>' : '') + '</div>' + form;
+  }
+  SECTION.reviews = function () {
+    var R = D.reviews || {};
+    if (R.showWhenEmpty === false && RV && !RV.summary.count) return '';
+    return '<section class="section section-alt" id="reviews"><div class="container">' + reviewsInner() + '</div></section>';
+  };
+  function paintReviews() {
+    var sec = $('#reviews'), R = D.reviews || {};
+    if (sec) { if (R.showWhenEmpty === false && RV && !RV.summary.count) sec.remove(); else sec.querySelector('.container').innerHTML = reviewsInner(); }
+    var hero = $('.hero-text'), old = $('.hero-rating'); if (old) old.remove();
+    if (hero && RV && RV.summary.count) {
+      var a = doc.createElement('a'); a.className = 'hero-rating'; a.href = '#reviews'; a.innerHTML = starsHtml(RV.summary.avg) + '<b>' + esc(RV.summary.avg) + '</b><span>' + RV.summary.count + ' ' + u('rvCount') + '</span>';
+      var act = $('.hero-actions', hero); hero.insertBefore(a, act);
+    }
+  }
+  function loadReviews() {
+    if (rvLoading) return; rvLoading = true;
+    fetch('/api/reviews', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) { if (j && j.ok) { RV = j; paintReviews(); } }).catch(function () { /* القسم بيفضل بالنموذج بس */ }).then(function () { rvLoading = false; });
+  }
+  function submitReview(form) {
+    var note = $('#rvNote'), rating = Number(form.rating.value), name = form.name.value.trim(), text = form.text.value.trim();
+    if (!rating) { note.textContent = u('rvNeedStars'); note.className = 'form-note err'; return; }
+    if (name.length < 2 || text.length < 10) { note.textContent = u('rvNeedText'); note.className = 'form-note err'; return; }
+    var btn = $('button[type=submit]', form); btn.disabled = true; note.textContent = '…'; note.className = 'form-note';
+    fetch('/api/reviews', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ rating: rating, name: name, role: form.role.value, text: text, contact: form.contact.value, website: form.website.value, token: RV && RV.token }) })
+      .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok && j.ok, j: j }; }); })
+      .then(function (r) { if (r.ok) { rvSent = true; paintReviews(); } else { btn.disabled = false; note.textContent = (r.j && r.j.message) || u('rvErr'); note.className = 'form-note err'; } })
+      .catch(function () { btn.disabled = false; note.textContent = u('rvErr'); note.className = 'form-note err'; });
+  }
 
   /* ---------- أقسام إضافية يضيفها المدير ---------- */
   function renderCustom(c) {
@@ -333,6 +413,7 @@
     var m = $('meta[name="description"]'); if (m && tx(seo.description)) m.content = tx(seo.description);
     $$('#projects [data-cat]').forEach(function (el) { el.classList.toggle('f-hide', activeFilter !== 'all' && el.getAttribute('data-cat') !== activeFilter); });
     updateWa();
+    if (RV) paintReviews(); else loadReviews();
     initReveal(instant);
     initScrollSpy();
   }
@@ -466,7 +547,12 @@
         openLb(all, +lc.getAttribute('data-i') || 0, ''); return;
       }
     });
+    doc.addEventListener('click', function (e) {
+      var st = e.target.closest && e.target.closest('.star');
+      if (st) { var f = st.closest('form'), n = +st.getAttribute('data-star'); f.rating.value = n; $$('.star', f).forEach(function (b) { var on = +b.getAttribute('data-star') <= n; b.classList.toggle('on', on); b.setAttribute('aria-checked', +b.getAttribute('data-star') === n ? 'true' : 'false'); }); }
+    });
     doc.addEventListener('submit', function (e) {
+      if (e.target.id === 'reviewForm') { e.preventDefault(); submitReview(e.target); return; }
       if (e.target.id !== 'contactForm') return; e.preventDefault();
       var how = (e.submitter && e.submitter.value) || 'send'; submitForm(e.target, how);
     });

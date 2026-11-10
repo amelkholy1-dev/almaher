@@ -261,6 +261,7 @@
       LIST('cards', 'البطاقات (للشكل «بطاقات»)', [SEL('icon', 'الأيقونة', ICONS), BI('title', 'العنوان'), BI('text', 'النص'), T('link', 'رابط (اختياري)', { dir: 'ltr' }), BI('linkLabel', 'نص الزر')], { openFirst: false, title: function (i) { return tx(i.title); }, addLabel: 'إضافة بطاقة', blank: function () { return { icon: 'check', title: { ar: '', en: '' }, text: { ar: '', en: '' } }; } }),
       F.imgs('images', 'الصور (للشكل «معرض صور»)')
     ], { title: function (i) { return tx(i.title) || 'قسم جديد'; }, openFirst: false, addLabel: 'إضافة قسم', blank: function () { return { id: rid('sec'), kicker: { ar: '', en: '' }, title: { ar: 'قسم جديد', en: 'New section' }, sub: { ar: '', en: '' }, layout: 'text', body: { ar: '', en: '' }, cards: [], images: [] }; }, onAdd: function () { ensureLayout(); }, onRemove: function (n) { C.layout.sections = C.layout.sections.filter(function (s) { return s.id !== 'c:' + n.id; }); } })]]]; } },
+    { id: 'reviews', label: 'التقييمات', custom: reviewsTab, badge: function () { return window.__pendingReviews || 0; } },
     { id: 'layout', label: 'ترتيب الأقسام', custom: layoutTab },
     { sep: true },
     { id: 'media', label: 'الصور والملفات', custom: mediaTab },
@@ -273,14 +274,65 @@
     if (!C.layout) C.layout = { sections: [] };
     var seen = {}; C.layout.sections = C.layout.sections.filter(function (s) { if (!s || !s.id || seen[s.id]) return false; seen[s.id] = 1; return true; });
     var ids = C.layout.sections.map(function (s) { return s.id; });
-    ['stats', 'about', 'process', 'services', 'projects', 'experience', 'skills', 'contact'].forEach(function (id) { if (ids.indexOf(id) < 0) C.layout.sections.push({ id: id, visible: true, nav: id !== 'stats' }); });
+    ['stats', 'about', 'process', 'services', 'projects', 'experience', 'skills', 'reviews', 'contact'].forEach(function (id) { if (ids.indexOf(id) < 0) { var e = { id: id, visible: true, nav: id !== 'stats' && id !== 'reviews' }, ci = C.layout.sections.map(function (x) { return x.id; }).indexOf('contact'); if (id === 'reviews' && ci >= 0) C.layout.sections.splice(ci, 0, e); else C.layout.sections.push(e); } });
     (C.custom || []).forEach(function (c) { if (ids.indexOf('c:' + c.id) < 0) C.layout.sections.push({ id: 'c:' + c.id, visible: true, nav: true, label: c.title }); });
+  }
+
+
+  /* تقييمات الزوار: مراجعة ونشر وتوثيق ورد */
+  function reviewsTab(host) {
+    if (!C.reviews || typeof C.reviews !== 'object') C.reviews = { showWhenEmpty: true };
+    var cfg = h('div', { class: 'card' }, h('h3', { text: 'قسم «آراء العملاء» في الموقع' }), h('p', { class: 'hint', text: 'نصوص القسم. أي تقييم جديد من زائر بيظهر هنا تحت «قيد المراجعة» ومبيتنشرش غير بعد موافقتك.' }));
+    renderFields([CK('showWhenEmpty', 'إظهار القسم حتى لو مفيش تقييمات منشورة (بيظهر نموذج «كن أول من يقيّم»)', { def: true }), BI('kicker', 'العنوان الصغير'), BI('title', 'عنوان القسم'), BT('sub', 'سطر توضيحي', { rows: 2 }), BI('formTitle', 'عنوان نموذج التقييم'), BI('emptyText', 'نص «مفيش تقييمات»'), BI('thanks', 'رسالة الشكر بعد الإرسال')], C.reviews, cfg);
+    host.appendChild(cfg);
+    host.appendChild(h('div', { class: 'tip', text: 'لأجل المصداقية: تقدر تنشر التقييم أو تخفيه أو تحذفه أو ترد عليه، لكن مش بتقدر تعدّل نصه. علّم «موثّق» بس لما تتأكد إنه عميل فعلاً (من واتساب أو الإيميل اللي سابه). ماتكتبش تقييمات من عندك.' }));
+    var box = h('div'); host.appendChild(box);
+    var filter = 'pending';
+    function draw(list) {
+      box.innerHTML = '';
+      window.__pendingReviews = list.filter(function (r) { return r.status === 'pending'; }).length; renderSide();
+      var tabs = h('div', { class: 'row', style: 'margin-bottom:14px' }, [['pending', 'قيد المراجعة'], ['approved', 'منشورة'], ['hidden', 'مخفية']].map(function (t) {
+        var n = list.filter(function (r) { return r.status === t[0]; }).length;
+        return h('button', { class: 'btn sm' + (filter === t[0] ? ' pri' : ''), type: 'button', text: t[1] + ' (' + n + ')', onclick: function () { filter = t[0]; draw(list); } });
+      }));
+      box.appendChild(tabs);
+      var shown = list.filter(function (r) { return r.status === filter; });
+      if (!shown.length) box.appendChild(h('div', { class: 'empty', text: filter === 'pending' ? 'مفيش تقييمات جديدة تستنى مراجعتك.' : 'مفيش تقييمات هنا.' }));
+      shown.forEach(function (r) {
+        var rep = h('textarea', { rows: 2, placeholder: 'ردك على التقييم (اختياري، بيظهر تحت التقييم)', text: r.reply ? r.reply.text : '' });
+        function act(body, msg) { api('POST', '/reviews/' + r.id, body).then(function (x) { if (x.ok) { toast(msg || 'تم'); load2(); } else toast('فشل', true); }); }
+        var stars = '★★★★★'.slice(0, r.rating) + '☆☆☆☆☆'.slice(0, 5 - r.rating);
+        box.appendChild(h('div', { class: 'msg' + (r.status === 'pending' ? ' unread' : '') },
+          h('div', { class: 'meta' }, h('b', { text: r.name }), h('span', { style: 'color:#F5A524;font-size:1.1rem;letter-spacing:2px', text: stars }), r.role ? h('span', { text: r.role }) : null, r.verified ? h('span', { class: 'pill ok', text: '✓ موثّق' }) : null, r.source && r.source !== 'visitor' ? h('span', { class: 'pill', text: 'أضفته أنا — ' + r.source }) : null, h('span', { text: new Date(r.time).toLocaleString('ar-EG') })),
+          h('p', { text: r.text }),
+          r.contact ? h('p', { style: 'color:var(--muted);font-size:.85rem', dir: 'auto' }, 'للتحقق (خاص): ', h('span', { dir: 'ltr', text: r.contact })) : null,
+          rep,
+          h('div', { class: 'row', style: 'margin-top:8px' },
+            r.status !== 'approved' ? h('button', { class: 'btn sm pri', type: 'button', text: 'نشر', onclick: function () { act({ status: 'approved', reply: rep.value }, 'اتنشر'); } }) : null,
+            r.status === 'approved' ? h('button', { class: 'btn sm', type: 'button', text: 'حفظ الرد', onclick: function () { act({ reply: rep.value }, 'اتحفظ الرد'); } }) : null,
+            r.status !== 'hidden' ? h('button', { class: 'btn sm', type: 'button', text: 'إخفاء', onclick: function () { act({ status: 'hidden' }, 'اتخفى'); } }) : null,
+            h('button', { class: 'btn sm', type: 'button', text: r.verified ? 'إلغاء التوثيق' : 'تعليم كعميل موثّق ✓', onclick: function () { act({ verified: !r.verified }); } }),
+            h('button', { class: 'btn sm danger', type: 'button', text: 'حذف', onclick: function () { if (confirm('حذف التقييم نهائياً؟')) api('DELETE', '/reviews/' + r.id).then(function () { load2(); }); } }))));
+      });
+      // إضافة تقييم وصلك من عميل
+      var m = { name: '', role: '', rating: 5, text: '', source: 'واتساب', verified: true };
+      var addCard = h('div', { class: 'card', style: 'margin-top:20px' }, h('h3', { text: 'إضافة تقييم وصلك من عميل' }), h('p', { class: 'hint', text: 'استخدمها بس لتقييم حقيقي وصلك من عميل (واتساب، لينكد إن…) وبإذنه. بيظهر باسم مصدره، وانسخ نصه زي ما هو من غير تغيير.' }));
+      renderFields([T('name', 'اسم العميل'), T('role', 'صفته أو شركته (اختياري)'), SEL('rating', 'النجوم', [[5, '5 ★'], [4, '4 ★'], [3, '3 ★'], [2, '2 ★'], [1, '1 ★']]), SEL('source', 'مصدر التقييم', [['واتساب', 'واتساب'], ['لينكد إن', 'لينكد إن'], ['رسالة', 'رسالة'], ['اتصال', 'اتصال'], ['اجتماع', 'اجتماع']]), CK('verified', 'عميل موثّق ✓')], m, addCard);
+      addCard.insertBefore(h('div', { class: 'f' }, h('div', { class: 'lab', text: 'نص التقييم (زي ما وصلك، من غير تغيير)' }), h('textarea', { rows: 3, oninput: function (e) { m.text = e.target.value; } })), addCard.lastChild.nextSibling);
+      addCard.appendChild(h('button', { class: 'btn pri', type: 'button', text: 'إضافة ونشر', onclick: function () {
+        var body = { name: m.name, role: m.role, rating: Number(m.rating), text: m.text || '', source: m.source, verified: !!m.verified };
+        api('POST', '/reviews', body).then(function (x) { if (x.ok) { toast('اتضاف واتنشر'); load2(); } else toast(x.message || 'فشل', true); });
+      } }));
+      box.appendChild(addCard);
+    }
+    function load2() { api('GET', '/reviews').then(function (r) { if (r.ok) draw(r.reviews || []); }); }
+    load2();
   }
 
   /* ترتيب الأقسام */
   function layoutTab(host) {
     ensureLayout();
-    var names = { stats: 'الأرقام السريعة', about: 'نبذة', process: 'طريقة العمل', services: 'الخدمات', projects: 'المشاريع', experience: 'الخبرات', skills: 'المهارات', contact: 'التواصل' };
+    var names = { stats: 'الأرقام السريعة', about: 'نبذة', process: 'طريقة العمل', services: 'الخدمات', projects: 'المشاريع', experience: 'الخبرات', skills: 'المهارات', reviews: 'آراء العملاء (التقييمات)', contact: 'التواصل' };
     host.appendChild(h('div', { class: 'tip', text: 'من هنا تحدد ترتيب الأقسام في الصفحة، وإظهار أو إخفاء أي قسم، وهل يظهر في القائمة العلوية وباسم إيه. الرئيسية (الصورة والاسم) دايماً أول الصفحة.' }));
     var card = h('div', { class: 'card' }); host.appendChild(card);
     function draw() {
@@ -445,7 +497,7 @@
     app.innerHTML = '';
     var u = h('input', { type: 'text', autocomplete: 'username', required: true, autocapitalize: 'none', spellcheck: 'false' }), p = h('input', { type: 'password', autocomplete: 'current-password', required: true }), note = h('p', { style: 'color:var(--bad);min-height:1.4em', text: msg || '' });
     app.appendChild(h('div', { class: 'login' }, h('form', { onsubmit: function (e) { e.preventDefault(); note.textContent = ''; api('POST', '/login', { user: u.value, pass: p.value }).then(function (r) {
-      if (r.ok) { me = r.user; load(); messagesCount(); }
+      if (r.ok) { me = r.user; load(); messagesCount(); reviewsCount(); }
       else if (r.need2fa) renderCode(r.challenge);
       else note.textContent = r.message || 'فشل الدخول';
     }); } }, h('h1', { text: 'لوحة التحكم' }), h('p', { text: 'سجّل دخولك لتعديل الموقع.' }), h('div', { class: 'f' }, h('div', { class: 'lab', text: 'اسم الدخول' }), u), h('div', { class: 'f' }, h('div', { class: 'lab', text: 'كلمة المرور' }), p), note, h('button', { class: 'btn pri', type: 'submit', text: 'دخول' }))));
@@ -455,13 +507,14 @@
     app.innerHTML = '';
     var code = h('input', { type: 'text', inputmode: 'text', autocomplete: 'one-time-code', required: true, placeholder: '123456', dir: 'ltr', style: 'text-align:center;font-size:1.4rem;letter-spacing:.3em' }), note = h('p', { style: 'color:var(--bad);min-height:1.4em' });
     app.appendChild(h('div', { class: 'login' }, h('form', { onsubmit: function (e) { e.preventDefault(); note.textContent = ''; api('POST', '/login/2fa', { challenge: challenge, code: code.value }).then(function (r) {
-      if (r.ok) { me = r.user; load(); messagesCount(); }
+      if (r.ok) { me = r.user; load(); messagesCount(); reviewsCount(); }
       else if (r.restart) renderLogin(r.message);
       else { note.textContent = r.message || 'الكود غلط'; code.select(); }
     }); } }, h('h1', { text: 'التحقق بخطوتين' }), h('p', { text: 'اكتب الكود المكوّن من 6 أرقام من تطبيق المصادقة في موبايلك. لو ضاع موبايلك، استخدم كود استرجاع (مثال: a1b2c-3d4e5).' }), h('div', { class: 'f' }, code), note, h('div', { class: 'row' }, h('button', { class: 'btn pri', type: 'submit', text: 'تأكيد' }), h('button', { class: 'btn', type: 'button', text: 'رجوع', onclick: function () { renderLogin(); } })))));
     code.focus();
   }
+  function reviewsCount() { api('GET', '/reviews').then(function (r) { window.__pendingReviews = (r.reviews || []).filter(function (x) { return x.status === 'pending'; }).length; renderSide(); }); }
   function messagesCount() { api('GET', '/messages').then(function (r) { window.__unread = (r.messages || []).filter(function (m) { return !m.read; }).length; renderSide(); }); }
 
-  api('GET', '/me').then(function (r) { if (r.ok) { me = r.user; load(); messagesCount(); } else render(); });
+  api('GET', '/me').then(function (r) { if (r.ok) { me = r.user; load(); messagesCount(); reviewsCount(); } else render(); });
 })();

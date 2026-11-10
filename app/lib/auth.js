@@ -191,7 +191,16 @@ function createAuth(store, env) {
     }
   };
 
-  return { bootstrap, login, login2fa, logout, current, requireAdmin, changePassword, makeToken, setCookie, limited, hit, ip, twofa, _test: { hotp, b32dec, verifyTotp } };
+  /* توكن نموذج عام: بيثبت إن النموذج اتفتح من الموقع من وقت كافي (حماية من الروبوتات) */
+  function formToken() { const p = b64(JSON.stringify({ k: 'f', t: Date.now() })); return p + '.' + mac(p); }
+  function checkFormToken(tok, minMs, maxMs) {
+    if (typeof tok !== 'string' || tok.length > 200) return false;
+    const [p, sg] = tok.split('.'); if (!p || !sg || !same(sg, mac(p))) return false;
+    let d; try { d = JSON.parse(Buffer.from(p, 'base64url').toString('utf8')); } catch (e) { return false; }
+    const age = Date.now() - d.t; return d.k === 'f' && age >= minMs && age <= maxMs;
+  }
+
+  return { formToken, checkFormToken, bootstrap, login, login2fa, logout, current, requireAdmin, changePassword, makeToken, setCookie, limited, hit, ip, twofa, _test: { hotp, b32dec, verifyTotp } };
 }
 
 module.exports = { createAuth, hotp, b32dec };

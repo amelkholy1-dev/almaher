@@ -32,3 +32,43 @@
 .form-note.err{color:#c0392b}
 .form-actions{flex-wrap:wrap}
 .video-box video{width:100%;border-radius:12px;border:1px solid var(--border);background:#000}
+
+/* تقييمات العملاء */
+.stars{display:inline-flex;gap:2px;direction:ltr;font-size:1.05rem;line-height:1}
+.stars i{font-style:normal;color:#cbd5e1}.stars i.on{color:#F5A524}
+:root[data-theme="dark"] .stars i{color:#3a4a63}:root[data-theme="dark"] .stars i.on{color:#F5A524}
+.rv-grid{display:grid;grid-template-columns:320px 1fr;gap:20px;align-items:start;margin-bottom:22px}
+.rv-grid:not(:has(.rv-summary)){grid-template-columns:1fr}
+@media (max-width:900px){.rv-grid{grid-template-columns:1fr}}
+.rv-summary{display:grid;gap:16px;position:sticky;top:90px}
+.rv-avg{display:grid;gap:6px;justify-items:start}
+.rv-avg b{font-size:3rem;line-height:1;font-family:var(--font-en,Lato),sans-serif}
+.rv-avg .stars{font-size:1.4rem}.rv-avg span{color:var(--muted);font-size:.9rem}
+.rv-dist{display:grid;gap:7px}
+.rv-dist>div{display:grid;grid-template-columns:34px 1fr 26px;gap:8px;align-items:center;font-size:.82rem;direction:ltr}
+.rv-dist .track{height:8px;border-radius:5px;background:var(--surface-2);overflow:hidden;display:block}
+.rv-dist .track span{display:block;height:100%;background:#F5A524;border-radius:5px}
+.rv-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
+.rv-card{display:grid;gap:10px;align-content:start;padding:20px}
+.rv-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
+.rv-ver{background:rgba(31,168,85,.12);color:#13803f;border-radius:999px;font-size:.74rem;font-weight:800;padding:2px 10px}
+:root[data-theme="dark"] .rv-ver{color:#5fd590}
+.rv-text{margin:0;line-height:1.9}
+.rv-by{display:grid;gap:1px;border-top:1px solid var(--border);padding-top:10px}
+.rv-by span{color:var(--muted);font-size:.86rem}.rv-by small{color:var(--muted);font-size:.76rem}
+.rv-reply{background:var(--surface-2);border-inline-start:3px solid var(--gold);border-radius:8px;padding:9px 12px;font-size:.88rem}
+.rv-reply b{font-size:.78rem;color:var(--muted)}.rv-reply p{margin:3px 0 0}
+.rv-empty{margin:0;padding:22px;text-align:center;color:var(--muted);border:1.5px dashed var(--border);border-radius:14px}
+.rv-form,.rv-thanks{max-width:640px;margin-inline:auto}
+.rv-form .f{margin:0}.rv-form .lab{font-weight:700;font-size:.92rem}
+.rv-thanks{text-align:center;font-weight:800;color:#13803f;padding:26px}
+.rv-stars-in{display:flex;gap:4px;direction:ltr;width:fit-content;margin-bottom:4px}
+.rv-stars-in .star{all:unset;cursor:pointer;font-size:2.1rem;line-height:1;color:#cbd5e1;transition:.12s;padding:2px}
+.rv-stars-in .star:hover,.rv-stars-in .star.on{color:#F5A524;transform:scale(1.08)}
+.rv-stars-in .star:focus-visible{outline:3px solid var(--gold);border-radius:6px}
+.hero-rating{display:inline-flex;align-items:center;gap:8px;margin:2px 0 14px;padding:6px 14px;border-radius:999px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;font-weight:700;font-size:.9rem}
+.hero-rating:hover{background:rgba(255,255,255,.22)}
+.hero-rating .stars{font-size:.95rem}.hero-rating span{opacity:.85;font-weight:500}
+
+/* خانة فخ الروبوتات: مخفية من غير ما تعمل تمرير أفقي (خصوصاً في RTL) */
+.hp{position:absolute;width:1px;height:1px;overflow:hidden;opacity:0;pointer-events:none;clip:rect(0 0 0 0);margin:-1px}

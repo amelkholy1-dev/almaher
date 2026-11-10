@@ -1,5 +1,5 @@
 {
-  "_v": 4,
+  "_v": 5,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -196,6 +196,15 @@
         "label": {
           "ar": "المهارات",
           "en": "Skills"
+        }
+      },
+      {
+        "id": "reviews",
+        "visible": true,
+        "nav": false,
+        "label": {
+          "ar": "آراء العملاء",
+          "en": "Reviews"
         }
       },
       {
@@ -1856,6 +1865,33 @@
         ]
       }
     ]
+  },
+  "reviews": {
+    "showWhenEmpty": true,
+    "kicker": {
+      "ar": "آراء العملاء",
+      "en": "Client reviews"
+    },
+    "title": {
+      "ar": "ماذا يقول من تعاملوا معي",
+      "en": "What people who worked with me say"
+    },
+    "sub": {
+      "ar": "كل تقييم يُراجَع قبل نشره، ويُعلَّم بعلامة ✓ عندما أتأكد أنه من عميل فعلي.",
+      "en": "Every review is checked before it is published, and marked with ✓ once I confirm it comes from a real client."
+    },
+    "formTitle": {
+      "ar": "قيّم تجربتك معي",
+      "en": "Rate your experience with me"
+    },
+    "emptyText": {
+      "ar": "لا توجد تقييمات منشورة بعد. كن أول من يقيّم تجربته.",
+      "en": "No published reviews yet. Be the first to rate your experience."
+    },
+    "thanks": {
+      "ar": "شكراً لك! وصلني تقييمك وسيظهر بعد المراجعة.",
+      "en": "Thank you! Your review was received and will appear after it is reviewed."
+    }
   },
   "contact": {
     "kicker": {

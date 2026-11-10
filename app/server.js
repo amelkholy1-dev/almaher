@@ -67,6 +67,41 @@ app.post('/api/contact', express.json({ limit: '20kb' }), (req, res) => {
   res.json({ ok: true });
 });
 
+/* ---------------- تقييمات الزوار ---------------- */
+const reviewsFile = () => store.readJson('reviews.json', []);
+const saveReviews = (l) => store.writeJson('reviews.json', l.slice(0, 2000));
+const pubReview = (r) => ({ id: r.id, name: r.name, role: r.role || '', rating: r.rating, text: r.text, time: r.time, verified: !!r.verified, via: r.source && r.source !== 'visitor' ? r.source : '', reply: r.reply && r.reply.text ? { text: r.reply.text, time: r.reply.time } : null });
+function summarize(list) {
+  const dist = [0, 0, 0, 0, 0]; list.forEach((r) => { dist[r.rating - 1]++; });
+  const count = list.length; const avg = count ? Math.round((list.reduce((a, r) => a + r.rating, 0) / count) * 10) / 10 : 0;
+  return { avg, count, dist };
+}
+const URL_RE = /(https?:\/\/|www\.|\b[a-z0-9-]+\.(com|net|org|info|xyz|ru|cn|tk|ml|shop|online|site)\b|t\.me\/|wa\.me\/|bit\.ly)/i;
+app.get('/api/reviews', (req, res) => {
+  const ok = reviewsFile().filter((r) => r.status === 'approved').sort((a, b) => b.time.localeCompare(a.time));
+  res.set('Cache-Control', 'no-store').json({ ok: true, summary: summarize(ok), reviews: ok.slice(0, 60).map(pubReview), token: auth.formToken() });
+});
+app.post('/api/reviews', express.json({ limit: '10kb' }), (req, res) => {
+  const b = req.body || {}; const ip = auth.ip(req);
+  if (b.website) return res.json({ ok: true }); // فخ للروبوتات
+  const clean1 = (v, n) => String(v == null ? '' : v).replace(/[\u0000-\u001f\u007f]/g, ' ').replace(/\s+/g, ' ').trim().slice(0, n);
+  const name = clean1(b.name, 60), role = clean1(b.role, 80), contact = clean1(b.contact, 120);
+  const text = String(b.text == null ? '' : b.text).replace(/[\u0000-\u0008\u000b\u000c\u000e-\u001f\u007f]/g, '').replace(/\n{3,}/g, '\n\n').trim().slice(0, 800);
+  const rating = Number(b.rating);
+  if (!auth.checkFormToken(b.token, 4000, 2 * 3600 * 1000)) return res.status(400).json({ ok: false, message: 'حدّث الصفحة وجرّب تاني.' });
+  if (!Number.isInteger(rating) || rating < 1 || rating > 5) return res.status(400).json({ ok: false, message: 'اختار عدد النجوم من 1 إلى 5.' });
+  if (name.length < 2) return res.status(400).json({ ok: false, message: 'اكتب اسمك.' });
+  if (text.length < 10) return res.status(400).json({ ok: false, message: 'اكتب تقييمك في 10 حروف على الأقل.' });
+  if (URL_RE.test(text) || URL_RE.test(name) || URL_RE.test(role)) return res.status(400).json({ ok: false, message: 'من فضلك من غير روابط في التقييم.' });
+  if (auth.limited('rv-fast:' + ip, 1, 60 * 1000) || auth.limited('rv-day:' + ip, 3, 24 * 3600 * 1000)) return res.status(429).json({ ok: false, message: 'وصلك الحد المسموح. جرّب بعد شوية.' });
+  const all = reviewsFile();
+  if (all.some((r) => r.text === text && r.name === name)) return res.json({ ok: true, message: 'received' }); // تكرار
+  auth.hit('rv-fast:' + ip); auth.hit('rv-day:' + ip);
+  all.unshift({ id: crypto.randomBytes(6).toString('hex'), time: new Date().toISOString(), name, role, rating, text, contact, status: 'pending', verified: false, source: 'visitor' });
+  saveReviews(all);
+  res.json({ ok: true, message: 'received' });
+});
+
 /* =========================================================
    لوحة التحكم
    ========================================================= */
@@ -148,6 +183,26 @@ api.delete('/media/:name', (req, res) => {
   if (!p.startsWith(store.uploads) || !fs.existsSync(p)) return res.status(404).json({ ok: false });
   fs.rmSync(p, { force: true }); res.json({ ok: true });
 });
+
+/* ---- التقييمات (إدارة) ---- */
+api.get('/reviews', (req, res) => res.json({ ok: true, reviews: reviewsFile().sort((a, b) => b.time.localeCompare(a.time)) }));
+api.post('/reviews', express.json({ limit: '10kb' }), (req, res) => { // إضافة تقييم وصلك من عميل (واتساب مثلاً) بإذنه
+  const b = req.body || {}; const rating = Number(b.rating);
+  const name = String(b.name || '').trim().slice(0, 60), text = String(b.text || '').trim().slice(0, 800);
+  if (!Number.isInteger(rating) || rating < 1 || rating > 5 || name.length < 2 || text.length < 5) return res.status(400).json({ ok: false, message: 'اكتب الاسم والتقييم والنص وعدد النجوم.' });
+  const all = reviewsFile();
+  all.unshift({ id: crypto.randomBytes(6).toString('hex'), time: new Date().toISOString(), name, role: String(b.role || '').trim().slice(0, 80), rating, text, contact: '', status: 'approved', verified: !!b.verified, source: String(b.source || 'واتساب').trim().slice(0, 30) });
+  saveReviews(all); res.json({ ok: true });
+});
+api.post('/reviews/:id', express.json({ limit: '10kb' }), (req, res) => {
+  const all = reviewsFile(); const r = all.find((x) => x.id === req.params.id); if (!r) return res.status(404).json({ ok: false });
+  const b = req.body || {};
+  if (['pending', 'approved', 'hidden'].includes(b.status)) r.status = b.status;
+  if (typeof b.verified === 'boolean') r.verified = b.verified;
+  if (typeof b.reply === 'string') { const t = b.reply.trim().slice(0, 500); r.reply = t ? { text: t, time: new Date().toISOString() } : null; }
+  saveReviews(all); res.json({ ok: true });
+});
+api.delete('/reviews/:id', (req, res) => { saveReviews(reviewsFile().filter((x) => x.id !== req.params.id)); res.json({ ok: true }); });
 
 /* ---- الرسائل ---- */
 api.get('/messages', (req, res) => res.json({ ok: true, messages: store.messages.list() }));
