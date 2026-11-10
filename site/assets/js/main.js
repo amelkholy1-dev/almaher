@@ -78,18 +78,18 @@
     'pj.k': 'Portfolio', 'pj.t': 'Projects &amp; interactive demos',
     'pj.s': 'Systems, websites and apps I delivered that are in real use. Try the interactive demos yourself, or request a live demo of the full system.',
     'f.all': 'All', 'f.sys': 'Systems', 'f.web': 'Websites', 'f.app': 'Apps', 'f.other': 'Other',
-    'pj.live': 'Running in several companies on their local network (LAN)', 'pj.live2': 'Running in several companies • cloud-hosted',
+    'pj.live': 'Running in several companies • online or on the local network', 'pj.live2': 'Running in several companies • cloud-hosted',
     'pj.offline': 'Works offline', 'pj.online': 'Live', 'pj.dev': 'In development',
     'type.sys': 'Management system', 'type.ats': 'ATS / recruitment', 'type.app': 'Android app', 'type.travel': 'Travel, Hajj &amp; Umrah', 'type.cons': 'Construction',
     'pj.shots': 'Screenshots', 'pj.appshots': 'App screenshots', 'pj.siteshots': 'Website screenshots', 'pj.video': 'Demo video',
     'ops.t': 'Masar Operations &amp; Accounts System', 'ops.alt': 'Passport system — نظام مسار للعمليات والحسابات',
-    'ops.d': 'A complete system for overseas recruitment and travel offices: 40+ screens covering passports, visas, travel and accounts, on a database of more than 130 tables.',
+    'ops.d': 'A complete system for overseas recruitment and travel offices: dozens of screens covering passports, visas, travel and accounts, on a database of more than 130 tables. I migrated it from SQL Server on the office PC to MySQL on cloud hosting, with tests confirming the data and financial figures come out identical.',
     'ops.f1': 'Passport and document management with a barcode for every file, and search by name, passport no., national ID or mobile',
-    'ops.f2': 'Extracting data from document images (OCR) to register a file in seconds',
-    'ops.f3': 'Stage tracking: medical check, fingerprint, online registration, consulate preparation, visa and travel, with periodic follow-up',
+    'ops.f2': 'Reading passport data from the image (online OCR) to register a file in seconds, plus a print agent for barcode printers and scanners',
+    'ops.f3': 'Stage tracking: medical check, fingerprint, online registration, consulate, visa and travel, with periodic follow-up',
     'ops.f4': 'Accounts: clients, agents and commissions, employees, the full treasury, and company revenue and expenses',
-    'ops.f5': 'Lists and reports (flights, passports, fingerprints, visas, comprehensive financial report) with Excel and PDF export',
-    'ops.f6': 'Users and permissions, backup and archive, and real-time internal chat between staff',
+    'ops.f5': 'Lists and reports (flights, passports, fingerprints, visas, financial reports) with Excel and PDF export',
+    'ops.f6': 'Security: server-checked permissions, admin two-factor authentication, new-device approval, audit log, automatic daily backups, and real-time internal chat',
     'hr.t': 'Masar HR &amp; Recruitment System', 'hr.alt': 'نظام مسار للموارد البشرية والتوظيف',
     'hr.d': 'A complete recruitment system: from receiving a CV and reading it with AI, to matching candidates with company requests and tracking them all the way to travel.',
     'hr.f1': 'Inbox: AI reads CVs (PDF, Word, images) and turns them into structured records reviewed before approval',
@@ -427,7 +427,7 @@
     if (demoLoaded) return demoLoaded;
     demoLoaded = new Promise(function (res, rej) {
       var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = 'assets/css/demo.css?v=3'; doc.head.appendChild(l);
-      var s = doc.createElement('script'); s.src = 'assets/js/demo.js?v=3'; s.onload = res; s.onerror = function () { demoLoaded = null; rej(); }; doc.body.appendChild(s);
+      var s = doc.createElement('script'); s.src = 'assets/js/demo.js?v=4'; s.onload = res; s.onerror = function () { demoLoaded = null; rej(); }; doc.body.appendChild(s);
     });
     return demoLoaded;
   }

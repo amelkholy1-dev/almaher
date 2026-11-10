@@ -401,7 +401,7 @@
             <div class="dm-progress"><i id="dmOcrBar"></i></div>
             <p class="dm-note" id="dmOcrStatus">${o.done ? L('تم استخراج البيانات ✓ راجعها ثم احفظ الملف.', 'Data extracted ✓ Review it, then save the file.') : L('اضغط «استخراج البيانات» لقراءة النص من الصورة.', 'Click “Extract data” to read the text from the image.')}</p>
             <div class="dm-actions" style="margin-top:10px"><button type="button" class="dm-btn pri" data-act="ocrRun">${ic('scan')}${L('استخراج البيانات', 'Extract data')}</button></div>
-            <p class="dm-note">${L('في العرض التوضيحي تُستخدم صورة مستند تجريبية فقط (محاكاة). النظام الكامل يقرأ صور المستندات الحقيقية باستخدام Tesseract.js.', 'This demo uses a sample document image only (simulated). The full system reads real document images using Tesseract.js.')}</p>
+            <p class="dm-note">${L('في العرض التوضيحي تُستخدم صورة مستند تجريبية فقط (محاكاة). النظام الكامل يقرأ صور الجوازات الحقيقية بخدمات OCR أونلاين.', 'This demo uses a sample document image only (simulated). The full system reads real passport images with online OCR services.')}</p>
           </div>
           <div class="dm-panel"><h3>${L('بيانات الملف', 'File data')}</h3>
             <div class="dm-form" id="dmOcrForm">

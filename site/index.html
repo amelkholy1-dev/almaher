@@ -285,21 +285,21 @@ d.setAttribute('data-theme',t)})();
     <article class="project reveal" id="masar-ops" data-cat="sys">
       <div class="project-body">
         <div class="project-badges">
-          <span class="badge badge-live" data-i18n="pj.live">يعمل في عدة شركات على الشبكة الداخلية (LAN)</span>
+          <span class="badge badge-live" data-i18n="pj.live">يعمل في عدة شركات • أونلاين أو على الشبكة الداخلية</span>
           <span class="badge badge-type" data-i18n="type.sys">نظام إدارة</span>
         </div>
         <h3 class="project-title" data-i18n="ops.t">نظام مسار للعمليات والحسابات</h3>
         <p class="project-alt" data-i18n="ops.alt">نظام الجوازات — Masar Operations &amp; Accounts</p>
-        <p data-i18n="ops.d">نظام متكامل لمكاتب إلحاق العمالة والسفر: أكثر من 40 شاشة تغطي الجوازات والتأشيرات والسفر والحسابات، على قاعدة بيانات بأكثر من 130 جدولاً.</p>
+        <p data-i18n="ops.d">نظام متكامل لمكاتب إلحاق العمالة والسفر: عشرات الشاشات تغطي الجوازات والتأشيرات والسفر والحسابات، على قاعدة بيانات بأكثر من 130 جدولاً. نقلته من SQL Server على جهاز المكتب إلى MySQL على استضافة سحابية، مع اختبارات تتأكد إن البيانات والأرقام المالية طالعة متطابقة.</p>
         <ul class="checks">
           <li data-i18n="ops.f1">إدارة الجوازات والوثائق مع باركود لكل ملف، وبحث بالاسم أو رقم الجواز أو الرقم القومي أو الموبايل</li>
-          <li data-i18n="ops.f2">استخراج البيانات من صور المستندات (OCR) لتسجيل الملف في ثوانٍ</li>
-          <li data-i18n="ops.f3">متابعة المراحل: الكشف الطبي، والبصمة، وتسجيل النت، وتجهيزات القنصلية، والتأشيرة، والسفر، مع متابعة دورية</li>
+          <li data-i18n="ops.f2">قراءة بيانات الجواز من الصورة (OCR أونلاين) لتسجيل الملف في ثوانٍ، وبرنامج وسيط لطباعة الباركود ومسدس الباركود</li>
+          <li data-i18n="ops.f3">متابعة المراحل: الكشف الطبي، والبصمة، وتسجيل النت، والقنصلية، والتأشيرة، والسفر، مع متابعة دورية</li>
           <li data-i18n="ops.f4">الحسابات: العملاء، والمناديب والعمولات، والموظفين، والخزينة الشاملة، وإيرادات ومصروفات الشركة</li>
-          <li data-i18n="ops.f5">كشوف وتقارير (الطيران، والجوازات، والبصمة، والتأشيرات، والتقرير المالي الشامل) مع تصدير Excel و PDF</li>
-          <li data-i18n="ops.f6">مستخدمين وصلاحيات، ونسخ احتياطي وأرشيف، وشات داخلي فوري بين الموظفين</li>
+          <li data-i18n="ops.f5">كشوف وتقارير (الطيران، والجوازات، والبصمة، والتأشيرات، والتقارير المالية) مع تصدير Excel و PDF</li>
+          <li data-i18n="ops.f6">أمان: صلاحيات تتفحص على السيرفر، وتحقق ثنائي للمدير، وموافقة على الأجهزة الجديدة، وسجل عمليات، ونسخ احتياطي يومي تلقائي، وشات داخلي فوري</li>
         </ul>
-        <div class="tech"><span>React</span><span>Tailwind CSS</span><span>Node.js</span><span>Express</span><span>SQL Server</span><span>MySQL</span><span>Socket.IO</span><span>OCR</span></div>
+        <div class="tech"><span>React</span><span>Tailwind CSS</span><span>Node.js</span><span>Express</span><span>MySQL</span><span>SQL Server</span><span>Socket.IO</span><span>Gemini / Google Vision OCR</span></div>
         <div class="project-actions">
           <button class="btn btn-primary" type="button" data-demo="ops"><svg class="ic"><use href="#i-play"/></svg><span data-i18n="btn.demo">جرّب العرض التفاعلي</span></button>
           <a class="btn btn-wa" data-wa="ops" href="https://wa.me/201552084471" target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"/></svg><span data-i18n="btn.live">اطلب ديمو مباشر</span></a>
@@ -664,6 +664,6 @@ d.setAttribute('data-theme',t)})();
 
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-<script src="assets/js/main.js?v=3" defer></script>
+<script src="assets/js/main.js?v=4" defer></script>
 </body>
 </html>
