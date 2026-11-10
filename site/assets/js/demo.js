@@ -129,7 +129,7 @@
     const c = this.cfg, cur = c.nav.find((n) => n.id === this.view);
     if (c.phone) {
       this.root.innerHTML = `<div class="ph-wrap ${c.cls}"><div class="ph"><div class="ph-screen">
-        <header class="ph-top"><span class="ph-logo">${L('و', 'W')}</span><div><b>${T(c.name)}</b><small>${T(cur.label)} · ${fmtD(TODAY)}</small></div></header>
+        <header class="ph-top"><img class="ph-logo" src="assets/img/projects/wesal-icon.png" alt="" onerror="this.outerHTML='<span class=ph-logo>${L('و', 'W')}</span>'"><div><b>${T(c.name)}</b><small>${T(cur.label)} · ${fmtD(TODAY)}</small></div></header>
         <div class="ph-content dm-main" id="dmContent">${c.views[this.view](this)}</div><div class="dm-toast" role="status" aria-live="polite"></div>
         <nav class="ph-nav" aria-label="${L('قائمة التطبيق', 'App menu')}">${c.nav.map((n) => `<button type="button" data-view="${n.id}" class="${n.id === this.view ? 'on' : ''}" ${n.id === this.view ? 'aria-current="page"' : ''}>${ic(n.icon)}<span>${T(n.label)}</span></button>`).join('')}</nav>
       </div></div></div>`;
@@ -1132,13 +1132,13 @@
   function ring(p, size) { return `<span class="ap-ring" style="--p:${p};--s:${size || 96}px"><b>${p}%</b></span>`; }
   const APP = {
     cls: 'dm-app', phone: true,
-    name: { ar: 'وصال', en: 'Wesal' }, sub: { ar: 'نظّم يومك', en: 'Organize your day' },
+    name: { ar: 'وصال', en: 'Wesal' }, sub: { ar: 'خطوة منك، وخطوة مني', en: 'A step from you, a step from me' },
     state: appState,
     nav: [
       { id: 'today', icon: 'check', label: { ar: 'اليوم', en: 'Today' } },
       { id: 'focus', icon: 'clock', label: { ar: 'التركيز', en: 'Focus' } },
-      { id: 'prayer', icon: 'star', label: { ar: 'الصلاة', en: 'Prayer' } },
-      { id: 'money', icon: 'wallet', label: { ar: 'المال', en: 'Money' } },
+      { id: 'prayer', icon: 'star', label: { ar: 'العبادات', en: 'Worship' } },
+      { id: 'money', icon: 'wallet', label: { ar: 'فلوسي', en: 'My money' } },
       { id: 'space', icon: 'users', label: { ar: 'المساحة', en: 'Space' } }
     ],
     views: {

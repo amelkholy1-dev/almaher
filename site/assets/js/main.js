@@ -17,7 +17,7 @@
     galleries: {
       ops:        { path: 'assets/img/projects/masar-ops-',    ext: 'png', max: 12, ar: 'نظام مسار للعمليات', en: 'Masar Operations' },
       hr:         { path: 'assets/img/projects/masar-hr-',     ext: 'png', max: 12, ar: 'نظام مسار للموارد البشرية', en: 'Masar HR' },
-      wesal:      { path: 'assets/img/projects/wesal-',        ext: 'png', max: 10, ar: 'تطبيق وصال', en: 'Wesal app' },
+      wesal:      { path: 'assets/img/projects/wesal-',        ext: 'jpg', max: 12, ar: 'تطبيق وصال', en: 'Wesal app' },
       sites:      { path: 'assets/img/projects/site-',         ext: 'png', max: 12, ar: 'المواقع', en: 'Websites' },
       commission: { path: 'assets/img/projects/commission-',   ext: 'png', max: 6,  ar: 'منصة التسويق بالعمولة', en: 'Affiliate platform' },
       store:      { path: 'assets/img/projects/store-',        ext: 'png', max: 6,  ar: 'المتجر الإلكتروني', en: 'Online store' },
@@ -100,15 +100,16 @@
     'hr.f6': 'Protected public application links, an agents portal, and application tracking by number',
     'hr.f7': 'Security: two-factor authentication, device approval, audit log, 35 granular permissions, and field-level restrictions',
     'hr.f8': 'Multiple AI providers (Gemini, Claude, OpenAI and local models) with usage tracking',
-    'ws.t': 'Wesal app', 'ws.alt': 'وصال — daily planning &amp; habits app',
-    'ws.d': 'An Android app to organize your day: habits and tasks, prayer, adhkar and Quran, focus, budget, and shared spaces where members encourage each other.',
-    'ws.f1': 'A “Today” screen with habits and tasks, a weekly strip and progress, and a celebration on completion',
-    'ws.f2': 'Prayer times and tracking, adhkar with audio, and the Quran with tafsir and recitation',
-    'ws.f3': 'Focus sessions with ambient sounds, and a health, workout and nutrition hub',
-    'ws.f4': 'Budget and dues, an ideas notebook, and a mood journal',
-    'ws.f5': 'Shared spaces: members see each other’s progress and send encouragement by notification',
-    'ws.f6': 'Works offline and syncs automatically, Google sign-in, and a PIN lock',
-    'btn.demo': 'Try the interactive demo', 'btn.live': 'Request a live demo', 'btn.app': 'Try the app', 'btn.cms': 'Try the admin panel', 'btn.visit': 'Visit website',
+    'ws.t': 'Wesal app', 'ws.alt': '“A step from you, a step from me.” — وصال',
+    'ws.d': 'An Arabic Android app for habits, tasks and worship — alone or with family and friends — updated from inside the app without a store.',
+    'ws.f1': '“Today”: tasks and habits split into morning, afternoon and night, plus a home-screen widget',
+    'ws.f2': 'Spaces: a personal space or one shared with family and friends, with points, contests, rewards and encouragement',
+    'ws.f3': 'Worship: prayer times, a full-screen adhan, tracking of prayers, sunnah and make-up prayers, plus adhkar and Hisn al-Muslim',
+    'ws.f4': 'The full Quran with tafsir and tajweed, a daily portion and khatma, and step-by-step memorization: listening, graded memorizing, exercises, voice recitation and timed review',
+    'ws.f5': 'Seasons: Ramadan, the two Eids and the first ten days of Dhul Hijjah, with ready habits, family contests and a look that changes with the season',
+    'ws.f6': 'Tools: life goals, money (plan and envelopes), health and medicines, focus, screen-time limits, and a journal',
+    'ws.f7': 'Works offline and syncs automatically, with Google sign-in',
+    'btn.demo': 'Try the interactive demo', 'btn.live': 'Request a live demo', 'btn.app': 'Try the app', 'btn.cms': 'Try the admin panel', 'btn.apk': 'Download the app (APK)', 'btn.visit': 'Visit website',
     'pj.webs': 'Company websites &amp; admin panels', 'pj.others': 'Other projects',
     'w1.t': 'Nasr Al Khaleej — Egyptian Manpower Recruitment Abroad', 'w1.d': 'An Arabic/English company website with a full admin panel the team uses to edit all content.',
     'w1.f1': 'Jobs with codes, search and filters, and forms sent via WhatsApp or email',
@@ -425,8 +426,8 @@
   function loadDemo() {
     if (demoLoaded) return demoLoaded;
     demoLoaded = new Promise(function (res, rej) {
-      var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = 'assets/css/demo.css?v=2'; doc.head.appendChild(l);
-      var s = doc.createElement('script'); s.src = 'assets/js/demo.js?v=2'; s.onload = res; s.onerror = function () { demoLoaded = null; rej(); }; doc.body.appendChild(s);
+      var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = 'assets/css/demo.css?v=3'; doc.head.appendChild(l);
+      var s = doc.createElement('script'); s.src = 'assets/js/demo.js?v=3'; s.onload = res; s.onerror = function () { demoLoaded = null; rej(); }; doc.body.appendChild(s);
     });
     return demoLoaded;
   }
