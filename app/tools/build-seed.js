@@ -34,6 +34,8 @@ const content = {
     photo: 'assets/img/ahmed-alkholy.jpg',
     ogImage: 'assets/img/og-image.jpg',
     showCv: true,
+    showCvAr: true,
+    showCvEn: true,
     cv: { ar: 'assets/cv/Ahmed-Alkholy-CV-AR.pdf', en: 'assets/cv/Ahmed-Alkholy-CV-EN.pdf' },
     seo: {
       title: b('أحمد ماهر الخولي | مهندس أنظمة وحلول أعمال', 'Ahmed Maher Alkholy | Business Systems Engineer'),
