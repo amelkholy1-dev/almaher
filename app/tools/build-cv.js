@@ -17,21 +17,21 @@ const L = {
   ar: {
     dir: 'rtl', lang: 'ar', name: 'أحمد ماهر الخولي', role: S.role.ar, loc: 'الجيزة، مصر',
     h: { sum: 'نبذة مهنية', sk: 'المهارات', ex: 'الخبرات العملية', ed: 'التعليم', lg: 'اللغات', ad: 'معلومات إضافية' },
-    summary: 'مهندس أنظمة وحلول أعمال، فري لانسر منذ يناير 2014، بخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات والدعم الفني. أصمّم وأبني أنظمة إدارة ومواقع وتطبيقات تعمل داخل الشركات من اليوم الأول: أفهم الاحتياج، وأبني الحل، وأشغّله على شبكات الشركات أو الاستضافة، وأدرّب الفريق، وأرافقه بالدعم بعد التشغيل. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، ويعتمد على أنظمتي أكثر من 40 مستخدماً يومياً. ولديّ خبرة قوية في الدعم الفني والشبكات: تجهيز الأجهزة وصيانتها، والشبكات المحلية والراوتر وIP الثابت والجدار الناري، والطابعات والنسخ الاحتياطي. ولديّ إلمام بأدوات الذكاء الاصطناعي (Claude وChatGPT وGemini) وأستخدمها في العمل. ومنذ فبراير 2023 أعمل منسق عمليات وأنظمة في مكتب لإلحاق العمالة المصرية بالخارج.',
+    summary: 'مهندس أنظمة وحلول أعمال، فري لانسر منذ يناير 2014، بخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات والدعم الفني. أصمّم وأبني أنظمة إدارة ومواقع وتطبيقات تعمل داخل الشركات من اليوم الأول: أفهم الاحتياج، وأبني الحل، وأشغّله على شبكات الشركات أو الاستضافة، وأدرّب الفريق، وأرافقه بالدعم بعد التشغيل. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، ويعتمد على أنظمتي أكثر من 40 مستخدماً يومياً. ولديّ خبرة قوية في الدعم الفني والشبكات: تجهيز الأجهزة وصيانتها، والشبكات المحلية والراوتر، IP الثابت والجدار الناري، والطابعات والنسخ الاحتياطي. ولديّ إلمام بأدوات الذكاء الاصطناعي مثل Claude، ChatGPT، Gemini وأستخدمها في العمل. ومنذ فبراير 2023 أعمل منسق عمليات وأنظمة في مكتب لإلحاق العمالة المصرية بالخارج.',
     skills: [
       ['تطوير الأنظمة والمواقع', 'React، TypeScript، Node.js، Express، REST APIs، Socket.IO، Tailwind CSS، MySQL، SQL Server، IndexedDB، Firebase، تطبيقات أندرويد (Capacitor)، واجهات عربية وإنجليزية (RTL)، لوحات تحكم وأنظمة صلاحيات'],
       ['تطبيق وتشغيل الأنظمة', 'تحليل الاحتياج ورسم سير الإجراءات، نقل البيانات من ملفات Excel إلى قاعدة بيانات مركزية، تشغيل الأنظمة على شبكات الشركات أو الاستضافة، تدريب المستخدمين، الدعم والتحديثات بعد التشغيل، نسخ احتياطي واستعادة'],
-      ['الدعم الفني والشبكات', ['تثبيت وتهيئة Windows 10 / 11 والبرامج والتعريفات', 'تشخيص وإصلاح أعطال الأجهزة والبرامج', 'تجهيز الأجهزة للمستخدمين وصيانتها', 'الشبكات المحلية (LAN) والواي فاي', 'إعداد الراوتر والسويتش', 'IP ثابت وPort Forwarding', 'الجدار الناري وتهيئة الوصول من خارج الشركة', 'مشاركة الملفات والمجلدات على الشبكة', 'تشغيل وصيانة الطابعات والماسحات', 'الوصول عن بُعد للأجهزة', 'النسخ الاحتياطي واستعادة البيانات', 'دعم فني مباشر لـ 9 أجهزة داخل المكتب']],
-      ['الذكاء الاصطناعي', 'إلمام بأدوات الذكاء الاصطناعي مثل Claude وChatGPT وGemini وغيرها، وفهم لإمكانياتها وحدودها، وكتابة التعليمات (Prompts) للحصول على أفضل النتائج، واستخدامها في البحث والكتابة والتحليل، وربطها بالأنظمة عبر الـAPIs (Gemini وClaude) لاستخراج البيانات وتحليل السير الذاتية'],
-      ['الجودة والأمان', 'صلاحيات تفصيلية (RBAC)، سجل العمليات، التحقق الثنائي (2FA)، تشفير كلمات المرور، اختبارات آلية (Playwright)، نقل ومطابقة البيانات بين SQL Server وMySQL'],
+      ['الدعم الفني والشبكات', ['تثبيت وتهيئة Windows 10 / 11 والبرامج والتعريفات', 'تشخيص وإصلاح أعطال الأجهزة والبرامج', 'تجهيز الأجهزة للمستخدمين وصيانتها', 'الشبكات المحلية (LAN) والواي فاي', 'إعداد الراوتر والسويتش', 'IP ثابت، Port Forwarding', 'الجدار الناري وتهيئة الوصول من خارج الشركة', 'مشاركة الملفات والمجلدات على الشبكة', 'تشغيل وصيانة الطابعات والماسحات', 'الوصول عن بُعد للأجهزة', 'النسخ الاحتياطي واستعادة البيانات', 'دعم فني مباشر لـ 9 أجهزة داخل المكتب']],
+      ['الذكاء الاصطناعي', 'إلمام بأدوات الذكاء الاصطناعي مثل Claude، ChatGPT، Gemini وغيرها، وفهم لإمكانياتها وحدودها، وكتابة التعليمات (Prompts) للحصول على أفضل النتائج، واستخدامها في البحث والكتابة والتحليل، وربطها بالأنظمة عبر الـ APIs مثل Gemini، Claude لاستخراج البيانات وتحليل السير الذاتية'],
+      ['الجودة والأمان', 'صلاحيات تفصيلية (RBAC)، سجل العمليات، التحقق الثنائي (2FA)، تشفير كلمات المرور، اختبارات آلية (Playwright)، نقل ومطابقة البيانات بين SQL Server، MySQL'],
       ['البيانات والمكتبية', 'Excel (المعادلات والجداول المحورية)، Word، PowerPoint، Google Sheets، إدخال البيانات ومراجعتها، الأرشفة الإلكترونية والورقية، إعداد التقارير'],
       ['التصميم والإعلانات', 'Canva، Photoshop، Meta Business Suite، الإعلانات الممولة، أكثر من 150 تصميماً للشركات والصفحات']
     ],
     free: { role: 'مهندس مستقل لأنظمة الأعمال والمواقع', org: 'عمل حر | عن بُعد', date: 'يناير 2014 – حتى الآن', extra: [
-      '<b>نظام مسار للعمليات والحسابات:</b> إدارة الجوازات والتأشيرات والسفر والحسابات (عملاء ومناديب وعمولات وخزينة)، واستخراج البيانات من الصور، وتقارير Excel وPDF، على قاعدة بيانات بأكثر من 130 جدولاً.',
+      '<b>نظام مسار للعمليات والحسابات:</b> إدارة الجوازات والتأشيرات والسفر والحسابات (عملاء ومناديب وعمولات وخزينة)، واستخراج البيانات من الصور، وتقارير Excel، PDF، على قاعدة بيانات بأكثر من 130 جدولاً.',
       '<b>نظام مسار للموارد البشرية:</b> قراءة السير الذاتية بالذكاء الاصطناعي، وبنك مرشحين مركزي، ومطابقة المرشحين مع الوظائف، وصانع سير بـ20 قالباً.',
       '<b>تطبيق وصال (أندرويد):</b> تطبيق عربي للعادات والمهام والعبادات، فردي أو مع العائلة والأصدقاء.',
-      '<b>مواقع بلوحات تحكم كاملة:</b> nisrelkhaleeg.com وforsango.com وrocklineg.com وeldahan.com وeldiwanjobs.com.'
+      '<b>مواقع بلوحات تحكم كاملة:</b> nisrelkhaleeg.com، forsango.com، rocklineg.com، eldahan.com، eldiwanjobs.com.'
     ] },
     ed: ['بكالوريوس التربية النوعية – تكنولوجيا التعليم والحاسب الآلي', 'جامعة المنوفية | 2018 – 2022 | تقدير جيد مرتفع'],
     lg: '<b>العربية:</b> اللغة الأم &nbsp;|&nbsp; <b>الإنجليزية:</b> جيدة في القراءة والكتابة',
@@ -62,6 +62,8 @@ const L = {
   }
 };
 
+const SITES = { 'nisrelkhaleeg.com': 'https://nisrelkhaleeg.com', 'forsango.com': 'https://forsango.com', 'rocklineg.com': 'https://rocklineg.com', 'eldahan.com': 'https://www.eldahan.com', 'eldiwanjobs.com': 'https://eldiwanjobs.com' };
+const linkify = (x) => x.replace(/\b(nisrelkhaleeg|forsango|rocklineg|eldahan|eldiwanjobs)\.com\b/g, (m) => `<a href="${SITES[m]}">${m}</a>`);
 function html(k) {
   const t = L[k], ar = k === 'ar', ex = C.experience.items.filter((e) => e.visible !== false);
   const entry = (e, i) => {
@@ -69,7 +71,7 @@ function html(k) {
     const extra = i === 0 ? t.free.extra : [];
     let b = (i === 0 ? [bl[0]] : bl.slice(0, 1)).concat(extra, bl.slice(1)).filter(Boolean);
     if (i === 1) { const q = b.findIndex((x) => /9 /.test(x)); if (q > 0) b = [b[q]].concat(b.slice(0, q), b.slice(q + 1)); }
-    return `<div class="job"><div class="jh"><span class="jr">${esc(i === 0 ? t.free.role : role)}</span><span class="jd">${esc(i === 0 ? t.free.date : date)}</span></div><div class="jo">${esc(i === 0 ? t.free.org : org)}</div><ul>${b.map((x) => `<li>${/<b>/.test(x) ? x : esc(x)}</li>`).join('')}</ul></div>`;
+    return `<div class="job"><div class="jh"><span class="jr">${esc(i === 0 ? t.free.role : role)}</span><span class="jd">${esc(i === 0 ? t.free.date : date)}</span></div><div class="jo">${esc(i === 0 ? t.free.org : org)}</div><ul>${b.map((x) => `<li>${/<b>/.test(x) ? linkify(x) : esc(x)}</li>`).join('')}</ul></div>`;
   };
   const F = ar ? "'CairoA','CairoL'" : "'Lato'";
   return `<!doctype html><html lang="${t.lang}" dir="${t.dir}"><head><meta charset="utf-8"><title>${esc(t.name)} — CV</title><style>
@@ -89,7 +91,7 @@ body{margin:0;font-family:${F},sans-serif;color:#1f2937;font-size:${ar ? '9.9pt'
 .top img{width:92px;height:92px;border-radius:50%;object-fit:cover;border:2.5px solid #1f4e8c;flex:none}
 .nm{font-size:${ar ? '25pt' : '23pt'};font-weight:${ar ? 800 : 900};color:#1f4e8c;line-height:1.2}
 .rl{font-size:${ar ? '12.5pt' : '11.5pt'};font-weight:700;margin:2px 0 5px}
-.ct{font-size:8.6pt;color:#5b6573;display:flex;flex-wrap:wrap;gap:3px 14px}.ct span{direction:ltr;unicode-bidi:embed}
+.ct{font-size:8.6pt;color:#5b6573;display:flex;flex-wrap:wrap;gap:3px 14px}.ct span{direction:ltr;unicode-bidi:embed}a{color:inherit;text-decoration:none}li a{color:#1f4e8c}
 h2{font-size:${ar ? '12pt' : '10.5pt'};color:#1f4e8c;font-weight:${ar ? 800 : 900};margin:13px 0 6px;padding-bottom:3px;border-bottom:1px solid #d3dbe6;${ar ? '' : 'letter-spacing:.06em;border-bottom:1.5px solid #1f4e8c'}}
 p{margin:0 0 4px;text-align:justify}
 .sk div{margin:0 0 4.5px}.sk b{color:#111827}.sk .ai{background:#eaf1fb;border-${ar?'right':'left'}:3.5px solid #1f4e8c;border-radius:6px;padding:6px 10px;margin-bottom:7px}.sk .ai>b{color:#1f4e8c;font-size:${ar?'11pt':'10.5pt'}}.sk ul.cols{columns:2;column-gap:22px;margin:4px 0 0}.sk ul.cols li{break-inside:avoid;margin:0 0 2px}
@@ -101,7 +103,7 @@ ul{margin:0;padding-${ar ? 'right' : 'left'}:16px}li{margin:0 0 2.5px}
 .two{display:grid;grid-template-columns:1.25fr 1fr;gap:22px}.two ul{padding-${ar ? 'right' : 'left'}:15px}
 .edt{font-weight:800}
 </style></head><body>
-<div class="top">${ar ? `<img src="${photo}" alt="">` : ''}<div><div class="nm">${esc(t.name)}</div><div class="rl">${esc(t.role)}</div><div class="ct"><span>${esc(t.loc)}</span><span>${esc(S.email)}</span><span>+${S.whatsapp.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})$/, '$1 $2 $3 $4')}</span><span>linkedin.com/in/ahmed-alkholy</span><span>ahmedalkholy.com</span></div></div></div>
+<div class="top">${ar ? `<img src="${photo}" alt="">` : ''}<div><div class="nm">${esc(t.name)}</div><div class="rl">${esc(t.role)}</div><div class="ct"><span>${esc(t.loc)}</span><span><a href="mailto:${esc(S.email)}">${esc(S.email)}</a></span><span><a href="https://wa.me/${S.whatsapp}">+${S.whatsapp.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})$/, '$1 $2 $3 $4')}</a></span><span><a href="https://www.linkedin.com/in/ahmed-alkholy">linkedin.com/in/ahmed-alkholy</a></span><span><a href="https://ahmedalkholy.com">ahmedalkholy.com</a></span></div></div></div>
 <div class="stats">${C.stats.map((x) => `<div><b>${esc(x.value[k])}</b><span>${esc(x.label[k])}</span></div>`).join('')}</div>
 <h2>${t.h.sum}</h2><p>${esc(t.summary)}</p>
 <h2>${t.h.sk}</h2><div class="sk">${t.skills.map(([a, b]) => `<div><b>${esc(a)}:</b> ${esc(Array.isArray(b) ? b.map((x, i) => ar || !i ? x : x[0].toLowerCase() + x.slice(1)).join(ar ? '، ' : ', ') : b)}</div>`).join('')}</div>
