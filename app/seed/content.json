@@ -1,5 +1,5 @@
 {
-  "_v": 6,
+  "_v": 8,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -73,8 +73,8 @@
       "en": "Interactive demo with sample data – the full system is available on request"
     },
     "demoNoticeSample": {
-      "ar": "نموذج توضيحي تفاعلي ببيانات تجريبية بالكامل – يمكن تنفيذ نظام مماثل حسب احتياج شركتك",
-      "en": "Interactive concept demo with fully sample data – a similar system can be built around your company’s needs"
+      "ar": "عرض تفاعلي ببيانات تجريبية بالكامل – يمكن تنفيذ نظام مماثل حسب احتياجك",
+      "en": "Interactive demo with fully sample data – a similar system can be built around your needs"
     },
     "waMessages": {
       "general": {
@@ -797,7 +797,7 @@
         "kind": "showcase",
         "cat": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "مخازن ومبيعات",
           "en": "Inventory & sales"
@@ -842,7 +842,7 @@
         "kind": "showcase",
         "cat": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "فواتير ومحاسبة",
           "en": "Invoicing & accounting"
@@ -887,7 +887,7 @@
         "kind": "showcase",
         "cat": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "نقل ورحلات",
           "en": "Transport & trips"
@@ -932,7 +932,7 @@
         "kind": "showcase",
         "cat": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "عقارات وإيجار",
           "en": "Real estate & rentals"
@@ -977,7 +977,7 @@
         "kind": "showcase",
         "cat": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "عيادات ومواعيد",
           "en": "Clinics & appointments"
@@ -1022,7 +1022,7 @@
         "kind": "showcase",
         "cat": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "مدارس وحضور",
           "en": "Schools & attendance"
@@ -1068,7 +1068,7 @@
         "cat": "app",
         "cat2": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "تطبيق موبايل",
           "en": "Mobile app"
@@ -1114,7 +1114,7 @@
         "cat": "web",
         "cat2": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "متجر إلكتروني",
           "en": "E-commerce"
@@ -1159,7 +1159,7 @@
         "kind": "showcase",
         "cat": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "لوحة تحليلات SaaS",
           "en": "SaaS analytics"
@@ -1204,7 +1204,7 @@
         "kind": "showcase",
         "cat": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "نظام CRM",
           "en": "Sales CRM"
@@ -1250,7 +1250,7 @@
         "cat": "web",
         "cat2": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "بوابة تتبع شحنات",
           "en": "Shipment tracking portal"
@@ -1296,7 +1296,7 @@
         "cat": "web",
         "cat2": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "موقع حجز فلل",
           "en": "Villa booking website"
@@ -1342,7 +1342,7 @@
         "cat": "app",
         "cat2": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "تطبيق موبايل",
           "en": "Mobile app"
@@ -1387,7 +1387,7 @@
         "kind": "showcase",
         "cat": "sys",
         "visible": true,
-        "status": "sample",
+        "status": "none",
         "type": {
           "ar": "إدارة نادٍ رياضي",
           "en": "Gym management"

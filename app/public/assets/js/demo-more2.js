@@ -27,7 +27,7 @@
       return `<div class="x-slots">${slots.map((t) => { const a = app.s.ap.find((x) => x.doc === d && x.t === t && x.st !== 'x'); return a ? `<div class="x-slot taken"><b class="num">${t}</b><span>${esc(pn(app, a.pat))}</span>${stp(a.st)}<span class="x-acts">${a.st === 'bk' ? btn('cIn', L('وصل', 'Check in'), `data-id="${a.id}"`, 'sm') : ''}${a.st === 'in' ? btn('cDone', L('تمت', 'Done'), `data-id="${a.id}"`, 'ok sm') : ''}${a.st === 'bk' ? btn('cCancel', ic('x'), `data-id="${a.id}" aria-label="${L('إلغاء', 'Cancel')}"`, 'sm') : ''}</span></div>` : `<button type="button" class="x-slot free" data-act="cBook" data-t="${t}"><b class="num">${t}</b><span>${L('متاح — اضغط للحجز', 'Free — click to book')}</span></button>`; }).join('')}</div>`;
     };
     return {
-      name: B('العيادات والمواعيد', 'Clinic & Appointments'), sub: B('نموذج توضيحي', 'Concept demo'), cls: 'x-clinic', mark: B('ع', 'C'),
+      name: B('العيادات والمواعيد', 'Clinic & Appointments'), sub: B('ديمو تفاعلي', 'Interactive demo'), cls: 'x-clinic', mark: B('ع', 'C'),
       nav: [{ id: 'dash', icon: 'dash', label: B('اليوم', 'Today') }, { id: 'sched', icon: 'calendar', label: B('جدول المواعيد', 'Schedule') }, { id: 'pts', icon: 'users', label: B('المرضى', 'Patients') }, { id: 'bill', icon: 'cash', label: B('الإيرادات', 'Revenue') }],
       state: () => ({ pt: patients(), ap: appts(), doc: 1, q: '', next: 20 }),
       views: {
@@ -82,7 +82,7 @@
       return `<ul class="x-roll">${list.map((s) => `<li><span class="dm-avatar x-av">${esc(T(s.n)[0])}</span><b>${esc(T(s.n))}</b><span class="x-tog">${[['p', L('حاضر', 'Present'), 'ok'], ['l', L('متأخر', 'Late'), 'gold'], ['a', L('غائب', 'Absent'), 'bad']].map((o) => `<button type="button" class="${s.att === o[0] ? 'on ' + o[2] : ''}" data-act="sMark" data-id="${s.id}" data-v="${o[0]}">${o[1]}</button>`).join('')}</span></li>`).join('')}</ul>`;
     };
     return {
-      name: B('المدارس والحضور', 'School & Attendance'), sub: B('نموذج توضيحي', 'Concept demo'), cls: 'x-school', mark: B('م', 'S'),
+      name: B('المدارس والحضور', 'School & Attendance'), sub: B('ديمو تفاعلي', 'Interactive demo'), cls: 'x-school', mark: B('م', 'S'),
       nav: [{ id: 'dash', icon: 'dash', label: B('اللوحة', 'Dashboard') }, { id: 'att', icon: 'check', label: B('تحضير الفصل', 'Roll call') }, { id: 'stu', icon: 'users', label: B('الطلاب', 'Students') }, { id: 'grades', icon: 'book', label: B('الدرجات', 'Grades') }, { id: 'notice', icon: 'bell', label: B('إشعارات أولياء الأمور', 'Parent notices') }],
       state: () => ({ st: students(), cls: 'a', sub: 'ma', q: '', sent: {} }),
       views: {
@@ -209,7 +209,7 @@
     const tot = (s) => { const sub = s.cart.reduce((a, l) => a + l.p.price * l.q, 0); const disc = s.coupon ? Math.round(sub * 0.15) : 0; return { sub, disc, ship: sub ? 60 : 0, total: sub ? sub - disc + 60 : 0, qty: s.cart.reduce((a, l) => a + l.q, 0) }; };
     const grid = (s) => s.p.filter((p) => p.on && (s.cat === 'all' || p.c === s.cat)).map((p) => `<button type="button" class="x-prod" data-act="eOpen" data-id="${p.id}"><span class="x-pimg" style="background:${p.bg}">${p.e}</span><b>${esc(T(p.n))}</b><span class="x-pp num">${money(p.price)}</span>${p.stock <= 0 ? `<em class="out">${L('نفد', 'Sold out')}</em>` : ''}</button>`).join('');
     return {
-      name: B('متجر الأناقة', 'Elegance Store'), sub: B('نموذج توضيحي', 'Concept demo'), cls: 'x-shop', mark: B('أ', 'E'),
+      name: B('متجر الأناقة', 'Elegance Store'), sub: B('ديمو تفاعلي', 'Interactive demo'), cls: 'x-shop', mark: B('أ', 'E'),
       nav: [{ id: 'store', icon: 'store', label: B('المتجر', 'Storefront') }, { id: 'cart', icon: 'cart', label: B('السلة', 'Cart') }, { id: 'orders', icon: 'receipt', label: B('الطلبات (إدارة)', 'Orders (admin)') }, { id: 'prods', icon: 'tag', label: B('المنتجات (إدارة)', 'Products (admin)') }, { id: 'sales', icon: 'chart', label: B('المبيعات (إدارة)', 'Sales (admin)') }],
       state: () => ({ p: prods(), cat: 'all', cart: [], coupon: false, o: orders(), next: 4022 }),
       views: {

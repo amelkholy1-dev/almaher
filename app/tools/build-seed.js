@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 6,
+  _v: 8,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -39,7 +39,7 @@ const content = {
       description: b('مطوّر أنظمة وحلول أعمال ومصمم، فري لانسر منذ 2014: أنظمة ومواقع وتطبيقات تعمل داخل الشركات، وتصميم سوشيال ميديا، ودعم فني وتشغيل. الجيزة، مصر.', 'Business systems developer and designer, freelancer since 2014: systems, websites and apps running inside companies, social-media design, IT support and operations. Giza, Egypt.')
     },
     demoNotice: b('عرض توضيحي تفاعلي ببيانات تجريبية – النظام الكامل متاح عند الطلب', 'Interactive demo with sample data – the full system is available on request'),
-    demoNoticeSample: b('نموذج توضيحي تفاعلي ببيانات تجريبية بالكامل – يمكن تنفيذ نظام مماثل حسب احتياج شركتك', 'Interactive concept demo with fully sample data – a similar system can be built around your company’s needs'),
+    demoNoticeSample: b('عرض تفاعلي ببيانات تجريبية بالكامل – يمكن تنفيذ نظام مماثل حسب احتياجك', 'Interactive demo with fully sample data – a similar system can be built around your needs'),
     waMessages: {
       general: b('مرحباً أحمد، وصلت إليك من موقعك الشخصي وأودّ التواصل معك.', 'Hi Ahmed, I found you through your website and would like to get in touch.'),
       project: b('مرحباً أحمد، شاهدت «{name}» على موقعك، وأرغب في ديمو مباشر ومعرفة المزيد.', 'Hi Ahmed, I saw “{name}” on your website and would like a live demo and more details.')
@@ -157,56 +157,56 @@ const content = {
 
       /* ---- نماذج توضيحية جديدة ---- */
       {
-        id: 'pos-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('مخازن ومبيعات', 'Inventory & sales'),
+        id: 'pos-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'none', type: b('مخازن ومبيعات', 'Inventory & sales'),
         title: b('نظام المخازن ونقطة البيع', 'Inventory & Point-of-Sale System'),
         text: b('نظام لمحلات الجملة والتجزئة: شاشة بيع سريعة، ومخزون لحظي، وتنبيهات النقص، وتقارير المبيعات.', 'A system for wholesale and retail shops: a fast checkout screen, live stock, low-stock alerts and sales reports.'),
         features: [b('شاشة بيع بالباركود والبحث مع حساب الخصم والإجمالي', 'Checkout with search, discount and automatic totals'), b('مخزون لحظي ينقص مع كل عملية بيع، وتنبيه عند الوصول لحد الطلب', 'Live stock that drops with each sale, with reorder alerts'), b('تعديل المخزون وإضافة الأصناف من الشاشة', 'Adjust stock and add products from the screen'), b('تقارير مبيعات حسب الفئة وأفضل الأصناف', 'Sales by category and top products')],
         tech: 'React, Node.js, MySQL, Barcode', demo: 'pos', images: imgs('pos-demo', 4)
       },
       {
-        id: 'invoices-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('فواتير ومحاسبة', 'Invoicing & accounting'),
+        id: 'invoices-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'none', type: b('فواتير ومحاسبة', 'Invoicing & accounting'),
         title: b('نظام الفواتير والمحاسبة', 'Invoicing & Accounting System'),
         text: b('إصدار فواتير احترافية ومتابعة التحصيل والمصروفات، مع لوحة أرباح ومستحقات العملاء.', 'Issue professional invoices, track collections and expenses, with a profit and receivables dashboard.'),
         features: [b('إنشاء فاتورة بأصناف وضريبة قيمة مضافة 14% وإجمالي تلقائي', 'Create invoices with line items, 14% VAT and automatic totals'), b('متابعة حالة الفاتورة: مدفوعة، مستحقة، متأخرة', 'Track invoice status: paid, due, overdue'), b('حسابات العملاء وأرصدتهم، وتسجيل المصروفات', 'Client accounts and balances, plus expense logging'), b('لوحة إيرادات ومصروفات وصافي ربح', 'Income, expenses and net profit dashboard')],
         tech: 'React, Node.js, MySQL, PDF export', demo: 'invoices', images: imgs('invoices-demo', 4)
       },
       {
-        id: 'fleet-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('نقل ورحلات', 'Transport & trips'),
+        id: 'fleet-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'none', type: b('نقل ورحلات', 'Transport & trips'),
         title: b('نظام جدولة الرحلات والسائقين', 'Trips & Driver Dispatch System'),
         text: b('جدولة رحلات النقل وتوزيع السائقين والمركبات ومتابعة التأخير والحالات العاجلة وتقارير التشغيل اليومية.', 'Schedule transport trips, assign drivers and vehicles, track delays and urgent cases, with daily operations reports.'),
         features: [b('جدول رحلات اليوم مع تعيين السائق والمركبة وتغيير الحالة', 'Today’s trip board with driver/vehicle assignment and status changes'), b('بطاقات السائقين وتنبيه انتهاء الرخص', 'Driver cards with licence-expiry alerts'), b('متابعة المركبات والصيانة الدورية', 'Vehicle tracking and scheduled maintenance'), b('تقرير تشغيل يومي جاهز للإدارة', 'A daily operations report ready for management')],
         tech: 'React, Node.js, MySQL', demo: 'fleet', images: imgs('fleet-demo', 4)
       },
       {
-        id: 'realestate-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('عقارات وإيجار', 'Real estate & rentals'),
+        id: 'realestate-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'none', type: b('عقارات وإيجار', 'Real estate & rentals'),
         title: b('نظام إدارة العقارات والإيجارات', 'Property & Rental Management'),
         text: b('إدارة الوحدات والمستأجرين وعقود الإيجار وتحصيل الأقساط مع تنبيهات انتهاء العقود والمتأخرات.', 'Manage units, tenants, leases and rent collection with expiry and arrears alerts.'),
         features: [b('خريطة وحدات بحالتها: مؤجرة، شاغرة، صيانة', 'Unit map by status: rented, vacant, maintenance'), b('عقود الإيجار وأيام الانتهاء وتجديد بضغطة', 'Leases, days to expiry and one-click renewal'), b('تحصيل الإيجار وتسجيل الدفعات والمتأخرات', 'Rent collection, payments and arrears'), b('نسبة الإشغال والإيراد الشهري', 'Occupancy rate and monthly income')],
         tech: 'React, Node.js, MySQL', demo: 'realestate', images: imgs('realestate-demo', 4)
       },
       {
-        id: 'clinic-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('عيادات ومواعيد', 'Clinics & appointments'),
+        id: 'clinic-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'none', type: b('عيادات ومواعيد', 'Clinics & appointments'),
         title: b('نظام العيادات وحجز المواعيد', 'Clinic & Appointment System'),
         text: b('جدول مواعيد الأطباء، وملفات المرضى، وسجل الزيارات، والتحصيل اليومي في شاشة واحدة.', 'Doctors’ schedules, patient files, visit history and daily collections in one screen.'),
         features: [b('جدول يومي حسب الطبيب مع حجز موعد جديد وتسجيل الحضور', 'Daily schedule per doctor with new bookings and check-in'), b('ملف مريض بسجل الزيارات والتشخيص السابق', 'Patient file with visit history and previous diagnoses'), b('بحث سريع بالاسم أو الموبايل', 'Quick search by name or phone'), b('إيراد اليوم وعدد المرضى', 'Today’s revenue and patient count')],
         tech: 'React, Node.js, MySQL', demo: 'clinic', images: imgs('clinic-demo', 4)
       },
       {
-        id: 'school-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('مدارس وحضور', 'Schools & attendance'),
+        id: 'school-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'none', type: b('مدارس وحضور', 'Schools & attendance'),
         title: b('نظام المدارس والحضور والدرجات', 'School Attendance & Grades System'),
         text: b('تسجيل الحضور والغياب بالفصل، وإدخال الدرجات وحساب المتوسط والترتيب، وإشعارات أولياء الأمور.', 'Class attendance, grade entry with averages and ranking, and parent notifications.'),
         features: [b('تحضير الفصل بضغطة: حاضر، غائب، متأخر', 'One-tap class roll call: present, absent, late'), b('نسبة الحضور لكل طالب وتنبيه للغياب المتكرر', 'Attendance rate per student with repeated-absence alerts'), b('رصد الدرجات تلقائياً بالمتوسط والترتيب', 'Grade entry with automatic average and ranking'), b('رسائل لأولياء الأمور', 'Messages to parents')],
         tech: 'React, Node.js, MySQL', demo: 'school', images: imgs('school-demo', 4)
       },
       {
-        id: 'resto-demo', kind: 'showcase', cat: 'app', cat2: 'sys', visible: true, status: 'sample', type: b('تطبيق موبايل', 'Mobile app'),
+        id: 'resto-demo', kind: 'showcase', cat: 'app', cat2: 'sys', visible: true, status: 'none', type: b('تطبيق موبايل', 'Mobile app'),
         title: b('تطبيق طلبات المطاعم', 'Restaurant Ordering App'),
         text: b('تطبيق لطلب الطعام: قائمة بالتصنيفات، وسلة، وكود خصم، وتتبع حالة الطلب لحظة بلحظة.', 'A food-ordering app: categorised menu, cart, promo code and live order tracking.'),
         features: [b('قائمة طعام بتصنيفات وتفاصيل كل طبق', 'Categorised menu with dish details'), b('سلة وكود خصم ورسوم توصيل', 'Cart, promo code and delivery fee'), b('تتبع حالة الطلب: تحضير، في الطريق، تم التسليم', 'Order tracking: preparing, on the way, delivered'), b('سجل الطلبات السابقة وإعادة الطلب', 'Order history and re-order')],
         tech: 'React, Capacitor, Node.js, Firebase', demo: 'resto', images: imgs('resto-demo', 4)
       },
       {
-        id: 'eshop-demo', kind: 'showcase', cat: 'web', cat2: 'sys', visible: true, status: 'sample', type: b('متجر إلكتروني', 'E-commerce'),
+        id: 'eshop-demo', kind: 'showcase', cat: 'web', cat2: 'sys', visible: true, status: 'none', type: b('متجر إلكتروني', 'E-commerce'),
         title: b('متجر إلكتروني بلوحة إدارة', 'Online Store with Admin Panel'),
         text: b('واجهة متجر بعرض المنتجات والسلة والدفع، ولوحة إدارة للطلبات والمنتجات والمبيعات.', 'A storefront with products, cart and checkout, plus an admin panel for orders, products and sales.'),
         features: [b('منتجات بتصنيفات وخيارات اللون والمقاس', 'Products with categories and colour/size options'), b('سلة وكوبون خصم وإتمام الطلب', 'Cart, coupon and checkout'), b('لوحة طلبات بتغيير الحالة', 'Orders board with status changes'), b('إدارة المنتجات والمخزون ومبيعات اليوم', 'Product and stock management with today’s sales')],
@@ -215,42 +215,42 @@ const content = {
 
       /* ---- English-interface concept projects (for international clients) ---- */
       {
-        id: 'pulse-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('لوحة تحليلات SaaS', 'SaaS analytics'),
+        id: 'pulse-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'none', type: b('لوحة تحليلات SaaS', 'SaaS analytics'),
         title: b('Pulse Analytics', 'Pulse Analytics'),
         text: b('لوحة تحليلات لشركات الاشتراكات: الإيراد الشهري، المستخدمون، معدل الانسحاب وصحة العملاء. واجهة إنجليزية بالكامل.', 'A subscription-analytics dashboard: MRR, active users, churn and customer health, with date ranges and drill-down. Full English interface.'),
         features: [b('مؤشرات MRR والمستخدمين والانسحاب بنطاقات 7 و30 و90 يوماً', 'MRR, active users and churn with 7 / 30 / 90-day ranges'), b('رسم اتجاه الإيراد وحركة MRR', 'Revenue trend chart and MRR movement'), b('قائمة عملاء قابلة للبحث مع مؤشر صحة لكل حساب', 'Searchable customer list with a health score per account'), b('تقارير مجدولة للإدارة', 'Scheduled management reports')],
         tech: 'React, Node.js, PostgreSQL', demo: 'pulse', images: imgs('pulse-demo', 4)
       },
       {
-        id: 'crm-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('نظام CRM', 'Sales CRM'),
+        id: 'crm-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'none', type: b('نظام CRM', 'Sales CRM'),
         title: b('TaskFlow CRM', 'TaskFlow CRM'),
         text: b('نظام لإدارة خط المبيعات بلوحة مراحل: من العميل المحتمل حتى إغلاق الصفقة، مع قيمة كل مرحلة ونسبة الفوز. واجهة إنجليزية.', 'A sales-pipeline CRM with a staged board — from lead to won — showing the value of each stage and the win rate. English interface.'),
         features: [b('لوحة مراحل بنقل الصفقة بضغطة', 'Kanban pipeline: move a deal with one click'), b('قيمة المراحل ومتوسط الصفقة ونسبة الفوز', 'Stage totals, average deal size and win rate'), b('سجل أنشطة لكل صفقة وجهات اتصال', 'Activity timeline per deal and a contacts book'), b('إضافة صفقة جديدة في ثوانٍ', 'Add a new deal in seconds')],
         tech: 'React, Node.js, MySQL', demo: 'crm', images: imgs('crm-demo', 4)
       },
       {
-        id: 'track-demo', kind: 'showcase', cat: 'web', cat2: 'sys', visible: true, status: 'sample', type: b('بوابة تتبع شحنات', 'Shipment tracking portal'),
+        id: 'track-demo', kind: 'showcase', cat: 'web', cat2: 'sys', visible: true, status: 'none', type: b('بوابة تتبع شحنات', 'Shipment tracking portal'),
         title: b('SwiftTrack', 'SwiftTrack'),
         text: b('موقع لتتبع الشحنات برقم التتبع مع خط زمني للحالة، ولوحة إدارة لإنشاء الشحنات وتحديث حالتها. واجهة إنجليزية.', 'A shipment-tracking website with a status timeline by tracking number, plus an admin area to create shipments and update their status. English interface.'),
         features: [b('تتبع بالرقم مع مسار وخط زمني وموعد وصول', 'Track by number with route, timeline and ETA'), b('إنشاء شحنة وتوليد رقم تتبع', 'Create a shipment and generate a tracking number'), b('تحديث الحالة من لوحة الإدارة', 'Update status from the admin area'), b('مؤشرات الأداء والتسليم في الوقت', 'Performance and on-time delivery insights')],
         tech: 'Node.js, Express, MySQL, REST API', demo: 'track', images: imgs('track-demo', 4)
       },
       {
-        id: 'stay-demo', kind: 'showcase', cat: 'web', cat2: 'sys', visible: true, status: 'sample', type: b('موقع حجز فلل', 'Villa booking website'),
+        id: 'stay-demo', kind: 'showcase', cat: 'web', cat2: 'sys', visible: true, status: 'none', type: b('موقع حجز فلل', 'Villa booking website'),
         title: b('Azure Stay', 'Azure Stay'),
         text: b('موقع حجز فلل وإقامات: بحث وفلاتر، حساب سعر الحجز مع الرسوم والضريبة، وإدارة الحجوزات وإشغال 14 يوماً. واجهة إنجليزية.', 'A villa and stay booking website: search and filters, live price breakdown with fees and tax, reservations management and a 14-day occupancy calendar. English interface.'),
         features: [b('بحث بالموقع وعدد الضيوف', 'Search by location and number of guests'), b('تفصيل سعر الليالي والتنظيف والضريبة لحظياً', 'Live price breakdown: nights, cleaning fee, taxes'), b('إدارة الحجوزات: تأكيد وإلغاء', 'Reservation management: confirm and cancel'), b('تقويم إشغال لكل فيلا', 'Occupancy calendar per villa')],
         tech: 'React, Node.js, MySQL, Stripe-ready', demo: 'stay', images: imgs('stay-demo', 4)
       },
       {
-        id: 'fresh-demo', kind: 'showcase', cat: 'app', cat2: 'sys', visible: true, status: 'sample', type: b('تطبيق موبايل', 'Mobile app'),
+        id: 'fresh-demo', kind: 'showcase', cat: 'app', cat2: 'sys', visible: true, status: 'none', type: b('تطبيق موبايل', 'Mobile app'),
         title: b('FreshCart', 'FreshCart'),
         text: b('تطبيق توصيل بقالة: أقسام ومنتجات وسلة وموعد توصيل وتتبع الطلب. واجهة إنجليزية.', 'A grocery-delivery app: categories, products, basket, delivery slots and live order tracking. English interface.'),
         features: [b('أقسام ومنتجات بالصور والوحدات', 'Categories and products with units and imagery'), b('سلة برسوم توصيل مجاني فوق حد معين', 'Basket with free delivery above a threshold'), b('اختيار موعد التوصيل', 'Delivery slot selection'), b('تتبع حالة الطلب لحظياً', 'Live order tracking')],
         tech: 'React, Capacitor, Node.js, Firebase', demo: 'fresh', images: imgs('fresh-demo', 4)
       },
       {
-        id: 'gym-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('إدارة نادٍ رياضي', 'Gym management'),
+        id: 'gym-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'none', type: b('إدارة نادٍ رياضي', 'Gym management'),
         title: b('IronPulse Gym', 'IronPulse Gym'),
         text: b('نظام نادٍ رياضي: الأعضاء والاشتراكات، جدول الحصص والحجز، وتسجيل الدخول بالرقم مع التحقق من الاشتراك. واجهة إنجليزية.', 'A gym management system: members and memberships, class timetable with booking, and member check-in with instant membership validation. English interface.'),
         features: [b('أعضاء واشتراكات وتجديد بضغطة', 'Members, memberships and one-click renewals'), b('جدول حصص بحجز وقائمة انتظار', 'Class timetable with booking and waitlist'), b('تسجيل دخول بالرقم مع رفض الاشتراك المنتهي', 'Check-in by ID that denies expired memberships'), b('مؤشرات الحضور بالساعة والإيراد', 'Attendance-by-hour and revenue KPIs')],

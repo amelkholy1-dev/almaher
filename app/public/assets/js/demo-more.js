@@ -62,7 +62,7 @@
         <button type="button" class="dm-btn gold x-pay" data-act="pPay" ${s.cart.length ? '' : 'disabled'}>${ic('cash')} ${L('إتمام البيع', 'Complete sale')}</button>`;
     };
     return {
-      name: B('نظام المخازن والمبيعات', 'Inventory & POS'), sub: B('نموذج توضيحي', 'Concept demo'), cls: 'x-pos', mark: B('ن', 'P'),
+      name: B('نظام المخازن والمبيعات', 'Inventory & POS'), sub: B('ديمو تفاعلي', 'Interactive demo'), cls: 'x-pos', mark: B('ن', 'P'),
       nav: [{ id: 'dash', icon: 'dash', label: B('لوحة اليوم', 'Today') }, { id: 'sell', icon: 'cart', label: B('شاشة البيع', 'Point of sale') }, { id: 'stock', icon: 'box', label: B('المخزون', 'Inventory') }, { id: 'reports', icon: 'chart', label: B('التقارير', 'Reports') }],
       state: () => ({ p: prods(), cart: [], disc: 0, cat: 'all', q: '', sales: [{ no: 1048, t: '09:12', total: 412, items: 9 }, { no: 1049, t: '09:40', total: 186, items: 5 }, { no: 1050, t: '10:05', total: 954, items: 17 }, { no: 1051, t: '10:31', total: 233, items: 6 }], base: 17180, nextNo: 1052, cs: { drinks: 5400, grocery: 8700, dairy: 4300, clean: 2600, sweets: 3100 }, sold: {} }),
       views: {
@@ -141,7 +141,7 @@
     const exp = () => [{ n: B('إيجار المكتب', 'Office rent'), c: B('إيجار', 'Rent'), a: 6500, d: -5 }, { n: B('رواتب الموظفين', 'Salaries'), c: B('رواتب', 'Payroll'), a: 21000, d: -4 }, { n: B('فاتورة الكهرباء والإنترنت', 'Utilities & internet'), c: B('مرافق', 'Utilities'), a: 2100, d: -9 }, { n: B('مستلزمات مكتبية', 'Office supplies'), c: B('مستلزمات', 'Supplies'), a: 1350, d: -12 }, { n: B('إعلانات ممولة', 'Paid ads'), c: B('تسويق', 'Marketing'), a: 3200, d: -15 }];
     const invRows = (app, f) => app.s.inv.filter((i) => f === 'all' || st(i) === f).sort((a, b) => b.no - a.no).map((i) => `<tr class="click" tabindex="0" data-act="iOpen" data-no="${i.no}"><td class="num">#${i.no}</td><td>${esc(cname(i))}</td><td>${fmtD(i.date)}</td><td>${fmtD(i.due)}</td><td class="num">${num(totals(i).total)}</td><td>${stPill(i)}</td></tr>`).join('') || emptyRow(6);
     return {
-      name: B('الفواتير والمحاسبة', 'Invoicing & Accounting'), sub: B('نموذج توضيحي', 'Concept demo'), cls: 'x-inv', mark: B('ف', 'I'),
+      name: B('الفواتير والمحاسبة', 'Invoicing & Accounting'), sub: B('ديمو تفاعلي', 'Interactive demo'), cls: 'x-inv', mark: B('ف', 'I'),
       nav: [{ id: 'dash', icon: 'dash', label: B('اللوحة', 'Dashboard') }, { id: 'list', icon: 'receipt', label: B('الفواتير', 'Invoices') }, { id: 'new', icon: 'plus', label: B('فاتورة جديدة', 'New invoice') }, { id: 'clients', icon: 'users', label: B('العملاء', 'Clients') }, { id: 'exp', icon: 'wallet', label: B('المصروفات', 'Expenses') }],
       state: () => ({ inv: inv(), exp: exp(), f: 'all', draft: [{ i: 0, q: 1 }], client: 0, next: 2026000 + 115 }),
       views: {
@@ -214,7 +214,7 @@
     const trips = () => [['المطار → الفندق المركزي', 'Airport → Central Hotel', '06:30', 42, 1, 1, 'done'], ['الفندق → المحطة الشمالية', 'Hotel → North Station', '08:15', 38, 2, 2, 'run'], ['الفندق → مدينة الأعمال', 'Hotel → Business City', '09:00', 18, 3, 3, 'run'], ['المحطة → المطار', 'Station → Airport', '10:30', 40, 4, 1, 'late'], ['الفندق → المعرض', 'Hotel → Expo Center', '11:00', 6, 5, 5, 'sch'], ['المطار → الفندق الجنوبي', 'Airport → South Hotel', '12:45', 44, 7, 2, 'sch'], ['الشركة → المصنع', 'Office → Factory', '13:30', 16, 8, 3, 'sch'], ['الفندق → المطار', 'Hotel → Airport', '15:00', 41, 1, 1, 'sch'], ['المعرض → الفندق', 'Expo → Hotel', '17:30', 5, 5, 5, 'sch']].map((t, i) => ({ id: i + 1, r: B(t[0], t[1]), t: t[2], pax: t[3], d: t[4], v: t[5], s: t[6] }));
     const dn = (app, id) => { const d = app.s.d.find((x) => x.id === id); return d ? T(d.n) : '—'; };
     return {
-      name: B('جدولة الرحلات والسائقين', 'Trips & Dispatch'), sub: B('نموذج توضيحي', 'Concept demo'), cls: 'x-fleet', mark: B('ر', 'T'),
+      name: B('جدولة الرحلات والسائقين', 'Trips & Dispatch'), sub: B('ديمو تفاعلي', 'Interactive demo'), cls: 'x-fleet', mark: B('ر', 'T'),
       nav: [{ id: 'dash', icon: 'dash', label: B('لوحة التشغيل', 'Operations') }, { id: 'trips', icon: 'truck', label: B('الرحلات', 'Trips') }, { id: 'drivers', icon: 'users', label: B('السائقون', 'Drivers') }, { id: 'vehicles', icon: 'wrench', label: B('المركبات والصيانة', 'Vehicles') }, { id: 'report', icon: 'pdf', label: B('تقرير اليوم', 'Daily report') }],
       state: () => ({ d: drivers(), v: vehicles(), t: trips(), next: 10 }),
       views: {
@@ -278,7 +278,7 @@
     };
     const stp = (u) => ({ rent: pill('p5', L('مؤجرة', 'Rented')), vacant: pill('p2', L('شاغرة', 'Vacant')), maint: pill('pr', L('صيانة', 'Maintenance')) }[u.st]);
     return {
-      name: B('إدارة العقارات والإيجارات', 'Property & Rentals'), sub: B('نموذج توضيحي', 'Concept demo'), cls: 'x-re', mark: B('ع', 'R'),
+      name: B('إدارة العقارات والإيجارات', 'Property & Rentals'), sub: B('ديمو تفاعلي', 'Interactive demo'), cls: 'x-re', mark: B('ع', 'R'),
       nav: [{ id: 'dash', icon: 'dash', label: B('اللوحة', 'Dashboard') }, { id: 'units', icon: 'home', label: B('الوحدات', 'Units') }, { id: 'leases', icon: 'key', label: B('العقود', 'Leases') }, { id: 'collect', icon: 'cash', label: B('التحصيل', 'Collections') }],
       state: () => ({ u: units() }),
       views: {

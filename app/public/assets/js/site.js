@@ -53,6 +53,7 @@
     en: { ar: 'English', en: 'العربية' },
     statusLive: { ar: 'منشور ويعمل', en: 'Live' },
     statusSample: { ar: 'نموذج توضيحي', en: 'Concept demo' },
+    statusDemo: { ar: 'ديمو تفاعلي', en: 'Interactive demo' },
     statusDev: { ar: 'قيد التطوير', en: 'In development' },
     groupFeature: { ar: 'الأنظمة والتطبيقات الرئيسية', en: 'Main systems & apps' },
     groupShowcase: { ar: 'نماذج توضيحية جاهزة', en: 'Ready-made concept demos' },
@@ -313,8 +314,8 @@
 
   /* ---------- المشاريع ---------- */
   function statusBadge(p) {
-    var cls = p.status === 'sample' ? 'badge-ai' : p.status === 'dev' ? 'badge-dev' : p.status === 'none' ? '' : 'badge-live';
-    var text = p.badge && tx(p.badge) ? tx(p.badge) : p.status === 'sample' ? u('statusSample') : p.status === 'dev' ? u('statusDev') : p.status === 'none' ? '' : u('statusLive');
+    var cls = p.status === 'sample' || p.status === 'demo' ? 'badge-ai' : p.status === 'dev' ? 'badge-dev' : p.status === 'none' ? '' : 'badge-live';
+    var text = p.badge && tx(p.badge) ? tx(p.badge) : p.status === 'sample' ? u('statusSample') : p.status === 'demo' ? u('statusDemo') : p.status === 'dev' ? u('statusDev') : p.status === 'none' ? '' : u('statusLive');
     return text ? '<span class="badge ' + cls + '">' + esc(text) + '</span>' : '';
   }
   function typeBadge(p) { return p.type && tx(p.type) ? '<span class="badge badge-type">' + esc(tx(p.type)) + '</span>' : ''; }
@@ -493,7 +494,7 @@
     var dlg = $('#demoDialog'), rootEl = $('#demoRoot'), wa = $('#demoWa');
     wa.setAttribute('data-wa', pid || 'general'); wa.href = waUrl(waMsg(pid || 'general'));
     var pj = arr(D.projects && D.projects.items).filter(function (x) { return x.id === pid; })[0];
-    $('#demoNotice').textContent = (pj && pj.status === 'sample' && tx(S.demoNoticeSample)) ? tx(S.demoNoticeSample) : (tx(S.demoNotice) || u('notice'));
+    $('#demoNotice').textContent = (pj && (pj.status === 'sample' || pj.status === 'demo') && tx(S.demoNoticeSample)) ? tx(S.demoNoticeSample) : (tx(S.demoNotice) || u('notice'));
     if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
     doc.body.classList.add('no-scroll'); dlg._opener = opener;
     rootEl.innerHTML = '<div class="demo-loading">' + u('loading') + '</div>';
