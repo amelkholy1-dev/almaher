@@ -1,5 +1,5 @@
 {
-  "_v": 12,
+  "_v": 13,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -60,7 +60,7 @@
     "linkedin": "https://www.linkedin.com/in/ahmed-alkholy",
     "github": "",
     "photo": "assets/img/ahmed-alkholy.jpg",
-    "ogImage": "assets/img/og-image.jpg",
+    "ogImage": "assets/img/og-image-v2.jpg",
     "showCv": true,
     "showCvAr": true,
     "showCvEn": true,

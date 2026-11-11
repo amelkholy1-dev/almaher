@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 12,
+  _v: 13,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -32,7 +32,7 @@ const content = {
     linkedin: 'https://www.linkedin.com/in/ahmed-alkholy',
     github: '',
     photo: 'assets/img/ahmed-alkholy.jpg',
-    ogImage: 'assets/img/og-image.jpg',
+    ogImage: 'assets/img/og-image-v2.jpg',
     showCv: true,
     showCvAr: true,
     showCvEn: true,
