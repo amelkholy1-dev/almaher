@@ -243,7 +243,7 @@
       ['كل المشاريع', 'أضف أو عدّل أو رتّب أو اخفِ أي مشروع. «النوع» بيحدد شكل البطاقة: رئيسي (كبير بديمو)، نموذج (بطاقة بصورة)، موقع (بطاقة موقع)، صغير (نص بس).', C.projects, [LIST('items', null, [
         CK('visible', 'ظاهر في الموقع', { def: true }),
         SEL('kind', 'شكل البطاقة', [['feature', 'رئيسي (كبير مع ديمو)'], ['showcase', 'نموذج توضيحي (بطاقة بصورة)'], ['site', 'موقع شركة'], ['mini', 'عمل صغير (نص وصور)']]),
-        SEL('cat', 'التصنيف', pjCats), SEL('status', 'الحالة', [['live', 'منشور ويعمل'], ['sample', 'نموذج توضيحي'], ['dev', 'قيد التطوير'], ['none', 'بدون شارة']]),
+        SEL('cat', 'التصنيف', pjCats), SEL('cat2', 'تصنيف إضافي (اختياري، بيظهر في فلتر تاني كمان)', function () { return [['', '— بدون —']].concat(pjCats()); }), SEL('status', 'الحالة', [['live', 'منشور ويعمل'], ['sample', 'نموذج توضيحي'], ['dev', 'قيد التطوير'], ['none', 'بدون شارة']]),
         T('id', 'المعرّف (إنجليزي من غير مسافات)', { dir: 'ltr', help: 'بيُستخدم كرابط داخل الصفحة وفي رسالة واتساب. ماتغيّروش بعد النشر لو الرابط متوزع.' }),
         BI('title', 'اسم المشروع'), BI('alt', 'اسم ثانوي (اختياري)'), BI('type', 'نوع المشروع (شريحة)'), BI('badge', 'نص الشارة (اتركه فاضي للافتراضي)'),
         BT('text', 'الوصف', { rows: 4 }), LN('features', 'المميزات (سطر لكل ميزة)', { rows: 6 }), T('tech', 'التقنيات (مفصولة بفاصلة)', { dir: 'ltr' }),
@@ -282,6 +282,25 @@
   /* تقييمات الزوار: مراجعة ونشر وتوثيق ورد */
   function reviewsTab(host) {
     if (!C.reviews || typeof C.reviews !== 'object') C.reviews = { showWhenEmpty: true };
+    (function () {
+      var st = { name: '', phone: '', lang: 'ar' };
+      var base = ((C.settings && C.settings.siteUrl) || location.origin).replace(/\/+$/, ''), link = base + '/review';
+      var name = h('input', { type: 'text', placeholder: 'اسم العميل (اختياري)', oninput: function (e) { st.name = e.target.value; upd(); } });
+      var phone = h('input', { type: 'text', dir: 'ltr', placeholder: 'رقم واتساب بالكود الدولي (اختياري) مثال: 201000000000', oninput: function (e) { st.phone = e.target.value; } });
+      var lang = h('select', { onchange: function (e) { st.lang = e.target.value; upd(); } }, h('option', { value: 'ar', text: 'رسالة بالعربي' }), h('option', { value: 'en', text: 'Message in English' }));
+      var msg = h('textarea', { rows: 4, oninput: function () { custom = true; } }); var custom = false;
+      function text() { var n = st.name.trim(); return st.lang === 'en' ? 'Hi' + (n ? ' ' + n : '') + ', thank you for working with me 🌟\nI would really appreciate a quick review of your experience (it takes one minute):\n' + link : 'مرحباً' + (n ? ' ' + n : '') + '، شكراً لتعاملك معي 🌟\nيسعدني لو شاركت تجربتك في تقييم سريع (دقيقة واحدة):\n' + link; }
+      function upd() { if (!custom) msg.value = text(); }
+      upd();
+      function copy(t, m) { (navigator.clipboard ? navigator.clipboard.writeText(t) : Promise.reject()).then(function () { toast(m); }).catch(function () { prompt('انسخ:', t); }); }
+      host.appendChild(h('div', { class: 'card' }, h('h3', { text: 'أرسل رابط التقييم لعميل' }), h('p', { class: 'hint', text: 'الرابط ده بيفتح نموذج التقييم مباشرة: ' + link }),
+        h('div', { class: 'grid2' }, h('div', { class: 'f' }, h('div', { class: 'lab', text: 'اسم العميل' }), name), h('div', { class: 'f' }, h('div', { class: 'lab', text: 'رقم واتساب' }), phone)),
+        h('div', { class: 'f' }, h('div', { class: 'lab', text: 'نص الرسالة (تقدر تعدّله)' }), lang, msg),
+        h('div', { class: 'row' },
+          h('button', { class: 'btn pri', type: 'button', text: 'إرسال عبر واتساب', onclick: function () { var n = st.phone.replace(/\D/g, ''); window.open('https://wa.me/' + n + '?text=' + encodeURIComponent(msg.value), '_blank', 'noopener'); } }),
+          h('button', { class: 'btn', type: 'button', text: 'نسخ الرابط', onclick: function () { copy(link, 'اتنسخ الرابط'); } }),
+          h('button', { class: 'btn', type: 'button', text: 'نسخ الرسالة', onclick: function () { copy(msg.value, 'اتنسخت الرسالة'); } }))));
+    })();
     var cfg = h('div', { class: 'card' }, h('h3', { text: 'قسم «آراء العملاء» في الموقع' }), h('p', { class: 'hint', text: 'نصوص القسم. أي تقييم جديد من زائر بيظهر هنا تحت «قيد المراجعة» ومبيتنشرش غير بعد موافقتك.' }));
     renderFields([CK('showWhenEmpty', 'إظهار القسم حتى لو مفيش تقييمات منشورة (بيظهر نموذج «كن أول من يقيّم»)', { def: true }), BI('kicker', 'العنوان الصغير'), BI('title', 'عنوان القسم'), BT('sub', 'سطر توضيحي', { rows: 2 }), BI('formTitle', 'عنوان نموذج التقييم'), BI('emptyText', 'نص «مفيش تقييمات»'), BI('thanks', 'رسالة الشكر بعد الإرسال')], C.reviews, cfg);
     host.appendChild(cfg);
@@ -474,7 +493,7 @@
     var s = document.getElementById('saveBtn'); s.disabled = true;
     api('PUT', '/content', { content: C }).then(function (r) { if (r.ok) { dirty = false; toast('تم الحفظ — التعديلات ظاهرة في الموقع دلوقتي'); } else { toast(r.message || 'فشل الحفظ', true); } updateTop(); });
   }
-  function load() { return api('GET', '/content').then(function (r) { if (r.ok) { C = r.content; ensureLayout(); dirty = false; render(); } return r; }); }
+  function load() { return api('GET', '/content').then(function (r) { if (r.ok) { C = r.content; window.__seedV = r.seedVersion || 0; ensureLayout(); dirty = false; render(); } return r; }); }
 
   function render() {
     app.innerHTML = '';
@@ -484,6 +503,10 @@
     var side = h('aside', { class: 'side' }, h('div', { class: 'brand' }, h('i', { text: 'AK' }), 'لوحة التحكم'), h('nav'),
       h('div', { class: 'foot' }, h('span', { text: 'مسجّل دخول: ' + me }), h('a', { href: '/', target: '_blank', rel: 'noopener', text: '↗ فتح الموقع' }), h('button', { type: 'button', text: 'تسجيل الخروج', onclick: function () { api('POST', '/logout', {}).then(function () { me = null; C = null; render(); }); } })));
     var content = h('div', { class: 'content' });
+    if ((C._v || 0) < (window.__seedV || 0)) {
+      content.appendChild(h('div', { class: 'tip', style: 'display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap' }, h('span', null, h('b', { text: 'فيه محتوى أحدث جاهز للموقع. ' }), 'نصوص أقوى ومشاريع وأقسام جديدة. تطبيقه بيستبدل النصوص الحالية (وبتتحفظ نسخة احتياطية منها تقدر ترجعها).'),
+        h('button', { class: 'btn gold', type: 'button', text: 'طبّق المحتوى الجديد', onclick: function () { if (confirm('تطبيق المحتوى الجديد؟ تعديلاتك الحالية هتتحفظ في نسخة احتياطية.')) api('POST', '/reset', { confirm: 'RESET' }).then(function (r) { if (r.ok) { dirty = false; load().then(function () { toast('اتطبّق المحتوى الجديد'); }); } else toast('فشل', true); }); } })));
+    }
     var main = h('main', { class: 'main' }, h('div', { class: 'topbar' }, h('div', { class: 'row' }, h('button', { class: 'btn sm menu-btn', type: 'button', text: '☰', 'aria-label': 'القائمة', onclick: function () { side.classList.toggle('open'); } }), h('h2', { text: cur.label })), h('div', { class: 'acts' }, h('span', { class: 'dirty', id: 'dirtyMark' }), h('button', { class: 'btn pri', id: 'saveBtn', type: 'button', text: 'حفظ التعديلات', onclick: save }))), content);
     app.appendChild(h('div', { class: 'shell' }, side, main));
     renderSide(); updateTop();

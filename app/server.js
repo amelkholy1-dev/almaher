@@ -126,7 +126,7 @@ api.post('/logout', (req, res) => { auth.logout(req, res); res.json({ ok: true }
 api.get('/me', (req, res) => { const u = auth.current(req); res.json({ ok: !!u, user: u ? u.name : null, twofa: u ? auth.twofa.status(u).enabled : false }); });
 api.use(auth.requireAdmin);
 
-api.get('/content', (req, res) => res.json({ ok: true, content: store.getContent() }));
+api.get('/content', (req, res) => res.json({ ok: true, content: store.getContent(), seedVersion: store.seedVersion() }));
 api.put('/content', express.json({ limit: '3mb' }), (req, res) => {
   const c = store.clean(req.body && req.body.content);
   if (!c || typeof c !== 'object' || Array.isArray(c) || !c.settings || !c.layout) return res.status(400).json({ ok: false, message: 'المحتوى مش مكتمل.' });

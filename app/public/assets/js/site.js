@@ -340,16 +340,18 @@
   function feats(p) { return arr(p.features).length ? '<ul class="checks">' + arr(p.features).map(function (f) { return '<li>' + esc(tx(f)) + '</li>'; }).join('') + '</ul>' : ''; }
   function head3(p) { return '<h3 class="project-title">' + esc(tx(p.title)) + '</h3>' + (p.alt && tx(p.alt) ? '<p class="project-alt">' + esc(tx(p.alt)) + '</p>' : ''); }
 
+  function catAttr(p, d) { return [p.cat, p.cat2].filter(Boolean).join(' ') || d; }
+  function catHas(attr, f) { return (' ' + (attr || '') + ' ').indexOf(' ' + f + ' ') >= 0; }
   var KIND = {
     feature: function (p, i) {
       var mock = p.demo ? '<button class="demo-preview' + (p.demo === 'hr' ? ' dp-hr' : '') + '" type="button" data-demo="' + esc(p.demo) + '" data-pid="' + esc(p.id) + '" aria-label="' + esc(u('demo')) + '"><span class="dp-bar"><i></i><i></i><i></i></span><span class="dp-body"><span class="dp-side"></span><span class="dp-main"><span class="dp-kpis"><b></b><b></b><b></b></span><span class="dp-rows"><b></b><b></b><b></b><b></b></span></span></span><span class="dp-play">' + ic('play') + '<span>' + u('demo') + '</span></span></button>' : '';
       var cover = !p.demo && arr(p.images)[0] ? '' : '';
-      return '<article class="project' + (i % 2 ? ' project-flip' : '') + ' reveal" id="' + esc(p.id) + '" data-cat="' + esc(p.cat || 'other') + '"><div class="project-body"><div class="project-badges">' + statusBadge(p) + typeBadge(p) + '</div>' +
+      return '<article class="project' + (i % 2 ? ' project-flip' : '') + ' reveal" id="' + esc(p.id) + '" data-cat="' + esc(catAttr(p, 'other')) + '"><div class="project-body"><div class="project-badges">' + statusBadge(p) + typeBadge(p) + '</div>' +
         head3(p) + '<p>' + esc(tx(p.text)) + '</p>' + feats(p) + techRow(p) + actions(p) + '</div><div class="project-media">' + mock + cover + thumbs(p) + videoBox(p) + '</div></article>';
     },
     showcase: function (p) {
       var first = arr(p.images)[0];
-      return '<article class="card showcase reveal" id="' + esc(p.id) + '" data-cat="' + esc(p.cat || 'other') + '">' +
+      return '<article class="card showcase reveal" id="' + esc(p.id) + '" data-cat="' + esc(catAttr(p, 'other')) + '">' +
         (first ? '<button type="button" class="sc-cover" data-lb-p="' + esc(p.id) + '" data-i="0" aria-label="' + esc(u('shotsOpen')) + '"><img src="' + esc(url(first)) + '" alt="' + esc(tx(p.title)) + '" loading="lazy">' + (arr(p.images).length > 1 ? '<span class="sc-count">' + ic('image') + arr(p.images).length + '</span>' : '') + '</button>' : '') +
         '<div class="sc-body"><div class="project-badges">' + statusBadge(p) + typeBadge(p) + '</div><h3>' + esc(tx(p.title)) + '</h3><p class="sc-text">' + esc(tx(p.text)) + '</p>' +
         (arr(p.features).length ? '<ul class="dots sc-list">' + arr(p.features).slice(0, 4).map(function (f) { return '<li>' + esc(tx(f)) + '</li>'; }).join('') + '</ul>' : '') +
@@ -357,12 +359,12 @@
     },
     site: function (p) {
       var first = arr(p.images)[0] || p.cover;
-      return '<article class="card site-card reveal" id="' + esc(p.id) + '" data-cat="' + esc(p.cat || 'web') + '">' +
+      return '<article class="card site-card reveal" id="' + esc(p.id) + '" data-cat="' + esc(catAttr(p, 'web')) + '">' +
         (first ? '<div class="site-cover"><img src="' + esc(url(first)) + '" alt="" loading="lazy" width="600" height="315"></div>' : '<div class="site-cover cover-rock"><span class="rock-mark">' + esc(tx(p.title)) + '</span></div>') +
         '<div class="site-body"><div class="project-badges">' + statusBadge(p) + typeBadge(p) + '</div><h3>' + esc(tx(p.title)) + '</h3><p>' + esc(tx(p.text)) + '</p>' + (arr(p.features).length ? '<ul class="dots">' + arr(p.features).map(function (f) { return '<li>' + esc(tx(f)) + '</li>'; }).join('') + '</ul>' : '') + techRow(p) + actions(p).replace('project-actions', 'project-actions sc-actions') + '</div></article>';
     },
     mini: function (p) {
-      return '<article class="card mini-project reveal" id="' + esc(p.id) + '" data-cat="' + esc(p.cat || 'other') + '"><div class="svc-icon">' + ic(p.icon || 'layers') + '</div><h3>' + esc(tx(p.title)) + '</h3><p>' + esc(tx(p.text)) + '</p>' + thumbs(p, 'thumbs-sm') + actions(p) + '</article>';
+      return '<article class="card mini-project reveal" id="' + esc(p.id) + '" data-cat="' + esc(catAttr(p, 'other')) + '"><div class="svc-icon">' + ic(p.icon || 'layers') + '</div><h3>' + esc(tx(p.title)) + '</h3><p>' + esc(tx(p.text)) + '</p>' + thumbs(p, 'thumbs-sm') + actions(p) + '</article>';
     }
   };
   function videoBox(p) {
@@ -371,7 +373,7 @@
   var activeFilter = 'all';
   function renderProjects() {
     var P = D.projects || {}, items = arr(P.items).filter(vis);
-    var cats = arr(P.cats).filter(function (c) { return items.some(function (p) { return p.cat === c.id; }); });
+    var cats = arr(P.cats).filter(function (c) { return items.some(function (p) { return p.cat === c.id || p.cat2 === c.id; }); });
     var filters = cats.length > 1 ? '<div class="filters" role="tablist"><button type="button" class="' + (activeFilter === 'all' ? 'on' : '') + '" data-filter="all">' + u('all') + '</button>' +
       cats.map(function (c) { return '<button type="button" class="' + (activeFilter === c.id ? 'on' : '') + '" data-filter="' + esc(c.id) + '">' + esc(tx(c.label)) + '</button>'; }).join('') + '</div>' : '';
     var order = [['feature', 'groupFeature', null], ['showcase', 'groupShowcase', 'cards-3 showcase-grid'], ['site', 'groupSite', 'cards-3'], ['mini', 'groupMini', 'cards-2']];
@@ -411,7 +413,7 @@
     $('#demoWaLabel').textContent = u('live');
     var seo = S.seo || {}; if (tx(seo.title)) doc.title = tx(seo.title);
     var m = $('meta[name="description"]'); if (m && tx(seo.description)) m.content = tx(seo.description);
-    $$('#projects [data-cat]').forEach(function (el) { el.classList.toggle('f-hide', activeFilter !== 'all' && el.getAttribute('data-cat') !== activeFilter); });
+    $$('#projects [data-cat]').forEach(function (el) { el.classList.toggle('f-hide', activeFilter !== 'all' && !catHas(el.getAttribute('data-cat'), activeFilter)); });
     updateWa();
     if (RV) paintReviews(); else loadReviews();
     initReveal(instant);
@@ -483,7 +485,7 @@
       var v = (doc.querySelector('script[src*="site.js"]').src.split('?v=')[1] || '1');
       var l = doc.createElement('link'); l.rel = 'stylesheet'; l.href = 'assets/css/demo.css?v=' + v; doc.head.appendChild(l);
       var l2 = doc.createElement('link'); l2.rel = 'stylesheet'; l2.href = 'assets/css/demo-more.css?v=' + v; doc.head.appendChild(l2);
-      demoLoaded = loadScript('assets/js/demo.js?v=' + v).then(function () { return loadScript('assets/js/demo-more.js?v=' + v); }).then(function () { return loadScript('assets/js/demo-more2.js?v=' + v); }).catch(function (e) { demoLoaded = null; throw e; });
+      demoLoaded = loadScript('assets/js/demo.js?v=' + v).then(function () { return loadScript('assets/js/demo-more.js?v=' + v); }).then(function () { return loadScript('assets/js/demo-more2.js?v=' + v); }).then(function () { return loadScript('assets/js/demo-en.js?v=' + v); }).catch(function (e) { demoLoaded = null; throw e; });
     }
     return demoLoaded;
   }
@@ -532,7 +534,7 @@
       if (f) {
         activeFilter = f.getAttribute('data-filter');
         $$('.filters [data-filter]').forEach(function (b) { b.classList.toggle('on', b === f); b.setAttribute('aria-selected', b === f); });
-        $$('#projects [data-cat]').forEach(function (el) { var show = activeFilter === 'all' || el.getAttribute('data-cat') === activeFilter; el.classList.toggle('f-hide', !show); if (show) el.classList.add('in'); });
+        $$('#projects [data-cat]').forEach(function (el) { var show = activeFilter === 'all' || catHas(el.getAttribute('data-cat'), activeFilter); el.classList.toggle('f-hide', !show); if (show) el.classList.add('in'); });
         return;
       }
       var lp = t.closest && t.closest('[data-lb-p]');

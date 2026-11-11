@@ -75,6 +75,7 @@ function createStore(seedFile) {
   return {
     dir, uploads, backups, readJson, writeJson, clean, upgraded,
     getContent: () => content,
+    seedVersion: () => { try { return JSON.parse(fs.readFileSync(seedFile, 'utf8'))._v || 0; } catch (e) { return 0; } },
     setContent(next) { backupNow(); content = next; writeJson('content.json', content); },
     listBackups() { return fs.readdirSync(backups).filter((n) => /^content-.*\.json$/.test(n)).sort().reverse().map((n) => ({ name: n, size: fs.statSync(path.join(backups, n)).size, time: fs.statSync(path.join(backups, n)).mtime.toISOString() })); },
     restoreBackup(name) {

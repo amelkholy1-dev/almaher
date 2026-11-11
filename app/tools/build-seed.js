@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 5,
+  _v: 6,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -60,10 +60,12 @@ const content = {
       { id: 'about', visible: true, nav: true, label: b('نبذة', 'About') },
       { id: 'process', visible: true, nav: false, label: b('طريقة العمل', 'How I work') },
       { id: 'services', visible: true, nav: true, label: b('الخدمات', 'Services') },
+      { id: 'c:packages', visible: true, nav: false, label: b('باقات الخدمات', 'Service packages') },
       { id: 'projects', visible: true, nav: true, label: b('المشاريع', 'Projects') },
       { id: 'experience', visible: true, nav: true, label: b('الخبرات', 'Experience') },
       { id: 'skills', visible: true, nav: true, label: b('المهارات', 'Skills') },
       { id: 'reviews', visible: true, nav: false, label: b('آراء العملاء', 'Reviews') },
+      { id: 'c:faq', visible: true, nav: false, label: b('أسئلة شائعة', 'FAQ') },
       { id: 'contact', visible: true, nav: true, label: b('تواصل معي', 'Contact') }
     ]
   },
@@ -108,24 +110,24 @@ const content = {
   services: {
     kicker: b('الخدمات', 'Services'),
     title: b('ما الذي أنفّذه لك؟', 'What I deliver'),
-    sub: b('أنظمة ومواقع وتطبيقات وتصميم، مع التشغيل والتدريب والدعم — بنظام المشروع أو عن بُعد.', 'Systems, websites, apps and design — with deployment, training and support — per project or remotely.'),
+    sub: b('أنظمة ومواقع وتطبيقات وتصميم، مع التشغيل والتدريب والدعم.', 'Systems, websites, apps and design — with deployment, training and support.'),
     items: [
-      { icon: 'sys', title: b('تصميم وتنفيذ أنظمة إدارة الأعمال', 'Business management systems'), text: b('أنظمة إدارة مصمّمة على قياس شركتك: عمليات، وحسابات، ومخازن، وموارد بشرية، بصلاحيات دقيقة وتقارير جاهزة وتصدير Excel وPDF ونسخ احتياطي. أبدأ من شغلك أنت، لا من قالب جاهز.', 'Management systems tailored to your company: operations, accounting, inventory and HR, with granular permissions, ready reports, Excel/PDF export and backups. I start from your business, not from a ready-made template.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
-      { icon: 'web', title: b('مواقع الشركات ولوحات التحكم', 'Company websites & admin panels'), text: b('مواقع عربية وإنجليزية سريعة ومتجاوبة مع الموبايل، بلوحة تحكم تعدّل منها كل شيء بنفسك دون الرجوع إلى مبرمج.', 'Fast, mobile-friendly Arabic/English websites with an admin panel, so you edit everything yourself without going back to a developer.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
-      { icon: 'phone', title: b('تطبيقات الموبايل', 'Mobile apps'), text: b('تطبيقات أندرويد بواجهة حديثة، تعمل بدون إنترنت وتتزامن تلقائياً، مع إشعارات وتسجيل دخول آمن.', 'Android apps with a modern interface that work offline and sync automatically, with notifications and secure sign-in.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
-      { icon: 'palette', title: b('تصميم السوشيال ميديا والإعلانات', 'Social media & ad design'), text: b('هوية وإعلانات ومنشورات تُبرز نشاطك على Canva وPhotoshop، وإدارة صفحاتك وحملاتك الممولة على Meta — أكثر من 150 تصميماً منذ 2014.', 'Branding, ads and posts that showcase your business on Canva and Photoshop, plus management of your pages and paid campaigns on Meta — 150+ designs since 2014.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
-      { icon: 'ai', title: b('الأتمتة واستخراج البيانات من المستندات', 'Automation & document data extraction'), text: b('أحوّل الجوازات والمستندات والسير الذاتية إلى سجلات منظمة تلقائياً (OCR)، وأطابق المرشحين بالوظائف، وأُنهي الإدخال اليدوي والأخطاء.', 'I turn passports, documents and CVs into structured records automatically (OCR), match candidates to jobs, and eliminate manual entry and errors.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
-      { icon: 'users', title: b('تشغيل الأنظمة والتدريب', 'System rollout & training'), text: b('أنقل بياناتك من Excel والأنظمة القديمة، وأشغّل النظام داخل شركتك، وأدرّب فريقك حتى يعتمد عليه، وأدعمه بعد التشغيل.', 'I migrate your data from Excel and legacy systems, put the system into operation inside your company, train your team until they rely on it, and support it after launch.'), tags: [b('عمل حر', 'Freelance')], goldFirst: false },
-      { icon: 'support', title: b('الدعم الفني والشبكات', 'IT support & networks'), text: b('تثبيت وإدارة Windows والبرامج، وإصلاح الأعطال، والشبكات والراوتر، والطابعات والماسحات، والوصول عن بُعد، والنسخ الاحتياطي.', 'Installing and managing Windows and software, fixing faults, networks and routers, printers and scanners, remote access and backups.'), tags: [b('عمل حر', 'Freelance')], goldFirst: false },
-      { icon: 'table', title: b('البيانات وExcel', 'Data & Excel'), text: b('إدخال بيانات دقيق وسريع، وملفات Excel ولوحات متابعة تفهمها الإدارة، وتحويل PDF والصور إلى Word وExcel، وأرشفة منظمة.', 'Fast, accurate data entry, Excel files and tracking dashboards management can read, PDF/image to Word/Excel conversion, and organised archiving.'), tags: [b('عمل حر', 'Freelance'), b('عن بُعد', 'Remote')], goldFirst: true },
-      { icon: 'ops', title: b('التشغيل الإداري', 'Administrative operations'), text: b('متابعة الإجراءات والملفات، وتنسيق المهام والجهات المختلفة، وتقارير واضحة للإدارة.', 'Following procedures and files, coordinating tasks and different parties, and clear reports for management.'), tags: [b('عمل حر', 'Freelance')], goldFirst: false }
+      { icon: 'sys', title: b('تصميم وتنفيذ أنظمة إدارة الأعمال', 'Business management systems'), text: b('أنظمة إدارة مصمّمة على قياس شركتك: عمليات، وحسابات، ومخازن، وموارد بشرية، بصلاحيات دقيقة وتقارير جاهزة وتصدير Excel وPDF ونسخ احتياطي. أبدأ من شغلك أنت، لا من قالب جاهز.', 'Management systems tailored to your company: operations, accounting, inventory and HR, with granular permissions, ready reports, Excel/PDF export and backups. I start from your business, not from a ready-made template.'), tags: [], goldFirst: false },
+      { icon: 'web', title: b('مواقع الشركات ولوحات التحكم', 'Company websites & admin panels'), text: b('مواقع عربية وإنجليزية سريعة ومتجاوبة مع الموبايل، بلوحة تحكم تعدّل منها كل شيء بنفسك دون الرجوع إلى مبرمج.', 'Fast, mobile-friendly Arabic/English websites with an admin panel, so you edit everything yourself without going back to a developer.'), tags: [], goldFirst: false },
+      { icon: 'phone', title: b('تطبيقات الموبايل', 'Mobile apps'), text: b('تطبيقات أندرويد بواجهة حديثة، تعمل بدون إنترنت وتتزامن تلقائياً، مع إشعارات وتسجيل دخول آمن.', 'Android apps with a modern interface that work offline and sync automatically, with notifications and secure sign-in.'), tags: [], goldFirst: false },
+      { icon: 'palette', title: b('تصميم السوشيال ميديا والإعلانات', 'Social media & ad design'), text: b('هوية وإعلانات ومنشورات تُبرز نشاطك على Canva وPhotoshop، وإدارة صفحاتك وحملاتك الممولة على Meta — أكثر من 150 تصميماً منذ 2014.', 'Branding, ads and posts that showcase your business on Canva and Photoshop, plus management of your pages and paid campaigns on Meta — 150+ designs since 2014.'), tags: [], goldFirst: false },
+      { icon: 'ai', title: b('الأتمتة واستخراج البيانات من المستندات', 'Automation & document data extraction'), text: b('أحوّل الجوازات والمستندات والسير الذاتية إلى سجلات منظمة تلقائياً (OCR)، وأطابق المرشحين بالوظائف، وأُنهي الإدخال اليدوي والأخطاء.', 'I turn passports, documents and CVs into structured records automatically (OCR), match candidates to jobs, and eliminate manual entry and errors.'), tags: [], goldFirst: false },
+      { icon: 'users', title: b('تشغيل الأنظمة والتدريب', 'System rollout & training'), text: b('أنقل بياناتك من Excel والأنظمة القديمة، وأشغّل النظام داخل شركتك، وأدرّب فريقك حتى يعتمد عليه، وأدعمه بعد التشغيل.', 'I migrate your data from Excel and legacy systems, put the system into operation inside your company, train your team until they rely on it, and support it after launch.'), tags: [], goldFirst: false },
+      { icon: 'support', title: b('الدعم الفني والشبكات', 'IT support & networks'), text: b('تثبيت وإدارة Windows والبرامج، وإصلاح الأعطال، والشبكات والراوتر، والطابعات والماسحات، والوصول عن بُعد، والنسخ الاحتياطي.', 'Installing and managing Windows and software, fixing faults, networks and routers, printers and scanners, remote access and backups.'), tags: [], goldFirst: false },
+      { icon: 'table', title: b('البيانات وExcel', 'Data & Excel'), text: b('إدخال بيانات دقيق وسريع، وملفات Excel ولوحات متابعة تفهمها الإدارة، وتحويل PDF والصور إلى Word وExcel، وأرشفة منظمة.', 'Fast, accurate data entry, Excel files and tracking dashboards management can read, PDF/image to Word/Excel conversion, and organised archiving.'), tags: [], goldFirst: false },
+      { icon: 'ops', title: b('التشغيل الإداري', 'Administrative operations'), text: b('متابعة الإجراءات والملفات، وتنسيق المهام والجهات المختلفة، وتقارير واضحة للإدارة.', 'Following procedures and files, coordinating tasks and different parties, and clear reports for management.'), tags: [], goldFirst: false }
     ]
   },
 
   projects: {
     kicker: b('سابقة الأعمال', 'Portfolio'),
     title: b('المشاريع والعروض التفاعلية', 'Projects & interactive demos'),
-    sub: b('أنظمة ومواقع وتطبيقات تعمل فعلياً، ونماذج توضيحية جاهزة. جرّب العروض بنفسك، أو اطلب ديمو مباشر على واتساب.', 'Systems, websites and apps running in production, plus ready-made concept demos. Try them yourself or request a live demo on WhatsApp.'),
+    sub: b('أنظمة ومواقع وتطبيقات بنيتُها وأشغّلها، ونماذج جاهزة للتجربة بواجهات عربية وإنجليزية. جرّبها بنفسك، أو اطلب جولة مباشرة على واتساب.', 'Systems, websites and apps I build and run, plus ready-to-try models with Arabic and English interfaces. Try them yourself or ask for a live walkthrough on WhatsApp.'),
     cats: [
       { id: 'sys', label: b('الأنظمة', 'Systems') }, { id: 'web', label: b('المواقع', 'Websites') }, { id: 'app', label: b('التطبيقات', 'Apps') },
       { id: 'other', label: b('أخرى', 'Other') }
@@ -197,18 +199,62 @@ const content = {
         tech: 'React, Node.js, MySQL', demo: 'school', images: imgs('school-demo', 4)
       },
       {
-        id: 'resto-demo', kind: 'showcase', cat: 'app', visible: true, status: 'sample', type: b('تطبيق موبايل', 'Mobile app'),
+        id: 'resto-demo', kind: 'showcase', cat: 'app', cat2: 'sys', visible: true, status: 'sample', type: b('تطبيق موبايل', 'Mobile app'),
         title: b('تطبيق طلبات المطاعم', 'Restaurant Ordering App'),
         text: b('تطبيق لطلب الطعام: قائمة بالتصنيفات، وسلة، وكود خصم، وتتبع حالة الطلب لحظة بلحظة.', 'A food-ordering app: categorised menu, cart, promo code and live order tracking.'),
         features: [b('قائمة طعام بتصنيفات وتفاصيل كل طبق', 'Categorised menu with dish details'), b('سلة وكود خصم ورسوم توصيل', 'Cart, promo code and delivery fee'), b('تتبع حالة الطلب: تحضير، في الطريق، تم التسليم', 'Order tracking: preparing, on the way, delivered'), b('سجل الطلبات السابقة وإعادة الطلب', 'Order history and re-order')],
         tech: 'React, Capacitor, Node.js, Firebase', demo: 'resto', images: imgs('resto-demo', 4)
       },
       {
-        id: 'eshop-demo', kind: 'showcase', cat: 'web', visible: true, status: 'sample', type: b('متجر إلكتروني', 'E-commerce'),
+        id: 'eshop-demo', kind: 'showcase', cat: 'web', cat2: 'sys', visible: true, status: 'sample', type: b('متجر إلكتروني', 'E-commerce'),
         title: b('متجر إلكتروني بلوحة إدارة', 'Online Store with Admin Panel'),
         text: b('واجهة متجر بعرض المنتجات والسلة والدفع، ولوحة إدارة للطلبات والمنتجات والمبيعات.', 'A storefront with products, cart and checkout, plus an admin panel for orders, products and sales.'),
         features: [b('منتجات بتصنيفات وخيارات اللون والمقاس', 'Products with categories and colour/size options'), b('سلة وكوبون خصم وإتمام الطلب', 'Cart, coupon and checkout'), b('لوحة طلبات بتغيير الحالة', 'Orders board with status changes'), b('إدارة المنتجات والمخزون ومبيعات اليوم', 'Product and stock management with today’s sales')],
         tech: 'React, Node.js, MySQL, EJS', demo: 'eshop', images: imgs('eshop-demo', 4)
+      },
+
+      /* ---- English-interface concept projects (for international clients) ---- */
+      {
+        id: 'pulse-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('لوحة تحليلات SaaS', 'SaaS analytics'),
+        title: b('Pulse Analytics', 'Pulse Analytics'),
+        text: b('لوحة تحليلات لشركات الاشتراكات: الإيراد الشهري، المستخدمون، معدل الانسحاب وصحة العملاء. واجهة إنجليزية بالكامل.', 'A subscription-analytics dashboard: MRR, active users, churn and customer health, with date ranges and drill-down. Full English interface.'),
+        features: [b('مؤشرات MRR والمستخدمين والانسحاب بنطاقات 7 و30 و90 يوماً', 'MRR, active users and churn with 7 / 30 / 90-day ranges'), b('رسم اتجاه الإيراد وحركة MRR', 'Revenue trend chart and MRR movement'), b('قائمة عملاء قابلة للبحث مع مؤشر صحة لكل حساب', 'Searchable customer list with a health score per account'), b('تقارير مجدولة للإدارة', 'Scheduled management reports')],
+        tech: 'React, Node.js, PostgreSQL', demo: 'pulse', images: imgs('pulse-demo', 4)
+      },
+      {
+        id: 'crm-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('نظام CRM', 'Sales CRM'),
+        title: b('TaskFlow CRM', 'TaskFlow CRM'),
+        text: b('نظام لإدارة خط المبيعات بلوحة مراحل: من العميل المحتمل حتى إغلاق الصفقة، مع قيمة كل مرحلة ونسبة الفوز. واجهة إنجليزية.', 'A sales-pipeline CRM with a staged board — from lead to won — showing the value of each stage and the win rate. English interface.'),
+        features: [b('لوحة مراحل بنقل الصفقة بضغطة', 'Kanban pipeline: move a deal with one click'), b('قيمة المراحل ومتوسط الصفقة ونسبة الفوز', 'Stage totals, average deal size and win rate'), b('سجل أنشطة لكل صفقة وجهات اتصال', 'Activity timeline per deal and a contacts book'), b('إضافة صفقة جديدة في ثوانٍ', 'Add a new deal in seconds')],
+        tech: 'React, Node.js, MySQL', demo: 'crm', images: imgs('crm-demo', 4)
+      },
+      {
+        id: 'track-demo', kind: 'showcase', cat: 'web', cat2: 'sys', visible: true, status: 'sample', type: b('بوابة تتبع شحنات', 'Shipment tracking portal'),
+        title: b('SwiftTrack', 'SwiftTrack'),
+        text: b('موقع لتتبع الشحنات برقم التتبع مع خط زمني للحالة، ولوحة إدارة لإنشاء الشحنات وتحديث حالتها. واجهة إنجليزية.', 'A shipment-tracking website with a status timeline by tracking number, plus an admin area to create shipments and update their status. English interface.'),
+        features: [b('تتبع بالرقم مع مسار وخط زمني وموعد وصول', 'Track by number with route, timeline and ETA'), b('إنشاء شحنة وتوليد رقم تتبع', 'Create a shipment and generate a tracking number'), b('تحديث الحالة من لوحة الإدارة', 'Update status from the admin area'), b('مؤشرات الأداء والتسليم في الوقت', 'Performance and on-time delivery insights')],
+        tech: 'Node.js, Express, MySQL, REST API', demo: 'track', images: imgs('track-demo', 4)
+      },
+      {
+        id: 'stay-demo', kind: 'showcase', cat: 'web', cat2: 'sys', visible: true, status: 'sample', type: b('موقع حجز فلل', 'Villa booking website'),
+        title: b('Azure Stay', 'Azure Stay'),
+        text: b('موقع حجز فلل وإقامات: بحث وفلاتر، حساب سعر الحجز مع الرسوم والضريبة، وإدارة الحجوزات وإشغال 14 يوماً. واجهة إنجليزية.', 'A villa and stay booking website: search and filters, live price breakdown with fees and tax, reservations management and a 14-day occupancy calendar. English interface.'),
+        features: [b('بحث بالموقع وعدد الضيوف', 'Search by location and number of guests'), b('تفصيل سعر الليالي والتنظيف والضريبة لحظياً', 'Live price breakdown: nights, cleaning fee, taxes'), b('إدارة الحجوزات: تأكيد وإلغاء', 'Reservation management: confirm and cancel'), b('تقويم إشغال لكل فيلا', 'Occupancy calendar per villa')],
+        tech: 'React, Node.js, MySQL, Stripe-ready', demo: 'stay', images: imgs('stay-demo', 4)
+      },
+      {
+        id: 'fresh-demo', kind: 'showcase', cat: 'app', cat2: 'sys', visible: true, status: 'sample', type: b('تطبيق موبايل', 'Mobile app'),
+        title: b('FreshCart', 'FreshCart'),
+        text: b('تطبيق توصيل بقالة: أقسام ومنتجات وسلة وموعد توصيل وتتبع الطلب. واجهة إنجليزية.', 'A grocery-delivery app: categories, products, basket, delivery slots and live order tracking. English interface.'),
+        features: [b('أقسام ومنتجات بالصور والوحدات', 'Categories and products with units and imagery'), b('سلة برسوم توصيل مجاني فوق حد معين', 'Basket with free delivery above a threshold'), b('اختيار موعد التوصيل', 'Delivery slot selection'), b('تتبع حالة الطلب لحظياً', 'Live order tracking')],
+        tech: 'React, Capacitor, Node.js, Firebase', demo: 'fresh', images: imgs('fresh-demo', 4)
+      },
+      {
+        id: 'gym-demo', kind: 'showcase', cat: 'sys', visible: true, status: 'sample', type: b('إدارة نادٍ رياضي', 'Gym management'),
+        title: b('IronPulse Gym', 'IronPulse Gym'),
+        text: b('نظام نادٍ رياضي: الأعضاء والاشتراكات، جدول الحصص والحجز، وتسجيل الدخول بالرقم مع التحقق من الاشتراك. واجهة إنجليزية.', 'A gym management system: members and memberships, class timetable with booking, and member check-in with instant membership validation. English interface.'),
+        features: [b('أعضاء واشتراكات وتجديد بضغطة', 'Members, memberships and one-click renewals'), b('جدول حصص بحجز وقائمة انتظار', 'Class timetable with booking and waitlist'), b('تسجيل دخول بالرقم مع رفض الاشتراك المنتهي', 'Check-in by ID that denies expired memberships'), b('مؤشرات الحضور بالساعة والإيراد', 'Attendance-by-hour and revenue KPIs')],
+        tech: 'React, Node.js, MySQL', demo: 'gym', images: imgs('gym-demo', 4)
       },
 
       /* ---- مواقع ---- */
@@ -264,6 +310,8 @@ const content = {
       { icon: 'table', title: b('البيانات وExcel والمكتب', 'Data, Excel & Office'), items: ['Excel', b('المعادلات والجداول المحورية', 'Formulas & pivot tables'), b('لوحات متابعة في Excel', 'Excel tracking dashboards'), 'Google Sheets', 'Word', 'PowerPoint', b('إدخال البيانات ومراجعتها', 'Data entry & verification'), b('تنظيف البيانات وتوحيد الصيغ', 'Data cleaning & standardisation'), b('تحويل PDF والصور إلى Word / Excel', 'PDF/image to Word/Excel conversion'), b('الأرشفة الإلكترونية والورقية', 'Digital & paper archiving'), b('إعداد التقارير', 'Report preparation')] },
       { icon: 'ops', title: b('التشغيل الإداري وتحليل الأعمال', 'Operations & business analysis'), items: [b('تحليل الاحتياج', 'Requirements analysis'), b('رسم سير الإجراءات', 'Workflow mapping'), b('متابعة الإجراءات متعددة المراحل', 'Multi-stage procedure follow-up'), b('التنسيق مع الجهات الخارجية', 'External-party coordination'), b('تشغيل الأنظمة', 'System rollout'), b('نقل البيانات من Excel', 'Migrating data from Excel'), b('تدريب المستخدمين', 'User training'), b('إعداد الأدلة والتوثيق', 'Guides & documentation'), b('عرض الأنظمة والبيع', 'System demos & selling')] },
       { icon: 'palette', title: b('التصميم والتسويق', 'Design & marketing'), items: ['Canva', 'Photoshop', 'Meta Business Suite', b('إدارة الصفحات', 'Page management'), b('الإعلانات الممولة', 'Paid campaigns'), b('تصميم الإعلانات والمنشورات (+150 تصميماً)', 'Ad & post design (150+ designs)'), b('تصميم مواقع تعريفية وصفحات هبوط', 'Brochure sites & landing pages')] },
+      { icon: 'shield', highlight: true, title: b('هندسة الجودة والأمان', 'Engineering quality & security'), items: [b('تصميم واجهات REST APIs', 'RESTful API design'), b('أنظمة الصلاحيات (RBAC)', 'Role-based access control (RBAC)'), b('سجل العمليات (Audit log)', 'Audit logging'), b('اختبارات آلية (Playwright)', 'Automated testing (Playwright)'), b('نقل ومطابقة البيانات (SQL Server إلى MySQL)', 'Data migration & reconciliation (SQL Server → MySQL)'), b('ميزات لحظية (Socket.IO)', 'Real-time features (Socket.IO)'), b('تقارير Excel وPDF، وباركود وQR', 'Excel & PDF reports, barcode & QR'), b('واجهات ثنائية اللغة ودعم RTL', 'Bilingual (Arabic/English) & RTL interfaces'), b('تحسين الأداء والتخزين المؤقت', 'Performance & caching (IndexedDB)'), b('تصميم متجاوب للموبايل', 'Responsive, mobile-first design'), b('أساسيات تحسين محركات البحث', 'On-page SEO fundamentals')] },
+      { icon: 'users', highlight: true, title: b('التنفيذ مع العملاء', 'Client delivery'), items: [b('جلسات تحليل الاحتياج', 'Requirements workshops'), b('عرض تجريبي في كل مرحلة', 'Milestone demos'), b('التواصل مع العملاء بالعربي والإنجليزي', 'Client communication in Arabic & English'), b('التوثيق وأدلة المستخدم', 'Documentation & user guides'), b('تدريب فرق العميل', 'Client team training'), b('العمل عن بُعد مع عملاء في مصر والخليج', 'Remote work with clients in Egypt & the Gulf'), b('إدارة المشاريع باستقلالية', 'Independent project management')] },
       { icon: 'users', title: b('مهارات شخصية', 'Professional strengths'), items: [b('العمل الحر وإدارة المشاريع باستقلالية', 'Independent freelance project management'), b('الالتزام بالمواعيد', 'Meeting deadlines'), b('العمل تحت ضغط وفي ورديات', 'Working under pressure & in shifts'), b('التواصل مع العملاء', 'Client communication'), b('التعلّم السريع', 'Fast learning'), b('الدقة والاهتمام بالتفاصيل', 'Accuracy & attention to detail'), b('العربية (لغة أم) والإنجليزية', 'Arabic (native) & English')] }
     ]
   },
@@ -283,12 +331,30 @@ const content = {
     title: b('لنبدأ مشروعك', 'Let’s start your project'),
     sub: b('لديك فكرة نظام أو موقع أو تطبيق، أو تحتاج تصميماً أو دعماً فنياً؟ تواصل معي واحصل على ديمو مباشر لأحد الأنظمة وعرض واضح لما سننفّذه.', 'Have an idea for a system, website or app, or need design or technical support? Reach out and get a live demo of one of my systems and a clear proposal of what we will build.'),
     formTitle: b('أرسل رسالتك', 'Send your message'),
-    topics: [b('نظام أو موقع أو تطبيق', 'System, website or app'), b('تصميم سوشيال ميديا', 'Social-media design'), b('دعم فني أو تشغيل', 'IT support or operations'), b('ديمو مباشر لأحد الأنظمة', 'Live demo of a system'), b('تعاون أو عرض عمل', 'Collaboration or job offer'), b('موضوع آخر', 'Something else')]
+    topics: [b('نظام أو موقع أو تطبيق', 'System, website or app'), b('تصميم سوشيال ميديا', 'Social-media design'), b('دعم فني أو تشغيل', 'IT support or operations'), b('ديمو مباشر لأحد الأنظمة', 'Live demo of a system'), b('تعاون أو شراكة', 'Collaboration or partnership'), b('موضوع آخر', 'Something else')]
   },
 
-  custom: []
+  custom: [
+    {
+      id: 'packages', layout: 'cards', alt: false, kicker: b('باقات الخدمات', 'Service packages'), title: b('أنفّذ لك بنطاق واضح من البداية', 'Clear scope from day one'), sub: b('اختر ما يناسبك، وأرسل لي احتياجك لأرسل لك عرضاً محدداً بالنطاق والمراحل.', 'Pick what fits, tell me what you need, and I will send a specific proposal with scope and milestones.'),
+      cards: [
+        { icon: 'web', title: b('موقع الشركة', 'Business website'), text: b('موقع سريع بالعربية والإنجليزية ومتجاوب مع الموبايل، بلوحة تحكم تعدّل منها كل شيء بنفسك، وتحسين أساسي لمحركات البحث.', 'A fast, bilingual, mobile-friendly website with an admin panel to edit everything yourself, plus on-page SEO fundamentals.'), link: 'https://wa.me/201552084471?text=Hi Ahmed, I would like a quote for a business website.', linkLabel: b('اطلب عرض سعر', 'Request a quote') },
+        { icon: 'sys', title: b('نظام إدارة مخصص', 'Custom management system'), text: b('نظام للعمليات أو الحسابات أو المخازن أو الموارد البشرية على قياس شغلك، بصلاحيات وتقارير ونسخ احتياطي وتدريب لفريقك.', 'An operations, accounting, inventory or HR system built around your workflow, with roles, reports, backups and training for your team.'), link: 'https://wa.me/201552084471?text=Hi Ahmed, I would like a quote for a custom management system.', linkLabel: b('اطلب عرض سعر', 'Request a quote') },
+        { icon: 'table', title: b('أتمتة Excel ولوحات المتابعة', 'Excel automation & dashboards'), text: b('ملفات منظمة وتقارير تلقائية ولوحات متابعة تفهمها الإدارة، وتحويل المستندات والصور إلى بيانات قابلة للاستخدام.', 'Clean, structured spreadsheets, automated reports and dashboards your management can read, plus conversion of documents and images into usable data.'), link: 'https://wa.me/201552084471?text=Hi Ahmed, I would like a quote for Excel automation and dashboards.', linkLabel: b('اطلب عرض سعر', 'Request a quote') },
+        { icon: 'palette', title: b('باقة تصميم السوشيال ميديا', 'Social media design pack'), text: b('إعلانات ومنشورات جاهزة للنشر على Canva وPhotoshop، مع إدارة الصفحات والحملات الممولة على Meta.', 'Ready-to-post ads and content on Canva and Photoshop, with page and paid-campaign management on Meta.'), link: 'https://wa.me/201552084471?text=Hi Ahmed, I would like a quote for a social media design pack.', linkLabel: b('اطلب عرض سعر', 'Request a quote') }
+      ]
+    },
+    {
+      id: 'faq', layout: 'text', alt: true, kicker: b('أسئلة شائعة', 'FAQ'), title: b('قبل أن نبدأ', 'Before we start'), sub: b('', ''),
+      body: b('**هل تعمل مع عملاء من خارج مصر؟**\nنعم. أعمل عن بُعد، وأتواصل بالعربية والإنجليزية، وأسلّم الواجهات بأي من اللغتين.\n\n**هل أستطيع رؤية نموذج قبل أن أقرر؟**\nنعم. جرّب العروض التفاعلية في هذه الصفحة، أو اطلب جولة مباشرة على واتساب.\n\n**ماذا يحدث بعد التسليم؟**\nأدرّب فريقك وأظل متاحاً للدعم والتحديثات والنسخ الاحتياطي.\n\n**كيف نبدأ؟**\nأرسل لي ما تحتاجه، فأحدد معك النطاق والمراحل وأعرض عليك نموذجاً مشابهاً قبل التنفيذ.',
+        '**Do you work with clients outside Egypt?**\nYes. I work remotely, communicate in Arabic and English, and deliver interfaces in either language.\n\n**Can I see an example before I decide?**\nYes. Try the interactive demos on this page, or ask for a live walkthrough on WhatsApp.\n\n**What happens after delivery?**\nI train your team and stay available for support, updates and backups.\n\n**How do we start?**\nMessage me what you need; we will define the scope and milestones together, and I will show you a similar example before we build.'),
+      cards: [], images: []
+    }
+  ]
 };
 
+// روابط واتساب في بطاقات الباقات: ترميز نص الرسالة
+for (const c of content.custom) for (const k of (c.cards || [])) if (k.link && k.link.includes('?text=')) { const i = k.link.indexOf('?text='); k.link = k.link.slice(0, i) + '?text=' + encodeURIComponent(k.link.slice(i + 6)); }
 fs.mkdirSync(path.join(__dirname, '..', 'seed'), { recursive: true });
 fs.writeFileSync(path.join(__dirname, '..', 'seed', 'content.json'), JSON.stringify(content, null, 2));
 console.log('seed ok —', content.projects.items.length, 'مشروع،', content.skills.groups.length, 'مجموعة مهارات');

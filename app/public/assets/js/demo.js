@@ -6,7 +6,8 @@
 (function () {
   'use strict';
   const doc = document;
-  const lang = () => (doc.documentElement.lang === 'en' ? 'en' : 'ar');
+  let forced = null; // بعض النماذج (للعملاء الأجانب) واجهتها إنجليزي دايماً بغض النظر عن لغة الموقع
+  const lang = () => forced || (doc.documentElement.lang === 'en' ? 'en' : 'ar');
   const L = (ar, en) => (lang() === 'en' ? en : ar);
   const T = (o) => (o == null ? '' : typeof o === 'string' || typeof o === 'number' ? String(o) : o[lang()]);
   const esc = (s) => String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -1223,7 +1224,9 @@
   window.MasarDemo = {
     mount(root, kind) {
       injectIcons();
-      if (!apps[kind]) apps[kind] = new App({ ops: OPS, hr: HR, web: WEB, app: APP }[kind] || EXTRA[kind] || OPS);
+      const def = { ops: OPS, hr: HR, web: WEB, app: APP }[kind] || EXTRA[kind] || OPS;
+      forced = def.forceEn ? 'en' : null; root.dir = def.forceEn ? 'ltr' : '';
+      if (!apps[kind]) apps[kind] = new App(def);
       current = apps[kind]; currentRoot = root; current.mount(root);
     },
     isPhone(kind) { const d = ({ app: APP })[kind] || EXTRA[kind]; return !!(d && d.phone); },
