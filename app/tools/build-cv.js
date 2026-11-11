@@ -104,7 +104,7 @@ ul{margin:0;padding-${ar ? 'right' : 'left'}:16px}li{margin:0 0 2.5px}
 .edt{font-weight:800}
 </style></head><body>
 <div class="top">${ar ? `<img src="${photo}" alt="">` : ''}<div><div class="nm">${esc(t.name)}</div><div class="rl">${esc(t.role)}</div><div class="ct"><span>${esc(t.loc)}</span><span><a href="mailto:${esc(S.email)}">${esc(S.email)}</a></span><span><a href="https://wa.me/${S.whatsapp}">+${S.whatsapp.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})$/, '$1 $2 $3 $4')}</a></span><span><a href="https://www.linkedin.com/in/ahmed-alkholy">linkedin.com/in/ahmed-alkholy</a></span><span><a href="https://ahmedalkholy.com">ahmedalkholy.com</a></span></div></div></div>
-<div class="stats">${C.stats.map((x) => `<div><b>${esc(x.value[k])}</b><span>${esc(x.label[k])}</span></div>`).join('')}</div>
+${ar ? `<div class="stats">${C.stats.map((x) => `<div><b>${esc(x.value[k])}</b><span>${esc(x.label[k])}</span></div>`).join('')}</div>` : ''}
 <h2>${t.h.sum}</h2><p>${esc(t.summary)}</p>
 <h2>${t.h.sk}</h2><div class="sk">${t.skills.map(([a, b]) => `<div><b>${esc(a)}:</b> ${esc(Array.isArray(b) ? b.map((x, i) => ar || !i ? x : x[0].toLowerCase() + x.slice(1)).join(ar ? '، ' : ', ') : b)}</div>`).join('')}</div>
 <h2>${t.h.ex}</h2>${ex.map(entry).join('')}
