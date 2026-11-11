@@ -1,5 +1,5 @@
 {
-  "_v": 9,
+  "_v": 10,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -38,6 +38,13 @@
         "text": {
           "ar": "أنظمة • مواقع • تطبيقات",
           "en": "Systems • Websites • Apps"
+        }
+      },
+      {
+        "icon": "ai",
+        "text": {
+          "ar": "ذكاء اصطناعي",
+          "en": "AI-powered"
         }
       },
       {
@@ -1911,21 +1918,54 @@
         "icon": "ai",
         "highlight": true,
         "title": {
-          "ar": "الأتمتة واستخراج البيانات",
-          "en": "Automation & data extraction"
+          "ar": "الذكاء الاصطناعي",
+          "en": "Artificial intelligence"
         },
         "items": [
           "Gemini API",
           "Claude API",
           "OpenAI API",
-          "OCR",
           {
-            "ar": "استخراج البيانات من المستندات",
-            "en": "Document data extraction"
+            "ar": "دمج الذكاء الاصطناعي داخل الأنظمة",
+            "en": "Embedding AI inside business systems"
+          },
+          {
+            "ar": "تحليل السير الذاتية واستخراج بياناتها",
+            "en": "CV parsing and data extraction"
           },
           {
             "ar": "مطابقة المرشحين بالوظائف",
             "en": "Candidate–job matching"
+          },
+          {
+            "ar": "كتابة التعليمات (Prompts) وضبط المخرجات",
+            "en": "Prompt design and output tuning"
+          },
+          {
+            "ar": "التطوير بمساعدة الذكاء الاصطناعي (Claude Code وChatGPT)",
+            "en": "AI-assisted development (Claude Code, ChatGPT)"
+          },
+          {
+            "ar": "إدارة مفاتيح الذكاء الاصطناعي وحدود الاستهلاك",
+            "en": "AI key management and usage limits"
+          }
+        ]
+      },
+      {
+        "icon": "db",
+        "title": {
+          "ar": "الأتمتة واستخراج البيانات",
+          "en": "Automation & data extraction"
+        },
+        "items": [
+          "OCR",
+          {
+            "ar": "استخراج البيانات من الجوازات والمستندات",
+            "en": "Data extraction from passports and documents"
+          },
+          {
+            "ar": "تحويل الإجراءات اليدوية وملفات Excel إلى قاعدة بيانات",
+            "en": "Turning manual procedures and Excel files into a database"
           },
           {
             "ar": "أدوات الذكاء الاصطناعي في العمل اليومي",
