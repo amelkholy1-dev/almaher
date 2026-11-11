@@ -17,9 +17,9 @@ const L = {
   ar: {
     dir: 'rtl', lang: 'ar', name: 'أحمد ماهر الخولي', role: S.role.ar, loc: 'الجيزة، مصر',
     h: { sum: 'نبذة مهنية', sk: 'المهارات', ex: 'الخبرات العملية', ed: 'التعليم', lg: 'اللغات', ad: 'معلومات إضافية' },
-    summary: 'مهندس أنظمة وحلول أعمال، فري لانسر منذ يناير 2014، بخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات. أصمّم وأبني أنظمة إدارة ومواقع وتطبيقات تعمل داخل الشركات من اليوم الأول: أفهم الاحتياج، وأبني الحل، وأشغّله على شبكات الشركات أو الاستضافة، وأدرّب الفريق، وأرافقه بالدعم بعد التشغيل. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، ويعتمد على أنظمتي أكثر من 40 مستخدماً يومياً، وأدمج Gemini وClaude داخل الأنظمة لاستخراج البيانات وتحليل السير الذاتية ومطابقة المرشحين. ومنذ فبراير 2023 أعمل منسق عمليات وأنظمة في مكتب لإلحاق العمالة المصرية بالخارج.',
+    summary: 'مهندس أنظمة وحلول أعمال، فري لانسر منذ يناير 2014، بخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات. أصمّم وأبني أنظمة إدارة ومواقع وتطبيقات تعمل داخل الشركات من اليوم الأول: أفهم الاحتياج، وأبني الحل، وأشغّله على شبكات الشركات أو الاستضافة، وأدرّب الفريق، وأرافقه بالدعم بعد التشغيل. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، ويعتمد على أنظمتي أكثر من 40 مستخدماً يومياً، وأبني الأنظمة والتطبيقات والمواقع الكاملة بالذكاء الاصطناعي: أوجّه وكلاء البرمجة (Claude Code)، وأكتب المواصفات وأراجع وأختبر، وأدمج Gemini وClaude داخل الأنظمة لاستخراج البيانات وتحليل السير الذاتية ومطابقة المرشحين، فأسلّم نظاماً كاملاً في وقت قصير وبجودة قابلة للتشغيل. ومنذ فبراير 2023 أعمل منسق عمليات وأنظمة في مكتب لإلحاق العمالة المصرية بالخارج.',
     skills: [
-      ['الذكاء الاصطناعي', 'دمج Gemini وClaude وOpenAI داخل الأنظمة، وتحليل السير الذاتية ومطابقة المرشحين بالوظائف، واستخراج البيانات من الجوازات والمستندات (OCR)، وكتابة التعليمات (Prompts) وضبط المخرجات، والتطوير بمساعدة الذكاء الاصطناعي (Claude Code وChatGPT)، وإدارة المفاتيح وحدود الاستهلاك'],
+      ['الذكاء الاصطناعي والتطوير به', 'بناء أنظمة وتطبيقات ومواقع كاملة بالذكاء الاصطناعي من الفكرة حتى التشغيل، وقيادة وكلاء البرمجة (Claude Code) بكتابة المواصفات ومراجعة الكود والاختبار، ودمج Gemini وClaude وOpenAI داخل الأنظمة، وتحليل السير ومطابقة المرشحين، واستخراج البيانات من الجوازات والمستندات (OCR + AI)، وأتمتة الإجراءات اليدوية، وهندسة التعليمات (Prompt Engineering)، وضمان جودة كود الذكاء الاصطناعي باختبارات آلية وأمان وصلاحيات، واستخدام ChatGPT وClaude وGemini في البحث والكتابة والتحليل والتصميم، وإدارة المفاتيح وحدود الاستهلاك والتكلفة'],
       ['تطوير الأنظمة والمواقع', 'React، TypeScript، Node.js، Express، REST APIs، Socket.IO، Tailwind CSS، MySQL، SQL Server، IndexedDB، Firebase، تطبيقات أندرويد (Capacitor)، واجهات عربية وإنجليزية (RTL)، لوحات تحكم وأنظمة صلاحيات'],
       ['الجودة والأمان', 'صلاحيات تفصيلية (RBAC)، سجل العمليات، التحقق الثنائي (2FA)، تشفير كلمات المرور، اختبارات آلية (Playwright)، نقل ومطابقة البيانات بين SQL Server وMySQL، نسخ احتياطي واستعادة'],
       ['تطبيق وتشغيل الأنظمة', 'تحليل الاحتياج ورسم سير الإجراءات، نقل البيانات من ملفات Excel، تشغيل الأنظمة على شبكات الشركات أو الاستضافة، تدريب المستخدمين، الدعم والتحديثات بعد التشغيل'],
@@ -30,7 +30,7 @@ const L = {
     free: { role: 'مهندس مستقل لأنظمة الأعمال والمواقع', org: 'عمل حر | عن بُعد', date: 'يناير 2014 – حتى الآن', extra: [
       '<b>نظام مسار للعمليات والحسابات:</b> إدارة الجوازات والتأشيرات والسفر والحسابات (عملاء ومناديب وعمولات وخزينة)، واستخراج البيانات من الصور، وتقارير Excel وPDF، على قاعدة بيانات بأكثر من 130 جدولاً.',
       '<b>نظام مسار للموارد البشرية:</b> قراءة السير الذاتية بالذكاء الاصطناعي، وبنك مرشحين مركزي، ومطابقة المرشحين مع الوظائف، وصانع سير بـ20 قالباً.',
-      '<b>تطبيق وصال (أندرويد):</b> تطبيق عربي للعادات والمهام والعبادات يتحدّث من داخل التطبيق بدون متجر.',
+      '<b>تطبيق وصال (أندرويد):</b> تطبيق عربي للعادات والمهام والعبادات، فردي أو مع العائلة والأصدقاء.',
       '<b>مواقع بلوحات تحكم كاملة:</b> nisrelkhaleeg.com وforsango.com وrocklineg.com وeldahan.com وeldiwanjobs.com.'
     ] },
     ed: ['بكالوريوس التربية النوعية – تكنولوجيا التعليم والحاسب الآلي', 'جامعة المنوفية | 2018 – 2022 | تقدير جيد مرتفع'],
@@ -40,9 +40,9 @@ const L = {
   en: {
     dir: 'ltr', lang: 'en', name: 'Ahmed Maher Alkholy', role: S.role.en, loc: 'Giza, Egypt',
     h: { sum: 'SUMMARY', sk: 'SKILLS', ex: 'EXPERIENCE', ed: 'EDUCATION', lg: 'LANGUAGES', ad: 'ADDITIONAL INFORMATION' },
-    summary: 'Business systems engineer and freelancer since January 2014, with nearly 7 years of hands-on experience in systems, design and operations. I design and build management systems, websites and apps that work inside companies from day one: I understand the business need, build the solution, deploy it on company networks or hosting, train the team and back it with support after launch. I have delivered 17 systems and projects across systems, apps and websites, with 40+ users relying on my systems daily, and I embed Gemini and Claude inside systems for data extraction, CV parsing and candidate matching. Since February 2023 I have also worked as an operations and systems coordinator at an Egyptian overseas-recruitment office.',
+    summary: 'Business systems engineer and freelancer since January 2014, with nearly 7 years of hands-on experience in systems, design and operations. I design and build management systems, websites and apps that work inside companies from day one: I understand the business need, build the solution, deploy it on company networks or hosting, train the team and back it with support after launch. I have delivered 17 systems and projects across systems, apps and websites, with 40+ users relying on my systems daily, and I build complete systems, apps and websites with AI: I direct AI coding agents (Claude Code), write the specs, review and test, and embed Gemini and Claude inside systems for data extraction, CV parsing and candidate matching, so I deliver a full, production-ready system in a short time. Since February 2023 I have also worked as an operations and systems coordinator at an Egyptian overseas-recruitment office.',
     skills: [
-      ['Artificial intelligence', 'Embedding Gemini, Claude and OpenAI inside business systems, CV parsing and candidate–job matching, data extraction from passports and documents (OCR), prompt design and output tuning, AI-assisted development (Claude Code, ChatGPT), AI key management and usage limits'],
+      ['AI & AI-driven development', 'Building complete systems, apps and websites with AI from idea to launch; directing AI coding agents (Claude Code) by writing specs, reviewing code and testing; embedding Gemini, Claude and OpenAI inside systems; CV parsing and candidate matching; data extraction from passports and documents (OCR + AI); automating manual procedures; prompt engineering; quality-assuring AI-written code with automated tests, security and permissions; ChatGPT, Claude and Gemini for research, writing, analysis and design; managing AI keys, usage limits and cost'],
       ['Systems & web development', 'React, TypeScript, Node.js, Express, REST APIs, Socket.IO, Tailwind CSS, MySQL, SQL Server, IndexedDB, Firebase, Android apps (Capacitor), Arabic/English (RTL) interfaces, admin panels and permission systems'],
       ['Quality & security', 'Role-based access control (RBAC), audit logging, two-factor authentication (2FA), password encryption, automated testing (Playwright), SQL Server → MySQL migration and reconciliation, backup and restore'],
       ['Systems implementation', 'Needs analysis and workflow mapping, data migration from Excel, deployment on company networks or hosting, user training, post-launch support and updates'],
@@ -53,7 +53,7 @@ const L = {
     free: { role: 'Independent Business Systems & Websites Engineer', org: 'Freelance | Remote', date: 'Jan 2014 – Present', extra: [
       '<b>Masar Operations & Accounts System:</b> passports, visas, travel and accounts (clients, agents, commissions, cash management), OCR data extraction, Excel/PDF reports, on a database of 130+ tables.',
       '<b>Masar HR System:</b> AI-based CV parsing, central candidate database, candidate-to-job matching and a 20-template CV builder.',
-      '<b>Wesal app (Android):</b> an Arabic habits, tasks and worship app that updates from inside the app without a store.',
+      '<b>Wesal app (Android):</b> an Arabic habits, tasks and worship app, personal or shared with family and friends.',
       '<b>Websites with full admin panels:</b> nisrelkhaleeg.com, forsango.com, rocklineg.com, eldahan.com and eldiwanjobs.com.'
     ] },
     ed: ['Bachelor of Specific Education – Educational Technology and Computer', 'Menoufia University | 2018 – 2022 | Grade: Good (High)'],
@@ -91,8 +91,9 @@ body{margin:0;font-family:${F},sans-serif;color:#1f2937;font-size:${ar ? '9.9pt'
 .ct{font-size:8.6pt;color:#5b6573;display:flex;flex-wrap:wrap;gap:3px 14px}.ct span{direction:ltr;unicode-bidi:embed}
 h2{font-size:${ar ? '12pt' : '10.5pt'};color:#1f4e8c;font-weight:${ar ? 800 : 900};margin:13px 0 6px;padding-bottom:3px;border-bottom:1px solid #d3dbe6;${ar ? '' : 'letter-spacing:.06em;border-bottom:1.5px solid #1f4e8c'}}
 p{margin:0 0 4px;text-align:justify}
-.sk div{margin:0 0 4.5px}.sk b{color:#111827}
-.job{margin-bottom:8px;break-inside:avoid}
+.sk div{margin:0 0 4.5px}.sk b{color:#111827}.sk .ai{background:#eaf1fb;border-${ar?'right':'left'}:3.5px solid #1f4e8c;border-radius:6px;padding:6px 10px;margin-bottom:7px}.sk .ai b{color:#1f4e8c}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:10px 0 2px}.stats div{background:#f2f6fb;border:1px solid #d3dbe6;border-radius:8px;text-align:center;padding:5px 4px}.stats b{display:block;font-size:${ar?'14pt':'13pt'};color:#1f4e8c;line-height:1.2}.stats span{font-size:8.2pt;color:#4b5563}
+.job{margin-bottom:8px}.jh,.jo,h2{break-after:avoid}li{break-inside:avoid}
 .jh{display:flex;justify-content:space-between;gap:10px;align-items:baseline}.jr{font-weight:800;font-size:${ar ? '10.8pt' : '10.5pt'}}.jd{color:#5b6573;font-size:8.8pt;white-space:nowrap}
 .jo{color:#1f4e8c;font-size:9.2pt;margin:0 0 3px}
 ul{margin:0;padding-${ar ? 'right' : 'left'}:16px}li{margin:0 0 2.5px}
@@ -100,8 +101,9 @@ ul{margin:0;padding-${ar ? 'right' : 'left'}:16px}li{margin:0 0 2.5px}
 .edt{font-weight:800}
 </style></head><body>
 <div class="top">${ar ? `<img src="${photo}" alt="">` : ''}<div><div class="nm">${esc(t.name)}</div><div class="rl">${esc(t.role)}</div><div class="ct"><span>${esc(t.loc)}</span><span>${esc(S.email)}</span><span>+${S.whatsapp.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})$/, '$1 $2 $3 $4')}</span><span>linkedin.com/in/ahmed-alkholy</span><span>ahmedalkholy.com</span></div></div></div>
+<div class="stats">${C.stats.map((x) => `<div><b>${esc(x.value[k])}</b><span>${esc(x.label[k])}</span></div>`).join('')}</div>
 <h2>${t.h.sum}</h2><p>${esc(t.summary)}</p>
-<h2>${t.h.sk}</h2><div class="sk">${t.skills.map(([a, b]) => `<div><b>${esc(a)}:</b> ${esc(b)}</div>`).join('')}</div>
+<h2>${t.h.sk}</h2><div class="sk">${t.skills.map(([a, b], n) => `<div${n === 0 ? ' class="ai"' : ''}><b>${esc(a)}:</b> ${esc(b)}</div>`).join('')}</div>
 <h2>${t.h.ex}</h2>${ex.map(entry).join('')}
 <div class="two"><div><h2>${t.h.ed}</h2><div class="edt">${esc(t.ed[0])}</div><div>${esc(t.ed[1])}</div><h2>${t.h.lg}</h2><div>${t.lg}</div></div><div><h2>${t.h.ad}</h2><ul>${t.ad.map((x) => `<li>${esc(x)}</li>`).join('')}</ul></div></div>
 </body></html>`;

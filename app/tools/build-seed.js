@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 10,
+  _v: 11,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -33,6 +33,7 @@ const content = {
     github: '',
     photo: 'assets/img/ahmed-alkholy.jpg',
     ogImage: 'assets/img/og-image.jpg',
+    showCv: true,
     cv: { ar: 'assets/cv/Ahmed-Alkholy-CV-AR.pdf', en: 'assets/cv/Ahmed-Alkholy-CV-EN.pdf' },
     seo: {
       title: b('أحمد ماهر الخولي | مهندس أنظمة وحلول أعمال', 'Ahmed Maher Alkholy | Business Systems Engineer'),
@@ -304,9 +305,9 @@ const content = {
     kicker: b('المهارات', 'Skills'),
     title: b('المهارات والأدوات', 'Skills & tools'),
     groups: [
+      { icon: 'ai', highlight: true, title: b('الذكاء الاصطناعي والتطوير به', 'AI & AI-driven development'), items: [b('بناء أنظمة وتطبيقات ومواقع كاملة بالذكاء الاصطناعي، من الفكرة حتى التشغيل', 'Building complete systems, apps and websites with AI, from idea to launch'), b('قيادة وكلاء البرمجة (Claude Code): كتابة المواصفات ومراجعة الكود والاختبار', 'Directing AI coding agents (Claude Code): writing specs, reviewing code and testing'), b('دمج Gemini وClaude وOpenAI داخل الأنظمة', 'Embedding Gemini, Claude and OpenAI inside business systems'), b('تحليل السير الذاتية ومطابقة المرشحين بالوظائف', 'CV parsing and candidate–job matching'), b('استخراج البيانات من الجوازات والمستندات بالـOCR والذكاء الاصطناعي', 'Data extraction from passports and documents with OCR and AI'), b('أتمتة الإجراءات اليدوية وتحويلها إلى حلول ذكية', 'Automating manual procedures into smart workflows'), b('هندسة التعليمات (Prompt Engineering) وضبط المخرجات', 'Prompt engineering and output tuning'), b('ضمان جودة كود الذكاء الاصطناعي: اختبارات آلية (Playwright) وأمان وصلاحيات', 'Quality-assuring AI-written code: automated tests (Playwright), security and permissions'), b('ChatGPT وClaude وGemini في العمل اليومي: بحث وكتابة وتحليل وتصميم', 'ChatGPT, Claude and Gemini in daily work: research, writing, analysis and design'), b('إدارة مفاتيح الذكاء الاصطناعي وحدود الاستهلاك والتكلفة', 'Managing AI keys, usage limits and cost')] },
       { icon: 'code', highlight: true, title: b('تطوير الويب والأنظمة', 'Web & systems development'), items: ['React', 'TypeScript', 'JavaScript', 'Node.js', 'Express', 'REST APIs', 'HTML / CSS', 'Tailwind CSS', 'EJS', 'Vite', 'Socket.IO', b('لوحات تحكم وأنظمة صلاحيات', 'Admin panels & permission systems')] },
       { icon: 'db', highlight: true, title: b('قواعد البيانات والنشر', 'Databases & deployment'), items: ['MySQL', 'SQL Server', 'IndexedDB', 'Firebase Auth', 'Cloudflare Pages + D1', 'Hostinger', 'Git', b('نقل البيانات بين قواعد مختلفة', 'Cross-database data migration'), b('نسخ احتياطي واستعادة', 'Backup & restore')] },
-      { icon: 'ai', highlight: true, title: b('الذكاء الاصطناعي', 'Artificial intelligence'), items: ['Gemini API', 'Claude API', 'OpenAI API', b('دمج الذكاء الاصطناعي داخل الأنظمة', 'Embedding AI inside business systems'), b('تحليل السير الذاتية واستخراج بياناتها', 'CV parsing and data extraction'), b('مطابقة المرشحين بالوظائف', 'Candidate–job matching'), b('كتابة التعليمات (Prompts) وضبط المخرجات', 'Prompt design and output tuning'), b('التطوير بمساعدة الذكاء الاصطناعي (Claude Code وChatGPT)', 'AI-assisted development (Claude Code, ChatGPT)'), b('إدارة مفاتيح الذكاء الاصطناعي وحدود الاستهلاك', 'AI key management and usage limits')] },
       { icon: 'db', title: b('الأتمتة واستخراج البيانات', 'Automation & data extraction'), items: ['OCR', b('استخراج البيانات من الجوازات والمستندات', 'Data extraction from passports and documents'), b('تحويل الإجراءات اليدوية وملفات Excel إلى قاعدة بيانات', 'Turning manual procedures and Excel files into a database'), b('أدوات الذكاء الاصطناعي في العمل اليومي', 'AI tools in daily work')] },
       { icon: 'phone', title: b('تطبيقات الموبايل', 'Mobile apps'), items: ['Capacitor', 'Android', b('الإشعارات', 'Push notifications'), b('العمل بدون إنترنت والمزامنة', 'Offline & sync')] },
       { icon: 'shield', title: b('الأمان', 'Security'), items: [b('التحقق الثنائي (2FA)', 'Two-factor authentication'), b('صلاحيات تفصيلية', 'Granular permissions'), b('سجل العمليات', 'Audit log'), b('تشفير كلمات المرور والبيانات', 'Password & data encryption'), b('موافقة الأجهزة الجديدة', 'New-device approval')] },

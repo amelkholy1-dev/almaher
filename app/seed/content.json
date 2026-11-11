@@ -1,5 +1,5 @@
 {
-  "_v": 10,
+  "_v": 11,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -61,6 +61,7 @@
     "github": "",
     "photo": "assets/img/ahmed-alkholy.jpg",
     "ogImage": "assets/img/og-image.jpg",
+    "showCv": true,
     "cv": {
       "ar": "assets/cv/Ahmed-Alkholy-CV-AR.pdf",
       "en": "assets/cv/Ahmed-Alkholy-CV-EN.pdf"
@@ -753,8 +754,8 @@
           "en": "“A step from you, a step from me.” — وصال"
         },
         "text": {
-          "ar": "تطبيق أندرويد عربي للعادات والمهام والعبادات، فردياً أو مع العائلة والأصدقاء، ويتحدّث من داخل التطبيق بدون متجر.",
-          "en": "An Arabic Android app for habits, tasks and worship — alone or with family and friends — updated from inside the app without a store."
+          "ar": "تطبيق أندرويد عربي للعادات والمهام والعبادات، فردياً أو مع العائلة والأصدقاء.",
+          "en": "An Arabic Android app for habits, tasks and worship — alone or with family and friends."
         },
         "features": [
           {
@@ -1865,6 +1866,56 @@
     },
     "groups": [
       {
+        "icon": "ai",
+        "highlight": true,
+        "title": {
+          "ar": "الذكاء الاصطناعي والتطوير به",
+          "en": "AI & AI-driven development"
+        },
+        "items": [
+          {
+            "ar": "بناء أنظمة وتطبيقات ومواقع كاملة بالذكاء الاصطناعي، من الفكرة حتى التشغيل",
+            "en": "Building complete systems, apps and websites with AI, from idea to launch"
+          },
+          {
+            "ar": "قيادة وكلاء البرمجة (Claude Code): كتابة المواصفات ومراجعة الكود والاختبار",
+            "en": "Directing AI coding agents (Claude Code): writing specs, reviewing code and testing"
+          },
+          {
+            "ar": "دمج Gemini وClaude وOpenAI داخل الأنظمة",
+            "en": "Embedding Gemini, Claude and OpenAI inside business systems"
+          },
+          {
+            "ar": "تحليل السير الذاتية ومطابقة المرشحين بالوظائف",
+            "en": "CV parsing and candidate–job matching"
+          },
+          {
+            "ar": "استخراج البيانات من الجوازات والمستندات بالـOCR والذكاء الاصطناعي",
+            "en": "Data extraction from passports and documents with OCR and AI"
+          },
+          {
+            "ar": "أتمتة الإجراءات اليدوية وتحويلها إلى حلول ذكية",
+            "en": "Automating manual procedures into smart workflows"
+          },
+          {
+            "ar": "هندسة التعليمات (Prompt Engineering) وضبط المخرجات",
+            "en": "Prompt engineering and output tuning"
+          },
+          {
+            "ar": "ضمان جودة كود الذكاء الاصطناعي: اختبارات آلية (Playwright) وأمان وصلاحيات",
+            "en": "Quality-assuring AI-written code: automated tests (Playwright), security and permissions"
+          },
+          {
+            "ar": "ChatGPT وClaude وGemini في العمل اليومي: بحث وكتابة وتحليل وتصميم",
+            "en": "ChatGPT, Claude and Gemini in daily work: research, writing, analysis and design"
+          },
+          {
+            "ar": "إدارة مفاتيح الذكاء الاصطناعي وحدود الاستهلاك والتكلفة",
+            "en": "Managing AI keys, usage limits and cost"
+          }
+        ]
+      },
+      {
         "icon": "code",
         "highlight": true,
         "title": {
@@ -1911,43 +1962,6 @@
           {
             "ar": "نسخ احتياطي واستعادة",
             "en": "Backup & restore"
-          }
-        ]
-      },
-      {
-        "icon": "ai",
-        "highlight": true,
-        "title": {
-          "ar": "الذكاء الاصطناعي",
-          "en": "Artificial intelligence"
-        },
-        "items": [
-          "Gemini API",
-          "Claude API",
-          "OpenAI API",
-          {
-            "ar": "دمج الذكاء الاصطناعي داخل الأنظمة",
-            "en": "Embedding AI inside business systems"
-          },
-          {
-            "ar": "تحليل السير الذاتية واستخراج بياناتها",
-            "en": "CV parsing and data extraction"
-          },
-          {
-            "ar": "مطابقة المرشحين بالوظائف",
-            "en": "Candidate–job matching"
-          },
-          {
-            "ar": "كتابة التعليمات (Prompts) وضبط المخرجات",
-            "en": "Prompt design and output tuning"
-          },
-          {
-            "ar": "التطوير بمساعدة الذكاء الاصطناعي (Claude Code وChatGPT)",
-            "en": "AI-assisted development (Claude Code, ChatGPT)"
-          },
-          {
-            "ar": "إدارة مفاتيح الذكاء الاصطناعي وحدود الاستهلاك",
-            "en": "AI key management and usage limits"
           }
         ]
       },

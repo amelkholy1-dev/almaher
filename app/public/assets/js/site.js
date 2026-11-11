@@ -141,7 +141,7 @@
 
   /* ---------- الرئيسية ---------- */
   function renderHero() {
-    var cv = S.cv ? (tx(S.cv) ) : '', cvOther = S.cv ? (lang() === 'ar' ? (S.cv.en || '') : (S.cv.ar || '')) : '';
+    var showCv = S.showCv !== false, cv = S.cv && showCv ? (tx(S.cv) ) : '', cvOther = S.cv && showCv ? (lang() === 'ar' ? (S.cv.en || '') : (S.cv.ar || '')) : '';
     var social = '';
     if (S.linkedin) social += '<a class="btn-round" href="' + esc(url(S.linkedin)) + '" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">' + ic('in') + '</a>';
     if (waNum()) social += '<a class="btn-round" data-wa="general" href="#" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">' + ic('wa') + '</a>';
