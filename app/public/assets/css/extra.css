@@ -75,3 +75,20 @@
 
 /* عشان الروابط المباشرة ماتختفيش وراء الشريط العلوي */
 section[id],form[id],article[id]{scroll-margin-top:84px}
+
+/* ---- عرض مضغوط للمشاريع (3.x): كروت أصغر، «عرض الكل» للنماذج ---- */
+.m-hide{display:none!important}
+.more-wrap{text-align:center;margin:22px 0 6px}
+.showcase-grid{margin-top:20px;gap:16px}
+.sc-cover{aspect-ratio:16/9}
+.sc-body{padding:14px 18px 18px;gap:7px}
+.sc-body h3{font-size:1.05rem}
+.sc-text{font-size:.9rem;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.sc-list{display:none}
+#projects .project{padding:26px;gap:30px;margin-bottom:18px}
+#projects .project .checks{gap:6px;margin-bottom:14px}
+#projects .project .checks li:nth-child(n+5){display:none}
+#projects .project .thumbs .thumb:nth-child(n+5){display:none}
+#projects .site-body .dots li:nth-child(n+3){display:none}
+#projects .sub-head{margin-top:26px;margin-bottom:12px}
+@media (max-width:960px){#projects .project{padding:20px;gap:20px}}

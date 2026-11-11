@@ -1,5 +1,5 @@
 {
-  "_v": 8,
+  "_v": 9,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -16,8 +16,8 @@
       "en": "Hello, I am"
     },
     "role": {
-      "ar": "مطوّر أنظمة وحلول أعمال • أخصائي دعم فني وتشغيل",
-      "en": "Business Systems Developer • IT Support & Operations Specialist"
+      "ar": "مهندس أنظمة وحلول أعمال • تشغيل ودعم فني",
+      "en": "Business Systems Engineer • Operations & IT Support"
     },
     "lead": {
       "ar": "أصمّم وأبني أنظمة إدارة تعمل داخل الشركات من اليوم الأول: أفهم شغلك، وأبني الحل المناسب، وأشغّله، وأدرّب فريقك، وأرافقه بالدعم بعد التشغيل. فري لانسر منذ 2014، وخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات.",
@@ -51,7 +51,7 @@
     "email": "am.elkholy1@gmail.com",
     "whatsapp": "201552084471",
     "linkedin": "https://www.linkedin.com/in/ahmed-alkholy",
-    "github": "https://github.com/amelkholy1-dev",
+    "github": "",
     "photo": "assets/img/ahmed-alkholy.jpg",
     "ogImage": "assets/img/og-image.jpg",
     "cv": {
@@ -60,12 +60,12 @@
     },
     "seo": {
       "title": {
-        "ar": "أحمد ماهر الخولي | مطوّر أنظمة وحلول أعمال",
-        "en": "Ahmed Maher Alkholy | Business Systems Developer"
+        "ar": "أحمد ماهر الخولي | مهندس أنظمة وحلول أعمال",
+        "en": "Ahmed Maher Alkholy | Business Systems Engineer"
       },
       "description": {
-        "ar": "مطوّر أنظمة وحلول أعمال ومصمم، فري لانسر منذ 2014: أنظمة ومواقع وتطبيقات تعمل داخل الشركات، وتصميم سوشيال ميديا، ودعم فني وتشغيل. الجيزة، مصر.",
-        "en": "Business systems developer and designer, freelancer since 2014: systems, websites and apps running inside companies, social-media design, IT support and operations. Giza, Egypt."
+        "ar": "مهندس أنظمة وحلول أعمال، فري لانسر منذ 2014: أنظمة ومواقع وتطبيقات تعمل داخل الشركات، وتصميم سوشيال ميديا، ودعم فني وتشغيل. الجيزة، مصر.",
+        "en": "Business systems engineer, freelancer since 2014: systems, websites and apps running inside companies, social-media design, IT support and operations. Giza, Egypt."
       }
     },
     "demoNotice": {
@@ -87,8 +87,8 @@
       }
     },
     "footer": {
-      "ar": "مطوّر أنظمة وحلول أعمال • فري لانسر منذ 2014",
-      "en": "Business Systems Developer • Freelancer since 2014"
+      "ar": "مهندس أنظمة وحلول أعمال • فري لانسر منذ 2014",
+      "en": "Business Systems Engineer • Freelancer since 2014"
     }
   },
   "stats": [
@@ -104,8 +104,8 @@
     },
     {
       "value": {
-        "ar": "7",
-        "en": "7"
+        "ar": "17",
+        "en": "17"
       },
       "label": {
         "ar": "أنظمة ومشاريع منفّذة",
@@ -114,8 +114,8 @@
     },
     {
       "value": {
-        "ar": "+30",
-        "en": "30+"
+        "ar": "+40",
+        "en": "40+"
       },
       "label": {
         "ar": "مستخدم يعتمدون على أنظمتي يومياً",
@@ -247,8 +247,8 @@
     },
     "paragraphs": [
       {
-        "ar": "أعمل فري لانسر منذ يناير 2014، أنفّذ للشركات والصفحات تصميمات ومواقع وأعمال بيانات، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 30 مستخدماً كل يوم. نفّذتُ أكثر من 150 تصميماً، ونحو 7 أنظمة ومشاريع بين أنظمة وتطبيقات ومواقع.",
-        "en": "I have worked as a freelancer since January 2014, delivering designs, websites and data work for companies and pages, and building business management systems that run in production and that 30+ users rely on every day. I have delivered 150+ designs and about 7 systems and projects across systems, apps and websites."
+        "ar": "أعمل فري لانسر منذ يناير 2014، أنفّذ للشركات والصفحات تصميمات ومواقع وأعمال بيانات، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 40 مستخدماً كل يوم. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، وأكثر من 150 تصميماً.",
+        "en": "I have worked as a freelancer since January 2014, delivering designs, websites and data work for companies and pages, and building business management systems that run in production and that 40+ users rely on every day. I have delivered 17 systems and projects across systems, apps and websites, plus 150+ designs."
       },
       {
         "ar": "ومنذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج: أتابع آلاف الملفات عبر مراحل الكشف الطبي والبصمة والقنصلية والتأشيرة والسفر، وأدير الأجهزة والشبكة.",
@@ -838,6 +838,51 @@
         ]
       },
       {
+        "id": "crm-demo",
+        "kind": "showcase",
+        "cat": "sys",
+        "visible": true,
+        "status": "none",
+        "type": {
+          "ar": "نظام CRM",
+          "en": "Sales CRM"
+        },
+        "title": {
+          "ar": "TaskFlow CRM",
+          "en": "TaskFlow CRM"
+        },
+        "text": {
+          "ar": "نظام لإدارة خط المبيعات بلوحة مراحل: من العميل المحتمل حتى إغلاق الصفقة، مع قيمة كل مرحلة ونسبة الفوز. واجهة إنجليزية.",
+          "en": "A sales-pipeline CRM with a staged board — from lead to won — showing the value of each stage and the win rate. English interface."
+        },
+        "features": [
+          {
+            "ar": "لوحة مراحل بنقل الصفقة بضغطة",
+            "en": "Kanban pipeline: move a deal with one click"
+          },
+          {
+            "ar": "قيمة المراحل ومتوسط الصفقة ونسبة الفوز",
+            "en": "Stage totals, average deal size and win rate"
+          },
+          {
+            "ar": "سجل أنشطة لكل صفقة وجهات اتصال",
+            "en": "Activity timeline per deal and a contacts book"
+          },
+          {
+            "ar": "إضافة صفقة جديدة في ثوانٍ",
+            "en": "Add a new deal in seconds"
+          }
+        ],
+        "tech": "React, Node.js, MySQL",
+        "demo": "crm",
+        "images": [
+          "assets/img/projects/crm-demo-1.png",
+          "assets/img/projects/crm-demo-2.png",
+          "assets/img/projects/crm-demo-3.png",
+          "assets/img/projects/crm-demo-4.png"
+        ]
+      },
+      {
         "id": "invoices-demo",
         "kind": "showcase",
         "cat": "sys",
@@ -880,6 +925,143 @@
           "assets/img/projects/invoices-demo-2.png",
           "assets/img/projects/invoices-demo-3.png",
           "assets/img/projects/invoices-demo-4.png"
+        ]
+      },
+      {
+        "id": "stay-demo",
+        "kind": "showcase",
+        "cat": "web",
+        "cat2": "sys",
+        "visible": true,
+        "status": "none",
+        "type": {
+          "ar": "موقع حجز فلل",
+          "en": "Villa booking website"
+        },
+        "title": {
+          "ar": "Azure Stay",
+          "en": "Azure Stay"
+        },
+        "text": {
+          "ar": "موقع حجز فلل وإقامات: بحث وفلاتر، حساب سعر الحجز مع الرسوم والضريبة، وإدارة الحجوزات وإشغال 14 يوماً. واجهة إنجليزية.",
+          "en": "A villa and stay booking website: search and filters, live price breakdown with fees and tax, reservations management and a 14-day occupancy calendar. English interface."
+        },
+        "features": [
+          {
+            "ar": "بحث بالموقع وعدد الضيوف",
+            "en": "Search by location and number of guests"
+          },
+          {
+            "ar": "تفصيل سعر الليالي والتنظيف والضريبة لحظياً",
+            "en": "Live price breakdown: nights, cleaning fee, taxes"
+          },
+          {
+            "ar": "إدارة الحجوزات: تأكيد وإلغاء",
+            "en": "Reservation management: confirm and cancel"
+          },
+          {
+            "ar": "تقويم إشغال لكل فيلا",
+            "en": "Occupancy calendar per villa"
+          }
+        ],
+        "tech": "React, Node.js, MySQL, Stripe-ready",
+        "demo": "stay",
+        "images": [
+          "assets/img/projects/stay-demo-1.png",
+          "assets/img/projects/stay-demo-2.png",
+          "assets/img/projects/stay-demo-3.png",
+          "assets/img/projects/stay-demo-4.png"
+        ]
+      },
+      {
+        "id": "resto-demo",
+        "kind": "showcase",
+        "cat": "app",
+        "cat2": "sys",
+        "visible": true,
+        "status": "none",
+        "type": {
+          "ar": "تطبيق موبايل",
+          "en": "Mobile app"
+        },
+        "title": {
+          "ar": "تطبيق طلبات المطاعم",
+          "en": "Restaurant Ordering App"
+        },
+        "text": {
+          "ar": "تطبيق لطلب الطعام: قائمة بالتصنيفات، وسلة، وكود خصم، وتتبع حالة الطلب لحظة بلحظة.",
+          "en": "A food-ordering app: categorised menu, cart, promo code and live order tracking."
+        },
+        "features": [
+          {
+            "ar": "قائمة طعام بتصنيفات وتفاصيل كل طبق",
+            "en": "Categorised menu with dish details"
+          },
+          {
+            "ar": "سلة وكود خصم ورسوم توصيل",
+            "en": "Cart, promo code and delivery fee"
+          },
+          {
+            "ar": "تتبع حالة الطلب: تحضير، في الطريق، تم التسليم",
+            "en": "Order tracking: preparing, on the way, delivered"
+          },
+          {
+            "ar": "سجل الطلبات السابقة وإعادة الطلب",
+            "en": "Order history and re-order"
+          }
+        ],
+        "tech": "React, Capacitor, Node.js, Firebase",
+        "demo": "resto",
+        "images": [
+          "assets/img/projects/resto-demo-1.png",
+          "assets/img/projects/resto-demo-2.png",
+          "assets/img/projects/resto-demo-3.png",
+          "assets/img/projects/resto-demo-4.png"
+        ]
+      },
+      {
+        "id": "pulse-demo",
+        "kind": "showcase",
+        "cat": "sys",
+        "visible": true,
+        "status": "none",
+        "type": {
+          "ar": "لوحة تحليلات SaaS",
+          "en": "SaaS analytics"
+        },
+        "title": {
+          "ar": "Pulse Analytics",
+          "en": "Pulse Analytics"
+        },
+        "text": {
+          "ar": "لوحة تحليلات لشركات الاشتراكات: الإيراد الشهري، المستخدمون، معدل الانسحاب وصحة العملاء. واجهة إنجليزية بالكامل.",
+          "en": "A subscription-analytics dashboard: MRR, active users, churn and customer health, with date ranges and drill-down. Full English interface."
+        },
+        "features": [
+          {
+            "ar": "مؤشرات MRR والمستخدمين والانسحاب بنطاقات 7 و30 و90 يوماً",
+            "en": "MRR, active users and churn with 7 / 30 / 90-day ranges"
+          },
+          {
+            "ar": "رسم اتجاه الإيراد وحركة MRR",
+            "en": "Revenue trend chart and MRR movement"
+          },
+          {
+            "ar": "قائمة عملاء قابلة للبحث مع مؤشر صحة لكل حساب",
+            "en": "Searchable customer list with a health score per account"
+          },
+          {
+            "ar": "تقارير مجدولة للإدارة",
+            "en": "Scheduled management reports"
+          }
+        ],
+        "tech": "React, Node.js, PostgreSQL",
+        "demo": "pulse",
+        "images": [
+          "assets/img/projects/pulse-demo-1.png",
+          "assets/img/projects/pulse-demo-2.png",
+          "assets/img/projects/pulse-demo-3.png",
+          "assets/img/projects/pulse-demo-4.png"
         ]
       },
       {
@@ -1063,52 +1245,6 @@
         ]
       },
       {
-        "id": "resto-demo",
-        "kind": "showcase",
-        "cat": "app",
-        "cat2": "sys",
-        "visible": true,
-        "status": "none",
-        "type": {
-          "ar": "تطبيق موبايل",
-          "en": "Mobile app"
-        },
-        "title": {
-          "ar": "تطبيق طلبات المطاعم",
-          "en": "Restaurant Ordering App"
-        },
-        "text": {
-          "ar": "تطبيق لطلب الطعام: قائمة بالتصنيفات، وسلة، وكود خصم، وتتبع حالة الطلب لحظة بلحظة.",
-          "en": "A food-ordering app: categorised menu, cart, promo code and live order tracking."
-        },
-        "features": [
-          {
-            "ar": "قائمة طعام بتصنيفات وتفاصيل كل طبق",
-            "en": "Categorised menu with dish details"
-          },
-          {
-            "ar": "سلة وكود خصم ورسوم توصيل",
-            "en": "Cart, promo code and delivery fee"
-          },
-          {
-            "ar": "تتبع حالة الطلب: تحضير، في الطريق، تم التسليم",
-            "en": "Order tracking: preparing, on the way, delivered"
-          },
-          {
-            "ar": "سجل الطلبات السابقة وإعادة الطلب",
-            "en": "Order history and re-order"
-          }
-        ],
-        "tech": "React, Capacitor, Node.js, Firebase",
-        "demo": "resto",
-        "images": [
-          "assets/img/projects/resto-demo-1.png",
-          "assets/img/projects/resto-demo-2.png",
-          "assets/img/projects/resto-demo-3.png",
-          "assets/img/projects/resto-demo-4.png"
-        ]
-      },
-      {
         "id": "eshop-demo",
         "kind": "showcase",
         "cat": "web",
@@ -1155,96 +1291,6 @@
         ]
       },
       {
-        "id": "pulse-demo",
-        "kind": "showcase",
-        "cat": "sys",
-        "visible": true,
-        "status": "none",
-        "type": {
-          "ar": "لوحة تحليلات SaaS",
-          "en": "SaaS analytics"
-        },
-        "title": {
-          "ar": "Pulse Analytics",
-          "en": "Pulse Analytics"
-        },
-        "text": {
-          "ar": "لوحة تحليلات لشركات الاشتراكات: الإيراد الشهري، المستخدمون، معدل الانسحاب وصحة العملاء. واجهة إنجليزية بالكامل.",
-          "en": "A subscription-analytics dashboard: MRR, active users, churn and customer health, with date ranges and drill-down. Full English interface."
-        },
-        "features": [
-          {
-            "ar": "مؤشرات MRR والمستخدمين والانسحاب بنطاقات 7 و30 و90 يوماً",
-            "en": "MRR, active users and churn with 7 / 30 / 90-day ranges"
-          },
-          {
-            "ar": "رسم اتجاه الإيراد وحركة MRR",
-            "en": "Revenue trend chart and MRR movement"
-          },
-          {
-            "ar": "قائمة عملاء قابلة للبحث مع مؤشر صحة لكل حساب",
-            "en": "Searchable customer list with a health score per account"
-          },
-          {
-            "ar": "تقارير مجدولة للإدارة",
-            "en": "Scheduled management reports"
-          }
-        ],
-        "tech": "React, Node.js, PostgreSQL",
-        "demo": "pulse",
-        "images": [
-          "assets/img/projects/pulse-demo-1.png",
-          "assets/img/projects/pulse-demo-2.png",
-          "assets/img/projects/pulse-demo-3.png",
-          "assets/img/projects/pulse-demo-4.png"
-        ]
-      },
-      {
-        "id": "crm-demo",
-        "kind": "showcase",
-        "cat": "sys",
-        "visible": true,
-        "status": "none",
-        "type": {
-          "ar": "نظام CRM",
-          "en": "Sales CRM"
-        },
-        "title": {
-          "ar": "TaskFlow CRM",
-          "en": "TaskFlow CRM"
-        },
-        "text": {
-          "ar": "نظام لإدارة خط المبيعات بلوحة مراحل: من العميل المحتمل حتى إغلاق الصفقة، مع قيمة كل مرحلة ونسبة الفوز. واجهة إنجليزية.",
-          "en": "A sales-pipeline CRM with a staged board — from lead to won — showing the value of each stage and the win rate. English interface."
-        },
-        "features": [
-          {
-            "ar": "لوحة مراحل بنقل الصفقة بضغطة",
-            "en": "Kanban pipeline: move a deal with one click"
-          },
-          {
-            "ar": "قيمة المراحل ومتوسط الصفقة ونسبة الفوز",
-            "en": "Stage totals, average deal size and win rate"
-          },
-          {
-            "ar": "سجل أنشطة لكل صفقة وجهات اتصال",
-            "en": "Activity timeline per deal and a contacts book"
-          },
-          {
-            "ar": "إضافة صفقة جديدة في ثوانٍ",
-            "en": "Add a new deal in seconds"
-          }
-        ],
-        "tech": "React, Node.js, MySQL",
-        "demo": "crm",
-        "images": [
-          "assets/img/projects/crm-demo-1.png",
-          "assets/img/projects/crm-demo-2.png",
-          "assets/img/projects/crm-demo-3.png",
-          "assets/img/projects/crm-demo-4.png"
-        ]
-      },
-      {
         "id": "track-demo",
         "kind": "showcase",
         "cat": "web",
@@ -1288,52 +1334,6 @@
           "assets/img/projects/track-demo-2.png",
           "assets/img/projects/track-demo-3.png",
           "assets/img/projects/track-demo-4.png"
-        ]
-      },
-      {
-        "id": "stay-demo",
-        "kind": "showcase",
-        "cat": "web",
-        "cat2": "sys",
-        "visible": true,
-        "status": "none",
-        "type": {
-          "ar": "موقع حجز فلل",
-          "en": "Villa booking website"
-        },
-        "title": {
-          "ar": "Azure Stay",
-          "en": "Azure Stay"
-        },
-        "text": {
-          "ar": "موقع حجز فلل وإقامات: بحث وفلاتر، حساب سعر الحجز مع الرسوم والضريبة، وإدارة الحجوزات وإشغال 14 يوماً. واجهة إنجليزية.",
-          "en": "A villa and stay booking website: search and filters, live price breakdown with fees and tax, reservations management and a 14-day occupancy calendar. English interface."
-        },
-        "features": [
-          {
-            "ar": "بحث بالموقع وعدد الضيوف",
-            "en": "Search by location and number of guests"
-          },
-          {
-            "ar": "تفصيل سعر الليالي والتنظيف والضريبة لحظياً",
-            "en": "Live price breakdown: nights, cleaning fee, taxes"
-          },
-          {
-            "ar": "إدارة الحجوزات: تأكيد وإلغاء",
-            "en": "Reservation management: confirm and cancel"
-          },
-          {
-            "ar": "تقويم إشغال لكل فيلا",
-            "en": "Occupancy calendar per villa"
-          }
-        ],
-        "tech": "React, Node.js, MySQL, Stripe-ready",
-        "demo": "stay",
-        "images": [
-          "assets/img/projects/stay-demo-1.png",
-          "assets/img/projects/stay-demo-2.png",
-          "assets/img/projects/stay-demo-3.png",
-          "assets/img/projects/stay-demo-4.png"
         ]
       },
       {
@@ -1564,6 +1564,94 @@
         "images": []
       },
       {
+        "id": "site-eldahan",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "مطعم • طلب أونلاين",
+          "en": "Restaurant • Online ordering"
+        },
+        "title": {
+          "ar": "موقع مطعم الدهان للمشويات",
+          "en": "Eldahan Grills restaurant website"
+        },
+        "text": {
+          "ar": "موقع مطعم بمنيو كامل وطلب أونلاين: أقسام الأطباق والعروض بأسعارها، وسلة طلب، وتسجيل دخول للعملاء، وصفحة للفروع، بنسخة عربية وأخرى إنجليزية.",
+          "en": "A restaurant website with a full menu and online ordering: dish categories and offers with prices, an order cart, customer login, a branches page, in Arabic and English."
+        },
+        "features": [
+          {
+            "ar": "منيو بأقسام (مشويات، فطائر، سندوتشات، جزارة، صواني)",
+            "en": "Menu by category (grills, pastries, sandwiches, butcher, trays)"
+          },
+          {
+            "ar": "عروض بأسعار قبل وبعد الخصم",
+            "en": "Offers with before/after-discount prices"
+          },
+          {
+            "ar": "سلة طلب وإضافة الأصناف بضغطة",
+            "en": "Order cart with one-tap add"
+          },
+          {
+            "ar": "نسخة عربية وإنجليزية",
+            "en": "Arabic and English versions"
+          }
+        ],
+        "tech": "",
+        "link": "https://www.eldahan.com/",
+        "images": [
+          "assets/img/projects/eldahan-cover.jpg"
+        ]
+      },
+      {
+        "id": "site-eldiwan",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "توظيف • إلحاق عمالة",
+          "en": "Recruitment agency"
+        },
+        "title": {
+          "ar": "موقع الديوان للتوظيف بالخارج",
+          "en": "Al Diwan overseas recruitment website"
+        },
+        "text": {
+          "ar": "موقع شركة توظيف وإلحاق عمالة بالخارج: تعريف بالشركة وخدماتها، وآراء العملاء وقائمة العملاء، وصفحة للوظائف، وبيانات التواصل، بتصميم داكن حديث وواجهة عربية RTL.",
+          "en": "A recruitment-agency website: company and services overview, client testimonials and client list, a jobs page and contact details, in a modern dark design with an Arabic RTL interface."
+        },
+        "features": [
+          {
+            "ar": "صفحات من نحن والخدمات والوظائف",
+            "en": "About, services and jobs pages"
+          },
+          {
+            "ar": "آراء العملاء وقائمة العملاء",
+            "en": "Testimonials and client list"
+          },
+          {
+            "ar": "بيانات التواصل وزر تواصل مباشر",
+            "en": "Contact details and a direct contact button"
+          }
+        ],
+        "tech": "React, Vite",
+        "link": "https://eldiwanjobs.com/",
+        "images": [
+          "assets/img/projects/eldiwan-cover.jpg"
+        ]
+      },
+      {
         "id": "commission",
         "kind": "mini",
         "cat": "web",
@@ -1651,6 +1739,43 @@
       {
         "visible": true,
         "date": {
+          "ar": "يناير 2014 – حتى الآن",
+          "en": "Jan 2014 – Present"
+        },
+        "role": {
+          "ar": "مهندس مستقل لأنظمة الأعمال والمواقع",
+          "en": "Independent Business Systems & Websites Engineer"
+        },
+        "org": {
+          "ar": "عمل حر",
+          "en": "Freelance"
+        },
+        "bullets": [
+          {
+            "ar": "أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 40 مستخدماً يومياً.",
+            "en": "Design and build business management systems running in several companies that 40+ users rely on daily."
+          },
+          {
+            "ar": "أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.",
+            "en": "Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live."
+          },
+          {
+            "ar": "أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.",
+            "en": "Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns."
+          },
+          {
+            "ar": "أنفّذ أعمال إدخال البيانات وتنظيم ملفات Excel وتحويل المستندات، ومواقع تعريفية وصفحات هبوط للشركات.",
+            "en": "Deliver data entry, Excel organisation and document conversion, plus company brochure websites and landing pages."
+          },
+          {
+            "ar": "أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.",
+            "en": "Deploy systems on company networks or hosting, train teams, and provide support and updates after launch."
+          }
+        ]
+      },
+      {
+        "visible": true,
+        "date": {
           "ar": "فبراير 2023 – حتى الآن",
           "en": "Feb 2023 – Present"
         },
@@ -1686,43 +1811,6 @@
           {
             "ar": "أصمم إعلانات الشركة وأدير صفحاتها وحملاتها الممولة على Meta Business Suite.",
             "en": "Design the company’s ads and manage its pages and paid campaigns on Meta Business Suite."
-          }
-        ]
-      },
-      {
-        "visible": true,
-        "date": {
-          "ar": "يناير 2014 – حتى الآن",
-          "en": "Jan 2014 – Present"
-        },
-        "role": {
-          "ar": "مطوّر مستقل لأنظمة الأعمال والمواقع",
-          "en": "Independent Business Systems & Websites Developer"
-        },
-        "org": {
-          "ar": "عمل حر",
-          "en": "Freelance"
-        },
-        "bullets": [
-          {
-            "ar": "أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 30 مستخدماً يومياً.",
-            "en": "Design and build business management systems running in several companies that 30+ users rely on daily."
-          },
-          {
-            "ar": "أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.",
-            "en": "Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live."
-          },
-          {
-            "ar": "أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.",
-            "en": "Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns."
-          },
-          {
-            "ar": "أنفّذ أعمال إدخال البيانات وتنظيم ملفات Excel وتحويل المستندات، ومواقع تعريفية وصفحات هبوط للشركات.",
-            "en": "Deliver data entry, Excel organisation and document conversion, plus company brochure websites and landing pages."
-          },
-          {
-            "ar": "أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.",
-            "en": "Deploy systems on company networks or hosting, train teams, and provide support and updates after launch."
           }
         ]
       },
@@ -1806,7 +1894,7 @@
           "Firebase Auth",
           "Cloudflare Pages + D1",
           "Hostinger",
-          "Git & GitHub",
+          "Git",
           {
             "ar": "نقل البيانات بين قواعد مختلفة",
             "en": "Cross-database data migration"

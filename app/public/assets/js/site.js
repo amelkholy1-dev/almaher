@@ -40,6 +40,8 @@
   var UI = {
     skip: { ar: 'تخطَّ إلى المحتوى', en: 'Skip to content' },
     all: { ar: 'الكل', en: 'All' },
+    moreProj: { ar: 'عرض كل الأنظمة والمشاريع', en: 'Show all systems & projects' },
+    lessProj: { ar: 'عرض أقل', en: 'Show less' },
     demo: { ar: 'جرّب العرض التفاعلي', en: 'Try the interactive demo' },
     live: { ar: 'اطلب ديمو مباشر', en: 'Request a live demo' },
     visit: { ar: 'زيارة الموقع', en: 'Visit website' },
@@ -371,7 +373,12 @@
   function videoBox(p) {
     return url(p.video) ? '<div class="video-box"><p class="media-label">' + ic('video') + '<span>' + u('video') + '</span></p><video controls preload="metadata" playsinline src="' + esc(url(p.video)) + '"></video></div>' : '';
   }
-  var activeFilter = 'all';
+  var activeFilter = 'all', moreOpen = false, SC_SHOW = 6;
+  function syncMore() {
+    var cards = $$('#projects .showcase'), collapse = activeFilter === 'all' && !moreOpen;
+    cards.forEach(function (c, i) { c.classList.toggle('m-hide', collapse && i >= SC_SHOW); });
+    var b = $('#projects [data-more]'); if (b) { b.parentNode.style.display = activeFilter === 'all' ? '' : 'none'; b.textContent = moreOpen ? u('lessProj') : u('moreProj') + ' (' + cards.length + ')'; }
+  }
   function renderProjects() {
     var P = D.projects || {}, items = arr(P.items).filter(vis);
     var cats = arr(P.cats).filter(function (c) { return items.some(function (p) { return p.cat === c.id || p.cat2 === c.id; }); });
@@ -384,7 +391,7 @@
       var title = Object.prototype.hasOwnProperty.call(G, g[0]) ? tx(G[g[0]]) : u(g[1]); // عنوان فاضي = من غير عنوان فرعي
       var sub = title ? '<div class="sub-head reveal" data-group="' + g[0] + '"><h3>' + esc(title) + '</h3></div>' : '';
       var cards = list.map(function (p, i) { return KIND[g[0]](p, i); }).join('');
-      return sub + (g[2] ? '<div class="' + g[2] + '">' + cards + '</div>' : cards);
+      return sub + (g[2] ? '<div class="' + g[2] + '">' + cards + '</div>' : cards) + (g[0] === 'showcase' && list.length > SC_SHOW ? '<div class="more-wrap"><button type="button" class="btn btn-ghost" data-more></button></div>' : '');
     }).join('');
     return '<section class="section section-alt" id="projects"><div class="container">' + head(P) + filters + html + '</div></section>';
   }
@@ -415,6 +422,7 @@
     var seo = S.seo || {}; if (tx(seo.title)) doc.title = tx(seo.title);
     var m = $('meta[name="description"]'); if (m && tx(seo.description)) m.content = tx(seo.description);
     $$('#projects [data-cat]').forEach(function (el) { el.classList.toggle('f-hide', activeFilter !== 'all' && !catHas(el.getAttribute('data-cat'), activeFilter)); });
+    syncMore();
     updateWa();
     if (RV) paintReviews(); else loadReviews();
     initReveal(instant);
@@ -536,8 +544,10 @@
         activeFilter = f.getAttribute('data-filter');
         $$('.filters [data-filter]').forEach(function (b) { b.classList.toggle('on', b === f); b.setAttribute('aria-selected', b === f); });
         $$('#projects [data-cat]').forEach(function (el) { var show = activeFilter === 'all' || catHas(el.getAttribute('data-cat'), activeFilter); el.classList.toggle('f-hide', !show); if (show) el.classList.add('in'); });
+        syncMore();
         return;
       }
+      if (t.closest && t.closest('[data-more]')) { moreOpen = !moreOpen; syncMore(); $$('#projects .showcase').forEach(function (c) { c.classList.add('in'); }); return; }
       var lp = t.closest && t.closest('[data-lb-p]');
       if (lp) {
         var p = arr(D.projects && D.projects.items).filter(function (x) { return x.id === lp.getAttribute('data-lb-p'); })[0];

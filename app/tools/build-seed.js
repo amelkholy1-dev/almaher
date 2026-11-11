@@ -12,14 +12,14 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 8,
+  _v: 9,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
     brand: b('أحمد الخولي', 'Ahmed Alkholy'),
     initials: 'AK',
     hello: b('مرحباً، أنا', 'Hello, I am'),
-    role: b('مطوّر أنظمة وحلول أعمال • أخصائي دعم فني وتشغيل', 'Business Systems Developer • IT Support & Operations Specialist'),
+    role: b('مهندس أنظمة وحلول أعمال • تشغيل ودعم فني', 'Business Systems Engineer • Operations & IT Support'),
     lead: b(
       'أصمّم وأبني أنظمة إدارة تعمل داخل الشركات من اليوم الأول: أفهم شغلك، وأبني الحل المناسب، وأشغّله، وأدرّب فريقك، وأرافقه بالدعم بعد التشغيل. فري لانسر منذ 2014، وخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات.',
       'I design and build management systems that work inside companies from day one: I understand your business, build the right solution, put it into operation, train your team and back it with support after launch. Freelancer since 2014, with nearly 7 years of hands-on experience in systems, design and operations.'),
@@ -30,13 +30,13 @@ const content = {
     email: 'am.elkholy1@gmail.com',
     whatsapp: '201552084471',
     linkedin: 'https://www.linkedin.com/in/ahmed-alkholy',
-    github: 'https://github.com/amelkholy1-dev',
+    github: '',
     photo: 'assets/img/ahmed-alkholy.jpg',
     ogImage: 'assets/img/og-image.jpg',
     cv: { ar: 'assets/cv/Ahmed-Alkholy-CV-AR.pdf', en: 'assets/cv/Ahmed-Alkholy-CV-EN.pdf' },
     seo: {
-      title: b('أحمد ماهر الخولي | مطوّر أنظمة وحلول أعمال', 'Ahmed Maher Alkholy | Business Systems Developer'),
-      description: b('مطوّر أنظمة وحلول أعمال ومصمم، فري لانسر منذ 2014: أنظمة ومواقع وتطبيقات تعمل داخل الشركات، وتصميم سوشيال ميديا، ودعم فني وتشغيل. الجيزة، مصر.', 'Business systems developer and designer, freelancer since 2014: systems, websites and apps running inside companies, social-media design, IT support and operations. Giza, Egypt.')
+      title: b('أحمد ماهر الخولي | مهندس أنظمة وحلول أعمال', 'Ahmed Maher Alkholy | Business Systems Engineer'),
+      description: b('مهندس أنظمة وحلول أعمال، فري لانسر منذ 2014: أنظمة ومواقع وتطبيقات تعمل داخل الشركات، وتصميم سوشيال ميديا، ودعم فني وتشغيل. الجيزة، مصر.', 'Business systems engineer, freelancer since 2014: systems, websites and apps running inside companies, social-media design, IT support and operations. Giza, Egypt.')
     },
     demoNotice: b('عرض توضيحي تفاعلي ببيانات تجريبية – النظام الكامل متاح عند الطلب', 'Interactive demo with sample data – the full system is available on request'),
     demoNoticeSample: b('عرض تفاعلي ببيانات تجريبية بالكامل – يمكن تنفيذ نظام مماثل حسب احتياجك', 'Interactive demo with fully sample data – a similar system can be built around your needs'),
@@ -44,13 +44,13 @@ const content = {
       general: b('مرحباً أحمد، وصلت إليك من موقعك الشخصي وأودّ التواصل معك.', 'Hi Ahmed, I found you through your website and would like to get in touch.'),
       project: b('مرحباً أحمد، شاهدت «{name}» على موقعك، وأرغب في ديمو مباشر ومعرفة المزيد.', 'Hi Ahmed, I saw “{name}” on your website and would like a live demo and more details.')
     },
-    footer: b('مطوّر أنظمة وحلول أعمال • فري لانسر منذ 2014', 'Business Systems Developer • Freelancer since 2014')
+    footer: b('مهندس أنظمة وحلول أعمال • فري لانسر منذ 2014', 'Business Systems Engineer • Freelancer since 2014')
   },
 
   stats: [
     { value: b('قرابة 7', 'Nearly 7'), label: b('سنوات خبرة عملية', 'years of hands-on experience') },
-    { value: b('7', '7'), label: b('أنظمة ومشاريع منفّذة', 'systems & projects delivered') },
-    { value: b('+30', '30+'), label: b('مستخدم يعتمدون على أنظمتي يومياً', 'users relying on my systems daily') },
+    { value: b('17', '17'), label: b('أنظمة ومشاريع منفّذة', 'systems & projects delivered') },
+    { value: b('+40', '40+'), label: b('مستخدم يعتمدون على أنظمتي يومياً', 'users relying on my systems daily') },
     { value: b('+150', '150+'), label: b('تصميم لشركات وصفحات', 'designs for companies & pages') }
   ],
 
@@ -74,8 +74,8 @@ const content = {
     kicker: b('نبذة عني', 'About me'),
     title: b('أنظمة تعمل، وفرق تتدرّب، ودعم مستمر', 'Systems that work, teams that get trained, support that lasts'),
     paragraphs: [
-      b('أعمل فري لانسر منذ يناير 2014، أنفّذ للشركات والصفحات تصميمات ومواقع وأعمال بيانات، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 30 مستخدماً كل يوم. نفّذتُ أكثر من 150 تصميماً، ونحو 7 أنظمة ومشاريع بين أنظمة وتطبيقات ومواقع.',
-        'I have worked as a freelancer since January 2014, delivering designs, websites and data work for companies and pages, and building business management systems that run in production and that 30+ users rely on every day. I have delivered 150+ designs and about 7 systems and projects across systems, apps and websites.'),
+      b('أعمل فري لانسر منذ يناير 2014، أنفّذ للشركات والصفحات تصميمات ومواقع وأعمال بيانات، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 40 مستخدماً كل يوم. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، وأكثر من 150 تصميماً.',
+        'I have worked as a freelancer since January 2014, delivering designs, websites and data work for companies and pages, and building business management systems that run in production and that 40+ users rely on every day. I have delivered 17 systems and projects across systems, apps and websites, plus 150+ designs.'),
       b('ومنذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج: أتابع آلاف الملفات عبر مراحل الكشف الطبي والبصمة والقنصلية والتأشيرة والسفر، وأدير الأجهزة والشبكة.',
         'Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office: tracking thousands of files through the medical, fingerprint, consulate, visa and travel stages, and managing the devices and network.'),
       b('هناك صممتُ نظاماً مركزياً للملفات والحسابات حلّ محل Excel والورق وصار قلب العمل في المكتب: تسجيل الملف من دقائق إلى ثوانٍ، وتوقفت حالات فقد الجوازات بعد نظام الترقيم والأرشفة.',
@@ -262,6 +262,9 @@ const content = {
       { id: 'site-forsan', kind: 'site', cat: 'web', visible: true, status: 'live', badge: X('pj.online'), type: X('type.travel'), title: X('w2.t'), text: X('w2.d'), features: [1, 2, 3, 4].map((i) => X('w2.f' + i)), tech: 'Node.js, Express, EJS, JSON', link: 'https://forsango.com', images: ['assets/img/projects/forsan-go-cover.jpg'] },
       { id: 'site-rockline', kind: 'site', cat: 'web', visible: true, status: 'live', badge: X('pj.online'), type: X('type.cons'), title: X('w3.t'), text: X('w3.d'), features: [1, 2, 3].map((i) => X('w3.f' + i)), tech: 'Node.js, Express, EJS', link: 'https://rocklineg.com', images: [] },
 
+      { id: 'site-eldahan', kind: 'site', cat: 'web', visible: true, status: 'live', badge: X('pj.online'), type: b('مطعم • طلب أونلاين', 'Restaurant • Online ordering'), title: b('موقع مطعم الدهان للمشويات', 'Eldahan Grills restaurant website'), text: b('موقع مطعم بمنيو كامل وطلب أونلاين: أقسام الأطباق والعروض بأسعارها، وسلة طلب، وتسجيل دخول للعملاء، وصفحة للفروع، بنسخة عربية وأخرى إنجليزية.', 'A restaurant website with a full menu and online ordering: dish categories and offers with prices, an order cart, customer login, a branches page, in Arabic and English.'), features: [b('منيو بأقسام (مشويات، فطائر، سندوتشات، جزارة، صواني)', 'Menu by category (grills, pastries, sandwiches, butcher, trays)'), b('عروض بأسعار قبل وبعد الخصم', 'Offers with before/after-discount prices'), b('سلة طلب وإضافة الأصناف بضغطة', 'Order cart with one-tap add'), b('نسخة عربية وإنجليزية', 'Arabic and English versions')], tech: '', link: 'https://www.eldahan.com/', images: ['assets/img/projects/eldahan-cover.jpg'] },
+      { id: 'site-eldiwan', kind: 'site', cat: 'web', visible: true, status: 'live', badge: X('pj.online'), type: b('توظيف • إلحاق عمالة', 'Recruitment agency'), title: b('موقع الديوان للتوظيف بالخارج', 'Al Diwan overseas recruitment website'), text: b('موقع شركة توظيف وإلحاق عمالة بالخارج: تعريف بالشركة وخدماتها، وآراء العملاء وقائمة العملاء، وصفحة للوظائف، وبيانات التواصل، بتصميم داكن حديث وواجهة عربية RTL.', 'A recruitment-agency website: company and services overview, client testimonials and client list, a jobs page and contact details, in a modern dark design with an Arabic RTL interface.'), features: [b('صفحات من نحن والخدمات والوظائف', 'About, services and jobs pages'), b('آراء العملاء وقائمة العملاء', 'Testimonials and client list'), b('بيانات التواصل وزر تواصل مباشر', 'Contact details and a direct contact button')], tech: 'React, Vite', link: 'https://eldiwanjobs.com/', images: ['assets/img/projects/eldiwan-cover.jpg'] },
+
       /* ---- أخرى ---- */
       { id: 'commission', kind: 'mini', cat: 'web', visible: true, status: 'none', icon: 'share', title: X('cm.t'), text: X('cm.d'), images: [] },
       { id: 'store', kind: 'mini', cat: 'web', visible: true, status: 'none', icon: 'cart', title: X('sh.t'), text: X('sh.d'), images: [] },
@@ -274,6 +277,13 @@ const content = {
     kicker: b('الخبرات', 'Experience'),
     title: b('الخبرة العملية', 'Work experience'),
     items: [
+      { visible: true, date: b('يناير 2014 – حتى الآن', 'Jan 2014 – Present'), role: b('مهندس مستقل لأنظمة الأعمال والمواقع', 'Independent Business Systems & Websites Engineer'), org: b('عمل حر', 'Freelance'), bullets: [
+        b('أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 40 مستخدماً يومياً.', 'Design and build business management systems running in several companies that 40+ users rely on daily.'),
+        b('أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.', 'Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live.'),
+        b('أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.', 'Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns.'),
+        b('أنفّذ أعمال إدخال البيانات وتنظيم ملفات Excel وتحويل المستندات، ومواقع تعريفية وصفحات هبوط للشركات.', 'Deliver data entry, Excel organisation and document conversion, plus company brochure websites and landing pages.'),
+        b('أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.', 'Deploy systems on company networks or hosting, train teams, and provide support and updates after launch.')
+      ] },
       { visible: true, date: b('فبراير 2023 – حتى الآن', 'Feb 2023 – Present'), role: b('منسق العمليات والأنظمة', 'Operations & Systems Coordinator'), org: b('مكتب نسر الخليج لإلحاق العمالة المصرية بالخارج – الجيزة، مصر', 'Nesr El-Khaleej Overseas Recruitment Office – Giza, Egypt'), bullets: [
         b('صممتُ نظاماً مركزياً للملفات والحسابات حلّ محل ملفات Excel المتفرقة والسجلات الورقية، وصار النظام الأساسي الذي يعتمد عليه المكتب.', 'Designed a central system for files and accounts that replaced scattered Excel sheets and paper records and became the office’s core system.'),
         b('خفّضتُ وقت تسجيل الملف الواحد من عدة دقائق إلى ثوانٍ باستخدام استخراج البيانات من الصور (OCR) والإدخال السريع.', 'Cut the time to register a file from several minutes to seconds using OCR data extraction and fast entry.'),
@@ -281,13 +291,6 @@ const content = {
         b('أدير الدعم الفني لـ 9 أجهزة والشبكة المحلية والطابعات والماسحات والنسخ الاحتياطي.', 'Manage IT support for 9 devices, the local network, printers, scanners and backups.'),
         b('أتابع الإجراءات متعددة المراحل لآلاف الملفات (كشف طبي، بصمة، قنصلية، تأشيرة، سفر) مع الجهات الحكومية والشركاء.', 'Track multi-stage procedures for thousands of files (medical, fingerprint, consulate, visa, travel) with government bodies and partners.'),
         b('أصمم إعلانات الشركة وأدير صفحاتها وحملاتها الممولة على Meta Business Suite.', 'Design the company’s ads and manage its pages and paid campaigns on Meta Business Suite.')
-      ] },
-      { visible: true, date: b('يناير 2014 – حتى الآن', 'Jan 2014 – Present'), role: b('مطوّر مستقل لأنظمة الأعمال والمواقع', 'Independent Business Systems & Websites Developer'), org: b('عمل حر', 'Freelance'), bullets: [
-        b('أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 30 مستخدماً يومياً.', 'Design and build business management systems running in several companies that 30+ users rely on daily.'),
-        b('أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.', 'Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live.'),
-        b('أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.', 'Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns.'),
-        b('أنفّذ أعمال إدخال البيانات وتنظيم ملفات Excel وتحويل المستندات، ومواقع تعريفية وصفحات هبوط للشركات.', 'Deliver data entry, Excel organisation and document conversion, plus company brochure websites and landing pages.'),
-        b('أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.', 'Deploy systems on company networks or hosting, train teams, and provide support and updates after launch.')
       ] },
       { visible: true, date: b('مايو 2025 – أغسطس 2025', 'May 2025 – Aug 2025'), role: b('منسق عمليات النقل (مهمة مؤقتة)', 'Transport Operations Coordinator (temporary assignment)'), org: b('شركة حسين حجازي للنقل والعمرة – مكة المكرمة، السعودية', 'Hussein Hegazy Transport & Umrah Company – Makkah, Saudi Arabia'), bullets: [
         b('نسّقتُ رحلات نقل المعتمرين والموظفين، وتابعتُ الجداول والمواعيد مع السائقين وفرق التشغيل.', 'Coordinated transport trips for pilgrims and staff and followed schedules and timings with drivers and operations teams.'),
@@ -302,7 +305,7 @@ const content = {
     title: b('المهارات والأدوات', 'Skills & tools'),
     groups: [
       { icon: 'code', highlight: true, title: b('تطوير الويب والأنظمة', 'Web & systems development'), items: ['React', 'TypeScript', 'JavaScript', 'Node.js', 'Express', 'REST APIs', 'HTML / CSS', 'Tailwind CSS', 'EJS', 'Vite', 'Socket.IO', b('لوحات تحكم وأنظمة صلاحيات', 'Admin panels & permission systems')] },
-      { icon: 'db', highlight: true, title: b('قواعد البيانات والنشر', 'Databases & deployment'), items: ['MySQL', 'SQL Server', 'IndexedDB', 'Firebase Auth', 'Cloudflare Pages + D1', 'Hostinger', 'Git & GitHub', b('نقل البيانات بين قواعد مختلفة', 'Cross-database data migration'), b('نسخ احتياطي واستعادة', 'Backup & restore')] },
+      { icon: 'db', highlight: true, title: b('قواعد البيانات والنشر', 'Databases & deployment'), items: ['MySQL', 'SQL Server', 'IndexedDB', 'Firebase Auth', 'Cloudflare Pages + D1', 'Hostinger', 'Git', b('نقل البيانات بين قواعد مختلفة', 'Cross-database data migration'), b('نسخ احتياطي واستعادة', 'Backup & restore')] },
       { icon: 'ai', highlight: true, title: b('الأتمتة واستخراج البيانات', 'Automation & data extraction'), items: ['Gemini API', 'Claude API', 'OpenAI API', 'OCR', b('استخراج البيانات من المستندات', 'Document data extraction'), b('مطابقة المرشحين بالوظائف', 'Candidate–job matching'), b('أدوات الذكاء الاصطناعي في العمل اليومي', 'AI tools in daily work')] },
       { icon: 'phone', title: b('تطبيقات الموبايل', 'Mobile apps'), items: ['Capacitor', 'Android', b('الإشعارات', 'Push notifications'), b('العمل بدون إنترنت والمزامنة', 'Offline & sync')] },
       { icon: 'shield', title: b('الأمان', 'Security'), items: [b('التحقق الثنائي (2FA)', 'Two-factor authentication'), b('صلاحيات تفصيلية', 'Granular permissions'), b('سجل العمليات', 'Audit log'), b('تشفير كلمات المرور والبيانات', 'Password & data encryption'), b('موافقة الأجهزة الجديدة', 'New-device approval')] },
@@ -355,6 +358,9 @@ const content = {
 
 // روابط واتساب في بطاقات الباقات: ترميز نص الرسالة
 for (const c of content.custom) for (const k of (c.cards || [])) if (k.link && k.link.includes('?text=')) { const i = k.link.indexOf('?text='); k.link = k.link.slice(0, i) + '?text=' + encodeURIComponent(k.link.slice(i + 6)); }
+// ترتيب النماذج: أول 6 (اللي بتظهر قبل «عرض الكل») تمزج العربي والإنجليزي والتطبيقات
+{ const first = ['pos-demo', 'crm-demo', 'invoices-demo', 'stay-demo', 'resto-demo', 'pulse-demo']; const it = content.projects.items; const rank = (p) => { const i = first.indexOf(p.id); return i < 0 ? 99 : i; };
+  const sc = it.filter((p) => p.kind === 'showcase').sort((x, y) => rank(x) - rank(y)); let k = 0; content.projects.items = it.map((p) => p.kind === 'showcase' ? sc[k++] : p); }
 fs.mkdirSync(path.join(__dirname, '..', 'seed'), { recursive: true });
 fs.writeFileSync(path.join(__dirname, '..', 'seed', 'content.json'), JSON.stringify(content, null, 2));
 console.log('seed ok —', content.projects.items.length, 'مشروع،', content.skills.groups.length, 'مجموعة مهارات');
