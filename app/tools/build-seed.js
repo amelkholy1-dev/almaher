@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 11,
+  _v: 12,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -26,7 +26,7 @@ const content = {
     availLabel: b('', ''),
     modes: [],
     location: b('الجيزة، مصر — أخدم عملاء في مصر والخليج وعن بُعد', 'Giza, Egypt — serving clients in Egypt, the Gulf and remotely'),
-    heroChips: [{ icon: 'code', text: b('أنظمة • مواقع • تطبيقات', 'Systems • Websites • Apps') }, { icon: 'ai', text: b('ذكاء اصطناعي', 'AI-powered') }, { icon: 'palette', text: b('فري لانسر منذ 2014', 'Freelancer since 2014') }],
+    heroChips: [{ icon: 'code', text: b('أنظمة • مواقع • تطبيقات', 'Systems • Websites • Apps') }, { icon: 'support', text: b('دعم فني وشبكات', 'IT Support & Networking') }, { icon: 'palette', text: b('فري لانسر منذ 2014', 'Freelancer since 2014') }],
     email: 'am.elkholy1@gmail.com',
     whatsapp: '201552084471',
     linkedin: 'https://www.linkedin.com/in/ahmed-alkholy',

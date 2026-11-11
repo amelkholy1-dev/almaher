@@ -1,5 +1,5 @@
 {
-  "_v": 11,
+  "_v": 12,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -41,10 +41,10 @@
         }
       },
       {
-        "icon": "ai",
+        "icon": "support",
         "text": {
-          "ar": "ذكاء اصطناعي",
-          "en": "AI-powered"
+          "ar": "دعم فني وشبكات",
+          "en": "IT Support & Networking"
         }
       },
       {
