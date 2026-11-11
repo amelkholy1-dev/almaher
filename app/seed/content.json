@@ -1561,7 +1561,9 @@
         ],
         "tech": "Node.js, Express, EJS",
         "link": "https://rocklineg.com",
-        "images": []
+        "images": [
+          "assets/img/projects/rockline-cover.jpg"
+        ]
       },
       {
         "id": "site-eldahan",
