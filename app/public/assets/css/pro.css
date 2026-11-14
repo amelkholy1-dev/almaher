@@ -321,3 +321,9 @@ a.contact-item:hover{background:var(--glass-2);border-color:rgba(244,180,60,.4)}
 .hero-name{font-size:clamp(1.9rem,4.1vw,3.35rem)}
 @media (max-width:860px){.about-grid{grid-template-columns:1fr;gap:28px}}
 h1,h2,.title,.hero-name,.hero-tag{text-wrap:balance}
+
+/* من غير أي حركة عند الوقوف على المشروع */
+.pcard,.pcard:hover{transform:none!important}
+.pcard:hover{background:var(--glass)}
+.pcard:hover .pc-cover img{transform:none}
+.pc-cover img{transition:none}

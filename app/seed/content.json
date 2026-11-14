@@ -1,5 +1,5 @@
 {
-  "_v": 16,
+  "_v": 17,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -1041,6 +1041,412 @@
         "link": "https://rocklineg.com",
         "images": [
           "assets/img/projects/rockline-cover.jpg"
+        ]
+      },
+      {
+        "id": "site-rawajai",
+        "kind": "site",
+        "cat": "sys",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "منصة تجارة إلكترونية",
+          "en": "E-commerce platform"
+        },
+        "title": {
+          "ar": "رواج",
+          "en": "Rawaj"
+        },
+        "text": {
+          "ar": "منصة لإدارة التجارة الإلكترونية: المنتجات والقنوات والإعلانات والطلبات والفريق في مكان واحد، مع مساعد ذكاء اصطناعي يجهّز خطة اليوم.",
+          "en": "A digital-commerce platform: products, channels, ads, orders and your team in one place, with an AI assistant that drafts the day’s plan."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://rawajai.com/en/",
+        "images": [
+          "assets/img/projects/w-rawajai.jpg"
+        ]
+      },
+      {
+        "id": "site-daffaherp",
+        "kind": "site",
+        "cat": "sys",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "نظام ERP سحابي",
+          "en": "Cloud ERP"
+        },
+        "title": {
+          "ar": "دفّة ERP",
+          "en": "Daffa ERP"
+        },
+        "text": {
+          "ar": "نظام سحابي للمبيعات ونقاط البيع والمخزون والمحاسبة والرواتب والزكاة.",
+          "en": "A cloud system for sales, point of sale, inventory, accounting, payroll and zakat."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://daffaherp.com/",
+        "images": [
+          "assets/img/projects/w-daffaherp.jpg"
+        ]
+      },
+      {
+        "id": "site-mahalat",
+        "kind": "site",
+        "cat": "sys",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "لوحة تحكم",
+          "en": "Admin dashboard"
+        },
+        "title": {
+          "ar": "محلات — لوحة التحكم",
+          "en": "Mahalat — admin dashboard"
+        },
+        "text": {
+          "ar": "نظام إدارة المنتجات والطلبات والعملاء لمنصة محلات.",
+          "en": "A system for managing products, orders and customers for the Mahalat platform."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://mahalat.net/",
+        "images": [
+          "assets/img/projects/w-mahalat.jpg"
+        ]
+      },
+      {
+        "id": "site-kartly",
+        "kind": "site",
+        "cat": "sys",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "أتمتة تسويق",
+          "en": "Marketing automation"
+        },
+        "title": {
+          "ar": "كارتلي",
+          "en": "Kartly"
+        },
+        "text": {
+          "ar": "أتمتة تسويق لمتاجر سلة: رسائل واتساب تلقائية تسترد السلات المتروكة وتؤكد طلبات الدفع عند الاستلام.",
+          "en": "Marketing automation for Salla stores: automatic WhatsApp messages that recover abandoned carts and confirm cash-on-delivery orders."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://kartly.io/",
+        "images": [
+          "assets/img/projects/w-kartly.jpg"
+        ]
+      },
+      {
+        "id": "site-ugcmena",
+        "kind": "site",
+        "cat": "sys",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "منصة حملات",
+          "en": "Campaign platform"
+        },
+        "title": {
+          "ar": "UGC MENA",
+          "en": "UGC MENA"
+        },
+        "text": {
+          "ar": "منصة حملات فيديو بصُنّاع محتوى في الشرق الأوسط: توجيه البريف ومراجعة كل نسخة في مكان واحد.",
+          "en": "A video-campaign platform with creators across the Middle East: route the brief and review every version in one place."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://ugcmena.com/ar/",
+        "images": [
+          "assets/img/projects/w-ugcmena.jpg"
+        ]
+      },
+      {
+        "id": "site-nahj",
+        "kind": "site",
+        "cat": "sys",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "منصة تدريب",
+          "en": "Training platform"
+        },
+        "title": {
+          "ar": "خبرات — إدارة التدريب",
+          "en": "Khobrat — training management"
+        },
+        "text": {
+          "ar": "منصة لإدارة الدورات والمتدربين والمدربين: التسجيل والدفع والدروس والاختبارات والحضور والشهادات.",
+          "en": "A platform for managing courses, trainees and trainers: registration, payment, lessons, tests, attendance and certificates."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://edu.nahj.org.sa/",
+        "images": [
+          "assets/img/projects/w-nahj.jpg"
+        ]
+      },
+      {
+        "id": "site-trinavo",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "منصة متاجر",
+          "en": "Store platform"
+        },
+        "title": {
+          "ar": "ترينافو",
+          "en": "Trinavo"
+        },
+        "text": {
+          "ar": "منصة تجارة إلكترونية متكاملة لبدء المتجر وتشغيله وتطويره.",
+          "en": "An all-in-one e-commerce platform to launch, run and grow an online store."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://trinavo.com/",
+        "images": [
+          "assets/img/projects/w-trinavo.jpg"
+        ]
+      },
+      {
+        "id": "site-almnssa",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "منصة متاجر",
+          "en": "Store platform"
+        },
+        "title": {
+          "ar": "المنصة العربية",
+          "en": "Arab platform"
+        },
+        "text": {
+          "ar": "منصة لإنشاء المتاجر الإلكترونية والمواقع بخطوة واحدة.",
+          "en": "A platform for creating online stores and websites in one step."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://almnssa.com/",
+        "images": [
+          "assets/img/projects/w-almnssa.jpg"
+        ]
+      },
+      {
+        "id": "site-manar",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "متجر إلكتروني",
+          "en": "Online store"
+        },
+        "title": {
+          "ar": "متجر منار",
+          "en": "Manar store"
+        },
+        "text": {
+          "ar": "متجر إلكتروني للملابس الداخلية القطنية والثيرمال للعائلة في السعودية.",
+          "en": "An online store for cotton underwear and thermal wear for the whole family in Saudi Arabia."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://manar.sa/",
+        "images": [
+          "assets/img/projects/w-manar.jpg"
+        ]
+      },
+      {
+        "id": "site-zayenha",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "بوابة منصات",
+          "en": "Platforms portal"
+        },
+        "title": {
+          "ar": "زيّنها هب",
+          "en": "Zayenha Hub"
+        },
+        "text": {
+          "ar": "بوابة تجمع منصات وتطبيقات ذكية للعالم العربي بحساب موحّد ونقاط ومزايا مشتركة.",
+          "en": "A portal bringing smart platforms and apps for the Arab world together, with one account, shared points and perks."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://zayenha.com/",
+        "images": [
+          "assets/img/projects/w-zayenha.jpg"
+        ]
+      },
+      {
+        "id": "site-nabraas",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "منصة تعليمية",
+          "en": "Learning platform"
+        },
+        "title": {
+          "ar": "منصة نبراس",
+          "en": "Nabraas platform"
+        },
+        "text": {
+          "ar": "منصة تعليمية بدورات مجانية وشهادات معتمدة.",
+          "en": "A learning platform with free courses and accredited certificates."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://nabraas.com/",
+        "images": [
+          "assets/img/projects/w-nabraas.jpg"
+        ]
+      },
+      {
+        "id": "site-h2academy",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "منصة تعليمية",
+          "en": "Learning platform"
+        },
+        "title": {
+          "ar": "H2 Academy",
+          "en": "H2 Academy"
+        },
+        "text": {
+          "ar": "منصة أكاديمية عربية للتعلم عبر الإنترنت بكورسات عملية.",
+          "en": "An Arabic online-learning academy with practical courses."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://students.theh2academy.com/",
+        "images": [
+          "assets/img/projects/w-h2academy.jpg"
+        ]
+      },
+      {
+        "id": "site-alhub",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "منصة تعليمية",
+          "en": "Learning platform"
+        },
+        "title": {
+          "ar": "Alhub",
+          "en": "Alhub"
+        },
+        "text": {
+          "ar": "منصة تعليمية سعودية عربية لبرامج تفاعلية ومكتبات رقمية.",
+          "en": "A Saudi Arabic learning platform with interactive programs and digital libraries."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://alhub.sa/",
+        "images": [
+          "assets/img/projects/w-alhub.jpg"
+        ]
+      },
+      {
+        "id": "site-wasitplus",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "منصة ويب",
+          "en": "Web platform"
+        },
+        "title": {
+          "ar": "Wasit Plus",
+          "en": "Wasit Plus"
+        },
+        "text": {
+          "ar": "منصة ويب بواجهة إنجليزية حديثة.",
+          "en": "A web platform with a modern English interface."
+        },
+        "features": [],
+        "tech": "",
+        "link": "https://km.wasitplus.com/",
+        "images": [
+          "assets/img/projects/w-wasitplus.jpg"
         ]
       },
       {
