@@ -479,13 +479,8 @@
     midnight: { ar: 'ذهبي ليلي', en: 'Midnight Gold' },
     classic: { ar: 'كلاسيك فاتح (القديم)', en: 'Classic Light' },
     ocean: { ar: 'أزرق سماوي', en: 'Ocean Cyan' },
-    emerald: { ar: 'زمردي', en: 'Emerald Night' },
-    violet: { ar: 'بنفسجي ملكي', en: 'Royal Violet' },
-    sunset: { ar: 'غروب برتقالي', en: 'Sunset Ember' },
-    graphite: { ar: 'جرافيت أبيض', en: 'Graphite Mono' },
     slate: { ar: 'نيلي فاتح', en: 'Slate Indigo' },
-    sand: { ar: 'رملي دافئ', en: 'Warm Sand' },
-    arctic: { ar: 'جليدي فاتح', en: 'Arctic Light' }
+    sand: { ar: 'رملي دافئ', en: 'Warm Sand' }
   };
   function curSkin() {
     var q = null; try { q = new URLSearchParams(location.search).get('skin'); } catch (e) { /* مش مشكلة */ }

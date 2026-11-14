@@ -1,5 +1,5 @@
 {
-  "_v": 18,
+  "_v": 19,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -70,7 +70,7 @@
     "photo": "assets/img/ahmed-alkholy.jpg",
     "ogImage": "assets/img/og-image-v3.jpg",
     "skin": "midnight",
-    "skinPicker": true,
+    "skinPicker": false,
     "showCv": false,
     "showCvAr": true,
     "showCvEn": true,
