@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 17,
+  _v: 18,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -34,6 +34,8 @@ const content = {
     github: '',
     photo: 'assets/img/ahmed-alkholy.jpg',
     ogImage: 'assets/img/og-image-v3.jpg',
+    skin: 'midnight',
+    skinPicker: true,
     showCv: false,
     showCvAr: true,
     showCvEn: true,
@@ -53,8 +55,8 @@ const content = {
 
   stats: [
     { value: b('قرابة 7', 'Nearly 7'), label: b('سنوات خبرة عملية', 'years of hands-on experience') },
-    { value: b('17', '17'), label: b('أنظمة ومشاريع منفّذة', 'systems & projects delivered') },
-    { value: b('+40', '40+'), label: b('مستخدم يعتمدون على أنظمتي يومياً', 'users relying on my systems daily') },
+    { value: b('36', '36'), label: b('أنظمة ومشاريع منفّذة', 'systems & projects delivered') },
+    { value: b('+70', '70+'), label: b('مستخدم يعتمدون على أنظمتي يومياً', 'users relying on my systems daily') },
     { value: b('+150', '150+'), label: b('تصميم لشركات وصفحات', 'designs for companies & pages') }
   ],
 
@@ -81,8 +83,8 @@ const content = {
     paragraphs: [
       b('منذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج، وهناك صممتُ النظام المركزي الذي حلّ محل Excel والورق وأشغّله يومياً: انخفض وقت تسجيل الملف من دقائق إلى ثوانٍ، وتوقفت حالات فقد الجوازات.',
         'Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office, where I designed and run the central system that replaced Excel and paper: file registration dropped from minutes to seconds and passport losses stopped.'),
-      b('وبالتوازي أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال ومواقع بلوحات تحكم وتطبيق أندرويد، ويعتمد على أنظمتي أكثر من 40 مستخدماً كل يوم.',
-        'In parallel I have freelanced since January 2014, building business management systems, websites with admin panels and an Android app, with 40+ users relying on my systems every day.'),
+      b('وبالتوازي أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال ومواقع بلوحات تحكم وتطبيق أندرويد، ويعتمد على أنظمتي أكثر من 70 مستخدماً كل يوم.',
+        'In parallel I have freelanced since January 2014, building business management systems, websites with admin panels and an Android app, with 70+ users relying on my systems every day.'),
       b('نظام يُدار فعلاً كل يوم أهم من نظام يُعرض فقط.', 'A system that is actually run every day matters more than one that is only shown.')
     ],
     highlightLast: true,
@@ -294,7 +296,7 @@ const content = {
         b('أتابع الإجراءات متعددة المراحل لآلاف الملفات (كشف طبي، بصمة، قنصلية، تأشيرة، سفر) مع الجهات الحكومية والشركاء.', 'Track multi-stage procedures for thousands of files (medical, fingerprint, consulate, visa, travel) with government bodies and partners.'),
       ] },
       { visible: true, date: b('يناير 2014 – حتى الآن', 'Jan 2014 – Present'), role: b('مهندس برمجيات مستقل (أنظمة ومواقع وتطبيقات)', 'Freelance Software Engineer — Systems, Websites & Apps'), org: b('عمل حر', 'Freelance'), bullets: [
-        b('أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 40 مستخدماً يومياً.', 'Design and build business management systems running in several companies that 40+ users rely on daily.'),
+        b('أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 70 مستخدماً يومياً.', 'Design and build business management systems running in several companies that 70+ users rely on daily.'),
         b('أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.', 'Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live.'),
         b('أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.', 'Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns.'),
         b('أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.', 'Deploy systems on company networks or hosting, train teams, and provide support and updates after launch.')

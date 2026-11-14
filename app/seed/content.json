@@ -1,5 +1,5 @@
 {
-  "_v": 17,
+  "_v": 18,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -69,6 +69,8 @@
     "github": "",
     "photo": "assets/img/ahmed-alkholy.jpg",
     "ogImage": "assets/img/og-image-v3.jpg",
+    "skin": "midnight",
+    "skinPicker": true,
     "showCv": false,
     "showCvAr": true,
     "showCvEn": true,
@@ -122,8 +124,8 @@
     },
     {
       "value": {
-        "ar": "17",
-        "en": "17"
+        "ar": "36",
+        "en": "36"
       },
       "label": {
         "ar": "أنظمة ومشاريع منفّذة",
@@ -132,8 +134,8 @@
     },
     {
       "value": {
-        "ar": "+40",
-        "en": "40+"
+        "ar": "+70",
+        "en": "70+"
       },
       "label": {
         "ar": "مستخدم يعتمدون على أنظمتي يومياً",
@@ -298,8 +300,8 @@
         "en": "Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office, where I designed and run the central system that replaced Excel and paper: file registration dropped from minutes to seconds and passport losses stopped."
       },
       {
-        "ar": "وبالتوازي أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال ومواقع بلوحات تحكم وتطبيق أندرويد، ويعتمد على أنظمتي أكثر من 40 مستخدماً كل يوم.",
-        "en": "In parallel I have freelanced since January 2014, building business management systems, websites with admin panels and an Android app, with 40+ users relying on my systems every day."
+        "ar": "وبالتوازي أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال ومواقع بلوحات تحكم وتطبيق أندرويد، ويعتمد على أنظمتي أكثر من 70 مستخدماً كل يوم.",
+        "en": "In parallel I have freelanced since January 2014, building business management systems, websites with admin panels and an Android app, with 70+ users relying on my systems every day."
       },
       {
         "ar": "نظام يُدار فعلاً كل يوم أهم من نظام يُعرض فقط.",
@@ -2222,8 +2224,8 @@
         },
         "bullets": [
           {
-            "ar": "أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 40 مستخدماً يومياً.",
-            "en": "Design and build business management systems running in several companies that 40+ users rely on daily."
+            "ar": "أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 70 مستخدماً يومياً.",
+            "en": "Design and build business management systems running in several companies that 70+ users rely on daily."
           },
           {
             "ar": "أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.",

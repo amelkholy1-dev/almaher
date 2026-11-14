@@ -9,7 +9,7 @@
 try{l=localStorage.getItem('lang');t=localStorage.getItem('theme')}catch(e){}
 if(l!=='ar'&&l!=='en'){var n=(navigator.languages&&navigator.languages[0])||navigator.language||'ar';l=/^ar/i.test(n)?'ar':'en'}
 if(l==='en'){d.lang='en';d.dir='ltr'}
-d.setAttribute('data-theme','dark')})();
+d.setAttribute('data-theme','dark');try{var k=new URLSearchParams(location.search).get('skin')||localStorage.getItem('skin');if(k&&/^[a-z]{3,12}$/.test(k))d.setAttribute('data-skin',k)}catch(e){}})();
 </script>
 <title>{{TITLE}}</title>
 <meta name="description" content="{{DESC}}">
@@ -54,6 +54,7 @@ d.setAttribute('data-theme','dark')})();
       <button class="icon-btn lang-btn" id="langToggle" type="button" aria-label="Switch language">
         <svg class="ic"><use href="#i-globe"/></svg><span id="langLabel">English</span>
       </button>
+      <div class="skin-wrap" id="skinWrap" hidden><button class="icon-btn" id="skinToggle" type="button" aria-label="Theme" aria-expanded="false"><svg class="ic"><use href="#i-palette"/></svg></button><div class="skin-pop" id="skinPop" hidden></div></div>
       <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="nav">
         <svg class="ic"><use href="#i-menu"/></svg>
       </button>

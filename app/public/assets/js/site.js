@@ -473,6 +473,37 @@
     }, { rootMargin: '-45% 0px -50% 0px' });
     $$('main section[id]').forEach(function (s) { spy.observe(s); });
   }
+
+  /* ---------- الثيمات ---------- */
+  var SKINS = {
+    midnight: { ar: 'ذهبي ليلي', en: 'Midnight Gold' },
+    classic: { ar: 'كلاسيك فاتح (القديم)', en: 'Classic Light' },
+    ocean: { ar: 'أزرق سماوي', en: 'Ocean Cyan' },
+    emerald: { ar: 'زمردي', en: 'Emerald Night' },
+    violet: { ar: 'بنفسجي ملكي', en: 'Royal Violet' },
+    sunset: { ar: 'غروب برتقالي', en: 'Sunset Ember' },
+    graphite: { ar: 'جرافيت أبيض', en: 'Graphite Mono' },
+    slate: { ar: 'نيلي فاتح', en: 'Slate Indigo' },
+    sand: { ar: 'رملي دافئ', en: 'Warm Sand' },
+    arctic: { ar: 'جليدي فاتح', en: 'Arctic Light' }
+  };
+  function curSkin() {
+    var q = null; try { q = new URLSearchParams(location.search).get('skin'); } catch (e) { /* مش مشكلة */ }
+    var st = store.get('skin'), def = S.skin && SKINS[S.skin] ? S.skin : 'midnight';
+    if (q && SKINS[q]) return q;
+    if (S.skinPicker !== false && st && SKINS[st]) return st;
+    return def;
+  }
+  function applySkin() {
+    var k = curSkin(); root.setAttribute('data-skin', k);
+    var m = $('meta[name="theme-color"]'); if (m) m.content = getComputedStyle(root).getPropertyValue('--bg').trim() || '#060c18';
+    var wrap = $('#skinWrap'), pop = $('#skinPop'); if (!wrap) return;
+    wrap.hidden = S.skinPicker === false;
+    pop.innerHTML = '<h4>' + (lang() === 'ar' ? 'اختار الثيم' : 'Choose a theme') + '</h4><div class="skin-grid">' + Object.keys(SKINS).map(function (id) {
+      return '<button type="button" class="skin-opt' + (id === k ? ' on' : '') + '" data-skin="' + id + '"><span class="skin-dot" data-skin="' + id + '"></span><span>' + esc(tx(SKINS[id])) + '</span></button>';
+    }).join('') + '</div>';
+    $$('.skin-dot', pop).forEach(function (d) { var pv = doc.createElement('div'); pv.setAttribute('data-skin', d.getAttribute('data-skin')); pv.style.cssText = 'position:absolute;visibility:hidden'; doc.body.appendChild(pv); var cs = getComputedStyle(pv); d.style.background = 'linear-gradient(135deg,' + cs.getPropertyValue('--bg').trim() + ' 50%,' + cs.getPropertyValue('--gold').trim() + ' 50%)'; pv.remove(); });
+  }
   function setTheme(t, save) {
     root.setAttribute('data-theme', t);
     var m = $('meta[name="theme-color"]'); if (m) m.content = '#060c18';
@@ -481,6 +512,7 @@
   function applyLang(l, save) {
     root.lang = l; root.dir = l === 'ar' ? 'rtl' : 'ltr';
     if (save) store.set('lang', l);
+    applySkin();
     renderAll(true);
     doc.dispatchEvent(new Event('langchange'));
   }
@@ -560,6 +592,11 @@
   function bindGlobal() {
     doc.addEventListener('click', function (e) {
       var t = e.target;
+      var sk = t.closest && t.closest('[data-skin]');
+      if (sk && sk.tagName === 'BUTTON' && sk.classList.contains('skin-opt')) { store.set('skin', sk.getAttribute('data-skin')); applySkin(); return; }
+      var st0 = t.closest && t.closest('#skinToggle');
+      if (st0) { var pp = $('#skinPop'); pp.hidden = !pp.hidden; st0.setAttribute('aria-expanded', String(!pp.hidden)); return; }
+      if (!(t.closest && t.closest('#skinPop'))) { var pp2 = $('#skinPop'); if (pp2) pp2.hidden = true; }
       var pd = t.closest && t.closest('[data-pd]');
       if (pd) { e.preventDefault(); openProject(pd.getAttribute('data-pd')); return; }
       var ps = t.closest && t.closest('[data-pd-src]');
@@ -600,6 +637,7 @@
 
   function init() {
     setTheme('dark', false);
+    applySkin();
     renderAll(false);
     initLightbox(); initDemoDialog(); initProjectDialog(); bindGlobal();
     $('#langToggle').addEventListener('click', function () { applyLang(lang() === 'ar' ? 'en' : 'ar', true); });
