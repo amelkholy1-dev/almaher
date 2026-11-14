@@ -101,3 +101,4 @@ input:focus,select:focus,textarea:focus{border-color:var(--blue)}
 table.t{width:100%;border-collapse:collapse;font-size:.9rem}.t th,.t td{padding:8px 10px;border-bottom:1px solid var(--border);text-align:start}
 .empty{padding:26px;text-align:center;color:var(--muted)}
 .tip{background:rgba(245,165,36,.12);border:1px solid rgba(245,165,36,.4);border-radius:12px;padding:12px 14px;margin-bottom:16px;font-size:.88rem}
+.st-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:16px}

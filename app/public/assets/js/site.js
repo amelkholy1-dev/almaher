@@ -76,6 +76,7 @@
     email: { ar: 'البريد الإلكتروني', en: 'Email' }, wa: { ar: 'واتساب', en: 'WhatsApp' }, place: { ar: 'المكان', en: 'Location' },
     waGeneral: { ar: 'مرحباً أحمد، وصلت إليك من موقعك الشخصي وأودّ التواصل معك.', en: 'Hi Ahmed, I found you through your website and would like to get in touch.' },
     waProject: { ar: 'مرحباً أحمد، شاهدت «{name}» على موقعك، وأرغب في ديمو مباشر ومعرفة المزيد.', en: 'Hi Ahmed, I saw “{name}” on your website and would like a live demo and more details.' },
+    th_t: { ar: 'شكراً لك!', en: 'Thank you!' }, th_home: { ar: 'الرجوع لأعلى الصفحة', en: 'Back to top' }, th_wa: { ar: 'كلّمني على واتساب', en: 'Chat on WhatsApp' },
     shotsOpen: { ar: 'عرض الصور', en: 'View screenshots' },
     menu: { ar: 'القائمة', en: 'Menu' },
     rvKicker: { ar: 'آراء العملاء', en: 'Client reviews' },
@@ -579,7 +580,7 @@
     note.textContent = '…'; note.className = 'form-note';
     fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ name: name, contact: contact, topic: topic, message: msg, website: form.website.value }) })
       .then(function (r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok && j.ok, j: j }; }); })
-      .then(function (r) { if (r.ok) { note.textContent = u('f_ok'); note.className = 'form-note ok'; form.reset(); } else { note.textContent = (r.j && r.j.message) || u('f_err'); note.className = 'form-note err'; } })
+      .then(function (r) { if (r.ok) { track('ev', 'form'); form.innerHTML = '<div class="thanks" role="status"><div class="thanks-ic">' + ic('check') + '</div><h3>' + u('th_t') + '</h3><p>' + u('f_ok') + '</p><div class="form-actions"><a class="btn btn-outline" href="#home">' + u('th_home') + '</a>' + (waNum() ? '<a class="btn btn-wa" data-wa="general" href="#" target="_blank" rel="noopener">' + ic('wa') + '<span>' + u('th_wa') + '</span></a>' : '') + '</div></div>'; updateWa(); } else { note.textContent = (r.j && r.j.message) || u('f_err'); note.className = 'form-note err'; } })
       .catch(function () { note.textContent = u('f_err'); note.className = 'form-note err'; });
   }
 
@@ -630,11 +631,33 @@
     });
   }
 
+  /* إحصائيات بدون كوكيز */
+  function track(t, e) {
+    try {
+      if (store.get('nostats') === '1' || navigator.doNotTrack === '1') return;
+      var body = JSON.stringify({ t: t, e: e, lang: lang(), w: window.innerWidth, ref: doc.referrer || '' });
+      if (navigator.sendBeacon) navigator.sendBeacon('/api/hit', new Blob([body], { type: 'application/json' }));
+      else fetch('/api/hit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: body, keepalive: true });
+    } catch (err) { /* مش مشكلة */ }
+  }
+  function initTrack() {
+    try { if (/[?&]nostats=1/.test(location.search)) store.set('nostats', '1'); if (/[?&]nostats=0/.test(location.search)) store.set('nostats', '0'); } catch (err) { /* مش مشكلة */ }
+    track('view');
+    doc.addEventListener('click', function (e) {
+      var t = e.target; if (!t.closest) return;
+      if (t.closest('[data-wa], a[href*="wa.me"]')) track('ev', 'wa');
+      else if (t.closest('a[download]')) track('ev', 'cv');
+      else if (t.closest('[data-demo]')) track('ev', 'demo');
+      else if (t.closest('[data-pd]')) track('ev', 'detail');
+      else if (t.closest('a[href^="mailto:"]')) track('ev', 'mail');
+    });
+  }
+
   function init() {
     setTheme('dark', false);
     applySkin();
     renderAll(false);
-    initLightbox(); initDemoDialog(); initProjectDialog(); bindGlobal();
+    initLightbox(); initDemoDialog(); initProjectDialog(); bindGlobal(); initTrack();
     $('#langToggle').addEventListener('click', function () { applyLang(lang() === 'ar' ? 'en' : 'ar', true); });
     var header = $('.site-header'), nav = $('#nav'), btn = $('#menuToggle');
     var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 8); };

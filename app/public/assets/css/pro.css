@@ -356,3 +356,10 @@ html[data-skin="classic"] .pcard,html[data-skin="slate"] .pcard,html[data-skin="
 :root[data-theme] .section-alt{background:linear-gradient(180deg,transparent,rgba(var(--fx),.022) 18%,rgba(var(--fx),.022) 82%,transparent)}
 :root[data-theme] .stat strong{color:transparent}
 @media (max-width:440px){.brand-name{display:none}.header-tools{gap:6px}.header-inner{gap:8px}}
+
+.thanks{text-align:center;padding:26px 8px;display:grid;gap:10px;justify-items:center}
+.thanks-ic{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:rgba(52,211,153,.14);border:1px solid rgba(52,211,153,.5);color:#6ee7b7}
+.thanks-ic .ic{width:30px;height:30px}
+.thanks h3{margin:6px 0 0;font-size:1.4rem;color:var(--head)}
+.thanks p{margin:0 0 8px;color:var(--muted)}
+.st-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}

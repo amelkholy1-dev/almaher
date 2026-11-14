@@ -265,6 +265,7 @@
     { id: 'layout', label: 'ترتيب الأقسام', custom: layoutTab },
     { sep: true },
     { id: 'media', label: 'الصور والملفات', custom: mediaTab },
+    { id: 'traffic', label: 'زيارات الموقع', custom: statsTab },
     { id: 'messages', label: 'الرسائل', custom: messagesTab, badge: function () { return window.__unread || 0; } },
     { id: 'account', label: 'الحساب والنسخ الاحتياطي', custom: accountTab }
   ];
@@ -394,6 +395,23 @@
   }
 
   /* الرسائل */
+  function statsTab(host) {
+    host.textContent = 'جارٍ التحميل…';
+    api('GET', '/stats?days=30').then(function (r) {
+      host.innerHTML = ''; var st = r.stats, ev = st.total.ev || {};
+      function num(l, v) { return h('div', { class: 'card', style: 'text-align:center;padding:16px' }, h('div', { style: 'font-size:1.9rem;font-weight:800', text: String(v) }), h('div', { class: 'help', text: l })); }
+      host.appendChild(h('p', { class: 'help', text: 'آخر 30 يوم. من غير كوكيز ومن غير تخزين أي IP أو بيانات شخصية. عشان جهازك ما يتحسبش: افتح الموقع مرة بـ ?nostats=1 في آخر الرابط.' }));
+      host.appendChild(h('div', { class: 'st-grid' }, num('زيارات الصفحة', st.total.v), num('زوار (تقريباً فريدين يومياً)', st.total.u), num('ضغطات واتساب', ev.wa || 0), num('فتح تفاصيل مشروع', ev.detail || 0), num('تجربة ديمو', ev.demo || 0), num('تحميل السيرة', ev.cv || 0), num('ضغطات الإيميل', ev.mail || 0), num('رسائل من الفورم', ev.form || 0)));
+      var max = Math.max.apply(null, st.days.map(function (d) { return d.v; }).concat([1]));
+      host.appendChild(h('div', { class: 'card', style: 'padding:16px;margin-bottom:16px' }, h('b', { text: 'الزيارات اليومية' }),
+        h('div', { style: 'display:flex;align-items:flex-end;gap:3px;height:120px;margin-top:12px' }, st.days.map(function (d) { return h('div', { title: d.d + ': ' + d.v, style: 'flex:1;min-width:3px;background:#2A6BB3;border-radius:3px 3px 0 0;height:' + Math.max(2, Math.round(d.v / max * 100)) + '%' }); }))));
+      function list(title, o) {
+        var ks = Object.keys(o).sort(function (a, b) { return o[b] - o[a]; }).slice(0, 8);
+        return h('div', { class: 'card', style: 'padding:16px' }, h('b', { text: title }), ks.length ? h('div', { style: 'margin-top:8px;display:grid;gap:4px' }, ks.map(function (k) { return h('div', { style: 'display:flex;justify-content:space-between;gap:10px' }, h('span', { text: k === 'direct' ? 'مباشر / غير معروف' : k }), h('b', { text: String(o[k]) })); })) : h('div', { class: 'help', text: 'لسه مفيش بيانات.' }));
+      }
+      host.appendChild(h('div', { class: 'st-grid', style: 'grid-template-columns:repeat(auto-fit,minmax(220px,1fr))' }, list('مصادر الزيارات', st.ref), list('اللغة', st.lang), list('الجهاز', st.dev)));
+    });
+  }
   function messagesTab(host) {
     host.textContent = 'جارٍ التحميل…';
     api('GET', '/messages').then(function (r) {

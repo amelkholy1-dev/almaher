@@ -13,6 +13,7 @@ const multer = require('multer');
 const { createStore } = require('./lib/store');
 const { createAuth } = require('./lib/auth');
 const { createRenderer } = require('./lib/render');
+const { createStats } = require('./lib/stats');
 
 const PUBLIC = path.join(__dirname, 'public');
 const PORT = Number(process.env.PORT || 3000);
@@ -46,6 +47,12 @@ const staticOpts = {
 };
 app.use('/assets', express.static(path.join(PUBLIC, 'assets'), staticOpts));
 app.use('/uploads', express.static(store.uploads, Object.assign({}, staticOpts, { setHeaders(res) { res.setHeader('Cache-Control', 'public, max-age=86400'); res.setHeader('Content-Security-Policy', "default-src 'none'; img-src 'self'; media-src 'self'; style-src 'unsafe-inline'"); } })));
+const stats = createStats(store.dir);
+app.post('/api/hit', express.json({ limit: '2kb' }), (req, res) => {
+  const ip = auth.ip(req); if (auth.limited('hit:' + ip, 120, 60 * 1000)) return res.status(204).end();
+  try { stats.hit(req, req.body, ip); } catch (e) { /* الإحصائيات مش لازم توقع الموقع */ }
+  res.status(204).end();
+});
 app.get('/robots.txt', (req, res) => res.type('text/plain').send('User-agent: *\nAllow: /\nDisallow: /admin\n'));
 app.get('/healthz', (req, res) => res.json({ ok: true, uptimeSec: Math.round(process.uptime()), dataDir: store.dir }));
 
@@ -208,6 +215,7 @@ api.post('/reviews/:id', express.json({ limit: '10kb' }), (req, res) => {
 api.delete('/reviews/:id', (req, res) => { saveReviews(reviewsFile().filter((x) => x.id !== req.params.id)); res.json({ ok: true }); });
 
 /* ---- الرسائل ---- */
+api.get('/stats', (req, res) => res.json({ ok: true, stats: stats.report(req.query.days) }));
 api.get('/messages', (req, res) => res.json({ ok: true, messages: store.messages.list() }));
 api.post('/messages/:id/read', (req, res) => { store.messages.read(req.params.id); res.json({ ok: true }); });
 api.delete('/messages/:id', (req, res) => { store.messages.del(req.params.id); res.json({ ok: true }); });
@@ -257,7 +265,7 @@ app.use((err, req, res, next) => {
   console.error(new Date().toISOString(), '[ERROR]', err && err.stack || err);
   res.status(500).json({ ok: false, message: 'حصل خطأ.' });
 });
-app.use((req, res) => res.status(404).type('html').send('<!doctype html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>404</title><body style="font-family:system-ui,Tahoma;display:grid;place-items:center;min-height:90vh;text-align:center;background:#f5f8fc;color:#1D4E89"><div><h1 style="font-size:4rem;margin:0">404</h1><p>الصفحة مش موجودة — Page not found</p><p><a href="/" style="color:#1D4E89">← الرئيسية / Home</a></p></div></body>'));
+app.use((req, res) => res.status(404).type('html').send('<!doctype html><html lang="ar" dir="rtl"><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><title>404</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;text-align:center;font-family:\'IBM Plex Sans Arabic\',system-ui,Tahoma,sans-serif;background:radial-gradient(700px 420px at 85% 0,rgba(244,180,60,.16),transparent 60%),#060c18;color:#e9eefb;padding:24px}h1{font-size:clamp(4rem,14vw,8rem);margin:0;line-height:1;background:linear-gradient(180deg,#ffd27a,#f4b43c);-webkit-background-clip:text;background-clip:text;color:transparent}p{color:#9db0cf;margin:10px 0 26px;font-size:1.1rem}a{display:inline-block;background:#f4b43c;color:#1a1200;font-weight:700;text-decoration:none;padding:13px 28px;border-radius:14px}</style><body><div><h1>404</h1><p>الصفحة اللي بتدوّر عليها مش موجودة.<br>This page does not exist.</p><a href="/">الرجوع للرئيسية · Home</a></div></body></html>'));
 
 process.on('uncaughtException', (e) => console.error(new Date().toISOString(), '[uncaughtException]', e && e.stack || e));
 process.on('unhandledRejection', (e) => console.error(new Date().toISOString(), '[unhandledRejection]', e && e.stack || e));
