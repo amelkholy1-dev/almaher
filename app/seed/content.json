@@ -1,5 +1,5 @@
 {
-  "_v": 15,
+  "_v": 16,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -294,12 +294,12 @@
     },
     "paragraphs": [
       {
-        "ar": "أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 40 مستخدماً كل يوم، إلى جانب مواقع بلوحات تحكم وتطبيق أندرويد.",
-        "en": "I have worked as a freelancer since January 2014, building business management systems that run in production and that 40+ users rely on every day, alongside websites with admin panels and an Android app."
+        "ar": "منذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج، وهناك صممتُ النظام المركزي الذي حلّ محل Excel والورق وأشغّله يومياً: انخفض وقت تسجيل الملف من دقائق إلى ثوانٍ، وتوقفت حالات فقد الجوازات.",
+        "en": "Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office, where I designed and run the central system that replaced Excel and paper: file registration dropped from minutes to seconds and passport losses stopped."
       },
       {
-        "ar": "ومنذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج: صممتُ نظاماً مركزياً حلّ محل Excel والورق، فانخفض وقت تسجيل الملف من دقائق إلى ثوانٍ وتوقفت حالات فقد الجوازات.",
-        "en": "Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office: I designed a central system that replaced Excel and paper, cutting file registration from minutes to seconds and ending passport losses."
+        "ar": "وبالتوازي أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال ومواقع بلوحات تحكم وتطبيق أندرويد، ويعتمد على أنظمتي أكثر من 40 مستخدماً كل يوم.",
+        "en": "In parallel I have freelanced since January 2014, building business management systems, websites with admin panels and an Android app, with 40+ users relying on my systems every day."
       },
       {
         "ar": "نظام يُدار فعلاً كل يوم أهم من نظام يُعرض فقط.",
@@ -1766,39 +1766,6 @@
       {
         "visible": true,
         "date": {
-          "ar": "يناير 2014 – حتى الآن",
-          "en": "Jan 2014 – Present"
-        },
-        "role": {
-          "ar": "مهندس برمجيات مستقل (أنظمة ومواقع وتطبيقات)",
-          "en": "Freelance Software Engineer — Systems, Websites & Apps"
-        },
-        "org": {
-          "ar": "عمل حر",
-          "en": "Freelance"
-        },
-        "bullets": [
-          {
-            "ar": "أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 40 مستخدماً يومياً.",
-            "en": "Design and build business management systems running in several companies that 40+ users rely on daily."
-          },
-          {
-            "ar": "أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.",
-            "en": "Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live."
-          },
-          {
-            "ar": "أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.",
-            "en": "Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns."
-          },
-          {
-            "ar": "أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.",
-            "en": "Deploy systems on company networks or hosting, train teams, and provide support and updates after launch."
-          }
-        ]
-      },
-      {
-        "visible": true,
-        "date": {
           "ar": "فبراير 2023 – حتى الآن",
           "en": "Feb 2023 – Present"
         },
@@ -1830,6 +1797,39 @@
           {
             "ar": "أتابع الإجراءات متعددة المراحل لآلاف الملفات (كشف طبي، بصمة، قنصلية، تأشيرة، سفر) مع الجهات الحكومية والشركاء.",
             "en": "Track multi-stage procedures for thousands of files (medical, fingerprint, consulate, visa, travel) with government bodies and partners."
+          }
+        ]
+      },
+      {
+        "visible": true,
+        "date": {
+          "ar": "يناير 2014 – حتى الآن",
+          "en": "Jan 2014 – Present"
+        },
+        "role": {
+          "ar": "مهندس برمجيات مستقل (أنظمة ومواقع وتطبيقات)",
+          "en": "Freelance Software Engineer — Systems, Websites & Apps"
+        },
+        "org": {
+          "ar": "عمل حر",
+          "en": "Freelance"
+        },
+        "bullets": [
+          {
+            "ar": "أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 40 مستخدماً يومياً.",
+            "en": "Design and build business management systems running in several companies that 40+ users rely on daily."
+          },
+          {
+            "ar": "أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.",
+            "en": "Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live."
+          },
+          {
+            "ar": "أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.",
+            "en": "Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns."
+          },
+          {
+            "ar": "أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.",
+            "en": "Deploy systems on company networks or hosting, train teams, and provide support and updates after launch."
           }
         ]
       },

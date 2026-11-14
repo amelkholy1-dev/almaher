@@ -68,10 +68,11 @@ function html(k) {
   const t = L[k], ar = k === 'ar', ex = C.experience.items.filter((e) => e.visible !== false);
   const entry = (e, i) => {
     const role = e.role[k], org = e.org[k], date = e.date[k], bl = e.bullets.map((x) => x[k]);
-    const extra = i === 0 ? t.free.extra : [];
-    let b = (i === 0 ? [bl[0]] : bl.slice(0, 1)).concat(extra, bl.slice(1)).filter(Boolean);
-    if (i === 1) { const q = b.findIndex((x) => /9 /.test(x)); if (q > 0) b = [b[q]].concat(b.slice(0, q), b.slice(q + 1)); }
-    return `<div class="job"><div class="jh"><span class="jr">${esc(i === 0 ? t.free.role : role)}</span><span class="jd">${esc(i === 0 ? t.free.date : date)}</span></div><div class="jo">${esc(i === 0 ? t.free.org : org)}</div><ul>${b.map((x) => `<li>${/<b>/.test(x) ? linkify(x) : esc(x)}</li>`).join('')}</ul></div>`;
+    const isFree = /2014/.test(e.date.en), isNesr = /2023/.test(e.date.en) && !isFree;
+    const extra = isFree ? t.free.extra : [];
+    let b = bl.slice(0, 1).concat(extra, bl.slice(1)).filter(Boolean);
+    if (isNesr) { const q = b.findIndex((x) => /9 /.test(x)); if (q > 0) b = [b[q]].concat(b.slice(0, q), b.slice(q + 1)); }
+    return `<div class="job"><div class="jh"><span class="jr">${esc(isFree ? t.free.role : role)}</span><span class="jd">${esc(isFree ? t.free.date : date)}</span></div><div class="jo">${esc(isFree ? t.free.org : org)}</div><ul>${b.map((x) => `<li>${/<b>/.test(x) ? linkify(x) : esc(x)}</li>`).join('')}</ul></div>`;
   };
   const F = ar ? "'CairoA','CairoL'" : "'Lato'";
   return `<!doctype html><html lang="${t.lang}" dir="${t.dir}"><head><meta charset="utf-8"><title>${esc(t.name)} — CV</title><style>

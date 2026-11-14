@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 15,
+  _v: 16,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -79,10 +79,10 @@ const content = {
     kicker: b('من أنا', 'About me'),
     title: b('مهندس يفهم شغلك قبل ما يكتب أول سطر كود.', 'An engineer who understands your business before writing the first line of code.'),
     paragraphs: [
-      b('أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 40 مستخدماً كل يوم، إلى جانب مواقع بلوحات تحكم وتطبيق أندرويد.',
-        'I have worked as a freelancer since January 2014, building business management systems that run in production and that 40+ users rely on every day, alongside websites with admin panels and an Android app.'),
-      b('ومنذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج: صممتُ نظاماً مركزياً حلّ محل Excel والورق، فانخفض وقت تسجيل الملف من دقائق إلى ثوانٍ وتوقفت حالات فقد الجوازات.',
-        'Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office: I designed a central system that replaced Excel and paper, cutting file registration from minutes to seconds and ending passport losses.'),
+      b('منذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج، وهناك صممتُ النظام المركزي الذي حلّ محل Excel والورق وأشغّله يومياً: انخفض وقت تسجيل الملف من دقائق إلى ثوانٍ، وتوقفت حالات فقد الجوازات.',
+        'Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office, where I designed and run the central system that replaced Excel and paper: file registration dropped from minutes to seconds and passport losses stopped.'),
+      b('وبالتوازي أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال ومواقع بلوحات تحكم وتطبيق أندرويد، ويعتمد على أنظمتي أكثر من 40 مستخدماً كل يوم.',
+        'In parallel I have freelanced since January 2014, building business management systems, websites with admin panels and an Android app, with 40+ users relying on my systems every day.'),
       b('نظام يُدار فعلاً كل يوم أهم من نظام يُعرض فقط.', 'A system that is actually run every day matters more than one that is only shown.')
     ],
     highlightLast: true,
@@ -271,18 +271,18 @@ const content = {
     kicker: b('الخبرة', 'Experience'),
     title: b('خبرة عملية في بناء الأنظمة وتشغيلها', 'Hands-on experience building and running systems'),
     items: [
-      { visible: true, date: b('يناير 2014 – حتى الآن', 'Jan 2014 – Present'), role: b('مهندس برمجيات مستقل (أنظمة ومواقع وتطبيقات)', 'Freelance Software Engineer — Systems, Websites & Apps'), org: b('عمل حر', 'Freelance'), bullets: [
-        b('أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 40 مستخدماً يومياً.', 'Design and build business management systems running in several companies that 40+ users rely on daily.'),
-        b('أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.', 'Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live.'),
-        b('أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.', 'Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns.'),
-        b('أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.', 'Deploy systems on company networks or hosting, train teams, and provide support and updates after launch.')
-      ] },
       { visible: true, date: b('فبراير 2023 – حتى الآن', 'Feb 2023 – Present'), role: b('منسق العمليات والأنظمة', 'Operations & Systems Coordinator'), org: b('مكتب نسر الخليج لإلحاق العمالة المصرية بالخارج – الجيزة، مصر', 'Nesr El-Khaleej Overseas Recruitment Office – Giza, Egypt'), bullets: [
         b('صممتُ نظاماً مركزياً للملفات والحسابات حلّ محل ملفات Excel المتفرقة والسجلات الورقية، وصار النظام الأساسي الذي يعتمد عليه المكتب.', 'Designed a central system for files and accounts that replaced scattered Excel sheets and paper records and became the office’s core system.'),
         b('خفّضتُ وقت تسجيل الملف الواحد من عدة دقائق إلى ثوانٍ باستخدام استخراج البيانات من الصور (OCR) والإدخال السريع.', 'Cut the time to register a file from several minutes to seconds using OCR data extraction and fast entry.'),
         b('ابتكرتُ نظام ترقيم وأرشفة يربط كل ملف ورقي بسجله الإلكتروني، فتوقفت حالات فقد الجوازات تماماً.', 'Created a numbering-and-archiving system linking every paper file to its electronic record, which stopped passport losses entirely.'),
         b('أدير الدعم الفني لـ 9 أجهزة والشبكة المحلية والطابعات والماسحات والنسخ الاحتياطي.', 'Manage IT support for 9 devices, the local network, printers, scanners and backups.'),
         b('أتابع الإجراءات متعددة المراحل لآلاف الملفات (كشف طبي، بصمة، قنصلية، تأشيرة، سفر) مع الجهات الحكومية والشركاء.', 'Track multi-stage procedures for thousands of files (medical, fingerprint, consulate, visa, travel) with government bodies and partners.'),
+      ] },
+      { visible: true, date: b('يناير 2014 – حتى الآن', 'Jan 2014 – Present'), role: b('مهندس برمجيات مستقل (أنظمة ومواقع وتطبيقات)', 'Freelance Software Engineer — Systems, Websites & Apps'), org: b('عمل حر', 'Freelance'), bullets: [
+        b('أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 40 مستخدماً يومياً.', 'Design and build business management systems running in several companies that 40+ users rely on daily.'),
+        b('أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.', 'Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live.'),
+        b('أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.', 'Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns.'),
+        b('أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.', 'Deploy systems on company networks or hosting, train teams, and provide support and updates after launch.')
       ] },
       { visible: false, date: b('مايو 2025 – أغسطس 2025', 'May 2025 – Aug 2025'), role: b('منسق عمليات النقل (مهمة مؤقتة)', 'Transport Operations Coordinator (temporary assignment)'), org: b('شركة حسين حجازي للنقل والعمرة – مكة المكرمة، السعودية', 'Hussein Hegazy Transport & Umrah Company – Makkah, Saudi Arabia'), bullets: [
         b('نسّقتُ رحلات نقل المعتمرين والموظفين، وتابعتُ الجداول والمواعيد مع السائقين وفرق التشغيل.', 'Coordinated transport trips for pilgrims and staff and followed schedules and timings with drivers and operations teams.'),
