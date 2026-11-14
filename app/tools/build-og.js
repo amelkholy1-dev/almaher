@@ -32,8 +32,8 @@ background:radial-gradient(circle at 12% 8%,rgba(240,168,48,.28),transparent 28%
 </style></head><body><div class="grid"></div>
 <div class="ring"><img src="${photo}" alt=""></div>
 <div class="txt"><div class="n">${C.name.ar}</div><div class="e">${C.name.en}</div>
-<div class="r1">مهندس أنظمة وحلول أعمال</div><div class="r2">تشغيل ودعم فني</div>
-<div class="en">Business Systems Engineer</div><div class="en">Operations &amp; IT Support</div>
+<div class="r1">مهندس برمجيات وتطوير أنظمة</div><div class="r2">دعم فني وشبكات</div>
+<div class="en">Software Engineer &amp; Systems Developer</div><div class="en">IT Support &amp; Networking</div>
 <div class="pill">الجيزة، مصر • مصر والخليج وعن بُعد</div></div></body></html>`;
 
 (async () => {
@@ -43,7 +43,7 @@ background:radial-gradient(circle at 12% 8%,rgba(240,168,48,.28),transparent 28%
   await p.setContent(html, { waitUntil: 'load' });
   await p.evaluate(() => document.fonts.ready);
   const out = path.join(root, 'public', 'assets', 'img');
-  for (const f of ['og-image.jpg', 'og-image-v2.jpg']) await p.screenshot({ path: path.join(out, f), type: 'jpeg', quality: 90 });
+  for (const f of ['og-image.jpg', 'og-image-v2.jpg', 'og-image-v3.jpg']) await p.screenshot({ path: path.join(out, f), type: 'jpeg', quality: 90 });
   await b.close();
   console.log('og images written');
 })().catch((e) => { console.error(e); process.exit(1); });

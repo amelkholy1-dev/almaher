@@ -15,9 +15,9 @@ const font = (file) => { const f = fs.readdirSync(FONT_DIR, { recursive: true })
 const S = C.settings;
 const L = {
   ar: {
-    dir: 'rtl', lang: 'ar', name: 'أحمد ماهر الخولي', role: S.role.ar, loc: 'الجيزة، مصر',
+    dir: 'rtl', lang: 'ar', name: 'أحمد ماهر الخولي', role: S.headline.ar.replace(/\*\*/g, ''), loc: 'الجيزة، مصر',
     h: { sum: 'نبذة مهنية', sk: 'المهارات', ex: 'الخبرات العملية', ed: 'التعليم', lg: 'اللغات', ad: 'معلومات إضافية' },
-    summary: 'مهندس أنظمة وحلول أعمال، فري لانسر منذ يناير 2014، بخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات والدعم الفني. أصمّم وأبني أنظمة إدارة ومواقع وتطبيقات تعمل داخل الشركات من اليوم الأول: أفهم الاحتياج، وأبني الحل، وأشغّله على شبكات الشركات أو الاستضافة، وأدرّب الفريق، وأرافقه بالدعم بعد التشغيل. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، ويعتمد على أنظمتي أكثر من 40 مستخدماً يومياً. ولديّ خبرة قوية في الدعم الفني والشبكات: تجهيز الأجهزة وصيانتها، والشبكات المحلية والراوتر، IP الثابت والجدار الناري، والطابعات والنسخ الاحتياطي. ولديّ إلمام بأدوات الذكاء الاصطناعي مثل Claude، ChatGPT، Gemini وأستخدمها في العمل. ومنذ فبراير 2023 أعمل منسق عمليات وأنظمة في مكتب لإلحاق العمالة المصرية بالخارج.',
+    summary: 'مهندس برمجيات وتطوير أنظمة، فري لانسر منذ يناير 2014، بخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات والدعم الفني. أصمّم وأبني أنظمة إدارة ومواقع وتطبيقات تعمل داخل الشركات من اليوم الأول: أفهم الاحتياج، وأبني الحل، وأشغّله على شبكات الشركات أو الاستضافة، وأدرّب الفريق، وأرافقه بالدعم بعد التشغيل. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، ويعتمد على أنظمتي أكثر من 40 مستخدماً يومياً. ولديّ خبرة قوية في الدعم الفني والشبكات: تجهيز الأجهزة وصيانتها، والشبكات المحلية والراوتر، IP الثابت والجدار الناري، والطابعات والنسخ الاحتياطي. ولديّ إلمام بأدوات الذكاء الاصطناعي مثل Claude، ChatGPT، Gemini وأستخدمها في العمل. ومنذ فبراير 2023 أعمل منسق عمليات وأنظمة في مكتب لإلحاق العمالة المصرية بالخارج.',
     skills: [
       ['تطوير الأنظمة والمواقع', 'React، TypeScript، Node.js، Express، REST APIs، Socket.IO، Tailwind CSS، MySQL، SQL Server، IndexedDB، Firebase، تطبيقات أندرويد (Capacitor)، واجهات عربية وإنجليزية (RTL)، لوحات تحكم وأنظمة صلاحيات'],
       ['تطبيق وتشغيل الأنظمة', 'تحليل الاحتياج ورسم سير الإجراءات، نقل البيانات من ملفات Excel إلى قاعدة بيانات مركزية، تشغيل الأنظمة على شبكات الشركات أو الاستضافة، تدريب المستخدمين، الدعم والتحديثات بعد التشغيل، نسخ احتياطي واستعادة'],
@@ -27,20 +27,20 @@ const L = {
       ['البيانات والمكتبية', 'Excel (المعادلات والجداول المحورية)، Word، PowerPoint، Google Sheets، إدخال البيانات ومراجعتها، الأرشفة الإلكترونية والورقية، إعداد التقارير'],
       ['التصميم والإعلانات', 'Canva، Photoshop، Meta Business Suite، الإعلانات الممولة، أكثر من 150 تصميماً للشركات والصفحات']
     ],
-    free: { role: 'مهندس مستقل لأنظمة الأعمال والمواقع', org: 'عمل حر | عن بُعد', date: 'يناير 2014 – حتى الآن', extra: [
+    free: { role: 'مهندس برمجيات مستقل (أنظمة ومواقع وتطبيقات)', org: 'عمل حر | عن بُعد', date: 'يناير 2014 – حتى الآن', extra: [
       '<b>نظام مسار للعمليات والحسابات:</b> إدارة الجوازات والتأشيرات والسفر والحسابات (عملاء ومناديب وعمولات وخزينة)، واستخراج البيانات من الصور، وتقارير Excel، PDF، على قاعدة بيانات بأكثر من 130 جدولاً.',
       '<b>نظام مسار للموارد البشرية:</b> قراءة السير الذاتية بالذكاء الاصطناعي، وبنك مرشحين مركزي، ومطابقة المرشحين مع الوظائف، وصانع سير بـ20 قالباً.',
       '<b>تطبيق وصال (أندرويد):</b> تطبيق عربي للعادات والمهام والعبادات، فردي أو مع العائلة والأصدقاء.',
       '<b>مواقع بلوحات تحكم كاملة:</b> nisrelkhaleeg.com، forsango.com، rocklineg.com، eldahan.com، eldiwanjobs.com.'
     ] },
-    ed: ['بكالوريوس التربية النوعية – تكنولوجيا التعليم والحاسب الآلي', 'جامعة المنوفية | 2018 – 2022 | تقدير جيد مرتفع'],
+    ed: ['بكالوريوس التربية النوعية – تكنولوجيا التعليم والحاسب الآلي', 'جامعة المنوفية | 2018 – 2022'],
     lg: '<b>العربية:</b> اللغة الأم &nbsp;|&nbsp; <b>الإنجليزية:</b> جيدة في القراءة والكتابة',
     ad: ['تاريخ الميلاد: 29 ديسمبر 1999', 'الموقف من التجنيد: إعفاء مؤقت', 'رخصة قيادة سيارة خاصة ودراجة نارية']
   },
   en: {
-    dir: 'ltr', lang: 'en', name: 'Ahmed Maher Alkholy', role: S.role.en, loc: 'Giza, Egypt',
+    dir: 'ltr', lang: 'en', name: 'Ahmed Maher Alkholy', role: S.headline.en.replace(/\*\*/g, ''), loc: 'Giza, Egypt',
     h: { sum: 'SUMMARY', sk: 'SKILLS', ex: 'EXPERIENCE', ed: 'EDUCATION', lg: 'LANGUAGES', ad: 'ADDITIONAL INFORMATION' },
-    summary: 'Business systems engineer and freelancer since January 2014, with nearly 7 years of hands-on experience in systems, design, operations and IT support. I design and build management systems, websites and apps that work inside companies from day one: I understand the business need, build the solution, deploy it on company networks or hosting, train the team and back it with support after launch. I have delivered 17 systems and projects across systems, apps and websites, with 40+ users relying on my systems daily. I bring strong IT support and networking experience: setting up and maintaining devices, LANs and routers, static IP, firewall, printers and backups. I am also well versed in AI tools (Claude, ChatGPT, Gemini) and use them in my work. Since February 2023 I have also worked as an operations and systems coordinator at an Egyptian overseas-recruitment office.',
+    summary: 'Software engineer and systems developer, freelancing since January 2014, with nearly 7 years of hands-on experience in systems, design, operations and IT support. I design and build management systems, websites and apps that work inside companies from day one: I understand the business need, build the solution, deploy it on company networks or hosting, train the team and back it with support after launch. I have delivered 17 systems and projects across systems, apps and websites, with 40+ users relying on my systems daily. I bring strong IT support and networking experience: setting up and maintaining devices, LANs and routers, static IP, firewall, printers and backups. I am also well versed in AI tools (Claude, ChatGPT, Gemini) and use them in my work. Since February 2023 I have also worked as an operations and systems coordinator at an Egyptian overseas-recruitment office.',
     skills: [
       ['Systems & web development', 'React, TypeScript, Node.js, Express, REST APIs, Socket.IO, Tailwind CSS, MySQL, SQL Server, IndexedDB, Firebase, Android apps (Capacitor), Arabic/English (RTL) interfaces, admin panels and permission systems'],
       ['Systems implementation', 'Needs analysis and workflow mapping, data migration from Excel into a central database, deployment on company networks or hosting, user training, post-launch support and updates, backup and restore'],
@@ -50,13 +50,13 @@ const L = {
       ['Data & office', 'Excel (formulas, pivot tables), Word, PowerPoint, Google Sheets, data entry and verification, digital and paper archiving, reporting'],
       ['Design & ads', 'Canva, Photoshop, Meta Business Suite, paid campaigns, 150+ designs for companies and pages']
     ],
-    free: { role: 'Independent Business Systems & Websites Engineer', org: 'Freelance | Remote', date: 'Jan 2014 – Present', extra: [
+    free: { role: 'Freelance Software Engineer — Systems, Websites & Apps', org: 'Freelance | Remote', date: 'Jan 2014 – Present', extra: [
       '<b>Masar Operations & Accounts System:</b> passports, visas, travel and accounts (clients, agents, commissions, cash management), OCR data extraction, Excel/PDF reports, on a database of 130+ tables.',
       '<b>Masar HR System:</b> AI-based CV parsing, central candidate database, candidate-to-job matching and a 20-template CV builder.',
       '<b>Wesal app (Android):</b> an Arabic habits, tasks and worship app, personal or shared with family and friends.',
       '<b>Websites with full admin panels:</b> nisrelkhaleeg.com, forsango.com, rocklineg.com, eldahan.com and eldiwanjobs.com.'
     ] },
-    ed: ['Bachelor of Specific Education – Educational Technology and Computer', 'Menoufia University | 2018 – 2022 | Grade: Good (High)'],
+    ed: ['Bachelor of Specific Education – Educational Technology and Computer', 'Menoufia University | 2018 – 2022'],
     lg: '<b>Arabic:</b> Native &nbsp;|&nbsp; <b>English:</b> Good reading and writing',
     ad: ['Date of birth: 29 December 1999', 'Military status: Temporarily exempted', 'Driving license (car and motorcycle)']
   }

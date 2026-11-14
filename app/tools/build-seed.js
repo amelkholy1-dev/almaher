@@ -12,34 +12,35 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 13,
+  _v: 15,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
     brand: b('أحمد الخولي', 'Ahmed Alkholy'),
     initials: 'AK',
     hello: b('مرحباً، أنا', 'Hello, I am'),
-    role: b('مهندس أنظمة وحلول أعمال • تشغيل ودعم فني', 'Business Systems Engineer • Operations & IT Support'),
-    lead: b(
-      'أصمّم وأبني أنظمة إدارة تعمل داخل الشركات من اليوم الأول: أفهم شغلك، وأبني الحل المناسب، وأشغّله، وأدرّب فريقك، وأرافقه بالدعم بعد التشغيل. فري لانسر منذ 2014، وخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات.',
-      'I design and build management systems that work inside companies from day one: I understand your business, build the right solution, put it into operation, train your team and back it with support after launch. Freelancer since 2014, with nearly 7 years of hands-on experience in systems, design and operations.'),
+    role: b('هندسة برمجيات · تطوير أنظمة · دعم فني وشبكات', 'Software Engineering · Systems Development · IT Support & Networking'),
+    headline: b('**مهندس برمجيات** وتطوير أنظمة', '**Software engineer** & systems developer'),
+    tagline: b('أحوّل احتياج شغلك إلى أنظمة تعمل من اليوم الأول.', 'I turn your business needs into systems that work from day one.'),
+    lead: b('أنا أحمد الخولي، أبني للشركات أنظمة ومواقع وتطبيقات سريعة وآمنة وسهلة الاستخدام، وأربط فهم الشغل بالتنفيذ والتشغيل والدعم من أول اجتماع.',
+      'I am Ahmed Alkholy. I build fast, secure and easy-to-use systems, websites and apps for companies, linking a real understanding of the business to delivery, deployment and support from the very first meeting.'),
     availLabel: b('', ''),
     modes: [],
     location: b('الجيزة، مصر — أخدم عملاء في مصر والخليج وعن بُعد', 'Giza, Egypt — serving clients in Egypt, the Gulf and remotely'),
-    heroChips: [{ icon: 'code', text: b('أنظمة • مواقع • تطبيقات', 'Systems • Websites • Apps') }, { icon: 'support', text: b('دعم فني وشبكات', 'IT Support & Networking') }, { icon: 'palette', text: b('فري لانسر منذ 2014', 'Freelancer since 2014') }],
+    heroChips: [{ icon: 'code', text: b('أنظمة • مواقع • تطبيقات', 'Systems • Websites • Apps') }, { icon: 'support', text: b('دعم فني وشبكات', 'IT Support & Networking') }, { icon: 'cal', text: b('فري لانسر منذ 2014', 'Freelancer since 2014') }],
     email: 'am.elkholy1@gmail.com',
     whatsapp: '201552084471',
     linkedin: 'https://www.linkedin.com/in/ahmed-alkholy',
     github: '',
     photo: 'assets/img/ahmed-alkholy.jpg',
-    ogImage: 'assets/img/og-image-v2.jpg',
-    showCv: true,
+    ogImage: 'assets/img/og-image-v3.jpg',
+    showCv: false,
     showCvAr: true,
     showCvEn: true,
     cv: { ar: 'assets/cv/Ahmed-Alkholy-CV-AR.pdf', en: 'assets/cv/Ahmed-Alkholy-CV-EN.pdf' },
     seo: {
-      title: b('أحمد ماهر الخولي | مهندس أنظمة وحلول أعمال', 'Ahmed Maher Alkholy | Business Systems Engineer'),
-      description: b('مهندس أنظمة وحلول أعمال، فري لانسر منذ 2014: أنظمة ومواقع وتطبيقات تعمل داخل الشركات، وتصميم سوشيال ميديا، ودعم فني وتشغيل. الجيزة، مصر.', 'Business systems engineer, freelancer since 2014: systems, websites and apps running inside companies, social-media design, IT support and operations. Giza, Egypt.')
+      title: b('أحمد ماهر الخولي | مهندس برمجيات وتطوير أنظمة', 'Ahmed Maher Alkholy | Software Engineer & Systems Developer'),
+      description: b('مهندس برمجيات وتطوير أنظمة، فري لانسر منذ 2014: أنظمة ومواقع وتطبيقات تعمل داخل الشركات، ودعم فني وشبكات. الجيزة، مصر.', 'Software engineer and systems developer, freelancer since 2014: systems, websites and apps that run inside companies, plus IT support and networking. Giza, Egypt.')
     },
     demoNotice: b('عرض توضيحي تفاعلي ببيانات تجريبية – النظام الكامل متاح عند الطلب', 'Interactive demo with sample data – the full system is available on request'),
     demoNoticeSample: b('عرض تفاعلي ببيانات تجريبية بالكامل – يمكن تنفيذ نظام مماثل حسب احتياجك', 'Interactive demo with fully sample data – a similar system can be built around your needs'),
@@ -47,7 +48,7 @@ const content = {
       general: b('مرحباً أحمد، وصلت إليك من موقعك الشخصي وأودّ التواصل معك.', 'Hi Ahmed, I found you through your website and would like to get in touch.'),
       project: b('مرحباً أحمد، شاهدت «{name}» على موقعك، وأرغب في ديمو مباشر ومعرفة المزيد.', 'Hi Ahmed, I saw “{name}” on your website and would like a live demo and more details.')
     },
-    footer: b('مهندس أنظمة وحلول أعمال • فري لانسر منذ 2014', 'Business Systems Engineer • Freelancer since 2014')
+    footer: b('مهندس برمجيات وتطوير أنظمة • فري لانسر منذ 2014', 'Software Engineer & Systems Developer • Freelancer since 2014')
   },
 
   stats: [
@@ -60,77 +61,67 @@ const content = {
   layout: {
     sections: [
       { id: 'stats', visible: true, nav: false, label: b('أرقام سريعة', 'Quick facts') },
-      { id: 'about', visible: true, nav: true, label: b('نبذة', 'About') },
+      { id: 'c:why', visible: true, nav: false, label: b('لماذا أنا', 'Why me') },
+      { id: 'about', visible: true, nav: true, label: b('من أنا', 'About'), navLabel: b('من أنا', 'About') },
+      { id: 'services', visible: true, nav: true, label: b('الخدمات', 'Services'), navLabel: b('الخدمات', 'Services') },
+      { id: 'skills', visible: true, nav: false, label: b('التقنيات', 'Tech stack') },
       { id: 'process', visible: true, nav: false, label: b('طريقة العمل', 'How I work') },
-      { id: 'services', visible: true, nav: true, label: b('الخدمات', 'Services') },
-      { id: 'c:packages', visible: true, nav: false, label: b('باقات الخدمات', 'Service packages') },
-      { id: 'projects', visible: true, nav: true, label: b('المشاريع', 'Projects') },
-      { id: 'experience', visible: true, nav: true, label: b('الخبرات', 'Experience') },
-      { id: 'skills', visible: true, nav: true, label: b('المهارات', 'Skills') },
+      { id: 'projects', visible: true, nav: true, label: b('الأعمال', 'Work'), navLabel: b('الأعمال', 'Work') },
+      { id: 'experience', visible: true, nav: true, label: b('الخبرة', 'Experience'), navLabel: b('الخبرة', 'Experience') },
       { id: 'reviews', visible: true, nav: false, label: b('آراء العملاء', 'Reviews') },
-      { id: 'c:faq', visible: true, nav: false, label: b('أسئلة شائعة', 'FAQ') },
-      { id: 'contact', visible: true, nav: true, label: b('تواصل معي', 'Contact') }
+      { id: 'c:faq', visible: true, nav: false, label: b('أسئلة قبل ما نبدأ', 'Questions before we start') },
+      { id: 'c:packages', visible: false, nav: false, label: b('باقات الخدمات', 'Service packages') },
+      { id: 'contact', visible: true, nav: true, label: b('التواصل', 'Contact'), navLabel: b('تواصل معي', 'Contact') }
     ]
   },
 
   about: {
-    kicker: b('نبذة عني', 'About me'),
-    title: b('أنظمة تعمل، وفرق تتدرّب، ودعم مستمر', 'Systems that work, teams that get trained, support that lasts'),
+    kicker: b('من أنا', 'About me'),
+    title: b('مهندس يفهم شغلك قبل ما يكتب أول سطر كود.', 'An engineer who understands your business before writing the first line of code.'),
     paragraphs: [
-      b('أعمل فري لانسر منذ يناير 2014، أنفّذ للشركات والصفحات تصميمات ومواقع وأعمال بيانات، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 40 مستخدماً كل يوم. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، وأكثر من 150 تصميماً.',
-        'I have worked as a freelancer since January 2014, delivering designs, websites and data work for companies and pages, and building business management systems that run in production and that 40+ users rely on every day. I have delivered 17 systems and projects across systems, apps and websites, plus 150+ designs.'),
-      b('ومنذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج: أتابع آلاف الملفات عبر مراحل الكشف الطبي والبصمة والقنصلية والتأشيرة والسفر، وأدير الأجهزة والشبكة.',
-        'Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office: tracking thousands of files through the medical, fingerprint, consulate, visa and travel stages, and managing the devices and network.'),
-      b('هناك صممتُ نظاماً مركزياً للملفات والحسابات حلّ محل Excel والورق وصار قلب العمل في المكتب: تسجيل الملف من دقائق إلى ثوانٍ، وتوقفت حالات فقد الجوازات بعد نظام الترقيم والأرشفة.',
-        'There I designed a central system for files and accounts that replaced Excel and paper and became the heart of the office’s work: file registration from minutes to seconds, and passport losses stopped after the numbering-and-archiving system.'),
-      b('أنا فريق كامل في شخص واحد: أحلل الاحتياج، وأصمم، وأنفّذ، وأشغّل، وأدرّب، وأدعم. فلا يحتاج عميلي إلى التنسيق بين أكثر من جهة.',
-        'I am a full team in one person: I analyse the need, design, build, deploy, train and support — so my client never has to coordinate between several parties.')
+      b('أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 40 مستخدماً كل يوم، إلى جانب مواقع بلوحات تحكم وتطبيق أندرويد.',
+        'I have worked as a freelancer since January 2014, building business management systems that run in production and that 40+ users rely on every day, alongside websites with admin panels and an Android app.'),
+      b('ومنذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج: صممتُ نظاماً مركزياً حلّ محل Excel والورق، فانخفض وقت تسجيل الملف من دقائق إلى ثوانٍ وتوقفت حالات فقد الجوازات.',
+        'Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office: I designed a central system that replaced Excel and paper, cutting file registration from minutes to seconds and ending passport losses.'),
+      b('نظام يُدار فعلاً كل يوم أهم من نظام يُعرض فقط.', 'A system that is actually run every day matters more than one that is only shown.')
     ],
-    highlightLast: false,
+    highlightLast: true,
     facts: [
       { icon: 'cal', title: b('الخبرة', 'Experience'), text: b('قرابة 7 سنوات • فري لانسر منذ يناير 2014', 'Nearly 7 years • Freelancer since January 2014') },
-      { icon: 'cap', title: b('التعليم', 'Education'), text: b('بكالوريوس التربية النوعية – تكنولوجيا التعليم والحاسب الآلي، جامعة المنوفية (2018–2022) – جيد مرتفع', 'B.Ed. in Specific Education – Educational Technology & Computing, Menoufia University (2018–2022) – Very Good') },
-      { icon: 'lang', title: b('اللغات', 'Languages'), text: b('العربية (اللغة الأم)، الإنجليزية (قراءة وكتابة جيدة)', 'Arabic (native), English (good reading and writing)') },
       { icon: 'pin', title: b('المكان', 'Location'), text: b('الجيزة، مصر — أخدم عملاء في مصر والخليج وعن بُعد', 'Giza, Egypt — serving clients in Egypt, the Gulf and remotely') },
-      { icon: 'car', title: b('رخصة القيادة', 'Driving licence'), text: b('سيارة خاصة ودراجة نارية', 'Private car and motorcycle') }
+      { icon: 'lang', title: b('اللغات', 'Languages'), text: b('العربية والإنجليزية', 'Arabic and English') }
     ]
   },
 
   process: {
     kicker: b('طريقة العمل', 'How I work'),
-    title: b('من الفكرة حتى التشغيل', 'From idea to go-live'),
-    sub: b('منهج واحد في كل مشروع: من أول اجتماع حتى ما بعد التشغيل.', 'One method on every project: from the first meeting to well after go-live.'),
+    title: b('خطوات واضحة، وقرارات مشروحة، وتسليم على مراحل.', 'Clear steps, explained decisions, staged delivery.'),
+    sub: b('', ''),
     steps: [
-      { title: b('فهم الاحتياج', 'Understand the need'), text: b('أجلس مع أصحاب الشغل والموظفين، وأفهم الإجراءات الحالية ومشاكلها قبل رسم أي حل.', 'I sit with owners and staff and understand the current procedures and pain points before drawing any solution.') },
-      { title: b('تصميم سير العمل', 'Design the workflow'), text: b('أحدد الشاشات والمراحل والصلاحيات والتقارير قبل التنفيذ، ويعتمدها العميل.', 'I define screens, stages, permissions and reports before building, and the client signs off.') },
-      { title: b('التنفيذ على مراحل', 'Build in stages'), text: b('أبني النظام جزءاً جزءاً، وأعرض كل مرحلة على العميل لتصحيح المسار مبكراً.', 'I build the system piece by piece and demo each stage to correct course early.') },
-      { title: b('الاختبار ونقل البيانات', 'Testing & data migration'), text: b('أختبر على بيانات تجريبية، ثم أنقل البيانات القديمة وأراجع الأرقام حتى تتطابق.', 'I test on sample data, then migrate legacy data and reconcile the numbers until they match.') },
-      { title: b('التشغيل والتدريب', 'Go-live & training'), text: b('أشغّل النظام على شبكة الشركة أو الاستضافة، وأدرّب الموظفين على الاستخدام اليومي.', 'I deploy on the company network or hosting and train staff on daily use.') },
-      { title: b('الدعم والتحديثات', 'Support & updates'), text: b('متابعة بعد التشغيل، وتعديلات وتحديثات، ونسخ احتياطي منتظم.', 'Follow-up after launch, changes and updates, and regular backups.') }
+      { title: b('نفهم شغلك', 'We understand your business'), text: b('أجلس مع أصحاب الشغل والموظفين، وأفهم الإجراءات الحالية ومشاكلها قبل رسم أي حل.', 'I sit with owners and staff and understand the current procedures and pain points before drawing any solution.') },
+      { title: b('نصمم الحل', 'We design the solution'), text: b('أحدد الشاشات والمراحل والصلاحيات والتقارير، ويعتمدها العميل قبل التنفيذ.', 'I define screens, stages, permissions and reports, and the client signs off before building.') },
+      { title: b('نبني ونجرّب', 'We build and test'), text: b('أسلّم على مراحل، وأعرض كل مرحلة وتجرّبها بنفسك، وأختبر على بيانات تجريبية قبل أي نقل.', 'I deliver in stages, demo each one so you can try it, and test on sample data before any migration.') },
+      { title: b('نشغّل وندعم', 'We launch and support'), text: b('أشغّل النظام على شبكتك أو الاستضافة، وأدرّب فريقك، وأتابع معاك بعد التشغيل بتعديلات ونسخ احتياطي.', 'I deploy on your network or hosting, train your team, and follow up after launch with changes and backups.') }
     ]
   },
 
   services: {
     kicker: b('الخدمات', 'Services'),
-    title: b('ما الذي أنفّذه لك؟', 'What I deliver'),
-    sub: b('أنظمة ومواقع وتطبيقات وتصميم، مع التشغيل والتدريب والدعم.', 'Systems, websites, apps and design — with deployment, training and support.'),
+    title: b('حلول تقنية تبدأ من هدف شغلك، وتنتهي بنتيجة تعمل.', 'Technical solutions that start from your business goal and end in something that works.'),
+    sub: b('', ''),
     items: [
-      { icon: 'sys', title: b('تصميم وتنفيذ أنظمة إدارة الأعمال', 'Business management systems'), text: b('أنظمة إدارة مصمّمة على قياس شركتك: عمليات، وحسابات، ومخازن، وموارد بشرية، بصلاحيات دقيقة وتقارير جاهزة وتصدير Excel وPDF ونسخ احتياطي. أبدأ من شغلك أنت، لا من قالب جاهز.', 'Management systems tailored to your company: operations, accounting, inventory and HR, with granular permissions, ready reports, Excel/PDF export and backups. I start from your business, not from a ready-made template.'), tags: [], goldFirst: false },
-      { icon: 'web', title: b('مواقع الشركات ولوحات التحكم', 'Company websites & admin panels'), text: b('مواقع عربية وإنجليزية سريعة ومتجاوبة مع الموبايل، بلوحة تحكم تعدّل منها كل شيء بنفسك دون الرجوع إلى مبرمج.', 'Fast, mobile-friendly Arabic/English websites with an admin panel, so you edit everything yourself without going back to a developer.'), tags: [], goldFirst: false },
-      { icon: 'phone', title: b('تطبيقات الموبايل', 'Mobile apps'), text: b('تطبيقات أندرويد بواجهة حديثة، تعمل بدون إنترنت وتتزامن تلقائياً، مع إشعارات وتسجيل دخول آمن.', 'Android apps with a modern interface that work offline and sync automatically, with notifications and secure sign-in.'), tags: [], goldFirst: false },
-      { icon: 'palette', title: b('تصميم السوشيال ميديا والإعلانات', 'Social media & ad design'), text: b('هوية وإعلانات ومنشورات تُبرز نشاطك على Canva وPhotoshop، وإدارة صفحاتك وحملاتك الممولة على Meta — أكثر من 150 تصميماً منذ 2014.', 'Branding, ads and posts that showcase your business on Canva and Photoshop, plus management of your pages and paid campaigns on Meta — 150+ designs since 2014.'), tags: [], goldFirst: false },
-      { icon: 'ai', title: b('الأتمتة واستخراج البيانات من المستندات', 'Automation & document data extraction'), text: b('أحوّل الجوازات والمستندات والسير الذاتية إلى سجلات منظمة تلقائياً (OCR)، وأطابق المرشحين بالوظائف، وأُنهي الإدخال اليدوي والأخطاء.', 'I turn passports, documents and CVs into structured records automatically (OCR), match candidates to jobs, and eliminate manual entry and errors.'), tags: [], goldFirst: false },
-      { icon: 'users', title: b('تشغيل الأنظمة والتدريب', 'System rollout & training'), text: b('أنقل بياناتك من Excel والأنظمة القديمة، وأشغّل النظام داخل شركتك، وأدرّب فريقك حتى يعتمد عليه، وأدعمه بعد التشغيل.', 'I migrate your data from Excel and legacy systems, put the system into operation inside your company, train your team until they rely on it, and support it after launch.'), tags: [], goldFirst: false },
-      { icon: 'support', title: b('الدعم الفني والشبكات', 'IT support & networks'), text: b('تثبيت وإدارة Windows والبرامج، وإصلاح الأعطال، والشبكات والراوتر، والطابعات والماسحات، والوصول عن بُعد، والنسخ الاحتياطي.', 'Installing and managing Windows and software, fixing faults, networks and routers, printers and scanners, remote access and backups.'), tags: [], goldFirst: false },
-      { icon: 'table', title: b('البيانات وExcel', 'Data & Excel'), text: b('إدخال بيانات دقيق وسريع، وملفات Excel ولوحات متابعة تفهمها الإدارة، وتحويل PDF والصور إلى Word وExcel، وأرشفة منظمة.', 'Fast, accurate data entry, Excel files and tracking dashboards management can read, PDF/image to Word/Excel conversion, and organised archiving.'), tags: [], goldFirst: false },
-      { icon: 'ops', title: b('التشغيل الإداري', 'Administrative operations'), text: b('متابعة الإجراءات والملفات، وتنسيق المهام والجهات المختلفة، وتقارير واضحة للإدارة.', 'Following procedures and files, coordinating tasks and different parties, and clear reports for management.'), tags: [], goldFirst: false }
+      { icon: 'sys', title: b('أنظمة إدارة الأعمال', 'Business management systems'), text: b('نظام على قياس شركتك: ملفات وعملاء وحسابات وموارد بشرية، بصلاحيات دقيقة وتقارير وتصدير Excel وPDF ونسخ احتياطي. يتركّب على شبكتك أو على استضافة.', 'A system built around your company: files, clients, accounts and HR, with precise permissions, reports, Excel/PDF export and backups. Installed on your network or on hosting.'), tags: ['React', 'Node.js', 'MySQL'], goldFirst: true },
+      { icon: 'web', title: b('مواقع بلوحات تحكم', 'Websites with admin panels'), text: b('موقع عربي وإنجليزي سريع ومتجاوب مع الموبايل، تعدّل محتواه بنفسك من لوحة تحكم كاملة، مع أساسيات SEO ومعاينة روابط واتساب.', 'A fast, mobile-friendly Arabic/English website you edit yourself from a full admin panel, with SEO basics and WhatsApp link previews.'), tags: ['Node.js', 'Express', 'SEO'], goldFirst: false },
+      { icon: 'phone', title: b('تطبيقات موبايل', 'Mobile apps'), text: b('تطبيق أندرويد بواجهة عربية حديثة، يعمل بدون إنترنت ويتزامن تلقائياً، مع إشعارات وتسجيل دخول آمن.', 'An Android app with a modern interface that works offline and syncs automatically, with notifications and secure sign-in.'), tags: ['Capacitor', 'Firebase', 'Offline-first'], goldFirst: false },
+      { icon: 'support', title: b('دعم فني وشبكات', 'IT support & networking'), text: b('تجهيز الأجهزة والشبكة المحلية والراوتر والطابعات والنسخ الاحتياطي والوصول عن بُعد، ومتابعة بعد التشغيل.', 'Preparing devices, the local network, router, printers, backups and remote access, with follow-up after launch.'), tags: ['LAN', 'Windows', 'Backup'], goldFirst: false }
     ]
   },
 
   projects: {
-    kicker: b('سابقة الأعمال', 'Portfolio'),
-    title: b('المشاريع والعروض التفاعلية', 'Projects & interactive demos'),
-    sub: b('أنظمة ومواقع وتطبيقات بنيتُها وأشغّلها، ونماذج جاهزة للتجربة بواجهات عربية وإنجليزية. جرّبها بنفسك، أو اطلب جولة مباشرة على واتساب.', 'Systems, websites and apps I build and run, plus ready-to-try models with Arabic and English interfaces. Try them yourself or ask for a live walkthrough on WhatsApp.'),
+    kicker: b('الأعمال', 'Work'),
+    title: b('من مشكلة في الشغل إلى نظام يعمل', 'From a problem at work to a system that runs'),
+    sub: b('أنظمة ومواقع وتطبيقات نفّذتها. اضغط على أي عمل لتشوف التفاصيل أو تجرّب العرض التفاعلي.', 'Systems, websites and apps I built. Click any piece to see the details or try the interactive demo.'),
+    visibleCount: '6',
     cats: [
       { id: 'sys', label: b('الأنظمة', 'Systems') }, { id: 'web', label: b('المواقع', 'Websites') }, { id: 'app', label: b('التطبيقات', 'Apps') },
       { id: 'other', label: b('أخرى', 'Other') }
@@ -277,14 +268,13 @@ const content = {
   },
 
   experience: {
-    kicker: b('الخبرات', 'Experience'),
-    title: b('الخبرة العملية', 'Work experience'),
+    kicker: b('الخبرة', 'Experience'),
+    title: b('خبرة عملية في بناء الأنظمة وتشغيلها', 'Hands-on experience building and running systems'),
     items: [
-      { visible: true, date: b('يناير 2014 – حتى الآن', 'Jan 2014 – Present'), role: b('مهندس مستقل لأنظمة الأعمال والمواقع', 'Independent Business Systems & Websites Engineer'), org: b('عمل حر', 'Freelance'), bullets: [
+      { visible: true, date: b('يناير 2014 – حتى الآن', 'Jan 2014 – Present'), role: b('مهندس برمجيات مستقل (أنظمة ومواقع وتطبيقات)', 'Freelance Software Engineer — Systems, Websites & Apps'), org: b('عمل حر', 'Freelance'), bullets: [
         b('أصمّم وأبني أنظمة إدارة أعمال تعمل في عدة شركات ويعتمد عليها أكثر من 40 مستخدماً يومياً.', 'Design and build business management systems running in several companies that 40+ users rely on daily.'),
         b('أطوّر مواقع بلوحات تحكم كاملة وتطبيق أندرويد، وأتولى المشروع من تحليل الاحتياج حتى التشغيل.', 'Develop websites with full admin panels and an Android app, owning each project from requirements analysis to go-live.'),
         b('أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.', 'Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns.'),
-        b('أنفّذ أعمال إدخال البيانات وتنظيم ملفات Excel وتحويل المستندات، ومواقع تعريفية وصفحات هبوط للشركات.', 'Deliver data entry, Excel organisation and document conversion, plus company brochure websites and landing pages.'),
         b('أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.', 'Deploy systems on company networks or hosting, train teams, and provide support and updates after launch.')
       ] },
       { visible: true, date: b('فبراير 2023 – حتى الآن', 'Feb 2023 – Present'), role: b('منسق العمليات والأنظمة', 'Operations & Systems Coordinator'), org: b('مكتب نسر الخليج لإلحاق العمالة المصرية بالخارج – الجيزة، مصر', 'Nesr El-Khaleej Overseas Recruitment Office – Giza, Egypt'), bullets: [
@@ -293,9 +283,8 @@ const content = {
         b('ابتكرتُ نظام ترقيم وأرشفة يربط كل ملف ورقي بسجله الإلكتروني، فتوقفت حالات فقد الجوازات تماماً.', 'Created a numbering-and-archiving system linking every paper file to its electronic record, which stopped passport losses entirely.'),
         b('أدير الدعم الفني لـ 9 أجهزة والشبكة المحلية والطابعات والماسحات والنسخ الاحتياطي.', 'Manage IT support for 9 devices, the local network, printers, scanners and backups.'),
         b('أتابع الإجراءات متعددة المراحل لآلاف الملفات (كشف طبي، بصمة، قنصلية، تأشيرة، سفر) مع الجهات الحكومية والشركاء.', 'Track multi-stage procedures for thousands of files (medical, fingerprint, consulate, visa, travel) with government bodies and partners.'),
-        b('أصمم إعلانات الشركة وأدير صفحاتها وحملاتها الممولة على Meta Business Suite.', 'Design the company’s ads and manage its pages and paid campaigns on Meta Business Suite.')
       ] },
-      { visible: true, date: b('مايو 2025 – أغسطس 2025', 'May 2025 – Aug 2025'), role: b('منسق عمليات النقل (مهمة مؤقتة)', 'Transport Operations Coordinator (temporary assignment)'), org: b('شركة حسين حجازي للنقل والعمرة – مكة المكرمة، السعودية', 'Hussein Hegazy Transport & Umrah Company – Makkah, Saudi Arabia'), bullets: [
+      { visible: false, date: b('مايو 2025 – أغسطس 2025', 'May 2025 – Aug 2025'), role: b('منسق عمليات النقل (مهمة مؤقتة)', 'Transport Operations Coordinator (temporary assignment)'), org: b('شركة حسين حجازي للنقل والعمرة – مكة المكرمة، السعودية', 'Hussein Hegazy Transport & Umrah Company – Makkah, Saudi Arabia'), bullets: [
         b('نسّقتُ رحلات نقل المعتمرين والموظفين، وتابعتُ الجداول والمواعيد مع السائقين وفرق التشغيل.', 'Coordinated transport trips for pilgrims and staff and followed schedules and timings with drivers and operations teams.'),
         b('تعاملتُ مع التغييرات المفاجئة والحالات العاجلة، وأعددتُ تقارير التشغيل اليومية.', 'Handled sudden changes and urgent cases and prepared daily operations reports.'),
         b('عملتُ مكتبياً وميدانياً في ورديات ممتدة خلال موسم عالي الضغط.', 'Worked in the office and in the field on extended shifts during a high-pressure season.')
@@ -304,22 +293,15 @@ const content = {
   },
 
   skills: {
-    kicker: b('المهارات', 'Skills'),
-    title: b('المهارات والأدوات', 'Skills & tools'),
+    kicker: b('التقنيات', 'Tech stack'),
+    title: b('الأدوات اللي بشتغل بيها: كل تقنية هنا اشتغلت في نظام حقيقي.', 'My toolbox: every technology here has run in a real system.'),
     groups: [
-      { icon: 'ai', highlight: true, title: b('الذكاء الاصطناعي والتطوير به', 'AI & AI-driven development'), items: [b('بناء أنظمة وتطبيقات ومواقع كاملة بالذكاء الاصطناعي، من الفكرة حتى التشغيل', 'Building complete systems, apps and websites with AI, from idea to launch'), b('قيادة وكلاء البرمجة (Claude Code): كتابة المواصفات ومراجعة الكود والاختبار', 'Directing AI coding agents (Claude Code): writing specs, reviewing code and testing'), b('دمج Gemini وClaude وOpenAI داخل الأنظمة', 'Embedding Gemini, Claude and OpenAI inside business systems'), b('تحليل السير الذاتية ومطابقة المرشحين بالوظائف', 'CV parsing and candidate–job matching'), b('استخراج البيانات من الجوازات والمستندات بالـOCR والذكاء الاصطناعي', 'Data extraction from passports and documents with OCR and AI'), b('أتمتة الإجراءات اليدوية وتحويلها إلى حلول ذكية', 'Automating manual procedures into smart workflows'), b('هندسة التعليمات (Prompt Engineering) وضبط المخرجات', 'Prompt engineering and output tuning'), b('ضمان جودة كود الذكاء الاصطناعي: اختبارات آلية (Playwright) وأمان وصلاحيات', 'Quality-assuring AI-written code: automated tests (Playwright), security and permissions'), b('ChatGPT وClaude وGemini في العمل اليومي: بحث وكتابة وتحليل وتصميم', 'ChatGPT, Claude and Gemini in daily work: research, writing, analysis and design'), b('إدارة مفاتيح الذكاء الاصطناعي وحدود الاستهلاك والتكلفة', 'Managing AI keys, usage limits and cost')] },
-      { icon: 'code', highlight: true, title: b('تطوير الويب والأنظمة', 'Web & systems development'), items: ['React', 'TypeScript', 'JavaScript', 'Node.js', 'Express', 'REST APIs', 'HTML / CSS', 'Tailwind CSS', 'EJS', 'Vite', 'Socket.IO', b('لوحات تحكم وأنظمة صلاحيات', 'Admin panels & permission systems')] },
-      { icon: 'db', highlight: true, title: b('قواعد البيانات والنشر', 'Databases & deployment'), items: ['MySQL', 'SQL Server', 'IndexedDB', 'Firebase Auth', 'Cloudflare Pages + D1', 'Hostinger', 'Git', b('نقل البيانات بين قواعد مختلفة', 'Cross-database data migration'), b('نسخ احتياطي واستعادة', 'Backup & restore')] },
-      { icon: 'db', title: b('الأتمتة واستخراج البيانات', 'Automation & data extraction'), items: ['OCR', b('استخراج البيانات من الجوازات والمستندات', 'Data extraction from passports and documents'), b('تحويل الإجراءات اليدوية وملفات Excel إلى قاعدة بيانات', 'Turning manual procedures and Excel files into a database'), b('أدوات الذكاء الاصطناعي في العمل اليومي', 'AI tools in daily work')] },
-      { icon: 'phone', title: b('تطبيقات الموبايل', 'Mobile apps'), items: ['Capacitor', 'Android', b('الإشعارات', 'Push notifications'), b('العمل بدون إنترنت والمزامنة', 'Offline & sync')] },
-      { icon: 'shield', title: b('الأمان', 'Security'), items: [b('التحقق الثنائي (2FA)', 'Two-factor authentication'), b('صلاحيات تفصيلية', 'Granular permissions'), b('سجل العمليات', 'Audit log'), b('تشفير كلمات المرور والبيانات', 'Password & data encryption'), b('موافقة الأجهزة الجديدة', 'New-device approval')] },
-      { icon: 'support', title: b('الدعم الفني والشبكات', 'IT support & networks'), items: ['Windows 10 / 11', b('تثبيت وتهيئة الأنظمة والبرامج', 'OS & software setup'), b('حل أعطال الأجهزة', 'Hardware troubleshooting'), b('الشبكات المحلية (LAN) والواي فاي', 'LAN & Wi-Fi'), b('إعداد الراوتر والسويتش', 'Router & switch setup'), b('IP ثابت و Port Forwarding', 'Static IP & port forwarding'), b('الجدار الناري', 'Firewall'), b('الطابعات والماسحات', 'Printers & scanners'), b('الوصول عن بُعد', 'Remote access'), b('النسخ الاحتياطي والاستعادة', 'Backup & recovery')] },
-      { icon: 'table', title: b('البيانات وExcel والمكتب', 'Data, Excel & Office'), items: ['Excel', b('المعادلات والجداول المحورية', 'Formulas & pivot tables'), b('لوحات متابعة في Excel', 'Excel tracking dashboards'), 'Google Sheets', 'Word', 'PowerPoint', b('إدخال البيانات ومراجعتها', 'Data entry & verification'), b('تنظيف البيانات وتوحيد الصيغ', 'Data cleaning & standardisation'), b('تحويل PDF والصور إلى Word / Excel', 'PDF/image to Word/Excel conversion'), b('الأرشفة الإلكترونية والورقية', 'Digital & paper archiving'), b('إعداد التقارير', 'Report preparation')] },
-      { icon: 'ops', title: b('التشغيل الإداري وتحليل الأعمال', 'Operations & business analysis'), items: [b('تحليل الاحتياج', 'Requirements analysis'), b('رسم سير الإجراءات', 'Workflow mapping'), b('متابعة الإجراءات متعددة المراحل', 'Multi-stage procedure follow-up'), b('التنسيق مع الجهات الخارجية', 'External-party coordination'), b('تشغيل الأنظمة', 'System rollout'), b('نقل البيانات من Excel', 'Migrating data from Excel'), b('تدريب المستخدمين', 'User training'), b('إعداد الأدلة والتوثيق', 'Guides & documentation'), b('عرض الأنظمة والبيع', 'System demos & selling')] },
-      { icon: 'palette', title: b('التصميم والتسويق', 'Design & marketing'), items: ['Canva', 'Photoshop', 'Meta Business Suite', b('إدارة الصفحات', 'Page management'), b('الإعلانات الممولة', 'Paid campaigns'), b('تصميم الإعلانات والمنشورات (+150 تصميماً)', 'Ad & post design (150+ designs)'), b('تصميم مواقع تعريفية وصفحات هبوط', 'Brochure sites & landing pages')] },
-      { icon: 'shield', highlight: true, title: b('هندسة الجودة والأمان', 'Engineering quality & security'), items: [b('تصميم واجهات REST APIs', 'RESTful API design'), b('أنظمة الصلاحيات (RBAC)', 'Role-based access control (RBAC)'), b('سجل العمليات (Audit log)', 'Audit logging'), b('اختبارات آلية (Playwright)', 'Automated testing (Playwright)'), b('نقل ومطابقة البيانات (SQL Server إلى MySQL)', 'Data migration & reconciliation (SQL Server → MySQL)'), b('ميزات لحظية (Socket.IO)', 'Real-time features (Socket.IO)'), b('تقارير Excel وPDF، وباركود وQR', 'Excel & PDF reports, barcode & QR'), b('واجهات ثنائية اللغة ودعم RTL', 'Bilingual (Arabic/English) & RTL interfaces'), b('تحسين الأداء والتخزين المؤقت', 'Performance & caching (IndexedDB)'), b('تصميم متجاوب للموبايل', 'Responsive, mobile-first design'), b('أساسيات تحسين محركات البحث', 'On-page SEO fundamentals')] },
-      { icon: 'users', highlight: true, title: b('التنفيذ مع العملاء', 'Client delivery'), items: [b('جلسات تحليل الاحتياج', 'Requirements workshops'), b('عرض تجريبي في كل مرحلة', 'Milestone demos'), b('التواصل مع العملاء بالعربي والإنجليزي', 'Client communication in Arabic & English'), b('التوثيق وأدلة المستخدم', 'Documentation & user guides'), b('تدريب فرق العميل', 'Client team training'), b('العمل عن بُعد مع عملاء في مصر والخليج', 'Remote work with clients in Egypt & the Gulf'), b('إدارة المشاريع باستقلالية', 'Independent project management')] },
-      { icon: 'users', title: b('مهارات شخصية', 'Professional strengths'), items: [b('العمل الحر وإدارة المشاريع باستقلالية', 'Independent freelance project management'), b('الالتزام بالمواعيد', 'Meeting deadlines'), b('العمل تحت ضغط وفي ورديات', 'Working under pressure & in shifts'), b('التواصل مع العملاء', 'Client communication'), b('التعلّم السريع', 'Fast learning'), b('الدقة والاهتمام بالتفاصيل', 'Accuracy & attention to detail'), b('العربية (لغة أم) والإنجليزية', 'Arabic (native) & English')] }
+      { icon: 'code', title: b('تطوير الأنظمة والمواقع', 'Systems & web development'), items: ['React', 'TypeScript', 'Node.js', 'Express', 'REST APIs', 'Socket.IO', 'Tailwind CSS', b('لوحات تحكم وصلاحيات', 'Admin panels & permissions')] },
+      { icon: 'db', title: b('قواعد البيانات والنشر', 'Databases & hosting'), items: ['MySQL', 'SQL Server', 'IndexedDB', 'Cloudflare Pages + D1', 'Hostinger', 'Git', b('نقل البيانات بين القواعد', 'Data migration'), b('نسخ احتياطي واستعادة', 'Backup & restore')] },
+      { icon: 'phone', title: b('تطبيقات الموبايل', 'Mobile apps'), items: ['Capacitor', 'Android', 'Firebase Auth', b('الإشعارات', 'Push notifications'), b('العمل بدون إنترنت', 'Offline-first')] },
+      { icon: 'support', title: b('الدعم الفني والشبكات', 'IT support & networking'), items: ['Windows 10 / 11', 'LAN & Wi-Fi', 'Router & Switch', b('IP ثابت و Port Forwarding', 'Static IP & port forwarding'), 'Firewall', b('الطابعات والماسحات', 'Printers & scanners'), b('الوصول عن بُعد', 'Remote access')] },
+      { icon: 'shield', title: b('الأمان والجودة', 'Security & quality'), items: ['RBAC', b('تحقق بخطوتين (2FA)', 'Two-factor auth (2FA)'), 'Audit log', b('تشفير كلمات المرور', 'Password hashing'), 'Playwright'] },
+      { icon: 'ai', title: b('الذكاء الاصطناعي والأتمتة', 'AI & automation'), items: ['Claude', 'ChatGPT', 'Gemini', 'Prompt Engineering', 'OCR', b('تحليل السير ومطابقة المرشحين', 'CV parsing & candidate matching')] }
     ]
   },
 
@@ -335,13 +317,23 @@ const content = {
 
   contact: {
     kicker: b('التواصل', 'Contact'),
-    title: b('لنبدأ مشروعك', 'Let’s start your project'),
-    sub: b('لديك فكرة نظام أو موقع أو تطبيق، أو تحتاج تصميماً أو دعماً فنياً؟ تواصل معي واحصل على ديمو مباشر لأحد الأنظمة وعرض واضح لما سننفّذه.', 'Have an idea for a system, website or app, or need design or technical support? Reach out and get a live demo of one of my systems and a clear proposal of what we will build.'),
+    title: b('عندك مشكلة في الشغل أو فكرة نظام؟ نبدأ بمكالمة قصيرة.', 'Got a business problem or a system idea? Let’s start with a short call.'),
+    sub: b('احكيلي عن شغلك باختصار، وأرد عليك بأسئلة قصيرة ثم تصوّر واضح للحل والمراحل.', 'Tell me briefly about your business and I will reply with a few short questions and a clear picture of the solution and stages.'),
     formTitle: b('أرسل رسالتك', 'Send your message'),
     topics: [b('نظام أو موقع أو تطبيق', 'System, website or app'), b('تصميم سوشيال ميديا', 'Social-media design'), b('دعم فني أو تشغيل', 'IT support or operations'), b('ديمو مباشر لأحد الأنظمة', 'Live demo of a system'), b('تعاون أو شراكة', 'Collaboration or partnership'), b('موضوع آخر', 'Something else')]
   },
 
   custom: [
+    {
+      id: 'why', layout: 'cards', alt: false, kicker: b('لماذا أنا', 'Why me'), title: b('لا أسلّم كوداً فقط. أسلّم نظاماً يعمل كل يوم.', 'I don’t just deliver code. I deliver a system that runs every day.'), sub: b('', ''),
+      body: b('', ''),
+      cards: [
+        { icon: 'sys', title: b('أنظمة تعمل فعلاً', 'Systems that actually run'), text: b('أنظمة إدارة تُستخدم يومياً داخل الشركات: ملفات وحسابات وصلاحيات وتقارير، مش عروض شكلية.', 'Management systems used daily inside companies: files, accounts, permissions and reports — not show-pieces.') },
+        { icon: 'shield', title: b('أمان وصلاحيات', 'Security & permissions'), text: b('تسجيل دخول آمن وتحقق بخطوتين وصلاحيات لكل مستخدم وسجل بكل عملية، والتحقق في السيرفر مش في الواجهة بس.', 'Secure sign-in, two-factor auth, per-user permissions and an audit log — enforced on the server, not just the interface.') },
+        { icon: 'users', title: b('من الفكرة للتشغيل', 'From idea to launch'), text: b('أحلل الاحتياج، وأبني الحل، وأشغّله على شبكتك أو الاستضافة، وأدرّب فريقك، وأدعمه بعد التسليم.', 'I analyse the need, build the solution, deploy it, train your team and support it after delivery.') },
+        { icon: 'lang', title: b('تواصل بسيط وواضح', 'Clear, simple communication'), text: b('أشرح القرارات التقنية بلغة بسيطة، وأسلّم على مراحل تراجعها وتجرّبها بنفسك، بالعربي أو الإنجليزي.', 'I explain technical decisions in plain language and deliver in stages you can review and try yourself — in Arabic or English.') }
+      ], images: []
+    },
     {
       id: 'packages', layout: 'cards', alt: false, kicker: b('باقات الخدمات', 'Service packages'), title: b('أنفّذ لك بنطاق واضح من البداية', 'Clear scope from day one'), sub: b('اختر ما يناسبك، وأرسل لي احتياجك لأرسل لك عرضاً محدداً بالنطاق والمراحل.', 'Pick what fits, tell me what you need, and I will send a specific proposal with scope and milestones.'),
       cards: [
@@ -352,9 +344,9 @@ const content = {
       ]
     },
     {
-      id: 'faq', layout: 'text', alt: true, kicker: b('أسئلة شائعة', 'FAQ'), title: b('قبل أن نبدأ', 'Before we start'), sub: b('', ''),
-      body: b('**هل تعمل مع عملاء من خارج مصر؟**\nنعم. أعمل عن بُعد، وأتواصل بالعربية والإنجليزية، وأسلّم الواجهات بأي من اللغتين.\n\n**هل أستطيع رؤية نموذج قبل أن أقرر؟**\nنعم. جرّب العروض التفاعلية في هذه الصفحة، أو اطلب جولة مباشرة على واتساب.\n\n**ماذا يحدث بعد التسليم؟**\nأدرّب فريقك وأظل متاحاً للدعم والتحديثات والنسخ الاحتياطي.\n\n**كيف نبدأ؟**\nأرسل لي ما تحتاجه، فأحدد معك النطاق والمراحل وأعرض عليك نموذجاً مشابهاً قبل التنفيذ.',
-        '**Do you work with clients outside Egypt?**\nYes. I work remotely, communicate in Arabic and English, and deliver interfaces in either language.\n\n**Can I see an example before I decide?**\nYes. Try the interactive demos on this page, or ask for a live walkthrough on WhatsApp.\n\n**What happens after delivery?**\nI train your team and stay available for support, updates and backups.\n\n**How do we start?**\nMessage me what you need; we will define the scope and milestones together, and I will show you a similar example before we build.'),
+      id: 'faq', layout: 'faq', alt: false, kicker: b('أسئلة قبل ما نبدأ', 'Before we start'), title: b('أسئلة بتتسأل قبل أي مشروع.', 'Questions asked before any project.'), sub: b('', ''),
+      body: b('**نظام جاهز ولا مخصص؟**\nالجاهز أسرع وأرخص لو شغلك عادي. المخصص أحسن لو عندك إجراءات خاصة أو بتشتغل على Excel معقد أو نظام قديم. بحدد الأنسب بعد جلسة قصيرة أفهم فيها شغلك.\n\n**كم يستغرق تنفيذ نظام؟**\nيعتمد على حجمه. بعد جلسة التحليل بحدد النطاق وجدول تسليم على مراحل، فتشوف أول نسخة شغالة بدري وتعدّل المسار بدل ما تستنى للآخر.\n\n**هل أملك بياناتي؟**\nأكيد، بياناتك ملكك دايماً وبتتسلّم نسخة احتياطية منها. وتفاصيل ملكية الكود بنتفق عليها مكتوبة قبل ما نبدأ.\n\n**إيه اللي بيحصل بعد التسليم؟**\nتدريب لفريقك، وفترة دعم لإصلاح أي ملاحظة، وبعدها صيانة وتحديثات حسب احتياجك.\n\n**هل بتشتغل مع عملاء خارج مصر؟**\nأيوه، عن بُعد وبالعربي والإنجليزي، وبأي لغة للواجهات.\n\n**إزاي أطلب عرض سعر؟**\nابعتلي على واتساب وصف مختصر لشغلك، وأرد بأسئلة قصيرة ثم عرض مكتوب فيه النطاق والمراحل والسعر ومواعيد التسليم.',
+        '**Ready-made or custom system?**\nReady-made is faster and cheaper if your business is standard. Custom is better if you have special procedures, complex Excel files or a legacy system. I decide after a short session to understand your business.\n\n**How long does a system take?**\nIt depends on its size. After the analysis session I define the scope and a staged delivery schedule, so you see a working first version early and can adjust course instead of waiting until the end.\n\n**Do I own my data?**\nAbsolutely. Your data is always yours and you receive a backup of it. Code-ownership details are agreed in writing before we start.\n\n**What happens after delivery?**\nTraining for your team, a support period to fix any issue, then maintenance and updates as you need.\n\n**Do you work with clients outside Egypt?**\nYes — remotely, in Arabic and English, with interfaces in any language.\n\n**How do I request a quote?**\nSend me a short description of your business on WhatsApp, and I reply with a few questions and then a written proposal with scope, stages, price and delivery dates.'),
       cards: [], images: []
     }
   ]
@@ -362,9 +354,31 @@ const content = {
 
 // روابط واتساب في بطاقات الباقات: ترميز نص الرسالة
 for (const c of content.custom) for (const k of (c.cards || [])) if (k.link && k.link.includes('?text=')) { const i = k.link.indexOf('?text='); k.link = k.link.slice(0, i) + '?text=' + encodeURIComponent(k.link.slice(i + 6)); }
-// ترتيب النماذج: أول 6 (اللي بتظهر قبل «عرض الكل») تمزج العربي والإنجليزي والتطبيقات
-{ const first = ['pos-demo', 'crm-demo', 'invoices-demo', 'stay-demo', 'resto-demo', 'pulse-demo']; const it = content.projects.items; const rank = (p) => { const i = first.indexOf(p.id); return i < 0 ? 99 : i; };
-  const sc = it.filter((p) => p.kind === 'showcase').sort((x, y) => rank(x) - rank(y)); let k = 0; content.projects.items = it.map((p) => p.kind === 'showcase' ? sc[k++] : p); }
+// ترتيب الأعمال: أول 6 هما اللي بيظهروا قبل «عرض المزيد» — أنظمة حقيقية ومواقع منشورة الأول
+{ const ord = ['masar-ops', 'masar-hr', 'wesal', 'site-nesr', 'site-forsan', 'site-eldiwan', 'site-eldahan', 'site-rockline', 'pos-demo', 'crm-demo', 'invoices-demo', 'stay-demo', 'resto-demo', 'pulse-demo', 'fleet-demo', 'realestate-demo', 'clinic-demo', 'school-demo', 'eshop-demo', 'track-demo', 'fresh-demo', 'gym-demo'];
+  const rank = (p) => { const i = ord.indexOf(p.id); return i < 0 ? 99 : i; };
+  content.projects.items = content.projects.items.slice().sort((x, y) => rank(x) - rank(y));
+  for (const p of content.projects.items) if (p.kind === 'mini') p.visible = false; }
+// دراسات الحالة (من كود المشاريع نفسها)
+{ const cs = {
+  'masar-ops': { challenge: b('مكتب إلحاق عمالة كان بيدير الجوازات والتأشيرات والسفر والحسابات في ملفات Excel وسجلات ورقية متفرقة، فبتضيع الملفات، ويتأخر تسجيل الملف الواحد، ويصعب ضبط الحسابات.', 'An overseas-recruitment office managed passports, visas, travel and accounts in scattered Excel files and paper records, so files got lost, registering one file was slow and the accounts were hard to reconcile.'),
+    solution: b('نظام مركزي بعشرات الشاشات: ملف لكل جواز مع ترقيم وأرشفة، وقراءة بيانات الجواز من الصورة (OCR)، ومتابعة مراحل الإجراءات، وحسابات العملاء والمناديب والعمولات والخزينة، وتقارير Excel وPDF.', 'A central system with dozens of screens: a record per passport with numbering and archiving, passport data read from the photo (OCR), procedure-stage tracking, client/agent/commission/treasury accounts, and Excel/PDF reports.'),
+    decisions: b('الصلاحيات متطبقة في السيرفر مش في الواجهة بس، مع تحقق بخطوتين وموافقة الأجهزة وسجل عمليات. ونقلت النظام من SQL Server على جهاز المكتب لـ MySQL على استضافة سحابية، مع أداة مقارنة بتتأكد إن الأرقام المالية متطابقة.', 'Permissions are enforced on the server, not just the interface, with two-factor auth, device approval and an audit log. I migrated the system from SQL Server on the office PC to MySQL on cloud hosting, with a comparison tool that checks the financial figures match.'),
+    result: b('بقى النظام الأساسي اللي بيعتمد عليه المكتب: وقت تسجيل الملف نزل من دقائق لثواني، وحالات فقد الجوازات وقفت.', 'It became the core system the office relies on: file registration dropped from minutes to seconds and passport losses stopped.') },
+  'masar-hr': { challenge: b('السير الذاتية بتوصل من واتساب ورفع يدوي بأشكال مختلفة، وكتابة بياناتها يدوياً بطيئة، ومطابقة المرشحين مع طلبات الشركات بتاخد وقت وفيها أخطاء.', 'CVs arrive via WhatsApp and manual upload in many formats, typing their data by hand is slow, and matching candidates to company requests takes time and invites mistakes.'),
+    solution: b('نظام توظيف: وارد بيستقبل السير (PDF وصور) ويقراها بالذكاء الاصطناعي، وبنك مرشحين بحقول حسب المهنة، وطلبيات بمطابقة (مطابق / محتاج تأكيد / ناقص شرط / بعيد)، ومسار مراحل لحد السفر، وصانع سير بـ20 قالب.', 'A recruitment system: an inbox that receives CVs (PDF and images) and reads them with AI, a candidate bank with profession-specific fields, orders with matching (match / needs confirmation / missing a condition / far), a stage pipeline up to travel, and a 20-template CV maker.'),
+    decisions: b('أي نتيجة من الذكاء الاصطناعي بتعدي على طبقة تحقق وبتتراجع بشرياً قبل الاعتماد، وتعديلات الموظف مبتتكتبش فوقها. النظام بيحمّل البيانات في الذاكرة فالبحث على عشرات الآلاف في ملّي ثواني، والمفاتيح مشفّرة، وعليه 21 اختبار شامل بيفتح متصفح حقيقي.', 'Every AI output passes a validation layer and is reviewed by a person before approval, and staff edits are never overwritten. Data is held in memory so searching tens of thousands is instant, keys are encrypted, and 21 end-to-end tests drive a real browser.'),
+    result: b('بنك مرشحين مركزي بحث فوري، وسير بتدخل النظام بعد مراجعة بدل ما تتكتب من الصفر.', 'A central candidate bank with instant search, and CVs that enter the system after review instead of being typed from scratch.') },
+  'wesal': { challenge: b('بناء تطبيق عربي واحد يجمع العادات والمهام والعبادات، يشتغل بدون إنترنت، ويتشارك مع العيلة والأصحاب.', 'Build one Arabic app that brings habits, tasks and worship together, works offline, and can be shared with family and friends.'),
+    solution: b('تطبيق أندرويد: شاشة «اليوم»، ومساحات مشتركة بنقاط ومسابقات، ومواقيت صلاة وأذان، والمصحف بالتفسير والتجويد، وحفظ بالخطوات، وأدوات للأهداف والفلوس والصحة والتركيز.', 'An Android app: a “Today” screen, shared spaces with points and contests, prayer times and adhan, the Quran with tafsir and tajweed, step-by-step memorisation, and tools for goals, money, health and focus.'),
+    decisions: b('React 19 وTypeScript متغلّفين بـ Capacitor عشان كود واحد، وFirebase Auth لتسجيل الدخول بحساب جوجل، وخلفية على Cloudflare مع قاعدة D1، وتخزين محلي ومزامنة تلقائية للعمل بدون إنترنت.', 'React 19 and TypeScript wrapped with Capacitor for a single codebase, Firebase Auth for Google sign-in, a Cloudflare backend with a D1 database, and local storage with automatic sync for offline use.'),
+    result: b('تطبيق منشور بنسخة 1.27.0 وبيتحمّل ملف APK مباشرة.', 'A published app at version 1.27.0, downloadable directly as an APK.') },
+  'site-nesr': { challenge: b('مكتب نسر الخليج محتاج موقع عربي/إنجليزي يعرّف بالمكتب ويعرض الوظايف، والفريق يعدّل المحتوى بنفسه.', 'Nesr El-Khaleej needed an Arabic/English website presenting the office and its jobs, with content the team can edit itself.'),
+    solution: b('موقع بلوحة تحكم كاملة: وظايف بأكواد وبحث وفلترة، وفورمات بتتبعت على واتساب أو الإيميل، وصورة جاهزة للنشر لكل وظيفة بكود QR، وإحصائيات زيارات من غير كوكيز.', 'A site with a full admin panel: jobs with codes, search and filters, forms sent via WhatsApp or email, a ready-to-post image with a QR code for every job, and cookie-free visit statistics.'),
+    decisions: b('مستخدمين وصلاحيات وتحقق ثنائي وسجل عمليات، وربط آمن بنظام التوظيف: روابط تقديم وبوابة مناديب ومتابعة الطلب.', 'Users, permissions, two-factor auth and an audit log, plus a secure link to the recruitment system: application links, an agents portal and application tracking.'),
+    result: b('موقع منشور على nisrelkhaleeg.com والفريق بيدير محتواه من لوحة التحكم.', 'A live site at nisrelkhaleeg.com whose content the team manages from the admin panel.') }
+};
+  for (const p of content.projects.items) if (cs[p.id]) p.case = cs[p.id]; }
 fs.mkdirSync(path.join(__dirname, '..', 'seed'), { recursive: true });
 fs.writeFileSync(path.join(__dirname, '..', 'seed', 'content.json'), JSON.stringify(content, null, 2));
 console.log('seed ok —', content.projects.items.length, 'مشروع،', content.skills.groups.length, 'مجموعة مهارات');

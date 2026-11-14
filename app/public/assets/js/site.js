@@ -40,8 +40,14 @@
   var UI = {
     skip: { ar: 'تخطَّ إلى المحتوى', en: 'Skip to content' },
     all: { ar: 'الكل', en: 'All' },
-    moreProj: { ar: 'عرض كل الأنظمة والمشاريع', en: 'Show all systems & projects' },
+    moreProj: { ar: 'عرض المزيد من الأعمال', en: 'Show more work' },
     lessProj: { ar: 'عرض أقل', en: 'Show less' },
+    start: { ar: 'ابدأ مشروعك', en: 'Start a project' },
+    details: { ar: 'تفاصيل المشروع', en: 'Project details' },
+    demoShort: { ar: 'جرّب العرض', en: 'Try the demo' }, detailsShort: { ar: 'التفاصيل', en: 'Details' },
+    svcCta: { ar: 'ناقش مشروعك', en: 'Discuss your project' },
+    case1: { ar: 'التحدي', en: 'The challenge' }, case2: { ar: 'الحل', en: 'The solution' }, case3: { ar: 'القرارات الهندسية', en: 'Engineering decisions' }, case4: { ar: 'النتيجة', en: 'The result' },
+    sector: { ar: 'المجال', en: 'Sector' }, yearL: { ar: 'السنة', en: 'Year' }, techL: { ar: 'التقنيات', en: 'Tech' },
     demo: { ar: 'جرّب العرض التفاعلي', en: 'Try the interactive demo' },
     live: { ar: 'اطلب ديمو مباشر', en: 'Request a live demo' },
     visit: { ar: 'زيارة الموقع', en: 'Visit website' },
@@ -140,30 +146,31 @@
   }
 
   /* ---------- الرئيسية ---------- */
+  function heroHeadline() { var t = tx(S.headline) || tx(S.name); return esc(t).replace(/\*\*(.+?)\*\*/g, '<em>$1</em>'); }
   function renderHero() {
     var showCv = S.showCv !== false, cvA = (showCv && S.showCvAr !== false && S.cv && S.cv.ar) || '', cvE = (showCv && S.showCvEn !== false && S.cv && S.cv.en) || '', mine = lang() === 'ar' ? cvA : cvE, other = lang() === 'ar' ? cvE : cvA, cv = mine || other, cvOther = mine && other ? other : '';
     var social = '';
     if (S.linkedin) social += '<a class="btn-round" href="' + esc(url(S.linkedin)) + '" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn">' + ic('in') + '</a>';
-    if (waNum()) social += '<a class="btn-round" data-wa="general" href="#" target="_blank" rel="noopener" aria-label="WhatsApp" title="WhatsApp">' + ic('wa') + '</a>';
     if (S.email) social += '<a class="btn-round" href="mailto:' + esc(S.email) + '" aria-label="Email" title="Email">' + ic('mail') + '</a>';
     if (S.github) social += '<a class="btn-round" href="' + esc(url(S.github)) + '" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub">' + ic('gh') + '</a>';
-    var modes = arr(S.modes).map(function (m) { return '<span class="hm-chip">' + esc(tx(m)) + '</span>'; }).join('');
-    var chips = arr(S.heroChips);
+    var chips = arr(S.heroChips).slice(0, 3);
     return '<section class="hero" id="home"><div class="container hero-inner"><div class="hero-text">' +
-      '<p class="hero-hello">' + esc(tx(S.hello)) + '</p>' +
-      '<h1 class="hero-name">' + esc(tx(S.name)) + '</h1>' +
-      '<p class="hero-role"><span>' + esc(tx(S.role)) + '</span></p>' +
+      '<div class="hero-badge"><span class="dot"></span><span class="hero-role">' + esc(tx(S.role)) + '</span></div>' +
+      '<p class="hero-hello"><b>' + esc(tx(S.name)) + '</b></p>' +
+      '<h1 class="hero-name">' + heroHeadline() + '</h1>' +
+      (tx(S.tagline) ? '<p class="hero-tag">' + esc(tx(S.tagline)) + '</p>' : '') +
       '<p class="hero-lead">' + esc(tx(S.lead)) + '</p>' +
-      (modes ? '<div class="hero-modes"><span class="hm-label">' + esc(tx(S.availLabel)) + '</span>' + modes + '</div>' : '') +
       (S.location ? '<p class="hero-avail">' + ic('pin') + '<span>' + esc(tx(S.location)) + '</span></p>' : '') +
       '<div class="hero-actions">' +
-      (cv ? '<a class="btn btn-gold" href="' + esc(url(cv)) + '" download>' + ic('dl') + '<span>' + u('cv') + '</span></a>' : '') +
-      '<a class="btn btn-light" href="#projects">' + ic('layers') + '<span>' + u('work') + '</span></a>' + social + '</div>' +
+      (waNum() ? '<a class="btn btn-gold" data-wa="general" href="#" target="_blank" rel="noopener">' + ic('wa') + '<span>' + u('start') + '</span></a>' : '') +
+      '<a class="btn btn-outline" href="#projects">' + ic('layers') + '<span>' + u('work') + '</span></a>' +
+      (cv ? '<a class="btn btn-ghost" href="' + esc(url(cv)) + '" download>' + ic('dl') + '<span>' + u('cv') + '</span></a>' : '') +
+      (social ? '<span class="hero-social">' + social + '</span>' : '') + '</div>' +
       (cvOther ? '<p class="cv-alt"><a href="' + esc(url(cvOther)) + '" download>' + u('cvAlt') + '</a></p>' : '') +
       '</div><div class="hero-photo"><div class="photo-ring">' +
       (S.photo ? '<img src="' + esc(url(S.photo)) + '" alt="' + esc(tx(S.name)) + '" width="360" height="360" fetchpriority="high" onerror="this.parentNode.classList.add(\'no-photo\');this.remove()">' : '') +
       '<span class="photo-fallback" aria-hidden="true">' + esc(S.initials || 'AK') + '</span></div>' +
-      chips.slice(0, 2).map(function (c, i) { return '<div class="hero-chip chip-' + (i ? 'b' : 'a') + '">' + ic(c.icon || 'code') + '<span>' + esc(tx(c.text)) + '</span></div>'; }).join('') +
+      chips.map(function (c, i) { return '<div class="hero-chip chip-' + ['a', 'b', 'c'][i] + '">' + ic(c.icon || 'code') + '<span>' + esc(tx(c.text)) + '</span></div>'; }).join('') +
       '</div></div></section>';
   }
   function head(o, extra) {
@@ -195,8 +202,10 @@
     services: function () {
       var s = D.services || {};
       return '<section class="section" id="services"><div class="container">' + head(s) + '<div class="cards-3">' + arr(s.items).filter(vis).map(function (x) {
+        var msg = (lang() === 'ar' ? 'مرحباً أحمد، أرغب في الاستفسار عن: ' : 'Hi Ahmed, I would like to ask about: ') + tx(x.title);
         return '<article class="card service reveal"><div class="svc-icon">' + ic(x.icon || 'sys') + '</div><h3>' + esc(tx(x.title)) + '</h3><p>' + esc(tx(x.text)) + '</p>' +
-          (arr(x.tags).length ? '<div class="tags">' + arr(x.tags).map(function (t, i) { return '<span class="tag' + (i === 0 && x.goldFirst ? ' tag-gold' : '') + '">' + esc(tx(t)) + '</span>'; }).join('') + '</div>' : '') + '</article>';
+          (arr(x.tags).length ? '<div class="tags">' + arr(x.tags).map(function (t, i) { return '<span class="tag' + (i === 0 && x.goldFirst ? ' tag-gold' : '') + '">' + esc(tx(t)) + '</span>'; }).join('') + '</div>' : '') +
+          (waNum() ? '<a class="svc-cta" href="' + esc(waUrl(msg)) + '" target="_blank" rel="noopener"><span>' + u('svcCta') + '</span>' + ic('arrow') + '</a>' : '') + '</article>';
       }).join('') + '</div></div></section>';
     },
     projects: function () { return renderProjects(); },
@@ -306,6 +315,9 @@
         var inner = '<div class="svc-icon">' + ic(x.icon || 'check') + '</div><h3>' + esc(tx(x.title)) + '</h3><p>' + esc(tx(x.text)) + '</p>';
         return '<article class="card service reveal">' + inner + (url(x.link) ? '<a class="btn btn-outline btn-sm" href="' + esc(url(x.link)) + '" target="_blank" rel="noopener"><span>' + esc(tx(x.linkLabel) || u('visit')) + '</span></a>' : '') + '</article>';
       }).join('') + '</div>';
+    } else if (c.layout === 'faq') {
+      var items = tx(c.body).split(/\n{2,}/).map(function (b) { var m = b.match(/^\s*\*\*(.+?)\*\*\s*\n?([\s\S]*)$/); return m ? { q: m[1].trim(), a: m[2].trim() } : null; }).filter(Boolean);
+      body = '<div class="faq reveal">' + items.map(function (it, i) { return '<details' + (i === 0 ? ' open' : '') + '><summary>' + esc(it.q) + '</summary><div class="faq-a">' + it.a.split(/\n+/).filter(Boolean).map(function (l) { return '<p>' + inl(l) + '</p>'; }).join('') + '</div></details>'; }).join('') + '</div>';
     } else if (c.layout === 'gallery') {
       body = '<div class="thumbs thumbs-big reveal" data-cgallery="' + esc(c.id) + '">' + arr(c.images).map(function (src, i) { return '<button type="button" class="thumb" data-lb-src="' + esc(url(src)) + '" data-i="' + i + '"><img src="' + esc(url(src)) + '" alt="" loading="lazy"></button>'; }).join('') + '</div>';
     } else {
@@ -317,7 +329,7 @@
   /* ---------- المشاريع ---------- */
   function statusBadge(p) {
     var cls = p.status === 'sample' || p.status === 'demo' ? 'badge-ai' : p.status === 'dev' ? 'badge-dev' : p.status === 'none' ? '' : 'badge-live';
-    var text = p.badge && tx(p.badge) ? tx(p.badge) : p.status === 'sample' ? u('statusSample') : p.status === 'demo' ? u('statusDemo') : p.status === 'dev' ? u('statusDev') : p.status === 'none' ? '' : u('statusLive');
+    var text = p.badge && tx(p.badge) ? tx(p.badge).split('•')[0].trim() : p.status === 'sample' ? u('statusSample') : p.status === 'demo' ? u('statusDemo') : p.status === 'dev' ? u('statusDev') : p.status === 'none' ? '' : u('statusLive');
     return text ? '<span class="badge ' + cls + '">' + esc(text) + '</span>' : '';
   }
   function typeBadge(p) { return p.type && tx(p.type) ? '<span class="badge badge-type">' + esc(tx(p.type)) + '</span>' : ''; }
@@ -345,55 +357,66 @@
 
   function catAttr(p, d) { return [p.cat, p.cat2].filter(Boolean).join(' ') || d; }
   function catHas(attr, f) { return (' ' + (attr || '') + ' ').indexOf(' ' + f + ' ') >= 0; }
-  var KIND = {
-    feature: function (p, i) {
-      var mock = p.demo ? '<button class="demo-preview' + (p.demo === 'hr' ? ' dp-hr' : '') + '" type="button" data-demo="' + esc(p.demo) + '" data-pid="' + esc(p.id) + '" aria-label="' + esc(u('demo')) + '"><span class="dp-bar"><i></i><i></i><i></i></span><span class="dp-body"><span class="dp-side"></span><span class="dp-main"><span class="dp-kpis"><b></b><b></b><b></b></span><span class="dp-rows"><b></b><b></b><b></b><b></b></span></span></span><span class="dp-play">' + ic('play') + '<span>' + u('demo') + '</span></span></button>' : '';
-      var cover = !p.demo && arr(p.images)[0] ? '' : '';
-      return '<article class="project' + (i % 2 ? ' project-flip' : '') + ' reveal" id="' + esc(p.id) + '" data-cat="' + esc(catAttr(p, 'other')) + '"><div class="project-body"><div class="project-badges">' + statusBadge(p) + typeBadge(p) + '</div>' +
-        head3(p) + '<p>' + esc(tx(p.text)) + '</p>' + feats(p) + techRow(p) + actions(p) + '</div><div class="project-media">' + mock + cover + thumbs(p) + videoBox(p) + '</div></article>';
-    },
-    showcase: function (p) {
-      var first = arr(p.images)[0];
-      return '<article class="card showcase reveal" id="' + esc(p.id) + '" data-cat="' + esc(catAttr(p, 'other')) + '">' +
-        (first ? '<button type="button" class="sc-cover" data-lb-p="' + esc(p.id) + '" data-i="0" aria-label="' + esc(u('shotsOpen')) + '"><img src="' + esc(url(first)) + '" alt="' + esc(tx(p.title)) + '" loading="lazy">' + (arr(p.images).length > 1 ? '<span class="sc-count">' + ic('image') + arr(p.images).length + '</span>' : '') + '</button>' : '') +
-        '<div class="sc-body"><div class="project-badges">' + statusBadge(p) + typeBadge(p) + '</div><h3>' + esc(tx(p.title)) + '</h3><p class="sc-text">' + esc(tx(p.text)) + '</p>' +
-        (arr(p.features).length ? '<ul class="dots sc-list">' + arr(p.features).slice(0, 4).map(function (f) { return '<li>' + esc(tx(f)) + '</li>'; }).join('') + '</ul>' : '') +
-        techRow(p) + actions(p) + '</div></article>';
-    },
-    site: function (p) {
-      var first = arr(p.images)[0] || p.cover;
-      return '<article class="card site-card reveal" id="' + esc(p.id) + '" data-cat="' + esc(catAttr(p, 'web')) + '">' +
-        (first ? '<div class="site-cover"><img src="' + esc(url(first)) + '" alt="" loading="lazy" width="600" height="315"></div>' : '<div class="site-cover cover-rock"><span class="rock-mark">' + esc(tx(p.title)) + '</span></div>') +
-        '<div class="site-body"><div class="project-badges">' + statusBadge(p) + typeBadge(p) + '</div><h3>' + esc(tx(p.title)) + '</h3><p>' + esc(tx(p.text)) + '</p>' + (arr(p.features).length ? '<ul class="dots">' + arr(p.features).map(function (f) { return '<li>' + esc(tx(f)) + '</li>'; }).join('') + '</ul>' : '') + techRow(p) + actions(p).replace('project-actions', 'project-actions sc-actions') + '</div></article>';
-    },
-    mini: function (p) {
-      return '<article class="card mini-project reveal" id="' + esc(p.id) + '" data-cat="' + esc(catAttr(p, 'other')) + '"><div class="svc-icon">' + ic(p.icon || 'layers') + '</div><h3>' + esc(tx(p.title)) + '</h3><p>' + esc(tx(p.text)) + '</p>' + thumbs(p, 'thumbs-sm') + actions(p) + '</article>';
-    }
-  };
-  function videoBox(p) {
-    return url(p.video) ? '<div class="video-box"><p class="media-label">' + ic('video') + '<span>' + u('video') + '</span></p><video controls preload="metadata" playsinline src="' + esc(url(p.video)) + '"></video></div>' : '';
+  function techList(p) { var t = Array.isArray(p.tech) ? p.tech : String(p.tech || '').split(','); return t.map(function (x) { return String(x).trim(); }).filter(Boolean); }
+  function statusChip(p) {
+    if (!p.status || p.status === 'none') return '';
+    var text = p.badge && tx(p.badge) ? tx(p.badge).split('•')[0].trim() : p.status === 'sample' ? u('statusSample') : p.status === 'demo' ? u('statusDemo') : p.status === 'dev' ? u('statusDev') : u('statusLive');
+    return '<span class="pc-live' + (p.status === 'live' ? '' : ' pc-soft') + '">' + esc(text) + '</span>';
   }
-  var activeFilter = 'all', moreOpen = false, SC_SHOW = 6;
+  function pcMeta(p) {
+    var a = []; if (p.type && tx(p.type)) a.push(tx(p.type)); if (p.year) a.push(String(p.year));
+    return a.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('');
+  }
+  function renderCard(p) {
+    var imgs = arr(p.images).filter(Boolean), first = imgs[0] || p.cover, tech = techList(p).slice(0, 4), prim = '';
+    var cover = '<button type="button" class="pc-cover" data-pd="' + esc(p.id) + '" aria-label="' + esc(u('details')) + ': ' + esc(tx(p.title)) + '">' +
+      (first ? '<img src="' + esc(url(first)) + '" alt="' + esc(tx(p.title)) + '" loading="lazy" width="640" height="400">' : '<span class="pc-nocover">' + esc(tx(p.title)) + '</span>') +
+      statusChip(p) + (imgs.length > 1 ? '<span class="pc-count">' + ic('image') + imgs.length + '</span>' : '') + '</button>';
+    if (p.demo) prim = '<button class="btn btn-primary" type="button" data-demo="' + esc(p.demo) + '" data-pid="' + esc(p.id) + '">' + ic('play') + '<span>' + u('demoShort') + '</span></button>';
+    else if (url(p.link)) prim = '<a class="btn btn-primary" href="' + esc(url(p.link)) + '" target="_blank" rel="noopener">' + ic('ext') + '<span>' + esc(tx(p.linkLabel) || u('visit')) + '</span></a>';
+    else if (url(p.apk)) prim = '<a class="btn btn-primary" href="' + esc(url(p.apk)) + '" rel="noopener">' + ic('dl') + '<span>' + esc(tx(p.apkLabel) || (lang() === 'ar' ? 'تحميل التطبيق' : 'Download the app')) + '</span></a>';
+    return '<article class="pcard reveal" id="' + esc(p.id) + '" data-cat="' + esc(catAttr(p, 'other')) + '">' + cover +
+      '<div class="pc-body"><div class="pc-meta">' + pcMeta(p) + '</div><h3 class="pc-title">' + esc(tx(p.title)) + '</h3><p class="pc-text">' + esc(tx(p.text)) + '</p>' +
+      (tech.length ? '<div class="pc-tech">' + tech.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') + '</div>' : '') +
+      '<div class="pc-actions">' + prim + '<button class="btn btn-outline" type="button" data-pd="' + esc(p.id) + '"><span>' + u('detailsShort') + '</span></button></div></div></article>';
+  }
+  var activeFilter = 'all', shown = null;
+  function pLimit() { var n = parseInt(D.projects && D.projects.visibleCount, 10); return n > 0 ? n : 6; }
   function syncMore() {
-    var cards = $$('#projects .showcase'), collapse = activeFilter === 'all' && !moreOpen;
-    cards.forEach(function (c, i) { c.classList.toggle('m-hide', collapse && i >= SC_SHOW); });
-    var b = $('#projects [data-more]'); if (b) { b.parentNode.style.display = activeFilter === 'all' ? '' : 'none'; b.textContent = moreOpen ? u('lessProj') : u('moreProj') + ' (' + cards.length + ')'; }
+    var cards = $$('#projects .pcard'), all = activeFilter === 'all'; if (shown == null) shown = pLimit();
+    cards.forEach(function (c, i) { c.classList.toggle('m-hide', all && i >= shown); });
+    var b = $('#projects [data-more]'); if (!b) return;
+    b.parentNode.style.display = all && cards.length > pLimit() ? '' : 'none';
+    var rest = cards.length - shown;
+    b.textContent = rest > 0 ? u('moreProj') + ' (' + rest + ')' : u('lessProj');
   }
   function renderProjects() {
     var P = D.projects || {}, items = arr(P.items).filter(vis);
     var cats = arr(P.cats).filter(function (c) { return items.some(function (p) { return p.cat === c.id || p.cat2 === c.id; }); });
     var filters = cats.length > 1 ? '<div class="filters" role="tablist"><button type="button" class="' + (activeFilter === 'all' ? 'on' : '') + '" data-filter="all">' + u('all') + '</button>' +
       cats.map(function (c) { return '<button type="button" class="' + (activeFilter === c.id ? 'on' : '') + '" data-filter="' + esc(c.id) + '">' + esc(tx(c.label)) + '</button>'; }).join('') + '</div>' : '';
-    var order = [['feature', 'groupFeature', null], ['showcase', 'groupShowcase', 'cards-3 showcase-grid'], ['site', 'groupSite', 'cards-3'], ['mini', 'groupMini', 'cards-2']];
-    var G = P.groupTitles || {};
-    var html = order.map(function (g) {
-      var list = items.filter(function (p) { return (p.kind || 'feature') === g[0]; }); if (!list.length) return '';
-      var title = Object.prototype.hasOwnProperty.call(G, g[0]) ? tx(G[g[0]]) : u(g[1]); // عنوان فاضي = من غير عنوان فرعي
-      var sub = title ? '<div class="sub-head reveal" data-group="' + g[0] + '"><h3>' + esc(title) + '</h3></div>' : '';
-      var cards = list.map(function (p, i) { return KIND[g[0]](p, i); }).join('');
-      return sub + (g[2] ? '<div class="' + g[2] + '">' + cards + '</div>' : cards) + (g[0] === 'showcase' && list.length > SC_SHOW ? '<div class="more-wrap"><button type="button" class="btn btn-ghost" data-more></button></div>' : '');
-    }).join('');
-    return '<section class="section section-alt" id="projects"><div class="container">' + head(P) + filters + html + '</div></section>';
+    return '<section class="section section-alt" id="projects"><div class="container">' + head(P) + filters + '<div class="pgrid">' + items.map(renderCard).join('') + '</div>' +
+      (items.length > pLimit() ? '<div class="more-wrap"><button type="button" class="btn btn-outline" data-more></button></div>' : '') + '</div></section>';
+  }
+  /* نافذة تفاصيل المشروع (دراسة حالة) */
+  function openProject(id) {
+    var p = arr(D.projects && D.projects.items).filter(function (x) { return x.id === id; })[0]; if (!p) return;
+    var dlg = $('#pdlg'), imgs = arr(p.images).filter(Boolean).map(url), cs = p.case || {}, keys = ['challenge', 'solution', 'decisions', 'result'];
+    var blocks = keys.map(function (k, i) { return tx(cs[k]) ? '<section class="pd-case"><span class="pd-n">0' + (i + 1) + '</span><div><h4>' + u('case' + (i + 1)) + '</h4><p>' + esc(tx(cs[k])) + '</p></div></section>' : ''; }).join('');
+    var feats = !blocks && arr(p.features).length ? '<ul>' + arr(p.features).map(function (f) { return '<li>' + esc(tx(f)) + '</li>'; }).join('') + '</ul>' : '';
+    var tech = techList(p);
+    var media = imgs.length ? '<div class="pd-main"><img id="pdMain" src="' + esc(imgs[0]) + '" alt="' + esc(tx(p.title)) + '"></div>' + (imgs.length > 1 ? '<div class="pd-thumbs">' + imgs.map(function (s, i) { return '<button type="button" class="thumb" data-pd-src="' + esc(s) + '" aria-label="' + (i + 1) + '"><img src="' + esc(s) + '" alt="" loading="lazy"></button>'; }).join('') + '</div>' : '') : '<div class="pd-main pc-nocover">' + esc(tx(p.title)) + '</div>';
+    $('#pdBody').innerHTML = '<div class="pd-media">' + media + '</div><div class="pd-info"><div class="pc-meta">' + pcMeta(p) + '</div><h3>' + esc(tx(p.title)) + '</h3><p>' + esc(tx(p.text)) + '</p>' + blocks + feats +
+      (tech.length ? '<div class="pc-tech">' + tech.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') + '</div>' : '') + actions(p).replace('project-actions', 'pd-actions') + '</div>';
+    updateWa();
+    if (typeof dlg.showModal === 'function') dlg.showModal(); else dlg.setAttribute('open', '');
+    doc.body.classList.add('no-scroll'); $('#pdBody').scrollTop = 0;
+  }
+  function initProjectDialog() {
+    var dlg = $('#pdlg'); if (!dlg) return;
+    dlg.addEventListener('close', function () { doc.body.classList.remove('no-scroll'); });
+    $('.pdlg-x', dlg).addEventListener('click', function () { if (dlg.open) dlg.close(); });
+    dlg.addEventListener('click', function (e) { if (e.target === dlg) dlg.close(); });
   }
 
   /* ---------- التذييل ---------- */
@@ -452,7 +475,7 @@
   }
   function setTheme(t, save) {
     root.setAttribute('data-theme', t);
-    var m = $('meta[name="theme-color"]'); if (m) m.content = t === 'dark' ? '#0A1322' : '#1D4E89';
+    var m = $('meta[name="theme-color"]'); if (m) m.content = '#060c18';
     if (save) store.set('theme', t);
   }
   function applyLang(l, save) {
@@ -537,8 +560,12 @@
   function bindGlobal() {
     doc.addEventListener('click', function (e) {
       var t = e.target;
+      var pd = t.closest && t.closest('[data-pd]');
+      if (pd) { e.preventDefault(); openProject(pd.getAttribute('data-pd')); return; }
+      var ps = t.closest && t.closest('[data-pd-src]');
+      if (ps) { var mi = $('#pdMain'); if (mi) mi.src = ps.getAttribute('data-pd-src'); return; }
       var d = t.closest && t.closest('[data-demo]');
-      if (d) { e.preventDefault(); openDemo(d.getAttribute('data-demo'), d.getAttribute('data-pid'), d); return; }
+      if (d) { e.preventDefault(); var pdl = $('#pdlg'); if (pdl && pdl.open) pdl.close(); openDemo(d.getAttribute('data-demo'), d.getAttribute('data-pid'), d); return; }
       var f = t.closest && t.closest('[data-filter]');
       if (f) {
         activeFilter = f.getAttribute('data-filter');
@@ -547,7 +574,7 @@
         syncMore();
         return;
       }
-      if (t.closest && t.closest('[data-more]')) { moreOpen = !moreOpen; syncMore(); $$('#projects .showcase').forEach(function (c) { c.classList.add('in'); }); return; }
+      if (t.closest && t.closest('[data-more]')) { var all = $$('#projects .pcard').length; if (shown >= all) { shown = pLimit(); var pj = $('#projects'); if (pj) pj.scrollIntoView({ behavior: 'smooth', block: 'start' }); } else shown = Math.min(all, shown + 6); syncMore(); $$('#projects .pcard').forEach(function (c) { c.classList.add('in'); }); return; }
       var lp = t.closest && t.closest('[data-lb-p]');
       if (lp) {
         var p = arr(D.projects && D.projects.items).filter(function (x) { return x.id === lp.getAttribute('data-lb-p'); })[0];
@@ -572,22 +599,16 @@
   }
 
   function init() {
-    setTheme(root.getAttribute('data-theme') || 'light', false);
+    setTheme('dark', false);
     renderAll(false);
-    initLightbox(); initDemoDialog(); bindGlobal();
+    initLightbox(); initDemoDialog(); initProjectDialog(); bindGlobal();
     $('#langToggle').addEventListener('click', function () { applyLang(lang() === 'ar' ? 'en' : 'ar', true); });
-    $('#themeToggle').addEventListener('click', function () { setTheme(root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark', true); });
     var header = $('.site-header'), nav = $('#nav'), btn = $('#menuToggle');
     var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 8); };
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
     btn.addEventListener('click', function () { var open = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', open); });
     nav.addEventListener('click', function (e) { if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
     doc.addEventListener('click', function (e) { if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
-    if (window.matchMedia) {
-      var mq = matchMedia('(prefers-color-scheme: dark)');
-      var onMq = function (e) { if (!store.get('theme')) setTheme(e.matches ? 'dark' : 'light', false); };
-      if (mq.addEventListener) mq.addEventListener('change', onMq);
-    }
     /* الروابط المباشرة (#reviewForm مثلاً): الصفحة بتتحرك بعد التحميل (تقييمات وخطوط)، فبنعيد التمرير للهدف لحد ما الزائر يمرّر بنفسه */
     if (location.hash.length > 1) {
       var hashId = decodeURIComponent(location.hash.slice(1)), stop = false;

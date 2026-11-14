@@ -1,5 +1,5 @@
 {
-  "_v": 13,
+  "_v": 15,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -16,12 +16,20 @@
       "en": "Hello, I am"
     },
     "role": {
-      "ar": "مهندس أنظمة وحلول أعمال • تشغيل ودعم فني",
-      "en": "Business Systems Engineer • Operations & IT Support"
+      "ar": "هندسة برمجيات · تطوير أنظمة · دعم فني وشبكات",
+      "en": "Software Engineering · Systems Development · IT Support & Networking"
+    },
+    "headline": {
+      "ar": "**مهندس برمجيات** وتطوير أنظمة",
+      "en": "**Software engineer** & systems developer"
+    },
+    "tagline": {
+      "ar": "أحوّل احتياج شغلك إلى أنظمة تعمل من اليوم الأول.",
+      "en": "I turn your business needs into systems that work from day one."
     },
     "lead": {
-      "ar": "أصمّم وأبني أنظمة إدارة تعمل داخل الشركات من اليوم الأول: أفهم شغلك، وأبني الحل المناسب، وأشغّله، وأدرّب فريقك، وأرافقه بالدعم بعد التشغيل. فري لانسر منذ 2014، وخبرة عملية قرابة 7 سنوات في الأنظمة والتصميم والعمليات.",
-      "en": "I design and build management systems that work inside companies from day one: I understand your business, build the right solution, put it into operation, train your team and back it with support after launch. Freelancer since 2014, with nearly 7 years of hands-on experience in systems, design and operations."
+      "ar": "أنا أحمد الخولي، أبني للشركات أنظمة ومواقع وتطبيقات سريعة وآمنة وسهلة الاستخدام، وأربط فهم الشغل بالتنفيذ والتشغيل والدعم من أول اجتماع.",
+      "en": "I am Ahmed Alkholy. I build fast, secure and easy-to-use systems, websites and apps for companies, linking a real understanding of the business to delivery, deployment and support from the very first meeting."
     },
     "availLabel": {
       "ar": "",
@@ -48,7 +56,7 @@
         }
       },
       {
-        "icon": "palette",
+        "icon": "cal",
         "text": {
           "ar": "فري لانسر منذ 2014",
           "en": "Freelancer since 2014"
@@ -60,8 +68,8 @@
     "linkedin": "https://www.linkedin.com/in/ahmed-alkholy",
     "github": "",
     "photo": "assets/img/ahmed-alkholy.jpg",
-    "ogImage": "assets/img/og-image-v2.jpg",
-    "showCv": true,
+    "ogImage": "assets/img/og-image-v3.jpg",
+    "showCv": false,
     "showCvAr": true,
     "showCvEn": true,
     "cv": {
@@ -70,12 +78,12 @@
     },
     "seo": {
       "title": {
-        "ar": "أحمد ماهر الخولي | مهندس أنظمة وحلول أعمال",
-        "en": "Ahmed Maher Alkholy | Business Systems Engineer"
+        "ar": "أحمد ماهر الخولي | مهندس برمجيات وتطوير أنظمة",
+        "en": "Ahmed Maher Alkholy | Software Engineer & Systems Developer"
       },
       "description": {
-        "ar": "مهندس أنظمة وحلول أعمال، فري لانسر منذ 2014: أنظمة ومواقع وتطبيقات تعمل داخل الشركات، وتصميم سوشيال ميديا، ودعم فني وتشغيل. الجيزة، مصر.",
-        "en": "Business systems engineer, freelancer since 2014: systems, websites and apps running inside companies, social-media design, IT support and operations. Giza, Egypt."
+        "ar": "مهندس برمجيات وتطوير أنظمة، فري لانسر منذ 2014: أنظمة ومواقع وتطبيقات تعمل داخل الشركات، ودعم فني وشبكات. الجيزة، مصر.",
+        "en": "Software engineer and systems developer, freelancer since 2014: systems, websites and apps that run inside companies, plus IT support and networking. Giza, Egypt."
       }
     },
     "demoNotice": {
@@ -97,8 +105,8 @@
       }
     },
     "footer": {
-      "ar": "مهندس أنظمة وحلول أعمال • فري لانسر منذ 2014",
-      "en": "Business Systems Engineer • Freelancer since 2014"
+      "ar": "مهندس برمجيات وتطوير أنظمة • فري لانسر منذ 2014",
+      "en": "Software Engineer & Systems Developer • Freelancer since 2014"
     }
   },
   "stats": [
@@ -155,12 +163,47 @@
         }
       },
       {
+        "id": "c:why",
+        "visible": true,
+        "nav": false,
+        "label": {
+          "ar": "لماذا أنا",
+          "en": "Why me"
+        }
+      },
+      {
         "id": "about",
         "visible": true,
         "nav": true,
         "label": {
-          "ar": "نبذة",
+          "ar": "من أنا",
           "en": "About"
+        },
+        "navLabel": {
+          "ar": "من أنا",
+          "en": "About"
+        }
+      },
+      {
+        "id": "services",
+        "visible": true,
+        "nav": true,
+        "label": {
+          "ar": "الخدمات",
+          "en": "Services"
+        },
+        "navLabel": {
+          "ar": "الخدمات",
+          "en": "Services"
+        }
+      },
+      {
+        "id": "skills",
+        "visible": true,
+        "nav": false,
+        "label": {
+          "ar": "التقنيات",
+          "en": "Tech stack"
         }
       },
       {
@@ -173,30 +216,16 @@
         }
       },
       {
-        "id": "services",
-        "visible": true,
-        "nav": true,
-        "label": {
-          "ar": "الخدمات",
-          "en": "Services"
-        }
-      },
-      {
-        "id": "c:packages",
-        "visible": true,
-        "nav": false,
-        "label": {
-          "ar": "باقات الخدمات",
-          "en": "Service packages"
-        }
-      },
-      {
         "id": "projects",
         "visible": true,
         "nav": true,
         "label": {
-          "ar": "المشاريع",
-          "en": "Projects"
+          "ar": "الأعمال",
+          "en": "Work"
+        },
+        "navLabel": {
+          "ar": "الأعمال",
+          "en": "Work"
         }
       },
       {
@@ -204,17 +233,12 @@
         "visible": true,
         "nav": true,
         "label": {
-          "ar": "الخبرات",
+          "ar": "الخبرة",
           "en": "Experience"
-        }
-      },
-      {
-        "id": "skills",
-        "visible": true,
-        "nav": true,
-        "label": {
-          "ar": "المهارات",
-          "en": "Skills"
+        },
+        "navLabel": {
+          "ar": "الخبرة",
+          "en": "Experience"
         }
       },
       {
@@ -231,8 +255,17 @@
         "visible": true,
         "nav": false,
         "label": {
-          "ar": "أسئلة شائعة",
-          "en": "FAQ"
+          "ar": "أسئلة قبل ما نبدأ",
+          "en": "Questions before we start"
+        }
+      },
+      {
+        "id": "c:packages",
+        "visible": false,
+        "nav": false,
+        "label": {
+          "ar": "باقات الخدمات",
+          "en": "Service packages"
         }
       },
       {
@@ -240,6 +273,10 @@
         "visible": true,
         "nav": true,
         "label": {
+          "ar": "التواصل",
+          "en": "Contact"
+        },
+        "navLabel": {
           "ar": "تواصل معي",
           "en": "Contact"
         }
@@ -248,32 +285,28 @@
   },
   "about": {
     "kicker": {
-      "ar": "نبذة عني",
+      "ar": "من أنا",
       "en": "About me"
     },
     "title": {
-      "ar": "أنظمة تعمل، وفرق تتدرّب، ودعم مستمر",
-      "en": "Systems that work, teams that get trained, support that lasts"
+      "ar": "مهندس يفهم شغلك قبل ما يكتب أول سطر كود.",
+      "en": "An engineer who understands your business before writing the first line of code."
     },
     "paragraphs": [
       {
-        "ar": "أعمل فري لانسر منذ يناير 2014، أنفّذ للشركات والصفحات تصميمات ومواقع وأعمال بيانات، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 40 مستخدماً كل يوم. نفّذتُ 17 نظاماً ومشروعاً بين أنظمة وتطبيقات ومواقع، وأكثر من 150 تصميماً.",
-        "en": "I have worked as a freelancer since January 2014, delivering designs, websites and data work for companies and pages, and building business management systems that run in production and that 40+ users rely on every day. I have delivered 17 systems and projects across systems, apps and websites, plus 150+ designs."
+        "ar": "أعمل فري لانسر منذ يناير 2014، وأبني أنظمة إدارة أعمال تعمل فعلياً ويعتمد عليها أكثر من 40 مستخدماً كل يوم، إلى جانب مواقع بلوحات تحكم وتطبيق أندرويد.",
+        "en": "I have worked as a freelancer since January 2014, building business management systems that run in production and that 40+ users rely on every day, alongside websites with admin panels and an Android app."
       },
       {
-        "ar": "ومنذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج: أتابع آلاف الملفات عبر مراحل الكشف الطبي والبصمة والقنصلية والتأشيرة والسفر، وأدير الأجهزة والشبكة.",
-        "en": "Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office: tracking thousands of files through the medical, fingerprint, consulate, visa and travel stages, and managing the devices and network."
+        "ar": "ومنذ فبراير 2023 أتولى العمليات والأنظمة في مكتب لإلحاق العمالة المصرية بالخارج: صممتُ نظاماً مركزياً حلّ محل Excel والورق، فانخفض وقت تسجيل الملف من دقائق إلى ثوانٍ وتوقفت حالات فقد الجوازات.",
+        "en": "Since February 2023 I have run operations and systems at an Egyptian overseas-recruitment office: I designed a central system that replaced Excel and paper, cutting file registration from minutes to seconds and ending passport losses."
       },
       {
-        "ar": "هناك صممتُ نظاماً مركزياً للملفات والحسابات حلّ محل Excel والورق وصار قلب العمل في المكتب: تسجيل الملف من دقائق إلى ثوانٍ، وتوقفت حالات فقد الجوازات بعد نظام الترقيم والأرشفة.",
-        "en": "There I designed a central system for files and accounts that replaced Excel and paper and became the heart of the office’s work: file registration from minutes to seconds, and passport losses stopped after the numbering-and-archiving system."
-      },
-      {
-        "ar": "أنا فريق كامل في شخص واحد: أحلل الاحتياج، وأصمم، وأنفّذ، وأشغّل، وأدرّب، وأدعم. فلا يحتاج عميلي إلى التنسيق بين أكثر من جهة.",
-        "en": "I am a full team in one person: I analyse the need, design, build, deploy, train and support — so my client never has to coordinate between several parties."
+        "ar": "نظام يُدار فعلاً كل يوم أهم من نظام يُعرض فقط.",
+        "en": "A system that is actually run every day matters more than one that is only shown."
       }
     ],
-    "highlightLast": false,
+    "highlightLast": true,
     "facts": [
       {
         "icon": "cal",
@@ -284,28 +317,6 @@
         "text": {
           "ar": "قرابة 7 سنوات • فري لانسر منذ يناير 2014",
           "en": "Nearly 7 years • Freelancer since January 2014"
-        }
-      },
-      {
-        "icon": "cap",
-        "title": {
-          "ar": "التعليم",
-          "en": "Education"
-        },
-        "text": {
-          "ar": "بكالوريوس التربية النوعية – تكنولوجيا التعليم والحاسب الآلي، جامعة المنوفية (2018–2022) – جيد مرتفع",
-          "en": "B.Ed. in Specific Education – Educational Technology & Computing, Menoufia University (2018–2022) – Very Good"
-        }
-      },
-      {
-        "icon": "lang",
-        "title": {
-          "ar": "اللغات",
-          "en": "Languages"
-        },
-        "text": {
-          "ar": "العربية (اللغة الأم)، الإنجليزية (قراءة وكتابة جيدة)",
-          "en": "Arabic (native), English (good reading and writing)"
         }
       },
       {
@@ -320,14 +331,14 @@
         }
       },
       {
-        "icon": "car",
+        "icon": "lang",
         "title": {
-          "ar": "رخصة القيادة",
-          "en": "Driving licence"
+          "ar": "اللغات",
+          "en": "Languages"
         },
         "text": {
-          "ar": "سيارة خاصة ودراجة نارية",
-          "en": "Private car and motorcycle"
+          "ar": "العربية والإنجليزية",
+          "en": "Arabic and English"
         }
       }
     ]
@@ -338,18 +349,18 @@
       "en": "How I work"
     },
     "title": {
-      "ar": "من الفكرة حتى التشغيل",
-      "en": "From idea to go-live"
+      "ar": "خطوات واضحة، وقرارات مشروحة، وتسليم على مراحل.",
+      "en": "Clear steps, explained decisions, staged delivery."
     },
     "sub": {
-      "ar": "منهج واحد في كل مشروع: من أول اجتماع حتى ما بعد التشغيل.",
-      "en": "One method on every project: from the first meeting to well after go-live."
+      "ar": "",
+      "en": ""
     },
     "steps": [
       {
         "title": {
-          "ar": "فهم الاحتياج",
-          "en": "Understand the need"
+          "ar": "نفهم شغلك",
+          "en": "We understand your business"
         },
         "text": {
           "ar": "أجلس مع أصحاب الشغل والموظفين، وأفهم الإجراءات الحالية ومشاكلها قبل رسم أي حل.",
@@ -358,52 +369,32 @@
       },
       {
         "title": {
-          "ar": "تصميم سير العمل",
-          "en": "Design the workflow"
+          "ar": "نصمم الحل",
+          "en": "We design the solution"
         },
         "text": {
-          "ar": "أحدد الشاشات والمراحل والصلاحيات والتقارير قبل التنفيذ، ويعتمدها العميل.",
-          "en": "I define screens, stages, permissions and reports before building, and the client signs off."
+          "ar": "أحدد الشاشات والمراحل والصلاحيات والتقارير، ويعتمدها العميل قبل التنفيذ.",
+          "en": "I define screens, stages, permissions and reports, and the client signs off before building."
         }
       },
       {
         "title": {
-          "ar": "التنفيذ على مراحل",
-          "en": "Build in stages"
+          "ar": "نبني ونجرّب",
+          "en": "We build and test"
         },
         "text": {
-          "ar": "أبني النظام جزءاً جزءاً، وأعرض كل مرحلة على العميل لتصحيح المسار مبكراً.",
-          "en": "I build the system piece by piece and demo each stage to correct course early."
+          "ar": "أسلّم على مراحل، وأعرض كل مرحلة وتجرّبها بنفسك، وأختبر على بيانات تجريبية قبل أي نقل.",
+          "en": "I deliver in stages, demo each one so you can try it, and test on sample data before any migration."
         }
       },
       {
         "title": {
-          "ar": "الاختبار ونقل البيانات",
-          "en": "Testing & data migration"
+          "ar": "نشغّل وندعم",
+          "en": "We launch and support"
         },
         "text": {
-          "ar": "أختبر على بيانات تجريبية، ثم أنقل البيانات القديمة وأراجع الأرقام حتى تتطابق.",
-          "en": "I test on sample data, then migrate legacy data and reconcile the numbers until they match."
-        }
-      },
-      {
-        "title": {
-          "ar": "التشغيل والتدريب",
-          "en": "Go-live & training"
-        },
-        "text": {
-          "ar": "أشغّل النظام على شبكة الشركة أو الاستضافة، وأدرّب الموظفين على الاستخدام اليومي.",
-          "en": "I deploy on the company network or hosting and train staff on daily use."
-        }
-      },
-      {
-        "title": {
-          "ar": "الدعم والتحديثات",
-          "en": "Support & updates"
-        },
-        "text": {
-          "ar": "متابعة بعد التشغيل، وتعديلات وتحديثات، ونسخ احتياطي منتظم.",
-          "en": "Follow-up after launch, changes and updates, and regular backups."
+          "ar": "أشغّل النظام على شبكتك أو الاستضافة، وأدرّب فريقك، وأتابع معاك بعد التشغيل بتعديلات ونسخ احتياطي.",
+          "en": "I deploy on your network or hosting, train your team, and follow up after launch with changes and backups."
         }
       }
     ]
@@ -414,146 +405,98 @@
       "en": "Services"
     },
     "title": {
-      "ar": "ما الذي أنفّذه لك؟",
-      "en": "What I deliver"
+      "ar": "حلول تقنية تبدأ من هدف شغلك، وتنتهي بنتيجة تعمل.",
+      "en": "Technical solutions that start from your business goal and end in something that works."
     },
     "sub": {
-      "ar": "أنظمة ومواقع وتطبيقات وتصميم، مع التشغيل والتدريب والدعم.",
-      "en": "Systems, websites, apps and design — with deployment, training and support."
+      "ar": "",
+      "en": ""
     },
     "items": [
       {
         "icon": "sys",
         "title": {
-          "ar": "تصميم وتنفيذ أنظمة إدارة الأعمال",
+          "ar": "أنظمة إدارة الأعمال",
           "en": "Business management systems"
         },
         "text": {
-          "ar": "أنظمة إدارة مصمّمة على قياس شركتك: عمليات، وحسابات، ومخازن، وموارد بشرية، بصلاحيات دقيقة وتقارير جاهزة وتصدير Excel وPDF ونسخ احتياطي. أبدأ من شغلك أنت، لا من قالب جاهز.",
-          "en": "Management systems tailored to your company: operations, accounting, inventory and HR, with granular permissions, ready reports, Excel/PDF export and backups. I start from your business, not from a ready-made template."
+          "ar": "نظام على قياس شركتك: ملفات وعملاء وحسابات وموارد بشرية، بصلاحيات دقيقة وتقارير وتصدير Excel وPDF ونسخ احتياطي. يتركّب على شبكتك أو على استضافة.",
+          "en": "A system built around your company: files, clients, accounts and HR, with precise permissions, reports, Excel/PDF export and backups. Installed on your network or on hosting."
         },
-        "tags": [],
-        "goldFirst": false
+        "tags": [
+          "React",
+          "Node.js",
+          "MySQL"
+        ],
+        "goldFirst": true
       },
       {
         "icon": "web",
         "title": {
-          "ar": "مواقع الشركات ولوحات التحكم",
-          "en": "Company websites & admin panels"
+          "ar": "مواقع بلوحات تحكم",
+          "en": "Websites with admin panels"
         },
         "text": {
-          "ar": "مواقع عربية وإنجليزية سريعة ومتجاوبة مع الموبايل، بلوحة تحكم تعدّل منها كل شيء بنفسك دون الرجوع إلى مبرمج.",
-          "en": "Fast, mobile-friendly Arabic/English websites with an admin panel, so you edit everything yourself without going back to a developer."
+          "ar": "موقع عربي وإنجليزي سريع ومتجاوب مع الموبايل، تعدّل محتواه بنفسك من لوحة تحكم كاملة، مع أساسيات SEO ومعاينة روابط واتساب.",
+          "en": "A fast, mobile-friendly Arabic/English website you edit yourself from a full admin panel, with SEO basics and WhatsApp link previews."
         },
-        "tags": [],
+        "tags": [
+          "Node.js",
+          "Express",
+          "SEO"
+        ],
         "goldFirst": false
       },
       {
         "icon": "phone",
         "title": {
-          "ar": "تطبيقات الموبايل",
+          "ar": "تطبيقات موبايل",
           "en": "Mobile apps"
         },
         "text": {
-          "ar": "تطبيقات أندرويد بواجهة حديثة، تعمل بدون إنترنت وتتزامن تلقائياً، مع إشعارات وتسجيل دخول آمن.",
-          "en": "Android apps with a modern interface that work offline and sync automatically, with notifications and secure sign-in."
+          "ar": "تطبيق أندرويد بواجهة عربية حديثة، يعمل بدون إنترنت ويتزامن تلقائياً، مع إشعارات وتسجيل دخول آمن.",
+          "en": "An Android app with a modern interface that works offline and syncs automatically, with notifications and secure sign-in."
         },
-        "tags": [],
-        "goldFirst": false
-      },
-      {
-        "icon": "palette",
-        "title": {
-          "ar": "تصميم السوشيال ميديا والإعلانات",
-          "en": "Social media & ad design"
-        },
-        "text": {
-          "ar": "هوية وإعلانات ومنشورات تُبرز نشاطك على Canva وPhotoshop، وإدارة صفحاتك وحملاتك الممولة على Meta — أكثر من 150 تصميماً منذ 2014.",
-          "en": "Branding, ads and posts that showcase your business on Canva and Photoshop, plus management of your pages and paid campaigns on Meta — 150+ designs since 2014."
-        },
-        "tags": [],
-        "goldFirst": false
-      },
-      {
-        "icon": "ai",
-        "title": {
-          "ar": "الأتمتة واستخراج البيانات من المستندات",
-          "en": "Automation & document data extraction"
-        },
-        "text": {
-          "ar": "أحوّل الجوازات والمستندات والسير الذاتية إلى سجلات منظمة تلقائياً (OCR)، وأطابق المرشحين بالوظائف، وأُنهي الإدخال اليدوي والأخطاء.",
-          "en": "I turn passports, documents and CVs into structured records automatically (OCR), match candidates to jobs, and eliminate manual entry and errors."
-        },
-        "tags": [],
-        "goldFirst": false
-      },
-      {
-        "icon": "users",
-        "title": {
-          "ar": "تشغيل الأنظمة والتدريب",
-          "en": "System rollout & training"
-        },
-        "text": {
-          "ar": "أنقل بياناتك من Excel والأنظمة القديمة، وأشغّل النظام داخل شركتك، وأدرّب فريقك حتى يعتمد عليه، وأدعمه بعد التشغيل.",
-          "en": "I migrate your data from Excel and legacy systems, put the system into operation inside your company, train your team until they rely on it, and support it after launch."
-        },
-        "tags": [],
+        "tags": [
+          "Capacitor",
+          "Firebase",
+          "Offline-first"
+        ],
         "goldFirst": false
       },
       {
         "icon": "support",
         "title": {
-          "ar": "الدعم الفني والشبكات",
-          "en": "IT support & networks"
+          "ar": "دعم فني وشبكات",
+          "en": "IT support & networking"
         },
         "text": {
-          "ar": "تثبيت وإدارة Windows والبرامج، وإصلاح الأعطال، والشبكات والراوتر، والطابعات والماسحات، والوصول عن بُعد، والنسخ الاحتياطي.",
-          "en": "Installing and managing Windows and software, fixing faults, networks and routers, printers and scanners, remote access and backups."
+          "ar": "تجهيز الأجهزة والشبكة المحلية والراوتر والطابعات والنسخ الاحتياطي والوصول عن بُعد، ومتابعة بعد التشغيل.",
+          "en": "Preparing devices, the local network, router, printers, backups and remote access, with follow-up after launch."
         },
-        "tags": [],
-        "goldFirst": false
-      },
-      {
-        "icon": "table",
-        "title": {
-          "ar": "البيانات وExcel",
-          "en": "Data & Excel"
-        },
-        "text": {
-          "ar": "إدخال بيانات دقيق وسريع، وملفات Excel ولوحات متابعة تفهمها الإدارة، وتحويل PDF والصور إلى Word وExcel، وأرشفة منظمة.",
-          "en": "Fast, accurate data entry, Excel files and tracking dashboards management can read, PDF/image to Word/Excel conversion, and organised archiving."
-        },
-        "tags": [],
-        "goldFirst": false
-      },
-      {
-        "icon": "ops",
-        "title": {
-          "ar": "التشغيل الإداري",
-          "en": "Administrative operations"
-        },
-        "text": {
-          "ar": "متابعة الإجراءات والملفات، وتنسيق المهام والجهات المختلفة، وتقارير واضحة للإدارة.",
-          "en": "Following procedures and files, coordinating tasks and different parties, and clear reports for management."
-        },
-        "tags": [],
+        "tags": [
+          "LAN",
+          "Windows",
+          "Backup"
+        ],
         "goldFirst": false
       }
     ]
   },
   "projects": {
     "kicker": {
-      "ar": "سابقة الأعمال",
-      "en": "Portfolio"
+      "ar": "الأعمال",
+      "en": "Work"
     },
     "title": {
-      "ar": "المشاريع والعروض التفاعلية",
-      "en": "Projects & interactive demos"
+      "ar": "من مشكلة في الشغل إلى نظام يعمل",
+      "en": "From a problem at work to a system that runs"
     },
     "sub": {
-      "ar": "أنظمة ومواقع وتطبيقات بنيتُها وأشغّلها، ونماذج جاهزة للتجربة بواجهات عربية وإنجليزية. جرّبها بنفسك، أو اطلب جولة مباشرة على واتساب.",
-      "en": "Systems, websites and apps I build and run, plus ready-to-try models with Arabic and English interfaces. Try them yourself or ask for a live walkthrough on WhatsApp."
+      "ar": "أنظمة ومواقع وتطبيقات نفّذتها. اضغط على أي عمل لتشوف التفاصيل أو تجرّب العرض التفاعلي.",
+      "en": "Systems, websites and apps I built. Click any piece to see the details or try the interactive demo."
     },
+    "visibleCount": "6",
     "cats": [
       {
         "id": "sys",
@@ -663,7 +606,25 @@
           "assets/img/projects/masar-ops-3.png",
           "assets/img/projects/masar-ops-4.png",
           "assets/img/projects/masar-ops-5.png"
-        ]
+        ],
+        "case": {
+          "challenge": {
+            "ar": "مكتب إلحاق عمالة كان بيدير الجوازات والتأشيرات والسفر والحسابات في ملفات Excel وسجلات ورقية متفرقة، فبتضيع الملفات، ويتأخر تسجيل الملف الواحد، ويصعب ضبط الحسابات.",
+            "en": "An overseas-recruitment office managed passports, visas, travel and accounts in scattered Excel files and paper records, so files got lost, registering one file was slow and the accounts were hard to reconcile."
+          },
+          "solution": {
+            "ar": "نظام مركزي بعشرات الشاشات: ملف لكل جواز مع ترقيم وأرشفة، وقراءة بيانات الجواز من الصورة (OCR)، ومتابعة مراحل الإجراءات، وحسابات العملاء والمناديب والعمولات والخزينة، وتقارير Excel وPDF.",
+            "en": "A central system with dozens of screens: a record per passport with numbering and archiving, passport data read from the photo (OCR), procedure-stage tracking, client/agent/commission/treasury accounts, and Excel/PDF reports."
+          },
+          "decisions": {
+            "ar": "الصلاحيات متطبقة في السيرفر مش في الواجهة بس، مع تحقق بخطوتين وموافقة الأجهزة وسجل عمليات. ونقلت النظام من SQL Server على جهاز المكتب لـ MySQL على استضافة سحابية، مع أداة مقارنة بتتأكد إن الأرقام المالية متطابقة.",
+            "en": "Permissions are enforced on the server, not just the interface, with two-factor auth, device approval and an audit log. I migrated the system from SQL Server on the office PC to MySQL on cloud hosting, with a comparison tool that checks the financial figures match."
+          },
+          "result": {
+            "ar": "بقى النظام الأساسي اللي بيعتمد عليه المكتب: وقت تسجيل الملف نزل من دقائق لثواني، وحالات فقد الجوازات وقفت.",
+            "en": "It became the core system the office relies on: file registration dropped from minutes to seconds and passport losses stopped."
+          }
+        }
       },
       {
         "id": "masar-hr",
@@ -731,7 +692,25 @@
           "assets/img/projects/masar-hr-1.png",
           "assets/img/projects/masar-hr-2.png",
           "assets/img/projects/masar-hr-3.png"
-        ]
+        ],
+        "case": {
+          "challenge": {
+            "ar": "السير الذاتية بتوصل من واتساب ورفع يدوي بأشكال مختلفة، وكتابة بياناتها يدوياً بطيئة، ومطابقة المرشحين مع طلبات الشركات بتاخد وقت وفيها أخطاء.",
+            "en": "CVs arrive via WhatsApp and manual upload in many formats, typing their data by hand is slow, and matching candidates to company requests takes time and invites mistakes."
+          },
+          "solution": {
+            "ar": "نظام توظيف: وارد بيستقبل السير (PDF وصور) ويقراها بالذكاء الاصطناعي، وبنك مرشحين بحقول حسب المهنة، وطلبيات بمطابقة (مطابق / محتاج تأكيد / ناقص شرط / بعيد)، ومسار مراحل لحد السفر، وصانع سير بـ20 قالب.",
+            "en": "A recruitment system: an inbox that receives CVs (PDF and images) and reads them with AI, a candidate bank with profession-specific fields, orders with matching (match / needs confirmation / missing a condition / far), a stage pipeline up to travel, and a 20-template CV maker."
+          },
+          "decisions": {
+            "ar": "أي نتيجة من الذكاء الاصطناعي بتعدي على طبقة تحقق وبتتراجع بشرياً قبل الاعتماد، وتعديلات الموظف مبتتكتبش فوقها. النظام بيحمّل البيانات في الذاكرة فالبحث على عشرات الآلاف في ملّي ثواني، والمفاتيح مشفّرة، وعليه 21 اختبار شامل بيفتح متصفح حقيقي.",
+            "en": "Every AI output passes a validation layer and is reviewed by a person before approval, and staff edits are never overwritten. Data is held in memory so searching tens of thousands is instant, keys are encrypted, and 21 end-to-end tests drive a real browser."
+          },
+          "result": {
+            "ar": "بنك مرشحين مركزي بحث فوري، وسير بتدخل النظام بعد مراجعة بدل ما تتكتب من الصفر.",
+            "en": "A central candidate bank with instant search, and CVs that enter the system after review instead of being typed from scratch."
+          }
+        }
       },
       {
         "id": "wesal",
@@ -800,6 +779,268 @@
           "assets/img/projects/wesal-5.jpg",
           "assets/img/projects/wesal-6.jpg",
           "assets/img/projects/wesal-7.jpg"
+        ],
+        "case": {
+          "challenge": {
+            "ar": "بناء تطبيق عربي واحد يجمع العادات والمهام والعبادات، يشتغل بدون إنترنت، ويتشارك مع العيلة والأصحاب.",
+            "en": "Build one Arabic app that brings habits, tasks and worship together, works offline, and can be shared with family and friends."
+          },
+          "solution": {
+            "ar": "تطبيق أندرويد: شاشة «اليوم»، ومساحات مشتركة بنقاط ومسابقات، ومواقيت صلاة وأذان، والمصحف بالتفسير والتجويد، وحفظ بالخطوات، وأدوات للأهداف والفلوس والصحة والتركيز.",
+            "en": "An Android app: a “Today” screen, shared spaces with points and contests, prayer times and adhan, the Quran with tafsir and tajweed, step-by-step memorisation, and tools for goals, money, health and focus."
+          },
+          "decisions": {
+            "ar": "React 19 وTypeScript متغلّفين بـ Capacitor عشان كود واحد، وFirebase Auth لتسجيل الدخول بحساب جوجل، وخلفية على Cloudflare مع قاعدة D1، وتخزين محلي ومزامنة تلقائية للعمل بدون إنترنت.",
+            "en": "React 19 and TypeScript wrapped with Capacitor for a single codebase, Firebase Auth for Google sign-in, a Cloudflare backend with a D1 database, and local storage with automatic sync for offline use."
+          },
+          "result": {
+            "ar": "تطبيق منشور بنسخة 1.27.0 وبيتحمّل ملف APK مباشرة.",
+            "en": "A published app at version 1.27.0, downloadable directly as an APK."
+          }
+        }
+      },
+      {
+        "id": "site-nesr",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "عربي / إنجليزي",
+          "en": "AR / EN"
+        },
+        "title": {
+          "ar": "موقع نسر الخليج لإلحاق العمالة المصرية بالخارج",
+          "en": "Nasr Al Khaleej — Egyptian Manpower Recruitment Abroad"
+        },
+        "text": {
+          "ar": "موقع عربي وإنجليزي للشركة، بلوحة تحكم كاملة يعدّل منها الفريق كل المحتوى.",
+          "en": "An Arabic/English company website with a full admin panel the team uses to edit all content."
+        },
+        "features": [
+          {
+            "ar": "وظائف بأكواد وبحث وفلترة، وفورمات تُرسل عبر واتساب أو الإيميل",
+            "en": "Jobs with codes, search and filters, and forms sent via WhatsApp or email"
+          },
+          {
+            "ar": "صورة جاهزة للنشر لكل وظيفة مع كود QR، ونشر مباشر على فيسبوك",
+            "en": "A ready-to-post image for every job with a QR code, and direct publishing to Facebook"
+          },
+          {
+            "ar": "إحصائيات زيارات ومصادرها وضغطات واتساب، بدون كوكيز",
+            "en": "Visit statistics, sources and WhatsApp clicks — without cookies"
+          },
+          {
+            "ar": "مستخدمين وصلاحيات، وتحقق ثنائي، وسجل عمليات",
+            "en": "Users and permissions, two-factor authentication, and an audit log"
+          },
+          {
+            "ar": "ربط آمن بنظام التوظيف: روابط تقديم، وبوابة مناديب، ومتابعة الطلب",
+            "en": "Secure link with the recruitment system: application links, agents portal and application tracking"
+          }
+        ],
+        "tech": "Node.js, Express, EJS, JSON",
+        "link": "https://nisrelkhaleeg.com",
+        "images": [
+          "assets/img/projects/nesr-site-cover.jpg"
+        ],
+        "case": {
+          "challenge": {
+            "ar": "مكتب نسر الخليج محتاج موقع عربي/إنجليزي يعرّف بالمكتب ويعرض الوظايف، والفريق يعدّل المحتوى بنفسه.",
+            "en": "Nesr El-Khaleej needed an Arabic/English website presenting the office and its jobs, with content the team can edit itself."
+          },
+          "solution": {
+            "ar": "موقع بلوحة تحكم كاملة: وظايف بأكواد وبحث وفلترة، وفورمات بتتبعت على واتساب أو الإيميل، وصورة جاهزة للنشر لكل وظيفة بكود QR، وإحصائيات زيارات من غير كوكيز.",
+            "en": "A site with a full admin panel: jobs with codes, search and filters, forms sent via WhatsApp or email, a ready-to-post image with a QR code for every job, and cookie-free visit statistics."
+          },
+          "decisions": {
+            "ar": "مستخدمين وصلاحيات وتحقق ثنائي وسجل عمليات، وربط آمن بنظام التوظيف: روابط تقديم وبوابة مناديب ومتابعة الطلب.",
+            "en": "Users, permissions, two-factor auth and an audit log, plus a secure link to the recruitment system: application links, an agents portal and application tracking."
+          },
+          "result": {
+            "ar": "موقع منشور على nisrelkhaleeg.com والفريق بيدير محتواه من لوحة التحكم.",
+            "en": "A live site at nisrelkhaleeg.com whose content the team manages from the admin panel."
+          }
+        }
+      },
+      {
+        "id": "site-forsan",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "سياحة وحج وعمرة",
+          "en": "Travel, Hajj & Umrah"
+        },
+        "title": {
+          "ar": "موقع فرسان جو للتسويق السياحي",
+          "en": "Forsan Go — Travel & Tourism"
+        },
+        "text": {
+          "ar": "موقع لشركة حج وعمرة وتأشيرات وطيران، بلوحة تحكم كاملة.",
+          "en": "A website for a Hajj, Umrah, visas and flights company, with a full admin panel."
+        },
+        "features": [
+          {
+            "ar": "عروض وبرامج الحج والعمرة بالأسعار والمواعيد والمميزات",
+            "en": "Hajj and Umrah packages with prices, dates and features"
+          },
+          {
+            "ar": "فورم حجز يتملأ تلقائياً عند الضغط على «احجز البرنامج»",
+            "en": "A booking form that fills itself when “Book this package” is clicked"
+          },
+          {
+            "ar": "وجهات التأشيرات، ودليل المسافر، والأسئلة الشائعة",
+            "en": "Visa destinations, a traveller’s guide and FAQs"
+          },
+          {
+            "ar": "قسم فرص عمل بالخارج مربوط بنظام التوظيف",
+            "en": "A jobs-abroad section linked to the recruitment system"
+          }
+        ],
+        "tech": "Node.js, Express, EJS, JSON",
+        "link": "https://forsango.com",
+        "images": [
+          "assets/img/projects/forsan-go-cover.jpg"
+        ]
+      },
+      {
+        "id": "site-eldiwan",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "توظيف • إلحاق عمالة",
+          "en": "Recruitment agency"
+        },
+        "title": {
+          "ar": "موقع الديوان للتوظيف بالخارج",
+          "en": "Al Diwan overseas recruitment website"
+        },
+        "text": {
+          "ar": "موقع شركة توظيف وإلحاق عمالة بالخارج: تعريف بالشركة وخدماتها، وآراء العملاء وقائمة العملاء، وصفحة للوظائف، وبيانات التواصل، بتصميم داكن حديث وواجهة عربية RTL.",
+          "en": "A recruitment-agency website: company and services overview, client testimonials and client list, a jobs page and contact details, in a modern dark design with an Arabic RTL interface."
+        },
+        "features": [
+          {
+            "ar": "صفحات من نحن والخدمات والوظائف",
+            "en": "About, services and jobs pages"
+          },
+          {
+            "ar": "آراء العملاء وقائمة العملاء",
+            "en": "Testimonials and client list"
+          },
+          {
+            "ar": "بيانات التواصل وزر تواصل مباشر",
+            "en": "Contact details and a direct contact button"
+          }
+        ],
+        "tech": "React, Vite",
+        "link": "https://eldiwanjobs.com/",
+        "images": [
+          "assets/img/projects/eldiwan-cover.jpg"
+        ]
+      },
+      {
+        "id": "site-eldahan",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "مطعم • طلب أونلاين",
+          "en": "Restaurant • Online ordering"
+        },
+        "title": {
+          "ar": "موقع مطعم الدهان للمشويات",
+          "en": "Eldahan Grills restaurant website"
+        },
+        "text": {
+          "ar": "موقع مطعم بمنيو كامل وطلب أونلاين: أقسام الأطباق والعروض بأسعارها، وسلة طلب، وتسجيل دخول للعملاء، وصفحة للفروع، بنسخة عربية وأخرى إنجليزية.",
+          "en": "A restaurant website with a full menu and online ordering: dish categories and offers with prices, an order cart, customer login, a branches page, in Arabic and English."
+        },
+        "features": [
+          {
+            "ar": "منيو بأقسام (مشويات، فطائر، سندوتشات، جزارة، صواني)",
+            "en": "Menu by category (grills, pastries, sandwiches, butcher, trays)"
+          },
+          {
+            "ar": "عروض بأسعار قبل وبعد الخصم",
+            "en": "Offers with before/after-discount prices"
+          },
+          {
+            "ar": "سلة طلب وإضافة الأصناف بضغطة",
+            "en": "Order cart with one-tap add"
+          },
+          {
+            "ar": "نسخة عربية وإنجليزية",
+            "en": "Arabic and English versions"
+          }
+        ],
+        "tech": "",
+        "link": "https://www.eldahan.com/",
+        "images": [
+          "assets/img/projects/eldahan-cover.jpg"
+        ]
+      },
+      {
+        "id": "site-rockline",
+        "kind": "site",
+        "cat": "web",
+        "visible": true,
+        "status": "live",
+        "badge": {
+          "ar": "منشور ويعمل",
+          "en": "Live"
+        },
+        "type": {
+          "ar": "مقاولات",
+          "en": "Construction"
+        },
+        "title": {
+          "ar": "موقع روك لاين للمقاولات",
+          "en": "Rockline Contracting website"
+        },
+        "text": {
+          "ar": "موقع شركة مقاولات مبني على نفس منصة إدارة المحتوى، مع إضافات جديدة.",
+          "en": "A contracting company website built on the same content management platform, with new additions."
+        },
+        "features": [
+          {
+            "ar": "وضع تعديل مرئي: المدير يرى الصفحة كما يراها الزائر ويعدّل منها",
+            "en": "Visual editing mode: the admin sees the page exactly as visitors do and edits it in place"
+          },
+          {
+            "ar": "وضع صيانة للموقع أثناء التحديثات",
+            "en": "Maintenance mode during updates"
+          },
+          {
+            "ar": "لوحة تحكم كاملة للمحتوى والصور والأخبار والرسائل",
+            "en": "A full admin panel for content, images, news and messages"
+          }
+        ],
+        "tech": "Node.js, Express, EJS",
+        "link": "https://rocklineg.com",
+        "images": [
+          "assets/img/projects/rockline-cover.jpg"
         ]
       },
       {
@@ -1438,236 +1679,10 @@
         ]
       },
       {
-        "id": "site-nesr",
-        "kind": "site",
-        "cat": "web",
-        "visible": true,
-        "status": "live",
-        "badge": {
-          "ar": "منشور ويعمل",
-          "en": "Live"
-        },
-        "type": {
-          "ar": "عربي / إنجليزي",
-          "en": "AR / EN"
-        },
-        "title": {
-          "ar": "موقع نسر الخليج لإلحاق العمالة المصرية بالخارج",
-          "en": "Nasr Al Khaleej — Egyptian Manpower Recruitment Abroad"
-        },
-        "text": {
-          "ar": "موقع عربي وإنجليزي للشركة، بلوحة تحكم كاملة يعدّل منها الفريق كل المحتوى.",
-          "en": "An Arabic/English company website with a full admin panel the team uses to edit all content."
-        },
-        "features": [
-          {
-            "ar": "وظائف بأكواد وبحث وفلترة، وفورمات تُرسل عبر واتساب أو الإيميل",
-            "en": "Jobs with codes, search and filters, and forms sent via WhatsApp or email"
-          },
-          {
-            "ar": "صورة جاهزة للنشر لكل وظيفة مع كود QR، ونشر مباشر على فيسبوك",
-            "en": "A ready-to-post image for every job with a QR code, and direct publishing to Facebook"
-          },
-          {
-            "ar": "إحصائيات زيارات ومصادرها وضغطات واتساب، بدون كوكيز",
-            "en": "Visit statistics, sources and WhatsApp clicks — without cookies"
-          },
-          {
-            "ar": "مستخدمين وصلاحيات، وتحقق ثنائي، وسجل عمليات",
-            "en": "Users and permissions, two-factor authentication, and an audit log"
-          },
-          {
-            "ar": "ربط آمن بنظام التوظيف: روابط تقديم، وبوابة مناديب، ومتابعة الطلب",
-            "en": "Secure link with the recruitment system: application links, agents portal and application tracking"
-          }
-        ],
-        "tech": "Node.js, Express, EJS, JSON",
-        "link": "https://nisrelkhaleeg.com",
-        "images": [
-          "assets/img/projects/nesr-site-cover.jpg"
-        ]
-      },
-      {
-        "id": "site-forsan",
-        "kind": "site",
-        "cat": "web",
-        "visible": true,
-        "status": "live",
-        "badge": {
-          "ar": "منشور ويعمل",
-          "en": "Live"
-        },
-        "type": {
-          "ar": "سياحة وحج وعمرة",
-          "en": "Travel, Hajj & Umrah"
-        },
-        "title": {
-          "ar": "موقع فرسان جو للتسويق السياحي",
-          "en": "Forsan Go — Travel & Tourism"
-        },
-        "text": {
-          "ar": "موقع لشركة حج وعمرة وتأشيرات وطيران، بلوحة تحكم كاملة.",
-          "en": "A website for a Hajj, Umrah, visas and flights company, with a full admin panel."
-        },
-        "features": [
-          {
-            "ar": "عروض وبرامج الحج والعمرة بالأسعار والمواعيد والمميزات",
-            "en": "Hajj and Umrah packages with prices, dates and features"
-          },
-          {
-            "ar": "فورم حجز يتملأ تلقائياً عند الضغط على «احجز البرنامج»",
-            "en": "A booking form that fills itself when “Book this package” is clicked"
-          },
-          {
-            "ar": "وجهات التأشيرات، ودليل المسافر، والأسئلة الشائعة",
-            "en": "Visa destinations, a traveller’s guide and FAQs"
-          },
-          {
-            "ar": "قسم فرص عمل بالخارج مربوط بنظام التوظيف",
-            "en": "A jobs-abroad section linked to the recruitment system"
-          }
-        ],
-        "tech": "Node.js, Express, EJS, JSON",
-        "link": "https://forsango.com",
-        "images": [
-          "assets/img/projects/forsan-go-cover.jpg"
-        ]
-      },
-      {
-        "id": "site-rockline",
-        "kind": "site",
-        "cat": "web",
-        "visible": true,
-        "status": "live",
-        "badge": {
-          "ar": "منشور ويعمل",
-          "en": "Live"
-        },
-        "type": {
-          "ar": "مقاولات",
-          "en": "Construction"
-        },
-        "title": {
-          "ar": "موقع روك لاين للمقاولات",
-          "en": "Rockline Contracting website"
-        },
-        "text": {
-          "ar": "موقع شركة مقاولات مبني على نفس منصة إدارة المحتوى، مع إضافات جديدة.",
-          "en": "A contracting company website built on the same content management platform, with new additions."
-        },
-        "features": [
-          {
-            "ar": "وضع تعديل مرئي: المدير يرى الصفحة كما يراها الزائر ويعدّل منها",
-            "en": "Visual editing mode: the admin sees the page exactly as visitors do and edits it in place"
-          },
-          {
-            "ar": "وضع صيانة للموقع أثناء التحديثات",
-            "en": "Maintenance mode during updates"
-          },
-          {
-            "ar": "لوحة تحكم كاملة للمحتوى والصور والأخبار والرسائل",
-            "en": "A full admin panel for content, images, news and messages"
-          }
-        ],
-        "tech": "Node.js, Express, EJS",
-        "link": "https://rocklineg.com",
-        "images": [
-          "assets/img/projects/rockline-cover.jpg"
-        ]
-      },
-      {
-        "id": "site-eldahan",
-        "kind": "site",
-        "cat": "web",
-        "visible": true,
-        "status": "live",
-        "badge": {
-          "ar": "منشور ويعمل",
-          "en": "Live"
-        },
-        "type": {
-          "ar": "مطعم • طلب أونلاين",
-          "en": "Restaurant • Online ordering"
-        },
-        "title": {
-          "ar": "موقع مطعم الدهان للمشويات",
-          "en": "Eldahan Grills restaurant website"
-        },
-        "text": {
-          "ar": "موقع مطعم بمنيو كامل وطلب أونلاين: أقسام الأطباق والعروض بأسعارها، وسلة طلب، وتسجيل دخول للعملاء، وصفحة للفروع، بنسخة عربية وأخرى إنجليزية.",
-          "en": "A restaurant website with a full menu and online ordering: dish categories and offers with prices, an order cart, customer login, a branches page, in Arabic and English."
-        },
-        "features": [
-          {
-            "ar": "منيو بأقسام (مشويات، فطائر، سندوتشات، جزارة، صواني)",
-            "en": "Menu by category (grills, pastries, sandwiches, butcher, trays)"
-          },
-          {
-            "ar": "عروض بأسعار قبل وبعد الخصم",
-            "en": "Offers with before/after-discount prices"
-          },
-          {
-            "ar": "سلة طلب وإضافة الأصناف بضغطة",
-            "en": "Order cart with one-tap add"
-          },
-          {
-            "ar": "نسخة عربية وإنجليزية",
-            "en": "Arabic and English versions"
-          }
-        ],
-        "tech": "",
-        "link": "https://www.eldahan.com/",
-        "images": [
-          "assets/img/projects/eldahan-cover.jpg"
-        ]
-      },
-      {
-        "id": "site-eldiwan",
-        "kind": "site",
-        "cat": "web",
-        "visible": true,
-        "status": "live",
-        "badge": {
-          "ar": "منشور ويعمل",
-          "en": "Live"
-        },
-        "type": {
-          "ar": "توظيف • إلحاق عمالة",
-          "en": "Recruitment agency"
-        },
-        "title": {
-          "ar": "موقع الديوان للتوظيف بالخارج",
-          "en": "Al Diwan overseas recruitment website"
-        },
-        "text": {
-          "ar": "موقع شركة توظيف وإلحاق عمالة بالخارج: تعريف بالشركة وخدماتها، وآراء العملاء وقائمة العملاء، وصفحة للوظائف، وبيانات التواصل، بتصميم داكن حديث وواجهة عربية RTL.",
-          "en": "A recruitment-agency website: company and services overview, client testimonials and client list, a jobs page and contact details, in a modern dark design with an Arabic RTL interface."
-        },
-        "features": [
-          {
-            "ar": "صفحات من نحن والخدمات والوظائف",
-            "en": "About, services and jobs pages"
-          },
-          {
-            "ar": "آراء العملاء وقائمة العملاء",
-            "en": "Testimonials and client list"
-          },
-          {
-            "ar": "بيانات التواصل وزر تواصل مباشر",
-            "en": "Contact details and a direct contact button"
-          }
-        ],
-        "tech": "React, Vite",
-        "link": "https://eldiwanjobs.com/",
-        "images": [
-          "assets/img/projects/eldiwan-cover.jpg"
-        ]
-      },
-      {
         "id": "commission",
         "kind": "mini",
         "cat": "web",
-        "visible": true,
+        "visible": false,
         "status": "none",
         "icon": "share",
         "title": {
@@ -1684,7 +1699,7 @@
         "id": "store",
         "kind": "mini",
         "cat": "web",
-        "visible": true,
+        "visible": false,
         "status": "none",
         "icon": "cart",
         "title": {
@@ -1740,12 +1755,12 @@
   },
   "experience": {
     "kicker": {
-      "ar": "الخبرات",
+      "ar": "الخبرة",
       "en": "Experience"
     },
     "title": {
-      "ar": "الخبرة العملية",
-      "en": "Work experience"
+      "ar": "خبرة عملية في بناء الأنظمة وتشغيلها",
+      "en": "Hands-on experience building and running systems"
     },
     "items": [
       {
@@ -1755,8 +1770,8 @@
           "en": "Jan 2014 – Present"
         },
         "role": {
-          "ar": "مهندس مستقل لأنظمة الأعمال والمواقع",
-          "en": "Independent Business Systems & Websites Engineer"
+          "ar": "مهندس برمجيات مستقل (أنظمة ومواقع وتطبيقات)",
+          "en": "Freelance Software Engineer — Systems, Websites & Apps"
         },
         "org": {
           "ar": "عمل حر",
@@ -1774,10 +1789,6 @@
           {
             "ar": "أصمّم للشركات والصفحات: أكثر من 150 تصميماً للإعلانات والمنشورات على Canva وPhotoshop، وأدير الصفحات والحملات الممولة.",
             "en": "Design for companies and pages: 150+ ad and post designs on Canva and Photoshop, and manage pages and paid campaigns."
-          },
-          {
-            "ar": "أنفّذ أعمال إدخال البيانات وتنظيم ملفات Excel وتحويل المستندات، ومواقع تعريفية وصفحات هبوط للشركات.",
-            "en": "Deliver data entry, Excel organisation and document conversion, plus company brochure websites and landing pages."
           },
           {
             "ar": "أشغّل الأنظمة على شبكات الشركات أو الاستضافة، وأدرّب الفرق، وأقدّم الدعم والتحديثات بعد التشغيل.",
@@ -1819,15 +1830,11 @@
           {
             "ar": "أتابع الإجراءات متعددة المراحل لآلاف الملفات (كشف طبي، بصمة، قنصلية، تأشيرة، سفر) مع الجهات الحكومية والشركاء.",
             "en": "Track multi-stage procedures for thousands of files (medical, fingerprint, consulate, visa, travel) with government bodies and partners."
-          },
-          {
-            "ar": "أصمم إعلانات الشركة وأدير صفحاتها وحملاتها الممولة على Meta Business Suite.",
-            "en": "Design the company’s ads and manage its pages and paid campaigns on Meta Business Suite."
           }
         ]
       },
       {
-        "visible": true,
+        "visible": false,
         "date": {
           "ar": "مايو 2025 – أغسطس 2025",
           "en": "May 2025 – Aug 2025"
@@ -1859,133 +1866,54 @@
   },
   "skills": {
     "kicker": {
-      "ar": "المهارات",
-      "en": "Skills"
+      "ar": "التقنيات",
+      "en": "Tech stack"
     },
     "title": {
-      "ar": "المهارات والأدوات",
-      "en": "Skills & tools"
+      "ar": "الأدوات اللي بشتغل بيها: كل تقنية هنا اشتغلت في نظام حقيقي.",
+      "en": "My toolbox: every technology here has run in a real system."
     },
     "groups": [
       {
-        "icon": "ai",
-        "highlight": true,
-        "title": {
-          "ar": "الذكاء الاصطناعي والتطوير به",
-          "en": "AI & AI-driven development"
-        },
-        "items": [
-          {
-            "ar": "بناء أنظمة وتطبيقات ومواقع كاملة بالذكاء الاصطناعي، من الفكرة حتى التشغيل",
-            "en": "Building complete systems, apps and websites with AI, from idea to launch"
-          },
-          {
-            "ar": "قيادة وكلاء البرمجة (Claude Code): كتابة المواصفات ومراجعة الكود والاختبار",
-            "en": "Directing AI coding agents (Claude Code): writing specs, reviewing code and testing"
-          },
-          {
-            "ar": "دمج Gemini وClaude وOpenAI داخل الأنظمة",
-            "en": "Embedding Gemini, Claude and OpenAI inside business systems"
-          },
-          {
-            "ar": "تحليل السير الذاتية ومطابقة المرشحين بالوظائف",
-            "en": "CV parsing and candidate–job matching"
-          },
-          {
-            "ar": "استخراج البيانات من الجوازات والمستندات بالـOCR والذكاء الاصطناعي",
-            "en": "Data extraction from passports and documents with OCR and AI"
-          },
-          {
-            "ar": "أتمتة الإجراءات اليدوية وتحويلها إلى حلول ذكية",
-            "en": "Automating manual procedures into smart workflows"
-          },
-          {
-            "ar": "هندسة التعليمات (Prompt Engineering) وضبط المخرجات",
-            "en": "Prompt engineering and output tuning"
-          },
-          {
-            "ar": "ضمان جودة كود الذكاء الاصطناعي: اختبارات آلية (Playwright) وأمان وصلاحيات",
-            "en": "Quality-assuring AI-written code: automated tests (Playwright), security and permissions"
-          },
-          {
-            "ar": "ChatGPT وClaude وGemini في العمل اليومي: بحث وكتابة وتحليل وتصميم",
-            "en": "ChatGPT, Claude and Gemini in daily work: research, writing, analysis and design"
-          },
-          {
-            "ar": "إدارة مفاتيح الذكاء الاصطناعي وحدود الاستهلاك والتكلفة",
-            "en": "Managing AI keys, usage limits and cost"
-          }
-        ]
-      },
-      {
         "icon": "code",
-        "highlight": true,
         "title": {
-          "ar": "تطوير الويب والأنظمة",
-          "en": "Web & systems development"
+          "ar": "تطوير الأنظمة والمواقع",
+          "en": "Systems & web development"
         },
         "items": [
           "React",
           "TypeScript",
-          "JavaScript",
           "Node.js",
           "Express",
           "REST APIs",
-          "HTML / CSS",
-          "Tailwind CSS",
-          "EJS",
-          "Vite",
           "Socket.IO",
+          "Tailwind CSS",
           {
-            "ar": "لوحات تحكم وأنظمة صلاحيات",
-            "en": "Admin panels & permission systems"
+            "ar": "لوحات تحكم وصلاحيات",
+            "en": "Admin panels & permissions"
           }
         ]
       },
       {
         "icon": "db",
-        "highlight": true,
         "title": {
           "ar": "قواعد البيانات والنشر",
-          "en": "Databases & deployment"
+          "en": "Databases & hosting"
         },
         "items": [
           "MySQL",
           "SQL Server",
           "IndexedDB",
-          "Firebase Auth",
           "Cloudflare Pages + D1",
           "Hostinger",
           "Git",
           {
-            "ar": "نقل البيانات بين قواعد مختلفة",
-            "en": "Cross-database data migration"
+            "ar": "نقل البيانات بين القواعد",
+            "en": "Data migration"
           },
           {
             "ar": "نسخ احتياطي واستعادة",
             "en": "Backup & restore"
-          }
-        ]
-      },
-      {
-        "icon": "db",
-        "title": {
-          "ar": "الأتمتة واستخراج البيانات",
-          "en": "Automation & data extraction"
-        },
-        "items": [
-          "OCR",
-          {
-            "ar": "استخراج البيانات من الجوازات والمستندات",
-            "en": "Data extraction from passports and documents"
-          },
-          {
-            "ar": "تحويل الإجراءات اليدوية وملفات Excel إلى قاعدة بيانات",
-            "en": "Turning manual procedures and Excel files into a database"
-          },
-          {
-            "ar": "أدوات الذكاء الاصطناعي في العمل اليومي",
-            "en": "AI tools in daily work"
           }
         ]
       },
@@ -1998,42 +1926,14 @@
         "items": [
           "Capacitor",
           "Android",
+          "Firebase Auth",
           {
             "ar": "الإشعارات",
             "en": "Push notifications"
           },
           {
-            "ar": "العمل بدون إنترنت والمزامنة",
-            "en": "Offline & sync"
-          }
-        ]
-      },
-      {
-        "icon": "shield",
-        "title": {
-          "ar": "الأمان",
-          "en": "Security"
-        },
-        "items": [
-          {
-            "ar": "التحقق الثنائي (2FA)",
-            "en": "Two-factor authentication"
-          },
-          {
-            "ar": "صلاحيات تفصيلية",
-            "en": "Granular permissions"
-          },
-          {
-            "ar": "سجل العمليات",
-            "en": "Audit log"
-          },
-          {
-            "ar": "تشفير كلمات المرور والبيانات",
-            "en": "Password & data encryption"
-          },
-          {
-            "ar": "موافقة الأجهزة الجديدة",
-            "en": "New-device approval"
+            "ar": "العمل بدون إنترنت",
+            "en": "Offline-first"
           }
         ]
       },
@@ -2041,34 +1941,17 @@
         "icon": "support",
         "title": {
           "ar": "الدعم الفني والشبكات",
-          "en": "IT support & networks"
+          "en": "IT support & networking"
         },
         "items": [
           "Windows 10 / 11",
-          {
-            "ar": "تثبيت وتهيئة الأنظمة والبرامج",
-            "en": "OS & software setup"
-          },
-          {
-            "ar": "حل أعطال الأجهزة",
-            "en": "Hardware troubleshooting"
-          },
-          {
-            "ar": "الشبكات المحلية (LAN) والواي فاي",
-            "en": "LAN & Wi-Fi"
-          },
-          {
-            "ar": "إعداد الراوتر والسويتش",
-            "en": "Router & switch setup"
-          },
+          "LAN & Wi-Fi",
+          "Router & Switch",
           {
             "ar": "IP ثابت و Port Forwarding",
             "en": "Static IP & port forwarding"
           },
-          {
-            "ar": "الجدار الناري",
-            "en": "Firewall"
-          },
+          "Firewall",
           {
             "ar": "الطابعات والماسحات",
             "en": "Printers & scanners"
@@ -2076,253 +1959,44 @@
           {
             "ar": "الوصول عن بُعد",
             "en": "Remote access"
-          },
-          {
-            "ar": "النسخ الاحتياطي والاستعادة",
-            "en": "Backup & recovery"
-          }
-        ]
-      },
-      {
-        "icon": "table",
-        "title": {
-          "ar": "البيانات وExcel والمكتب",
-          "en": "Data, Excel & Office"
-        },
-        "items": [
-          "Excel",
-          {
-            "ar": "المعادلات والجداول المحورية",
-            "en": "Formulas & pivot tables"
-          },
-          {
-            "ar": "لوحات متابعة في Excel",
-            "en": "Excel tracking dashboards"
-          },
-          "Google Sheets",
-          "Word",
-          "PowerPoint",
-          {
-            "ar": "إدخال البيانات ومراجعتها",
-            "en": "Data entry & verification"
-          },
-          {
-            "ar": "تنظيف البيانات وتوحيد الصيغ",
-            "en": "Data cleaning & standardisation"
-          },
-          {
-            "ar": "تحويل PDF والصور إلى Word / Excel",
-            "en": "PDF/image to Word/Excel conversion"
-          },
-          {
-            "ar": "الأرشفة الإلكترونية والورقية",
-            "en": "Digital & paper archiving"
-          },
-          {
-            "ar": "إعداد التقارير",
-            "en": "Report preparation"
-          }
-        ]
-      },
-      {
-        "icon": "ops",
-        "title": {
-          "ar": "التشغيل الإداري وتحليل الأعمال",
-          "en": "Operations & business analysis"
-        },
-        "items": [
-          {
-            "ar": "تحليل الاحتياج",
-            "en": "Requirements analysis"
-          },
-          {
-            "ar": "رسم سير الإجراءات",
-            "en": "Workflow mapping"
-          },
-          {
-            "ar": "متابعة الإجراءات متعددة المراحل",
-            "en": "Multi-stage procedure follow-up"
-          },
-          {
-            "ar": "التنسيق مع الجهات الخارجية",
-            "en": "External-party coordination"
-          },
-          {
-            "ar": "تشغيل الأنظمة",
-            "en": "System rollout"
-          },
-          {
-            "ar": "نقل البيانات من Excel",
-            "en": "Migrating data from Excel"
-          },
-          {
-            "ar": "تدريب المستخدمين",
-            "en": "User training"
-          },
-          {
-            "ar": "إعداد الأدلة والتوثيق",
-            "en": "Guides & documentation"
-          },
-          {
-            "ar": "عرض الأنظمة والبيع",
-            "en": "System demos & selling"
-          }
-        ]
-      },
-      {
-        "icon": "palette",
-        "title": {
-          "ar": "التصميم والتسويق",
-          "en": "Design & marketing"
-        },
-        "items": [
-          "Canva",
-          "Photoshop",
-          "Meta Business Suite",
-          {
-            "ar": "إدارة الصفحات",
-            "en": "Page management"
-          },
-          {
-            "ar": "الإعلانات الممولة",
-            "en": "Paid campaigns"
-          },
-          {
-            "ar": "تصميم الإعلانات والمنشورات (+150 تصميماً)",
-            "en": "Ad & post design (150+ designs)"
-          },
-          {
-            "ar": "تصميم مواقع تعريفية وصفحات هبوط",
-            "en": "Brochure sites & landing pages"
           }
         ]
       },
       {
         "icon": "shield",
-        "highlight": true,
         "title": {
-          "ar": "هندسة الجودة والأمان",
-          "en": "Engineering quality & security"
+          "ar": "الأمان والجودة",
+          "en": "Security & quality"
         },
         "items": [
+          "RBAC",
           {
-            "ar": "تصميم واجهات REST APIs",
-            "en": "RESTful API design"
+            "ar": "تحقق بخطوتين (2FA)",
+            "en": "Two-factor auth (2FA)"
           },
+          "Audit log",
           {
-            "ar": "أنظمة الصلاحيات (RBAC)",
-            "en": "Role-based access control (RBAC)"
+            "ar": "تشفير كلمات المرور",
+            "en": "Password hashing"
           },
-          {
-            "ar": "سجل العمليات (Audit log)",
-            "en": "Audit logging"
-          },
-          {
-            "ar": "اختبارات آلية (Playwright)",
-            "en": "Automated testing (Playwright)"
-          },
-          {
-            "ar": "نقل ومطابقة البيانات (SQL Server إلى MySQL)",
-            "en": "Data migration & reconciliation (SQL Server → MySQL)"
-          },
-          {
-            "ar": "ميزات لحظية (Socket.IO)",
-            "en": "Real-time features (Socket.IO)"
-          },
-          {
-            "ar": "تقارير Excel وPDF، وباركود وQR",
-            "en": "Excel & PDF reports, barcode & QR"
-          },
-          {
-            "ar": "واجهات ثنائية اللغة ودعم RTL",
-            "en": "Bilingual (Arabic/English) & RTL interfaces"
-          },
-          {
-            "ar": "تحسين الأداء والتخزين المؤقت",
-            "en": "Performance & caching (IndexedDB)"
-          },
-          {
-            "ar": "تصميم متجاوب للموبايل",
-            "en": "Responsive, mobile-first design"
-          },
-          {
-            "ar": "أساسيات تحسين محركات البحث",
-            "en": "On-page SEO fundamentals"
-          }
+          "Playwright"
         ]
       },
       {
-        "icon": "users",
-        "highlight": true,
+        "icon": "ai",
         "title": {
-          "ar": "التنفيذ مع العملاء",
-          "en": "Client delivery"
+          "ar": "الذكاء الاصطناعي والأتمتة",
+          "en": "AI & automation"
         },
         "items": [
+          "Claude",
+          "ChatGPT",
+          "Gemini",
+          "Prompt Engineering",
+          "OCR",
           {
-            "ar": "جلسات تحليل الاحتياج",
-            "en": "Requirements workshops"
-          },
-          {
-            "ar": "عرض تجريبي في كل مرحلة",
-            "en": "Milestone demos"
-          },
-          {
-            "ar": "التواصل مع العملاء بالعربي والإنجليزي",
-            "en": "Client communication in Arabic & English"
-          },
-          {
-            "ar": "التوثيق وأدلة المستخدم",
-            "en": "Documentation & user guides"
-          },
-          {
-            "ar": "تدريب فرق العميل",
-            "en": "Client team training"
-          },
-          {
-            "ar": "العمل عن بُعد مع عملاء في مصر والخليج",
-            "en": "Remote work with clients in Egypt & the Gulf"
-          },
-          {
-            "ar": "إدارة المشاريع باستقلالية",
-            "en": "Independent project management"
-          }
-        ]
-      },
-      {
-        "icon": "users",
-        "title": {
-          "ar": "مهارات شخصية",
-          "en": "Professional strengths"
-        },
-        "items": [
-          {
-            "ar": "العمل الحر وإدارة المشاريع باستقلالية",
-            "en": "Independent freelance project management"
-          },
-          {
-            "ar": "الالتزام بالمواعيد",
-            "en": "Meeting deadlines"
-          },
-          {
-            "ar": "العمل تحت ضغط وفي ورديات",
-            "en": "Working under pressure & in shifts"
-          },
-          {
-            "ar": "التواصل مع العملاء",
-            "en": "Client communication"
-          },
-          {
-            "ar": "التعلّم السريع",
-            "en": "Fast learning"
-          },
-          {
-            "ar": "الدقة والاهتمام بالتفاصيل",
-            "en": "Accuracy & attention to detail"
-          },
-          {
-            "ar": "العربية (لغة أم) والإنجليزية",
-            "en": "Arabic (native) & English"
+            "ar": "تحليل السير ومطابقة المرشحين",
+            "en": "CV parsing & candidate matching"
           }
         ]
       }
@@ -2361,12 +2035,12 @@
       "en": "Contact"
     },
     "title": {
-      "ar": "لنبدأ مشروعك",
-      "en": "Let’s start your project"
+      "ar": "عندك مشكلة في الشغل أو فكرة نظام؟ نبدأ بمكالمة قصيرة.",
+      "en": "Got a business problem or a system idea? Let’s start with a short call."
     },
     "sub": {
-      "ar": "لديك فكرة نظام أو موقع أو تطبيق، أو تحتاج تصميماً أو دعماً فنياً؟ تواصل معي واحصل على ديمو مباشر لأحد الأنظمة وعرض واضح لما سننفّذه.",
-      "en": "Have an idea for a system, website or app, or need design or technical support? Reach out and get a live demo of one of my systems and a clear proposal of what we will build."
+      "ar": "احكيلي عن شغلك باختصار، وأرد عليك بأسئلة قصيرة ثم تصوّر واضح للحل والمراحل.",
+      "en": "Tell me briefly about your business and I will reply with a few short questions and a clear picture of the solution and stages."
     },
     "formTitle": {
       "ar": "أرسل رسالتك",
@@ -2400,6 +2074,74 @@
     ]
   },
   "custom": [
+    {
+      "id": "why",
+      "layout": "cards",
+      "alt": false,
+      "kicker": {
+        "ar": "لماذا أنا",
+        "en": "Why me"
+      },
+      "title": {
+        "ar": "لا أسلّم كوداً فقط. أسلّم نظاماً يعمل كل يوم.",
+        "en": "I don’t just deliver code. I deliver a system that runs every day."
+      },
+      "sub": {
+        "ar": "",
+        "en": ""
+      },
+      "body": {
+        "ar": "",
+        "en": ""
+      },
+      "cards": [
+        {
+          "icon": "sys",
+          "title": {
+            "ar": "أنظمة تعمل فعلاً",
+            "en": "Systems that actually run"
+          },
+          "text": {
+            "ar": "أنظمة إدارة تُستخدم يومياً داخل الشركات: ملفات وحسابات وصلاحيات وتقارير، مش عروض شكلية.",
+            "en": "Management systems used daily inside companies: files, accounts, permissions and reports — not show-pieces."
+          }
+        },
+        {
+          "icon": "shield",
+          "title": {
+            "ar": "أمان وصلاحيات",
+            "en": "Security & permissions"
+          },
+          "text": {
+            "ar": "تسجيل دخول آمن وتحقق بخطوتين وصلاحيات لكل مستخدم وسجل بكل عملية، والتحقق في السيرفر مش في الواجهة بس.",
+            "en": "Secure sign-in, two-factor auth, per-user permissions and an audit log — enforced on the server, not just the interface."
+          }
+        },
+        {
+          "icon": "users",
+          "title": {
+            "ar": "من الفكرة للتشغيل",
+            "en": "From idea to launch"
+          },
+          "text": {
+            "ar": "أحلل الاحتياج، وأبني الحل، وأشغّله على شبكتك أو الاستضافة، وأدرّب فريقك، وأدعمه بعد التسليم.",
+            "en": "I analyse the need, build the solution, deploy it, train your team and support it after delivery."
+          }
+        },
+        {
+          "icon": "lang",
+          "title": {
+            "ar": "تواصل بسيط وواضح",
+            "en": "Clear, simple communication"
+          },
+          "text": {
+            "ar": "أشرح القرارات التقنية بلغة بسيطة، وأسلّم على مراحل تراجعها وتجرّبها بنفسك، بالعربي أو الإنجليزي.",
+            "en": "I explain technical decisions in plain language and deliver in stages you can review and try yourself — in Arabic or English."
+          }
+        }
+      ],
+      "images": []
+    },
     {
       "id": "packages",
       "layout": "cards",
@@ -2485,23 +2227,23 @@
     },
     {
       "id": "faq",
-      "layout": "text",
-      "alt": true,
+      "layout": "faq",
+      "alt": false,
       "kicker": {
-        "ar": "أسئلة شائعة",
-        "en": "FAQ"
+        "ar": "أسئلة قبل ما نبدأ",
+        "en": "Before we start"
       },
       "title": {
-        "ar": "قبل أن نبدأ",
-        "en": "Before we start"
+        "ar": "أسئلة بتتسأل قبل أي مشروع.",
+        "en": "Questions asked before any project."
       },
       "sub": {
         "ar": "",
         "en": ""
       },
       "body": {
-        "ar": "**هل تعمل مع عملاء من خارج مصر؟**\nنعم. أعمل عن بُعد، وأتواصل بالعربية والإنجليزية، وأسلّم الواجهات بأي من اللغتين.\n\n**هل أستطيع رؤية نموذج قبل أن أقرر؟**\nنعم. جرّب العروض التفاعلية في هذه الصفحة، أو اطلب جولة مباشرة على واتساب.\n\n**ماذا يحدث بعد التسليم؟**\nأدرّب فريقك وأظل متاحاً للدعم والتحديثات والنسخ الاحتياطي.\n\n**كيف نبدأ؟**\nأرسل لي ما تحتاجه، فأحدد معك النطاق والمراحل وأعرض عليك نموذجاً مشابهاً قبل التنفيذ.",
-        "en": "**Do you work with clients outside Egypt?**\nYes. I work remotely, communicate in Arabic and English, and deliver interfaces in either language.\n\n**Can I see an example before I decide?**\nYes. Try the interactive demos on this page, or ask for a live walkthrough on WhatsApp.\n\n**What happens after delivery?**\nI train your team and stay available for support, updates and backups.\n\n**How do we start?**\nMessage me what you need; we will define the scope and milestones together, and I will show you a similar example before we build."
+        "ar": "**نظام جاهز ولا مخصص؟**\nالجاهز أسرع وأرخص لو شغلك عادي. المخصص أحسن لو عندك إجراءات خاصة أو بتشتغل على Excel معقد أو نظام قديم. بحدد الأنسب بعد جلسة قصيرة أفهم فيها شغلك.\n\n**كم يستغرق تنفيذ نظام؟**\nيعتمد على حجمه. بعد جلسة التحليل بحدد النطاق وجدول تسليم على مراحل، فتشوف أول نسخة شغالة بدري وتعدّل المسار بدل ما تستنى للآخر.\n\n**هل أملك بياناتي؟**\nأكيد، بياناتك ملكك دايماً وبتتسلّم نسخة احتياطية منها. وتفاصيل ملكية الكود بنتفق عليها مكتوبة قبل ما نبدأ.\n\n**إيه اللي بيحصل بعد التسليم؟**\nتدريب لفريقك، وفترة دعم لإصلاح أي ملاحظة، وبعدها صيانة وتحديثات حسب احتياجك.\n\n**هل بتشتغل مع عملاء خارج مصر؟**\nأيوه، عن بُعد وبالعربي والإنجليزي، وبأي لغة للواجهات.\n\n**إزاي أطلب عرض سعر؟**\nابعتلي على واتساب وصف مختصر لشغلك، وأرد بأسئلة قصيرة ثم عرض مكتوب فيه النطاق والمراحل والسعر ومواعيد التسليم.",
+        "en": "**Ready-made or custom system?**\nReady-made is faster and cheaper if your business is standard. Custom is better if you have special procedures, complex Excel files or a legacy system. I decide after a short session to understand your business.\n\n**How long does a system take?**\nIt depends on its size. After the analysis session I define the scope and a staged delivery schedule, so you see a working first version early and can adjust course instead of waiting until the end.\n\n**Do I own my data?**\nAbsolutely. Your data is always yours and you receive a backup of it. Code-ownership details are agreed in writing before we start.\n\n**What happens after delivery?**\nTraining for your team, a support period to fix any issue, then maintenance and updates as you need.\n\n**Do you work with clients outside Egypt?**\nYes — remotely, in Arabic and English, with interfaces in any language.\n\n**How do I request a quote?**\nSend me a short description of your business on WhatsApp, and I reply with a few questions and then a written proposal with scope, stages, price and delivery dates."
       },
       "cards": [],
       "images": []
