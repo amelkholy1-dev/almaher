@@ -7,7 +7,7 @@ const path = require('path');
 const root = path.join(__dirname, '..');
 const FONT_DIR = process.env.FONT_DIR || '/tmp/claude-0/cvfonts';
 const font = (file) => { const f = fs.readdirSync(FONT_DIR, { recursive: true }).map(String).find((x) => x.endsWith('/' + file) || x === file); if (!f) throw new Error('font missing: ' + file); return 'data:font/woff2;base64,' + fs.readFileSync(path.join(FONT_DIR, f)).toString('base64'); };
-const photo = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(root, 'public', 'assets', 'img', 'ahmed-alkholy-cv.jpg')).toString('base64');
+const photo = 'data:image/jpeg;base64,' + fs.readFileSync(path.join(root, 'public', 'assets', 'img', 'ahmed-alkholy.jpg')).toString('base64');
 const C = JSON.parse(fs.readFileSync(path.join(root, 'seed', 'content.json'), 'utf8')).settings;
 
 const html = `<!doctype html><html lang="ar" dir="rtl"><head><meta charset="utf-8"><style>
