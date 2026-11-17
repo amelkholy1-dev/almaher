@@ -363,3 +363,10 @@ html[data-skin="classic"] .pcard,html[data-skin="slate"] .pcard,html[data-skin="
 .thanks h3{margin:6px 0 0;font-size:1.4rem;color:var(--head)}
 .thanks p{margin:0 0 8px;color:var(--muted)}
 .st-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:18px}
+
+/* تمرير لقطة الموقع الطويلة عند الوقوف على الكارت (الكارت نفسه ثابت) */
+.pc-cover.is-pan img{height:auto;object-fit:initial;object-position:initial;transition:transform var(--pan-t,6s) cubic-bezier(.45,0,.35,1);will-change:transform}
+.pc-cover.is-pan:hover img,.pc-cover.is-pan:focus-visible img{transform:translateY(var(--pan,0))}
+.pcard:hover .pc-cover.is-pan img{transform:translateY(var(--pan,0))}
+@media (prefers-reduced-motion:reduce){.pc-cover.is-pan img{transition:none}.pc-cover.is-pan:hover img,.pcard:hover .pc-cover.is-pan img{transform:none}}
+@media (hover:none){.pc-cover.is-pan img{transition:none}}

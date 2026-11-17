@@ -370,8 +370,9 @@
   }
   function renderCard(p) {
     var imgs = arr(p.images).filter(Boolean), first = imgs[0] || p.cover, tech = techList(p).slice(0, 4), prim = '';
-    var cover = '<button type="button" class="pc-cover" data-pd="' + esc(p.id) + '" aria-label="' + esc(u('details')) + ': ' + esc(tx(p.title)) + '">' +
-      (first ? '<img src="' + esc(url(first)) + '" alt="' + esc(tx(p.title)) + '" loading="lazy" width="640" height="400">' : '<span class="pc-nocover">' + esc(tx(p.title)) + '</span>') +
+    var pan = url(p.scroll);
+    var cover = '<button type="button" class="pc-cover' + (pan ? ' is-pan' : '') + '" data-pd="' + esc(p.id) + '" aria-label="' + esc(u('details')) + ': ' + esc(tx(p.title)) + '">' +
+      (pan ? '<img src="' + esc(pan) + '" alt="' + esc(tx(p.title)) + '" loading="lazy" width="800">' : first ? '<img src="' + esc(url(first)) + '" alt="' + esc(tx(p.title)) + '" loading="lazy" width="640" height="400">' : '<span class="pc-nocover">' + esc(tx(p.title)) + '</span>') +
       statusChip(p) + (imgs.length > 1 ? '<span class="pc-count">' + ic('image') + imgs.length + '</span>' : '') + '</button>';
     if (p.demo) prim = '<button class="btn btn-primary" type="button" data-demo="' + esc(p.demo) + '" data-pid="' + esc(p.id) + '">' + ic('play') + '<span>' + u('demoShort') + '</span></button>';
     else if (url(p.link)) prim = '<a class="btn btn-primary" href="' + esc(url(p.link)) + '" target="_blank" rel="noopener">' + ic('ext') + '<span>' + esc(tx(p.linkLabel) || u('visit')) + '</span></a>';
@@ -380,6 +381,14 @@
       '<div class="pc-body"><div class="pc-meta">' + pcMeta(p) + '</div><h3 class="pc-title">' + esc(tx(p.title)) + '</h3><p class="pc-text">' + esc(tx(p.text)) + '</p>' +
       (tech.length ? '<div class="pc-tech">' + tech.map(function (x) { return '<span>' + esc(x) + '</span>'; }).join('') + '</div>' : '') +
       '<div class="pc-actions">' + prim + '<button class="btn btn-outline" type="button" data-pd="' + esc(p.id) + '"><span>' + u('detailsShort') + '</span></button></div></div></article>';
+  }
+  function panInit(img) {
+    var box = img.parentNode; if (!box || !box.classList.contains('is-pan')) return;
+    var d = box.clientHeight - img.getBoundingClientRect().height; if (d >= -4) { box.classList.remove('is-pan'); return; }
+    box.style.setProperty('--pan', d + 'px'); box.style.setProperty('--pan-t', Math.min(14, Math.max(4, Math.abs(d) / 160)) + 's');
+  }
+  function initPan() {
+    $$('.pc-cover.is-pan img').forEach(function (img) { if (img.complete) panInit(img); else img.addEventListener('load', function () { panInit(img); }); });
   }
   var activeFilter = 'all', shown = null;
   function pLimit() { var n = parseInt(D.projects && D.projects.visibleCount, 10); return n > 0 ? n : 6; }
@@ -447,6 +456,7 @@
     var m = $('meta[name="description"]'); if (m && tx(seo.description)) m.content = tx(seo.description);
     $$('#projects [data-cat]').forEach(function (el) { el.classList.toggle('f-hide', activeFilter !== 'all' && !catHas(el.getAttribute('data-cat'), activeFilter)); });
     syncMore();
+    initPan();
     updateWa();
     if (RV) paintReviews(); else loadReviews();
     initReveal(instant);
@@ -662,6 +672,7 @@
     var header = $('.site-header'), nav = $('#nav'), btn = $('#menuToggle');
     var onScroll = function () { header.classList.toggle('scrolled', window.scrollY > 8); };
     window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+    window.addEventListener('resize', function () { $$('.pc-cover.is-pan img, .pc-cover img').forEach(function (i) { if (i.parentNode.style.getPropertyValue('--pan') || i.parentNode.classList.contains('is-pan')) panInit(i); }); });
     btn.addEventListener('click', function () { var open = nav.classList.toggle('open'); btn.setAttribute('aria-expanded', open); });
     nav.addEventListener('click', function (e) { if (e.target.closest('a')) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });
     doc.addEventListener('click', function (e) { if (nav.classList.contains('open') && !nav.contains(e.target) && !btn.contains(e.target)) { nav.classList.remove('open'); btn.setAttribute('aria-expanded', 'false'); } });

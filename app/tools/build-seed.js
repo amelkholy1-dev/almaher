@@ -12,7 +12,7 @@ const WA = 'https://github.com/amelkholy1-dev/wesal-updates/releases/latest/down
 const imgs = (id, n, ext) => Array.from({ length: n }, (_, i) => `assets/img/projects/${id}-${i + 1}.${ext || 'png'}`);
 
 const content = {
-  _v: 19,
+  _v: 20,
   settings: {
     siteUrl: '',
     name: b('أحمد ماهر الخولي', 'Ahmed Maher Alkholy'),
@@ -376,6 +376,8 @@ for (const c of content.custom) for (const k of (c.cards || [])) if (k.link && k
   const rank = (p) => { const i = ord.indexOf(p.id); return i < 0 ? 99 : i; };
   content.projects.items = content.projects.items.slice().sort((x, y) => rank(x) - rank(y));
   for (const p of content.projects.items) if (p.kind === 'mini') p.visible = false; }
+// لقطات صفحة كاملة للمواقع المنشورة (بتتمرّر لوحدها عند الوقوف على الكارت)
+for (const p of content.projects.items) { if (['site-alhub', 'site-daffaherp', 'site-eldahan', 'site-eldiwan', 'site-forsan', 'site-h2academy', 'site-kartly', 'site-mahalat', 'site-manar', 'site-nahj', 'site-nesr', 'site-rawajai', 'site-rockline', 'site-trinavo', 'site-ugcmena', 'site-zayenha'].includes(p.id)) p.scroll = 'assets/img/projects/full-' + p.id + '.jpg'; }
 // دراسات الحالة (من كود المشاريع نفسها)
 { const cs = {
   'masar-ops': { challenge: b('مكتب إلحاق عمالة كان بيدير الجوازات والتأشيرات والسفر والحسابات في ملفات Excel وسجلات ورقية متفرقة، فبتضيع الملفات، ويتأخر تسجيل الملف الواحد، ويصعب ضبط الحسابات.', 'An overseas-recruitment office managed passports, visas, travel and accounts in scattered Excel files and paper records, so files got lost, registering one file was slow and the accounts were hard to reconcile.'),

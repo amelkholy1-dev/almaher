@@ -1,5 +1,5 @@
 {
-  "_v": 19,
+  "_v": 20,
   "settings": {
     "siteUrl": "",
     "name": {
@@ -850,6 +850,7 @@
         "images": [
           "assets/img/projects/nesr-site-cover.jpg"
         ],
+        "scroll": "assets/img/projects/full-site-nesr.jpg",
         "case": {
           "challenge": {
             "ar": "مكتب نسر الخليج محتاج موقع عربي/إنجليزي يعرّف بالمكتب ويعرض الوظايف، والفريق يعدّل المحتوى بنفسه.",
@@ -913,7 +914,8 @@
         "link": "https://forsango.com",
         "images": [
           "assets/img/projects/forsan-go-cover.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-forsan.jpg"
       },
       {
         "id": "site-eldiwan",
@@ -955,7 +957,8 @@
         "link": "https://eldiwanjobs.com/",
         "images": [
           "assets/img/projects/eldiwan-cover.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-eldiwan.jpg"
       },
       {
         "id": "site-eldahan",
@@ -1001,7 +1004,8 @@
         "link": "https://www.eldahan.com/",
         "images": [
           "assets/img/projects/eldahan-cover.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-eldahan.jpg"
       },
       {
         "id": "site-rockline",
@@ -1043,7 +1047,8 @@
         "link": "https://rocklineg.com",
         "images": [
           "assets/img/projects/rockline-cover.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-rockline.jpg"
       },
       {
         "id": "site-rawajai",
@@ -1072,7 +1077,8 @@
         "link": "https://rawajai.com/en/",
         "images": [
           "assets/img/projects/w-rawajai.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-rawajai.jpg"
       },
       {
         "id": "site-daffaherp",
@@ -1101,7 +1107,8 @@
         "link": "https://daffaherp.com/",
         "images": [
           "assets/img/projects/w-daffaherp.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-daffaherp.jpg"
       },
       {
         "id": "site-mahalat",
@@ -1130,7 +1137,8 @@
         "link": "https://mahalat.net/",
         "images": [
           "assets/img/projects/w-mahalat.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-mahalat.jpg"
       },
       {
         "id": "site-kartly",
@@ -1159,7 +1167,8 @@
         "link": "https://kartly.io/",
         "images": [
           "assets/img/projects/w-kartly.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-kartly.jpg"
       },
       {
         "id": "site-ugcmena",
@@ -1188,7 +1197,8 @@
         "link": "https://ugcmena.com/ar/",
         "images": [
           "assets/img/projects/w-ugcmena.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-ugcmena.jpg"
       },
       {
         "id": "site-nahj",
@@ -1217,7 +1227,8 @@
         "link": "https://edu.nahj.org.sa/",
         "images": [
           "assets/img/projects/w-nahj.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-nahj.jpg"
       },
       {
         "id": "site-trinavo",
@@ -1246,7 +1257,8 @@
         "link": "https://trinavo.com/",
         "images": [
           "assets/img/projects/w-trinavo.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-trinavo.jpg"
       },
       {
         "id": "site-almnssa",
@@ -1304,7 +1316,8 @@
         "link": "https://manar.sa/",
         "images": [
           "assets/img/projects/w-manar.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-manar.jpg"
       },
       {
         "id": "site-zayenha",
@@ -1333,7 +1346,8 @@
         "link": "https://zayenha.com/",
         "images": [
           "assets/img/projects/w-zayenha.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-zayenha.jpg"
       },
       {
         "id": "site-nabraas",
@@ -1391,7 +1405,8 @@
         "link": "https://students.theh2academy.com/",
         "images": [
           "assets/img/projects/w-h2academy.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-h2academy.jpg"
       },
       {
         "id": "site-alhub",
@@ -1420,7 +1435,8 @@
         "link": "https://alhub.sa/",
         "images": [
           "assets/img/projects/w-alhub.jpg"
-        ]
+        ],
+        "scroll": "assets/img/projects/full-site-alhub.jpg"
       },
       {
         "id": "site-wasitplus",
